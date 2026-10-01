@@ -55,6 +55,14 @@ menuToggle?.addEventListener('click', () => {
   menuToggle.textContent = isOpen ? '×' : '☰';
 });
 
+document.addEventListener('click', (e) => {
+  if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !menuToggle?.contains(e.target)) {
+    nav.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    if (menuToggle) menuToggle.textContent = '☰';
+  }
+});
+
 document.querySelectorAll('.main-nav a').forEach((link) => {
   link.addEventListener('click', () => {
     nav.classList.remove('open');
