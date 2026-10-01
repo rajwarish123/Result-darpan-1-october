@@ -30,6 +30,17 @@ const IGNORED_EXTENSIONS = [
   '.zip'
 ];
 
+// Ensure Git binaries are in process.env.PATH
+const gitPaths = [
+  'C:\\Users\\11\\AppData\\Local\\GitHubDesktop\\app-3.6.6\\resources\\app\\git\\cmd',
+  'C:\\Users\\11\\AppData\\Local\\GitHubDesktop\\app-3.6.6\\resources\\app\\git\\mingw64\\bin'
+];
+for (const p of gitPaths) {
+  if (fs.existsSync(p) && !process.env.PATH.includes(p)) {
+    process.env.PATH = `${p};${process.env.PATH}`;
+  }
+}
+
 // Locate git binary
 function getGitExecutable() {
   try {
@@ -161,3 +172,7 @@ try {
     scheduleSync();
   });
 }
+
+// Initial sync on startup
+scheduleSync();
+
