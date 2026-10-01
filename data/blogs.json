@@ -1,0 +1,34 @@
+[
+  {
+    "id": "blog-1",
+    "title": "How to Crack Competitive Exams with 60 Days of Timed Mock Practice",
+    "slug": "how-to-crack-competitive-exams-60-days",
+    "category": "Preparation Strategy",
+    "author": "Warish Raj · Founder & Mentor",
+    "readTime": "5 min read",
+    "tags": [
+      "Study Strategy",
+      "Mock Tests",
+      "Time Management"
+    ],
+    "summary": "Discover the 3-phase revision framework that helped thousands of aspirants improve their test scores from 50% to 85%+.",
+    "content": "Preparing for national competitive exams like SSC, Banking, Railways, or State PSC requires more than just reading books. High scorers separate themselves through targeted mock practice.\n\n### 1. The Error Log Habit\nNever complete a mock test without analyzing every incorrect answer. Write down why you missed it: was it a conceptual gap, a calculation error, or poor time management?\n\n### 2. Time-per-Question Rule\nIn exams like SSC CGL or Banking Prelims, spending more than 60 seconds on any single reasoning question can derail your entire section. Practice skipping smartly.\n\n### 3. Subject-wise Weak Spot Drills\nUse Result Darpan's topic tests to isolate and drill weak areas. If geometry is hurting your quant score, spend 3 days doing only geometry sets before taking another full mock.",
+    "createdAt": "2026-10-01T20:00:00.000Z"
+  },
+  {
+    "id": "blog-2",
+    "title": "Last Month Revision Roadmap for General Awareness & Static GK",
+    "slug": "general-awareness-static-gk-revision-roadmap",
+    "category": "Subject Guide",
+    "author": "Warish Raj · Result Darpan Team",
+    "readTime": "4 min read",
+    "tags": [
+      "General Awareness",
+      "Static GK",
+      "Current Affairs"
+    ],
+    "summary": "A high-yield checklist covering Indian Polity articles, Modern History timelines, and the top current affairs topics for upcoming tests.",
+    "content": "General Awareness is the biggest score multiplier because questions take less than 15 seconds to answer.\n\n### High-Yield Static GK Topics\n- **Indian Polity:** Fundamental Rights (Articles 12-35), Directive Principles, President & Governor powers, Constitutional Amendments.\n- **Geography:** Major river systems, National Parks, Biosphere reserves, Mountain passes.\n- **History:** 1857 Revolt to 1947 Independence movement landmarks, Governor Generals, Congress sessions.\n\n### Monthly Current Affairs Strategy\nFocus on the last 6 months of awards, summit locations, sports championships, and government schemes.",
+    "createdAt": "2026-10-01T20:00:00.000Z"
+  }
+]

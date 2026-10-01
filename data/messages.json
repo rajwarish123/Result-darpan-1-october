@@ -1,0 +1,3245 @@
+[
+  {
+    "id": 1,
+    "author": "mentor",
+    "text": "Welcome to the SSC CGL study room. Ask your first question!",
+    "createdAt": "2026-09-11T18:29:28.580Z"
+  },
+  {
+    "id": 2,
+    "author": "mentor",
+    "text": "Tip: revise arithmetic shortcuts daily for faster accuracy.",
+    "createdAt": "2026-09-11T18:29:28.581Z"
+  },
+  {
+    "id": 1789151855402,
+    "author": "student",
+    "email": "profile-1789151855391@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T18:37:35.402Z"
+  },
+  {
+    "id": 1789151869234,
+    "author": "student",
+    "email": "profile-1789151869224@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T18:37:49.234Z"
+  },
+  {
+    "id": 1789152041530,
+    "author": "student",
+    "email": "profile-1789152041520@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T18:40:41.530Z"
+  },
+  {
+    "id": 1789152274869,
+    "author": "student",
+    "email": "profile-1789152274857@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T18:44:34.869Z"
+  },
+  {
+    "id": 1789152733279,
+    "author": "student",
+    "email": "profile-1789152733269@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T18:52:13.279Z"
+  },
+  {
+    "id": 1789152770740,
+    "author": "student",
+    "email": "profile-1789152770729@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T18:52:50.740Z"
+  },
+  {
+    "id": 1789152917091,
+    "author": "student",
+    "email": "profile-1789152917081@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T18:55:17.091Z"
+  },
+  {
+    "id": 1789153246531,
+    "author": "student",
+    "email": "profile-1789153246521@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T19:00:46.531Z"
+  },
+  {
+    "id": 1789153592414,
+    "author": "student",
+    "email": "profile-1789153592404@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T19:06:32.414Z"
+  },
+  {
+    "id": 1789153616829,
+    "author": "student",
+    "email": "profile-1789153616819@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T19:06:56.829Z"
+  },
+  {
+    "id": 1789153681074,
+    "author": "student",
+    "email": "profile-1789153681064@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-11T19:08:01.074Z"
+  },
+  {
+    "id": 1789187120261,
+    "author": "student",
+    "email": "profile-1789187120252@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:25:20.261Z"
+  },
+  {
+    "id": 1789187131544,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.544Z"
+  },
+  {
+    "id": 1789187131550,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.550Z"
+  },
+  {
+    "id": 1789187131553,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.553Z"
+  },
+  {
+    "id": 1789187131555,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.555Z"
+  },
+  {
+    "id": 1789187131557,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.557Z"
+  },
+  {
+    "id": 1789187131559,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.559Z"
+  },
+  {
+    "id": 1789187131561,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.561Z"
+  },
+  {
+    "id": 1789187131564,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.564Z"
+  },
+  {
+    "id": 1789187131566,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.566Z"
+  },
+  {
+    "id": 1789187131569,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.569Z"
+  },
+  {
+    "id": 1789187131570,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.570Z"
+  },
+  {
+    "id": 1789187131572,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.572Z"
+  },
+  {
+    "id": 1789187131574,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.574Z"
+  },
+  {
+    "id": 1789187131576,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.576Z"
+  },
+  {
+    "id": 1789187131578,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.578Z"
+  },
+  {
+    "id": 1789187131580,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.580Z"
+  },
+  {
+    "id": 1789187131582,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.582Z"
+  },
+  {
+    "id": 1789187131584,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.584Z"
+  },
+  {
+    "id": 1789187131588,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.588Z"
+  },
+  {
+    "id": 1789187131591,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.591Z"
+  },
+  {
+    "id": 1789187131593,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.593Z"
+  },
+  {
+    "id": 1789187131595,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.595Z"
+  },
+  {
+    "id": 1789187131598,
+    "author": "student",
+    "email": "",
+    "text": "SSE verification message",
+    "createdAt": "2026-09-12T04:25:31.598Z"
+  },
+  {
+    "id": 1789187366310,
+    "author": "student",
+    "email": "profile-1789187366301@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:29:26.311Z"
+  },
+  {
+    "id": 1789187378882,
+    "author": "student",
+    "email": "profile-1789187378873@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:29:38.882Z"
+  },
+  {
+    "id": 1789187409234,
+    "author": "student",
+    "email": "profile-1789187409225@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:30:09.234Z"
+  },
+  {
+    "id": 1789187569662,
+    "author": "student",
+    "email": "profile-1789187569653@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:32:49.662Z"
+  },
+  {
+    "id": 1789187775130,
+    "author": "student",
+    "email": "profile-1789187775121@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:36:15.130Z"
+  },
+  {
+    "id": 1789187889989,
+    "author": "student",
+    "email": "profile-1789187889979@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:38:09.989Z"
+  },
+  {
+    "id": 1789188002707,
+    "author": "student",
+    "email": "profile-1789188002693@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:40:02.707Z"
+  },
+  {
+    "id": 1789188133207,
+    "author": "student",
+    "email": "profile-1789188133199@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:42:13.207Z"
+  },
+  {
+    "id": 1789188311541,
+    "author": "student",
+    "email": "profile-1789188311528@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:45:11.541Z"
+  },
+  {
+    "id": 1789188362077,
+    "author": "student",
+    "email": "profile-1789188362066@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:46:02.077Z"
+  },
+  {
+    "id": 1789188403452,
+    "author": "student",
+    "email": "profile-1789188403439@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:46:43.452Z"
+  },
+  {
+    "id": 1789188533253,
+    "author": "student",
+    "email": "profile-1789188533239@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:48:53.253Z"
+  },
+  {
+    "id": 1789188588880,
+    "author": "student",
+    "email": "profile-1789188588870@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:49:48.880Z"
+  },
+  {
+    "id": 1789188957292,
+    "author": "student",
+    "email": "profile-1789188957282@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:55:57.292Z"
+  },
+  {
+    "id": 1789189184779,
+    "author": "student",
+    "email": "profile-1789189184767@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T04:59:44.779Z"
+  },
+  {
+    "id": 1789189266896,
+    "author": "student",
+    "email": "profile-1789189266884@example.com",
+    "text": "My account message",
+    "createdAt": "2026-09-12T05:01:06.896Z"
+  },
+  {
+    "id": 1790840388925,
+    "author": "student",
+    "email": "profile-1790840388908@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T07:39:48.925Z"
+  },
+  {
+    "id": 1790840456755,
+    "author": "student",
+    "email": "profile-1790840456682@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T07:40:56.755Z",
+    "helpfulBy": [
+      "GUEST-1790842520689-AJH5CO"
+    ]
+  },
+  {
+    "id": 1790840468897,
+    "author": "student",
+    "email": "profile-1790840468844@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T07:41:08.897Z"
+  },
+  {
+    "id": 1790840523107,
+    "author": "student",
+    "email": "profile-1790840523035@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T07:42:03.107Z"
+  },
+  {
+    "id": 1790840869506,
+    "author": "student",
+    "email": "chat-owner-1790840869436@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T07:47:49.506Z"
+  },
+  {
+    "id": 1790840878472,
+    "author": "student",
+    "email": "profile-1790840878421@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T07:47:58.472Z"
+  },
+  {
+    "id": 1790840878738,
+    "author": "student",
+    "email": "chat-owner-1790840878683@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T07:47:58.738Z"
+  },
+  {
+    "id": 1790841019113,
+    "author": "student",
+    "email": "profile-1790841019067@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T07:50:19.113Z"
+  },
+  {
+    "id": 1790841019353,
+    "author": "student",
+    "email": "chat-owner-1790841019303@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T07:50:19.353Z"
+  },
+  {
+    "id": 1790841180307,
+    "author": "student",
+    "email": "profile-1790841180251@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T07:53:00.307Z"
+  },
+  {
+    "id": 1790841180575,
+    "author": "student",
+    "email": "chat-owner-1790841180523@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T07:53:00.575Z"
+  },
+  {
+    "id": 1790841262482,
+    "author": "student",
+    "email": "profile-1790841262436@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T07:54:22.482Z"
+  },
+  {
+    "id": 1790841262730,
+    "author": "student",
+    "email": "chat-owner-1790841262678@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T07:54:22.730Z"
+  },
+  {
+    "id": 1790841317172,
+    "author": "student",
+    "email": "profile-1790841317121@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T07:55:17.172Z"
+  },
+  {
+    "id": 1790841317428,
+    "author": "student",
+    "email": "chat-owner-1790841317374@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T07:55:17.428Z"
+  },
+  {
+    "id": 1790842074520,
+    "author": "student",
+    "email": "profile-1790842074469@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:07:54.520Z"
+  },
+  {
+    "id": 1790842074779,
+    "author": "student",
+    "email": "chat-owner-1790842074723@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:07:54.779Z"
+  },
+  {
+    "id": 1790842084523,
+    "author": "student",
+    "email": "profile-1790842084473@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:08:04.523Z"
+  },
+  {
+    "id": 1790842084790,
+    "author": "student",
+    "email": "chat-owner-1790842084732@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:08:04.790Z"
+  },
+  {
+    "id": 1790842124839,
+    "author": "student",
+    "email": "profile-1790842124789@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:08:44.839Z"
+  },
+  {
+    "id": 1790842125092,
+    "author": "student",
+    "email": "chat-owner-1790842125039@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:08:45.092Z"
+  },
+  {
+    "id": 1790842164167,
+    "author": "student",
+    "email": "profile-1790842164119@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:09:24.167Z"
+  },
+  {
+    "id": 1790842164438,
+    "author": "student",
+    "email": "chat-owner-1790842164379@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:09:24.438Z"
+  },
+  {
+    "id": 1790842247837,
+    "author": "student",
+    "email": "profile-1790842247789@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:10:47.837Z"
+  },
+  {
+    "id": 1790842248096,
+    "author": "student",
+    "email": "chat-owner-1790842248036@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:10:48.096Z"
+  },
+  {
+    "id": 1790842281266,
+    "author": "student",
+    "email": "profile-1790842281192@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:11:21.266Z"
+  },
+  {
+    "id": 1790842281526,
+    "author": "student",
+    "email": "chat-owner-1790842281472@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:11:21.526Z"
+  },
+  {
+    "id": 1790842447798,
+    "author": "student",
+    "email": "profile-1790842447749@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:14:07.798Z"
+  },
+  {
+    "id": 1790842448042,
+    "author": "student",
+    "email": "chat-owner-1790842447991@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:14:08.042Z"
+  },
+  {
+    "id": 1790843022694,
+    "author": "student",
+    "email": "profile-1790843022646@example.com",
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:23:42.694Z"
+  },
+  {
+    "id": 1790843022940,
+    "author": "student",
+    "email": "chat-owner-1790843022887@example.com",
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:23:42.940Z"
+  },
+  {
+    "id": 1790843446898,
+    "author": "student",
+    "email": "profile-1790843446847@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:30:46.898Z"
+  },
+  {
+    "id": 1790843447201,
+    "author": "student",
+    "email": "levels-author-1790843447097@example.com",
+    "helpfulBy": [
+      "fc1fcee8-5612-4371-af83-0e739cb3a4f0"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T08:30:47.201Z"
+  },
+  {
+    "id": 1790843447296,
+    "author": "student",
+    "email": "chat-owner-1790843447244@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:30:47.296Z"
+  },
+  {
+    "id": 1790843522745,
+    "author": "student",
+    "email": "profile-1790843522696@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:32:02.745Z"
+  },
+  {
+    "id": 1790843523112,
+    "author": "student",
+    "email": "levels-author-1790843522959@example.com",
+    "helpfulBy": [
+      "c64cee15-fbeb-44e3-a726-4a606b6d1084"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T08:32:03.112Z"
+  },
+  {
+    "id": 1790843523230,
+    "author": "student",
+    "email": "chat-owner-1790843523170@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:32:03.230Z"
+  },
+  {
+    "id": 1790843546889,
+    "author": "student",
+    "email": "profile-1790843546841@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:32:26.889Z"
+  },
+  {
+    "id": 1790843547236,
+    "author": "student",
+    "email": "chat-owner-1790843547182@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:32:27.237Z"
+  },
+  {
+    "id": 1790843629459,
+    "author": "student",
+    "email": "profile-1790843629413@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:33:49.459Z"
+  },
+  {
+    "id": 1790843629737,
+    "author": "student",
+    "email": "levels-author-1790843629639@example.com",
+    "helpfulBy": [
+      "173628b5-bb5c-4a40-9032-5ae0b8e919da"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T08:33:49.737Z"
+  },
+  {
+    "id": 1790843629819,
+    "author": "student",
+    "email": "chat-owner-1790843629770@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:33:49.819Z"
+  },
+  {
+    "id": 1790843689556,
+    "author": "student",
+    "email": "profile-1790843689507@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:34:49.556Z"
+  },
+  {
+    "id": 1790843689859,
+    "author": "student",
+    "email": "levels-author-1790843689757@example.com",
+    "helpfulBy": [
+      "5851d02b-84ac-4927-8619-a3cf224c83ae"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T08:34:49.859Z"
+  },
+  {
+    "id": 1790843689949,
+    "author": "student",
+    "email": "chat-owner-1790843689896@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:34:49.949Z"
+  },
+  {
+    "id": 1790843728068,
+    "author": "student",
+    "email": "profile-1790843728022@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:35:28.068Z"
+  },
+  {
+    "id": 1790843728362,
+    "author": "student",
+    "email": "levels-author-1790843728257@example.com",
+    "helpfulBy": [
+      "1c53f4a9-45b0-4b22-9355-6a89c15e7878"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T08:35:28.362Z"
+  },
+  {
+    "id": 1790843728443,
+    "author": "student",
+    "email": "chat-owner-1790843728396@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:35:28.443Z"
+  },
+  {
+    "id": 1790843778163,
+    "author": "student",
+    "email": "profile-1790843778111@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:36:18.163Z"
+  },
+  {
+    "id": 1790843778458,
+    "author": "student",
+    "email": "levels-author-1790843778353@example.com",
+    "helpfulBy": [
+      "59339ddf-e11e-4b55-84ec-34466ce27e89"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T08:36:18.458Z"
+  },
+  {
+    "id": 1790843778546,
+    "author": "student",
+    "email": "chat-owner-1790843778494@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:36:18.546Z"
+  },
+  {
+    "id": 1790843945905,
+    "author": "student",
+    "email": "profile-1790843945823@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:39:05.905Z"
+  },
+  {
+    "id": 1790843946290,
+    "author": "student",
+    "email": "levels-author-1790843946164@example.com",
+    "helpfulBy": [
+      "f56aa872-495f-414d-b6c6-bdeef2448996"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T08:39:06.290Z"
+  },
+  {
+    "id": 1790843946390,
+    "author": "student",
+    "email": "chat-owner-1790843946337@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:39:06.390Z"
+  },
+  {
+    "id": 1790844019546,
+    "author": "student",
+    "email": "profile-1790844019480@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T08:40:19.546Z"
+  },
+  {
+    "id": 1790844019918,
+    "author": "student",
+    "email": "levels-author-1790844019793@example.com",
+    "helpfulBy": [
+      "1e39e601-d7bc-4019-83f3-ecaf0fe7fde7"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T08:40:19.918Z"
+  },
+  {
+    "id": 1790844020033,
+    "author": "student",
+    "email": "chat-owner-1790844019974@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T08:40:20.033Z"
+  },
+  {
+    "id": 1790846366957,
+    "author": "student",
+    "email": "profile-1790846366907@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T09:19:26.957Z"
+  },
+  {
+    "id": 1790846367316,
+    "author": "student",
+    "email": "levels-author-1790846367187@example.com",
+    "helpfulBy": [
+      "5de05b35-f136-4153-98ff-faab7bb167c8"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T09:19:27.316Z"
+  },
+  {
+    "id": 1790846367442,
+    "author": "student",
+    "email": "chat-owner-1790846367375@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T09:19:27.442Z"
+  },
+  {
+    "id": 1790846428016,
+    "author": "student",
+    "email": "profile-1790846427967@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T09:20:28.016Z"
+  },
+  {
+    "id": 1790846428362,
+    "author": "student",
+    "email": "levels-author-1790846428247@example.com",
+    "helpfulBy": [
+      "b9702f8e-8049-4ca7-985a-be6c0a3ef80b"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T09:20:28.362Z"
+  },
+  {
+    "id": 1790846428451,
+    "author": "student",
+    "email": "chat-owner-1790846428398@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T09:20:28.451Z"
+  },
+  {
+    "id": 1790846916677,
+    "author": "student",
+    "email": "profile-1790846916620@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T09:28:36.677Z"
+  },
+  {
+    "id": 1790846917258,
+    "author": "student",
+    "email": "levels-author-1790846916926@example.com",
+    "helpfulBy": [
+      "46a89e9c-a5c7-4a70-9b5f-86c6e795e4e7"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T09:28:37.258Z"
+  },
+  {
+    "id": 1790846917387,
+    "author": "student",
+    "email": "chat-owner-1790846917324@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T09:28:37.387Z"
+  },
+  {
+    "id": 1790848781484,
+    "author": "student",
+    "email": "profile-1790848781434@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T09:59:41.484Z"
+  },
+  {
+    "id": 1790848781939,
+    "author": "student",
+    "email": "levels-author-1790848781692@example.com",
+    "helpfulBy": [
+      "e1c4acab-07c0-435d-8d93-c7880e02a2e9"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T09:59:41.939Z"
+  },
+  {
+    "id": 1790848782025,
+    "author": "student",
+    "email": "chat-owner-1790848781973@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T09:59:42.025Z"
+  },
+  {
+    "id": 1790849037741,
+    "author": "student",
+    "email": "profile-1790849037693@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T10:03:57.741Z"
+  },
+  {
+    "id": 1790849038263,
+    "author": "student",
+    "email": "levels-author-1790849037964@example.com",
+    "helpfulBy": [
+      "4c41172b-6064-4c5c-a895-5a505b77dbe3"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T10:03:58.263Z"
+  },
+  {
+    "id": 1790849038351,
+    "author": "student",
+    "email": "chat-owner-1790849038299@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T10:03:58.351Z"
+  },
+  {
+    "id": 1790849128144,
+    "author": "student",
+    "email": "profile-1790849128098@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T10:05:28.144Z"
+  },
+  {
+    "id": 1790849128594,
+    "author": "student",
+    "email": "levels-author-1790849128358@example.com",
+    "helpfulBy": [
+      "b77a770d-6c12-4a49-8ec2-aa260b55c7de"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T10:05:28.594Z"
+  },
+  {
+    "id": 1790849128675,
+    "author": "student",
+    "email": "chat-owner-1790849128627@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T10:05:28.675Z"
+  },
+  {
+    "id": 1790849149128,
+    "author": "student",
+    "email": "profile-1790849149081@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T10:05:49.128Z"
+  },
+  {
+    "id": 1790849149600,
+    "author": "student",
+    "email": "levels-author-1790849149349@example.com",
+    "helpfulBy": [
+      "411f6627-17e9-46a5-9d46-13c2eaf5c70b"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T10:05:49.600Z"
+  },
+  {
+    "id": 1790849149683,
+    "author": "student",
+    "email": "chat-owner-1790849149632@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T10:05:49.683Z"
+  },
+  {
+    "id": 1790850427074,
+    "author": "student",
+    "email": "profile-1790850427011@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T10:27:07.074Z"
+  },
+  {
+    "id": 1790850427700,
+    "author": "student",
+    "email": "levels-author-1790850427364@example.com",
+    "helpfulBy": [
+      "1c97510e-599f-4630-b0f8-e84a887b23b1"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T10:27:07.700Z"
+  },
+  {
+    "id": 1790850427804,
+    "author": "student",
+    "email": "chat-owner-1790850427747@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T10:27:07.804Z"
+  },
+  {
+    "id": 1790850525579,
+    "author": "student",
+    "email": "profile-1790850525520@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T10:28:45.579Z"
+  },
+  {
+    "id": 1790850526250,
+    "author": "student",
+    "email": "levels-author-1790850525872@example.com",
+    "helpfulBy": [
+      "b2fd80c3-ed55-4faa-aa78-bf193c187417"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T10:28:46.250Z"
+  },
+  {
+    "id": 1790850526393,
+    "author": "student",
+    "email": "chat-owner-1790850526309@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T10:28:46.393Z"
+  },
+  {
+    "id": 1790853798820,
+    "author": "student",
+    "email": "profile-1790853798762@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T11:23:18.820Z"
+  },
+  {
+    "id": 1790853799533,
+    "author": "student",
+    "email": "levels-author-1790853799201@example.com",
+    "helpfulBy": [
+      "bc389ffc-6690-47bb-821d-00b3eb51cc13"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T11:23:19.533Z"
+  },
+  {
+    "id": 1790853799661,
+    "author": "student",
+    "email": "chat-owner-1790853799593@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T11:23:19.661Z"
+  },
+  {
+    "id": 1790853878207,
+    "author": "student",
+    "email": "profile-1790853878154@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T11:24:38.207Z"
+  },
+  {
+    "id": 1790853878733,
+    "author": "student",
+    "email": "levels-author-1790853878444@example.com",
+    "helpfulBy": [
+      "d219d938-a052-4884-8a7c-37b314f8461a"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T11:24:38.733Z"
+  },
+  {
+    "id": 1790853878836,
+    "author": "student",
+    "email": "chat-owner-1790853878775@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T11:24:38.836Z"
+  },
+  {
+    "id": 1790854025444,
+    "author": "student",
+    "email": "profile-1790854025381@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T11:27:05.444Z"
+  },
+  {
+    "id": 1790854026059,
+    "author": "student",
+    "email": "levels-author-1790854025743@example.com",
+    "helpfulBy": [
+      "51c2f0c9-8854-44a1-bda8-e6fc9d2b4b4f"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T11:27:06.059Z"
+  },
+  {
+    "id": 1790854026186,
+    "author": "student",
+    "email": "chat-owner-1790854026105@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T11:27:06.186Z"
+  },
+  {
+    "id": 1790854158410,
+    "author": "student",
+    "email": "profile-1790854158354@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T11:29:18.410Z"
+  },
+  {
+    "id": 1790854159086,
+    "author": "student",
+    "email": "levels-author-1790854158682@example.com",
+    "helpfulBy": [
+      "a5c30d49-0248-4464-952b-350784b6ff1e"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T11:29:19.086Z"
+  },
+  {
+    "id": 1790854159213,
+    "author": "student",
+    "email": "chat-owner-1790854159136@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T11:29:19.213Z"
+  },
+  {
+    "id": 1790855379865,
+    "author": "student",
+    "email": "profile-1790855379819@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T11:49:39.865Z"
+  },
+  {
+    "id": 1790855380420,
+    "author": "student",
+    "email": "levels-author-1790855380112@example.com",
+    "helpfulBy": [
+      "6cf461be-d907-44e3-a429-92628a942431"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T11:49:40.420Z"
+  },
+  {
+    "id": 1790855380500,
+    "author": "student",
+    "email": "chat-owner-1790855380450@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T11:49:40.500Z"
+  },
+  {
+    "id": 1790855459772,
+    "author": "student",
+    "email": "profile-1790855459727@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T11:50:59.772Z"
+  },
+  {
+    "id": 1790855460225,
+    "author": "student",
+    "email": "levels-author-1790855459976@example.com",
+    "helpfulBy": [
+      "b829cd8a-26c1-4de5-b3a1-f53f146a2ffe"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T11:51:00.225Z"
+  },
+  {
+    "id": 1790855460303,
+    "author": "student",
+    "email": "chat-owner-1790855460255@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T11:51:00.303Z"
+  },
+  {
+    "id": 1790856160988,
+    "author": "student",
+    "email": "profile-1790856160914@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T12:02:40.988Z"
+  },
+  {
+    "id": 1790856161478,
+    "author": "student",
+    "email": "levels-author-1790856161223@example.com",
+    "helpfulBy": [
+      "bb4d74ea-d463-444d-b94a-3348a4f341c0"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T12:02:41.478Z"
+  },
+  {
+    "id": 1790856161563,
+    "author": "student",
+    "email": "chat-owner-1790856161508@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T12:02:41.563Z"
+  },
+  {
+    "id": 1790856723060,
+    "author": "student",
+    "email": "profile-1790856723005@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T12:12:03.060Z"
+  },
+  {
+    "id": 1790856723597,
+    "author": "student",
+    "email": "levels-author-1790856723298@example.com",
+    "helpfulBy": [
+      "cb893552-953c-4de3-85fc-38f33b23d8e0"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T12:12:03.597Z"
+  },
+  {
+    "id": 1790856723694,
+    "author": "student",
+    "email": "chat-owner-1790856723637@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T12:12:03.694Z"
+  },
+  {
+    "id": 1790857361132,
+    "author": "student",
+    "email": "profile-1790857361023@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T12:22:41.132Z"
+  },
+  {
+    "id": 1790857362055,
+    "author": "student",
+    "email": "levels-author-1790857361595@example.com",
+    "helpfulBy": [
+      "41c99144-4bcb-4400-b7f3-409c22ed6f2b"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T12:22:42.055Z"
+  },
+  {
+    "id": 1790857362173,
+    "author": "student",
+    "email": "chat-owner-1790857362102@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T12:22:42.173Z"
+  },
+  {
+    "id": 1790857528134,
+    "author": "student",
+    "email": "profile-1790857528078@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T12:25:28.134Z"
+  },
+  {
+    "id": 1790857529000,
+    "author": "student",
+    "email": "levels-author-1790857528415@example.com",
+    "helpfulBy": [
+      "9aaed4a3-6f50-43da-b67f-5a7b3b6d3b63"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T12:25:29.000Z"
+  },
+  {
+    "id": 1790857529117,
+    "author": "student",
+    "email": "chat-owner-1790857529046@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T12:25:29.117Z"
+  },
+  {
+    "id": 1790858589813,
+    "author": "student",
+    "email": "profile-1790858589759@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T12:43:09.813Z"
+  },
+  {
+    "id": 1790858590462,
+    "author": "student",
+    "email": "levels-author-1790858590109@example.com",
+    "helpfulBy": [
+      "e36cc28c-64a4-4c6b-86cd-0cbd3d7972b3"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T12:43:10.462Z"
+  },
+  {
+    "id": 1790858590566,
+    "author": "student",
+    "email": "chat-owner-1790858590508@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T12:43:10.566Z"
+  },
+  {
+    "id": 1790863829025,
+    "author": "student",
+    "email": "profile-1790863828968@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T14:10:29.025Z"
+  },
+  {
+    "id": 1790863829615,
+    "author": "student",
+    "email": "levels-author-1790863829253@example.com",
+    "helpfulBy": [
+      "cd650839-581b-445d-b3a9-053f274c7d25"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T14:10:29.615Z"
+  },
+  {
+    "id": 1790863829727,
+    "author": "student",
+    "email": "chat-owner-1790863829665@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T14:10:29.727Z"
+  },
+  {
+    "id": 1790864533112,
+    "author": "student",
+    "email": "profile-1790864533057@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T14:22:13.112Z"
+  },
+  {
+    "id": 1790864533721,
+    "author": "student",
+    "email": "levels-author-1790864533358@example.com",
+    "helpfulBy": [
+      "d36c1121-1223-41dd-9318-bbdde85d3ec9"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T14:22:13.721Z"
+  },
+  {
+    "id": 1790864533836,
+    "author": "student",
+    "email": "chat-owner-1790864533771@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T14:22:13.836Z"
+  },
+  {
+    "id": 1790864861159,
+    "author": "student",
+    "email": "profile-1790864861104@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T14:27:41.160Z"
+  },
+  {
+    "id": 1790864861855,
+    "author": "student",
+    "email": "levels-author-1790864861488@example.com",
+    "helpfulBy": [
+      "3f881912-afac-4127-b6ec-58ee29197495"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T14:27:41.855Z"
+  },
+  {
+    "id": 1790864861971,
+    "author": "student",
+    "email": "chat-owner-1790864861891@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T14:27:41.971Z"
+  },
+  {
+    "id": 1790864964301,
+    "author": "student",
+    "email": "profile-1790864964241@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T14:29:24.301Z"
+  },
+  {
+    "id": 1790864964864,
+    "author": "student",
+    "email": "levels-author-1790864964547@example.com",
+    "helpfulBy": [
+      "e3d2d0dc-cd2a-4e49-943d-2fdf2413ee7e"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T14:29:24.864Z"
+  },
+  {
+    "id": 1790864964964,
+    "author": "student",
+    "email": "chat-owner-1790864964903@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T14:29:24.964Z"
+  },
+  {
+    "id": 1790865352277,
+    "author": "student",
+    "email": "profile-1790865352185@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T14:35:52.277Z"
+  },
+  {
+    "id": 1790865352933,
+    "author": "student",
+    "email": "levels-author-1790865352567@example.com",
+    "helpfulBy": [
+      "50bd591c-fd65-4a25-a5fc-de4bed60e416"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T14:35:52.933Z"
+  },
+  {
+    "id": 1790865353045,
+    "author": "student",
+    "email": "chat-owner-1790865352974@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T14:35:53.045Z"
+  },
+  {
+    "id": 1790865743827,
+    "author": "student",
+    "email": "profile-1790865743773@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T14:42:23.827Z"
+  },
+  {
+    "id": 1790865744523,
+    "author": "student",
+    "email": "levels-author-1790865744119@example.com",
+    "helpfulBy": [
+      "ed17273a-3596-4ba8-8b18-62d8e6916edf"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T14:42:24.523Z"
+  },
+  {
+    "id": 1790865744655,
+    "author": "student",
+    "email": "chat-owner-1790865744579@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T14:42:24.655Z"
+  },
+  {
+    "id": 1790866534778,
+    "author": "student",
+    "email": "profile-1790866534629@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T14:55:34.778Z"
+  },
+  {
+    "id": 1790866536371,
+    "author": "student",
+    "email": "levels-author-1790866535510@example.com",
+    "helpfulBy": [
+      "6e0f52b8-1f3b-44b4-ae9f-316b1c2f56af"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T14:55:36.371Z"
+  },
+  {
+    "id": 1790866536541,
+    "author": "student",
+    "email": "chat-owner-1790866536449@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T14:55:36.541Z"
+  },
+  {
+    "id": 1790867656986,
+    "author": "student",
+    "email": "profile-1790867656881@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T15:14:16.986Z"
+  },
+  {
+    "id": 1790867658113,
+    "author": "student",
+    "email": "levels-author-1790867657474@example.com",
+    "helpfulBy": [
+      "5a4aa346-eb7d-4f7e-bf32-ca77c61c29ef"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T15:14:18.113Z"
+  },
+  {
+    "id": 1790867658309,
+    "author": "student",
+    "email": "chat-owner-1790867658201@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T15:14:18.310Z"
+  },
+  {
+    "id": 1790867685919,
+    "author": "student",
+    "email": "profile-1790867685828@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T15:14:45.919Z"
+  },
+  {
+    "id": 1790867687690,
+    "author": "student",
+    "email": "levels-author-1790867686647@example.com",
+    "helpfulBy": [
+      "5405f19a-49bd-4bc1-94a8-bce033079bd7"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T15:14:47.690Z"
+  },
+  {
+    "id": 1790867687967,
+    "author": "student",
+    "email": "chat-owner-1790867687821@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T15:14:47.967Z"
+  },
+  {
+    "id": 1790869469097,
+    "author": "student",
+    "email": "profile-1790869469035@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T15:44:29.097Z"
+  },
+  {
+    "id": 1790869469870,
+    "author": "student",
+    "email": "levels-author-1790869469425@example.com",
+    "helpfulBy": [
+      "cc0a2e12-0bb5-45fd-9b6a-988b882e2bc3"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T15:44:29.870Z"
+  },
+  {
+    "id": 1790869470031,
+    "author": "student",
+    "email": "chat-owner-1790869469941@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T15:44:30.031Z"
+  },
+  {
+    "id": 1790870461054,
+    "author": "student",
+    "email": "profile-1790870460983@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T16:01:01.054Z"
+  },
+  {
+    "id": 1790870461975,
+    "author": "student",
+    "email": "levels-author-1790870461454@example.com",
+    "helpfulBy": [
+      "c3cd6d9e-482c-42c2-a32d-b2bb853b5f36"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T16:01:01.975Z"
+  },
+  {
+    "id": 1790870462137,
+    "author": "student",
+    "email": "chat-owner-1790870462038@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T16:01:02.137Z"
+  },
+  {
+    "id": 1790870590658,
+    "author": "student",
+    "email": "profile-1790870590584@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T16:03:10.658Z"
+  },
+  {
+    "id": 1790870591512,
+    "author": "student",
+    "email": "levels-author-1790870591034@example.com",
+    "helpfulBy": [
+      "2fd52616-90ee-4d37-880b-f6fbc023b126"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T16:03:11.512Z"
+  },
+  {
+    "id": 1790870591651,
+    "author": "student",
+    "email": "chat-owner-1790870591569@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T16:03:11.651Z"
+  },
+  {
+    "id": 1790871490707,
+    "author": "student",
+    "email": "profile-1790871490630@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T16:18:10.707Z"
+  },
+  {
+    "id": 1790871491996,
+    "author": "student",
+    "email": "levels-author-1790871491295@example.com",
+    "helpfulBy": [
+      "1cce29d6-01ec-4571-b285-08d5696c2e98"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T16:18:11.996Z"
+  },
+  {
+    "id": 1790871492240,
+    "author": "student",
+    "email": "chat-owner-1790871492110@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T16:18:12.240Z"
+  },
+  {
+    "id": 1790871522153,
+    "author": "student",
+    "email": "profile-1790871521983@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T16:18:42.155Z"
+  },
+  {
+    "id": 1790871524291,
+    "author": "student",
+    "email": "levels-author-1790871523163@example.com",
+    "helpfulBy": [
+      "998ac79c-067f-4bb7-8781-f95ac62c14e3"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T16:18:44.291Z"
+  },
+  {
+    "id": 1790871524590,
+    "author": "student",
+    "email": "chat-owner-1790871524463@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T16:18:44.591Z"
+  },
+  {
+    "id": 1790871526777,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790871525868@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T16:18:46.777Z"
+  },
+  {
+    "id": 1790872117620,
+    "author": "student",
+    "email": "profile-1790872117546@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T16:28:37.620Z"
+  },
+  {
+    "id": 1790872118498,
+    "author": "student",
+    "email": "levels-author-1790872117970@example.com",
+    "helpfulBy": [
+      "8da22e1c-4c7f-4787-bfcd-e38bfcb957f2"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T16:28:38.498Z"
+  },
+  {
+    "id": 1790872118650,
+    "author": "student",
+    "email": "chat-owner-1790872118567@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T16:28:38.650Z"
+  },
+  {
+    "id": 1790872119643,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790872119484@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T16:28:39.643Z"
+  },
+  {
+    "id": 1790873952773,
+    "author": "student",
+    "email": "profile-1790873952712@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T16:59:12.773Z"
+  },
+  {
+    "id": 1790873953431,
+    "author": "student",
+    "email": "levels-author-1790873953058@example.com",
+    "helpfulBy": [
+      "66e53e71-1317-4db2-8ffc-e5f355ebe186"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T16:59:13.431Z"
+  },
+  {
+    "id": 1790873953528,
+    "author": "student",
+    "email": "chat-owner-1790873953471@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T16:59:13.528Z"
+  },
+  {
+    "id": 1790873954318,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790873954174@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T16:59:14.318Z"
+  },
+  {
+    "id": 1790874106391,
+    "author": "student",
+    "email": "profile-1790874106345@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:01:46.391Z"
+  },
+  {
+    "id": 1790874106394,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874106391,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **CAT** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:01:46.443Z"
+  },
+  {
+    "id": 1790874106973,
+    "author": "student",
+    "email": "levels-author-1790874106646@example.com",
+    "helpfulBy": [
+      "26851ac3-e379-48ee-9da7-ffb8d208522c"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:01:46.973Z"
+  },
+  {
+    "id": 1790874106975,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874106973,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:01:47.024Z"
+  },
+  {
+    "id": 1790874107063,
+    "author": "student",
+    "email": "chat-owner-1790874107009@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:01:47.063Z"
+  },
+  {
+    "id": 1790874107065,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874107063,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:01:47.114Z"
+  },
+  {
+    "id": 1790874107719,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790874107614@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:01:47.719Z"
+  },
+  {
+    "id": 1790874125590,
+    "author": "student",
+    "email": "profile-1790874125538@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:02:05.590Z"
+  },
+  {
+    "id": 1790874125592,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874125590,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **CAT** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:02:05.641Z"
+  },
+  {
+    "id": 1790874126170,
+    "author": "student",
+    "email": "levels-author-1790874125847@example.com",
+    "helpfulBy": [
+      "784f0352-ca11-44d5-92b3-1c362f80a82b"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:02:06.170Z"
+  },
+  {
+    "id": 1790874126172,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874126170,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:02:06.221Z"
+  },
+  {
+    "id": 1790874126255,
+    "author": "student",
+    "email": "chat-owner-1790874126205@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:02:06.255Z"
+  },
+  {
+    "id": 1790874126257,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874126255,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:02:06.306Z"
+  },
+  {
+    "id": 1790874126841,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790874126743@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:02:06.841Z"
+  },
+  {
+    "id": 1790874189558,
+    "author": "student",
+    "email": "profile-1790874189506@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:03:09.558Z"
+  },
+  {
+    "id": 1790874189562,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874189558,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **CAT** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:03:09.611Z"
+  },
+  {
+    "id": 1790874190168,
+    "author": "student",
+    "email": "levels-author-1790874189818@example.com",
+    "helpfulBy": [
+      "4ce305fa-57b5-4b5d-8f91-a5413faa9e3f"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:03:10.168Z"
+  },
+  {
+    "id": 1790874190170,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874190168,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:03:10.219Z"
+  },
+  {
+    "id": 1790874190254,
+    "author": "student",
+    "email": "chat-owner-1790874190202@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:03:10.255Z"
+  },
+  {
+    "id": 1790874190257,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874190254,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:03:10.306Z"
+  },
+  {
+    "id": 1790874190857,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790874190753@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:03:10.857Z"
+  },
+  {
+    "id": 1790874238692,
+    "author": "student",
+    "email": "profile-1790874238640@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:03:58.692Z"
+  },
+  {
+    "id": 1790874238696,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874238692,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **CAT** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:03:58.745Z"
+  },
+  {
+    "id": 1790874239315,
+    "author": "student",
+    "email": "levels-author-1790874238946@example.com",
+    "helpfulBy": [
+      "a0a61796-5f36-4023-8e64-4b9ec351ef5a"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:03:59.315Z"
+  },
+  {
+    "id": 1790874239318,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874239315,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:03:59.367Z"
+  },
+  {
+    "id": 1790874239416,
+    "author": "student",
+    "email": "chat-owner-1790874239353@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:03:59.416Z"
+  },
+  {
+    "id": 1790874239419,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874239416,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:03:59.468Z"
+  },
+  {
+    "id": 1790874240114,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790874239962@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:04:00.114Z"
+  },
+  {
+    "id": 1790874283507,
+    "author": "student",
+    "email": "profile-1790874283439@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:04:43.507Z"
+  },
+  {
+    "id": 1790874283511,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874283507,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **CAT** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:04:43.560Z"
+  },
+  {
+    "id": 1790874284083,
+    "author": "student",
+    "email": "levels-author-1790874283788@example.com",
+    "helpfulBy": [
+      "d2a11adf-061c-4f0f-ae52-51c20bfdfe3a"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:04:44.083Z"
+  },
+  {
+    "id": 1790874284085,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874284083,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:04:44.134Z"
+  },
+  {
+    "id": 1790874284171,
+    "author": "student",
+    "email": "chat-owner-1790874284115@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:04:44.171Z"
+  },
+  {
+    "id": 1790874284174,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874284171,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:04:44.223Z"
+  },
+  {
+    "id": 1790874284824,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790874284726@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:04:44.824Z"
+  },
+  {
+    "id": 1790874284860,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "How do I solve percentage shortcuts?",
+    "createdAt": "2026-10-01T17:04:44.860Z"
+  },
+  {
+    "id": 1790874284862,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874284860,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers**\n\n• **Fraction conversions to memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n  - Successive changes (x% and y%) ➔ Net change = [x + y + (xy/100)]%\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:04:44.911Z"
+  },
+  {
+    "id": 1790874571765,
+    "author": "student",
+    "email": "profile-1790874571718@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:09:31.765Z"
+  },
+  {
+    "id": 1790874571768,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874571765,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **CAT** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:09:31.817Z"
+  },
+  {
+    "id": 1790874572359,
+    "author": "student",
+    "email": "levels-author-1790874572020@example.com",
+    "helpfulBy": [
+      "a4e53ffe-bb93-4e20-aee9-475f21d29a48"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:09:32.359Z"
+  },
+  {
+    "id": 1790874572361,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874572359,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:09:32.410Z"
+  },
+  {
+    "id": 1790874572455,
+    "author": "student",
+    "email": "chat-owner-1790874572398@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:09:32.455Z"
+  },
+  {
+    "id": 1790874572457,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874572455,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:09:32.506Z"
+  },
+  {
+    "id": 1790874573174,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790874573050@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:09:33.174Z"
+  },
+  {
+    "id": 1790874573211,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "How do I solve percentage shortcuts?",
+    "createdAt": "2026-10-01T17:09:33.211Z"
+  },
+  {
+    "id": 1790874573213,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874573211,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers**\n\n• **Fraction conversions to memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n  - Successive changes (x% and y%) ➔ Net change = [x + y + (xy/100)]%\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:09:33.262Z"
+  },
+  {
+    "id": 1790874634003,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "What is the best way to prepare percentage questions?",
+    "createdAt": "2026-10-01T17:10:34.003Z"
+  },
+  {
+    "id": 1790874634006,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874634003,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers**\n\n• **Fraction conversions to memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n  - Successive changes (x% and y%) ➔ Net change = [x + y + (xy/100)]%\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:10:34.056Z"
+  },
+  {
+    "id": 1790874720775,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "who is pm of india",
+    "createdAt": "2026-10-01T17:12:00.775Z"
+  },
+  {
+    "id": 1790874720778,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874720775,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:12:00.827Z"
+  },
+  {
+    "id": 1790874753737,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "who is pm of india",
+    "createdAt": "2026-10-01T17:12:33.737Z"
+  },
+  {
+    "id": 1790874753740,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874753737,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:12:33.789Z"
+  },
+  {
+    "id": 1790874794713,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "make a daily plan for me",
+    "createdAt": "2026-10-01T17:13:14.713Z"
+  },
+  {
+    "id": 1790874794716,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874794713,
+    "email": "",
+    "helpfulBy": [],
+    "text": "🎯 **Result Darpan 60-Day Master Study Guide & Roadmap** (SSC)\n\n**Phase 1: Foundation & High-Yield Concepts (Days 1–20)**\n• **Quantitative / Maths**: Complete core chapters (Percentages, Ratio & Proportion, Averages, Profit & Loss). Build a formula cheat-sheet.\n• **Reasoning**: Master high-weightage topics (Syllogisms, Coding-Decoding, Series, Blood Relations).\n• **General Awareness / English**: Read daily 15-minute editorial capsules; practice 25 grammar and vocabulary flashcards.\n• **Goal**: 100% conceptual clarity; avoid solving under timer pressure in this phase.\n\n**Phase 2: Timed Sectional Drills & Speed Building (Days 21–45)**\n• Shift to timed practice on Result Darpan: solve 40–50 mixed questions daily.\n• Benchmark your pacing: aim for < 50 seconds per Reasoning question and < 65 seconds per Quant problem.\n• Use Result Darpan's instant solution breakdown to find where you lose marks.\n\n**Phase 3: Full-Length Mocks & Error Log Sprints (Days 46–60)**\n• Attempt 2 to 3 full-length Result Darpan mock tests per week in the exact exam time slot.\n• **The Golden 1.5x Rule**: For every 60-minute test, invest 90 minutes analyzing incorrect answers and unattempted questions.\n• Maintain a dedicated Error Notebook so you never repeat the same conceptual mistake twice!\n\n🏆 *Topper Tip: Consistency is a quiet superpower. 2 hours of focused daily practice beats an irregular 8-hour marathon.*",
+    "createdAt": "2026-10-01T17:13:14.765Z"
+  },
+  {
+    "id": 1790874949966,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "Please plan a 60-day study guide and roadmap for my exam",
+    "createdAt": "2026-10-01T17:15:49.966Z"
+  },
+  {
+    "id": 1790874949969,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874949966,
+    "email": "",
+    "helpfulBy": [],
+    "text": "🎯 **Result Darpan 60-Day Master Study Guide & Roadmap** (SSC)\n\n**Phase 1: Foundation & High-Yield Concepts (Days 1–20)**\n• **Quantitative / Maths**: Complete core chapters (Percentages, Ratio & Proportion, Averages, Profit & Loss). Build a formula cheat-sheet.\n• **Reasoning**: Master high-weightage topics (Syllogisms, Coding-Decoding, Series, Blood Relations).\n• **General Awareness / English**: Read daily 15-minute editorial capsules; practice 25 grammar and vocabulary flashcards.\n• **Goal**: 100% conceptual clarity; avoid solving under timer pressure in this phase.\n\n**Phase 2: Timed Sectional Drills & Speed Building (Days 21–45)**\n• Shift to timed practice on Result Darpan: solve 40–50 mixed questions daily.\n• Benchmark your pacing: aim for < 50 seconds per Reasoning question and < 65 seconds per Quant problem.\n• Use Result Darpan's instant solution breakdown to find where you lose marks.\n\n**Phase 3: Full-Length Mocks & Error Log Sprints (Days 46–60)**\n• Attempt 2 to 3 full-length Result Darpan mock tests per week in the exact exam time slot.\n• **The Golden 1.5x Rule**: For every 60-minute test, invest 90 minutes analyzing incorrect answers and unattempted questions.\n• Maintain a dedicated Error Notebook so you never repeat the same conceptual mistake twice!\n\n🏆 *Topper Tip: Consistency is a quiet superpower. 2 hours of focused daily practice beats an irregular 8-hour marathon.*",
+    "createdAt": "2026-10-01T17:15:50.018Z"
+  },
+  {
+    "id": 1790874952719,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "Help me fix my daily routine and timetable for exam prep",
+    "createdAt": "2026-10-01T17:15:52.719Z"
+  },
+  {
+    "id": 1790874952722,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874952719,
+    "email": "",
+    "helpfulBy": [],
+    "text": "⏰ **High-Yield Daily Routine & Study Timetable** (Recommended for SSC)\n\n🌅 **Slot 1 (06:30 AM – 09:00 AM) · Peak Cognitive Window**\n• **Focus**: Quantitative Aptitude / Mathematics or Complex Reasoning.\n• **Rationale**: Peak brain energy and willpower. Zero mobile phone distractions.\n\n☀️ **Slot 2 (10:30 AM – 01:00 PM) · Concept Deep-Dive & Theory**\n• **Focus**: General Studies, Static GK, Current Affairs, or English Comprehension.\n• **Method**: Active recall and 1-page summary notes rather than passive reading.\n\n☕ **Slot 3 (03:30 PM – 05:30 PM) · Active Speed Drills**\n• **Focus**: Subject-wise practice quizzes on Result Darpan.\n• **Target**: Speed calculations, short-tricks, and elimination techniques under timer pressure.\n\n🌙 **Slot 4 (07:30 PM – 09:30 PM) · Full Mock Test & Error Log**\n• **Focus**: Attempt 1 mock test or 50 mixed PYQs.\n• **Crucial Step**: Log all mistakes into your Error Notebook with the underlying rule.\n\n💤 **Slot 5 (10:00 PM – 10:30 PM) · 15-Minute Review & Sleep**\n• **Focus**: Quick formula cards glance, lock tomorrow's top 3 priorities, and get 7+ hours of restful sleep for memory consolidation.\n\n💡 *Guideline: Follow 50-minute study blocks with 10-minute stretch/water breaks. Keep your daily streak unbroken!*",
+    "createdAt": "2026-10-01T17:15:52.771Z"
+  },
+  {
+    "id": 1790874961449,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "What are the latest upcoming exam updates, dates, and deadlines?",
+    "createdAt": "2026-10-01T17:16:01.449Z"
+  },
+  {
+    "id": 1790874961452,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874961449,
+    "email": "",
+    "helpfulBy": [],
+    "text": "📢 **Result Darpan Live Exam Radar & Updates**\n\nHere are the latest active exam notices verified by our research desk:\n\n• **SSC CGL**: SSC CGL 2026 Tier-I Notification Released\n  📅 Date: 2026-11-20 (in 50 days) | 👥 Vacancies: 17,727 Posts\n  🔗 Portal: https://ssc.gov.in\n\n• **CTET**: CTET September 2026 Admit Card & Exam City Slip\n  📅 Date: 2026-10-18 (in 17 days) | 👥 Vacancies: Eligibility Certificate\n  🔗 Portal: https://ctet.nic.in\n\n• **NDA**: NDA II 2026 Examination Schedule & Guidelines\n  📅 Date: 2026-11-16 (in 46 days) | 👥 Vacancies: 400 Cadet Vacancies\n  🔗 Portal: https://upsc.gov.in\n\n• **AIIMS NORCET**: AIIMS NORCET-11 Nursing Officer Notification\n  📅 Date: 2026-11-01 (in 31 days) | 👥 Vacancies: 3,000+ Posts\n  🔗 Portal: https://aiimsexams.ac.in\n\n💡 *All mock tests and PYQs on Result Darpan are 100% free with instant detailed solutions.*",
+    "createdAt": "2026-10-01T17:16:01.501Z"
+  },
+  {
+    "id": 1790874977171,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "Give me today's priority study tasks and revision checklist",
+    "createdAt": "2026-10-01T17:16:17.171Z"
+  },
+  {
+    "id": 1790874977174,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874977171,
+    "email": "",
+    "helpfulBy": [],
+    "text": "📝 **Today's Actionable Study Checklist** (Target: SSC)\n\n[ ] **Task 1 (Concept Focus)**: Deep-dive into 1 weak chapter for 45 minutes; write down key formulas or grammar rules.\n[ ] **Task 2 (Timed Practice)**: Attempt at least 40 fresh MCQs on Result Darpan with the timer running.\n[ ] **Task 3 (Error Log)**: Record every wrong answer or lucky guess into your Error Notebook; write *why* the right option works.\n[ ] **Task 4 (Memory Sprint)**: Revise 20 formula cards, multiplication tables (up to 30), or high-frequency vocabulary roots.\n[ ] **Task 5 (Current Affairs)**: Read today's 15-minute national and international news digest and solve a 10-question quiz.\n\n✨ *Check off all 5 items before your night review to keep your preparation streak at 100%!*",
+    "createdAt": "2026-10-01T17:16:17.223Z"
+  },
+  {
+    "id": 1790874981177,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "Explain percentage calculation shortcuts and formula tricks",
+    "createdAt": "2026-10-01T17:16:21.177Z"
+  },
+  {
+    "id": 1790874981181,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874981177,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers**\n\n• **Fraction conversions to memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n  - Successive changes (x% and y%) ➔ Net change = [x + y + (xy/100)]%\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:16:21.230Z"
+  },
+  {
+    "id": 1790874984512,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "Please plan a 60-day study guide and roadmap for my exam",
+    "createdAt": "2026-10-01T17:16:24.512Z"
+  },
+  {
+    "id": 1790874984515,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874984512,
+    "email": "",
+    "helpfulBy": [],
+    "text": "🎯 **Result Darpan 60-Day Master Study Guide & Roadmap** (SSC)\n\n**Phase 1: Foundation & High-Yield Concepts (Days 1–20)**\n• **Quantitative / Maths**: Complete core chapters (Percentages, Ratio & Proportion, Averages, Profit & Loss). Build a formula cheat-sheet.\n• **Reasoning**: Master high-weightage topics (Syllogisms, Coding-Decoding, Series, Blood Relations).\n• **General Awareness / English**: Read daily 15-minute editorial capsules; practice 25 grammar and vocabulary flashcards.\n• **Goal**: 100% conceptual clarity; avoid solving under timer pressure in this phase.\n\n**Phase 2: Timed Sectional Drills & Speed Building (Days 21–45)**\n• Shift to timed practice on Result Darpan: solve 40–50 mixed questions daily.\n• Benchmark your pacing: aim for < 50 seconds per Reasoning question and < 65 seconds per Quant problem.\n• Use Result Darpan's instant solution breakdown to find where you lose marks.\n\n**Phase 3: Full-Length Mocks & Error Log Sprints (Days 46–60)**\n• Attempt 2 to 3 full-length Result Darpan mock tests per week in the exact exam time slot.\n• **The Golden 1.5x Rule**: For every 60-minute test, invest 90 minutes analyzing incorrect answers and unattempted questions.\n• Maintain a dedicated Error Notebook so you never repeat the same conceptual mistake twice!\n\n🏆 *Topper Tip: Consistency is a quiet superpower. 2 hours of focused daily practice beats an irregular 8-hour marathon.*",
+    "createdAt": "2026-10-01T17:16:24.564Z"
+  },
+  {
+    "id": 1790874986025,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "Help me fix my daily routine and timetable for exam prep",
+    "createdAt": "2026-10-01T17:16:26.025Z"
+  },
+  {
+    "id": 1790874986028,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874986025,
+    "email": "",
+    "helpfulBy": [],
+    "text": "⏰ **High-Yield Daily Routine & Study Timetable** (Recommended for SSC)\n\n🌅 **Slot 1 (06:30 AM – 09:00 AM) · Peak Cognitive Window**\n• **Focus**: Quantitative Aptitude / Mathematics or Complex Reasoning.\n• **Rationale**: Peak brain energy and willpower. Zero mobile phone distractions.\n\n☀️ **Slot 2 (10:30 AM – 01:00 PM) · Concept Deep-Dive & Theory**\n• **Focus**: General Studies, Static GK, Current Affairs, or English Comprehension.\n• **Method**: Active recall and 1-page summary notes rather than passive reading.\n\n☕ **Slot 3 (03:30 PM – 05:30 PM) · Active Speed Drills**\n• **Focus**: Subject-wise practice quizzes on Result Darpan.\n• **Target**: Speed calculations, short-tricks, and elimination techniques under timer pressure.\n\n🌙 **Slot 4 (07:30 PM – 09:30 PM) · Full Mock Test & Error Log**\n• **Focus**: Attempt 1 mock test or 50 mixed PYQs.\n• **Crucial Step**: Log all mistakes into your Error Notebook with the underlying rule.\n\n💤 **Slot 5 (10:00 PM – 10:30 PM) · 15-Minute Review & Sleep**\n• **Focus**: Quick formula cards glance, lock tomorrow's top 3 priorities, and get 7+ hours of restful sleep for memory consolidation.\n\n💡 *Guideline: Follow 50-minute study blocks with 10-minute stretch/water breaks. Keep your daily streak unbroken!*",
+    "createdAt": "2026-10-01T17:16:26.077Z"
+  },
+  {
+    "id": 1790874987177,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "What are the latest upcoming exam updates, dates, and deadlines?",
+    "createdAt": "2026-10-01T17:16:27.177Z"
+  },
+  {
+    "id": 1790874987180,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790874987177,
+    "email": "",
+    "helpfulBy": [],
+    "text": "📢 **Result Darpan Live Exam Radar & Updates**\n\nHere are the latest active exam notices verified by our research desk:\n\n• **SSC CGL**: SSC CGL 2026 Tier-I Notification Released\n  📅 Date: 2026-11-20 (in 50 days) | 👥 Vacancies: 17,727 Posts\n  🔗 Portal: https://ssc.gov.in\n\n• **CTET**: CTET September 2026 Admit Card & Exam City Slip\n  📅 Date: 2026-10-18 (in 17 days) | 👥 Vacancies: Eligibility Certificate\n  🔗 Portal: https://ctet.nic.in\n\n• **NDA**: NDA II 2026 Examination Schedule & Guidelines\n  📅 Date: 2026-11-16 (in 46 days) | 👥 Vacancies: 400 Cadet Vacancies\n  🔗 Portal: https://upsc.gov.in\n\n• **AIIMS NORCET**: AIIMS NORCET-11 Nursing Officer Notification\n  📅 Date: 2026-11-01 (in 31 days) | 👥 Vacancies: 3,000+ Posts\n  🔗 Portal: https://aiimsexams.ac.in\n\n💡 *All mock tests and PYQs on Result Darpan are 100% free with instant detailed solutions.*",
+    "createdAt": "2026-10-01T17:16:27.229Z"
+  },
+  {
+    "id": 1790875063788,
+    "author": "student",
+    "email": "profile-1790875063721@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:17:43.788Z"
+  },
+  {
+    "id": 1790875063793,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875063788,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **CAT** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:17:43.842Z"
+  },
+  {
+    "id": 1790875064392,
+    "author": "student",
+    "email": "levels-author-1790875064075@example.com",
+    "helpfulBy": [
+      "01ce05e0-19fe-4703-bd58-40e242ba7760"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:17:44.392Z"
+  },
+  {
+    "id": 1790875064395,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875064392,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:17:44.444Z"
+  },
+  {
+    "id": 1790875064482,
+    "author": "student",
+    "email": "chat-owner-1790875064432@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:17:44.482Z"
+  },
+  {
+    "id": 1790875064484,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875064482,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:17:44.533Z"
+  },
+  {
+    "id": 1790875065142,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790875065024@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:17:45.142Z"
+  },
+  {
+    "id": 1790875065211,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "How do I solve percentage shortcuts?",
+    "createdAt": "2026-10-01T17:17:45.211Z"
+  },
+  {
+    "id": 1790875065214,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875065211,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers**\n\n• **Fraction conversions to memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n  - Successive changes (x% and y%) ➔ Net change = [x + y + (xy/100)]%\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:17:45.263Z"
+  },
+  {
+    "id": 1790875159798,
+    "author": "student",
+    "email": "profile-1790875159748@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:19:19.798Z"
+  },
+  {
+    "id": 1790875159801,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875159798,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **CAT** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:19:19.850Z"
+  },
+  {
+    "id": 1790875160412,
+    "author": "student",
+    "email": "levels-author-1790875160080@example.com",
+    "helpfulBy": [
+      "8b8cb73d-7320-4e3d-b5a1-a0a59ad0717e"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:19:20.412Z"
+  },
+  {
+    "id": 1790875160414,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875160412,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:19:20.463Z"
+  },
+  {
+    "id": 1790875160503,
+    "author": "student",
+    "email": "chat-owner-1790875160448@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:19:20.503Z"
+  },
+  {
+    "id": 1790875160506,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875160503,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:19:20.555Z"
+  },
+  {
+    "id": 1790875161103,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790875160998@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:19:21.103Z"
+  },
+  {
+    "id": 1790875161148,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "How do I solve percentage shortcuts?",
+    "createdAt": "2026-10-01T17:19:21.148Z"
+  },
+  {
+    "id": 1790875161151,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875161148,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers & Rapid Fractions**\n\n• **Fraction Conversions to Memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%, 1/16 = 6.25%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n• **Successive Percentage Rule**:\n  - Two successive changes of x% and y% ➔ Net change = [x + y + (xy / 100)]%\n• **Price & Consumption Inversion**:\n  - If the price of an article increases by 1/n, consumption must decrease by 1/(n + 1) to keep the total expense unchanged!\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:19:21.200Z"
+  },
+  {
+    "id": 1790875187172,
+    "author": "student",
+    "email": "profile-1790875187117@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:19:47.172Z"
+  },
+  {
+    "id": 1790875187176,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875187172,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **CAT** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:19:47.225Z"
+  },
+  {
+    "id": 1790875187744,
+    "author": "student",
+    "email": "levels-author-1790875187435@example.com",
+    "helpfulBy": [
+      "47232e16-5f67-4af3-8865-dc350dd74d39"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:19:47.744Z"
+  },
+  {
+    "id": 1790875187747,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875187744,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:19:47.796Z"
+  },
+  {
+    "id": 1790875187831,
+    "author": "student",
+    "email": "chat-owner-1790875187780@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:19:47.831Z"
+  },
+  {
+    "id": 1790875187833,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875187831,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:19:47.882Z"
+  },
+  {
+    "id": 1790875188505,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790875188401@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:19:48.505Z"
+  },
+  {
+    "id": 1790875188543,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "How do I solve percentage shortcuts?",
+    "createdAt": "2026-10-01T17:19:48.543Z"
+  },
+  {
+    "id": 1790875188545,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875188543,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers & Rapid Fractions**\n\n• **Fraction Conversions to Memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%, 1/16 = 6.25%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n• **Successive Percentage Rule**:\n  - Two successive changes of x% and y% ➔ Net change = [x + y + (xy / 100)]%\n• **Price & Consumption Inversion**:\n  - If the price of an article increases by 1/n, consumption must decrease by 1/(n + 1) to keep the total expense unchanged!\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:19:48.594Z"
+  },
+  {
+    "id": 1790875241403,
+    "author": "student",
+    "email": "profile-1790875241323@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:20:41.403Z"
+  },
+  {
+    "id": 1790875241407,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875241403,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **CAT** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:20:41.456Z"
+  },
+  {
+    "id": 1790875242179,
+    "author": "student",
+    "email": "levels-author-1790875241728@example.com",
+    "helpfulBy": [
+      "73f3b557-be29-47d6-bd23-1a768901d13f"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:20:42.179Z"
+  },
+  {
+    "id": 1790875242182,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875242179,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:20:42.231Z"
+  },
+  {
+    "id": 1790875242290,
+    "author": "student",
+    "email": "chat-owner-1790875242219@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:20:42.290Z"
+  },
+  {
+    "id": 1790875242294,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875242290,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC CGL** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:20:42.343Z"
+  },
+  {
+    "id": 1790875243088,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790875242953@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:20:43.088Z"
+  },
+  {
+    "id": 1790875243159,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "How do I solve percentage shortcuts?",
+    "createdAt": "2026-10-01T17:20:43.159Z"
+  },
+  {
+    "id": 1790875243163,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875243159,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers & Rapid Fractions**\n\n• **Fraction Conversions to Memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%, 1/16 = 6.25%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n• **Successive Percentage Rule**:\n  - Two successive changes of x% and y% ➔ Net change = [x + y + (xy / 100)]%\n• **Price & Consumption Inversion**:\n  - If the price of an article increases by 1/n, consumption must decrease by 1/(n + 1) to keep the total expense unchanged!\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:20:43.212Z"
+  },
+  {
+    "id": 1790875290762,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "Give me topper calculation shortcuts, speed math tricks, and reasoning formulas",
+    "createdAt": "2026-10-01T17:21:30.762Z"
+  },
+  {
+    "id": 1790875290766,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875290762,
+    "email": "",
+    "helpfulBy": [],
+    "text": "⚡ **Result Darpan Topper Speed Math & Calculation Shortcuts**\n\nHere are the highest-yield calculation hacks used by AIR-1 rankers:\n\n1. **Squaring Numbers Ending in 5 (N5² Rule)**:\n   - Multiply the tens digit N by (N + 1), then append 25.\n   - *Example*: 65² ➔ 6 × 7 = 42 ➔ **4225**.\n   - *Example*: 95² ➔ 9 × 10 = 90 ➔ **9025**.\n\n2. **Base-100 Multiplication Trick (Near 100)**:\n   - For 104 × 107: Excesses are +4 and +7.\n   - Left part: 104 + 7 = 111.\n   - Right part: 4 × 7 = 28.\n   - Answer: **11,128** (calculated in 2 seconds without pen!).\n\n3. **Digital Root (Casting Out 9s)**:\n   - Add digits of every number until single digits remain; treat 9 as 0.\n   - The digital root of the question must match the digital root of the correct option.\n   - Eliminates 2 to 3 multiple-choice options instantly in lengthy arithmetic or simplification!\n\n4. **Percentage Ladder (Fraction-to-Percent)**:\n   - 1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%, 1/16 = 6.25%.\n   - Successive percentage change: [A + B + (AB / 100)]%.\n\n5. **Reasoning EJOTY & Opposites (Sum = 27)**:\n   - E(5), J(10), O(15), T(20), Y(25).\n   - Opposite pairs: A-Z, B-Y, C-X, D-W, E-V, F-U, G-T, H-S, I-R, J-Q, K-P, L-O, M-N.\n\n6. **The 3-Pass Exam Hall Rule**:\n   - **Pass 1 (0-20m)**: Solve sure-shot questions under 15 seconds (GK, Vocab, simple Reasoning).\n   - **Pass 2 (20-50m)**: Work through moderate Math and DI sets with formulas.\n   - **Pass 3 (Last 10m)**: Revisit flagged tricky problems; never guess negatively marked questions.\n\n💡 *Tip: Test these speed methods in real-time under Result Darpan's Free Mock Tests!*",
+    "createdAt": "2026-10-01T17:21:30.815Z"
+  },
+  {
+    "id": 1790875388013,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "Please plan a 60-day study guide and roadmap for my exam",
+    "createdAt": "2026-10-01T17:23:08.013Z"
+  },
+  {
+    "id": 1790875388017,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875388013,
+    "email": "",
+    "helpfulBy": [],
+    "text": "🎯 **Result Darpan 60-Day Master Study Guide & Roadmap** (SSC)\n\n**Phase 1: Foundation & High-Yield Concepts (Days 1–20)**\n• **Quantitative / Maths**: Complete core chapters (Percentages, Ratio & Proportion, Averages, Profit & Loss). Build a formula cheat-sheet.\n• **Reasoning**: Master high-weightage topics (Syllogisms, Coding-Decoding, Series, Blood Relations).\n• **General Awareness / English**: Read daily 15-minute editorial capsules; practice 25 grammar and vocabulary flashcards.\n• **Goal**: 100% conceptual clarity; avoid solving under timer pressure in this phase.\n\n**Phase 2: Timed Sectional Drills & Speed Building (Days 21–45)**\n• Shift to timed practice on Result Darpan: solve 40–50 mixed questions daily.\n• Benchmark your pacing: aim for < 50 seconds per Reasoning question and < 65 seconds per Quant problem.\n• Use Result Darpan's instant solution breakdown to find where you lose marks.\n\n**Phase 3: Full-Length Mocks & Error Log Sprints (Days 46–60)**\n• Attempt 2 to 3 full-length Result Darpan mock tests per week in the exact exam time slot.\n• **The Golden 1.5x Rule**: For every 60-minute test, invest 90 minutes analyzing incorrect answers and unattempted questions.\n• Maintain a dedicated Error Notebook so you never repeat the same conceptual mistake twice!\n\n🏆 *Topper Tip: Consistency is a quiet superpower. 2 hours of focused daily practice beats an irregular 8-hour marathon.*",
+    "createdAt": "2026-10-01T17:23:08.066Z"
+  },
+  {
+    "id": 1790875395104,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "Help me fix my daily routine and timetable for exam prep",
+    "createdAt": "2026-10-01T17:23:15.104Z"
+  },
+  {
+    "id": 1790875395107,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875395104,
+    "email": "",
+    "helpfulBy": [],
+    "text": "⏰ **High-Yield Daily Routine & Study Timetable** (Recommended for SSC)\n\n🌅 **Slot 1 (06:30 AM – 09:00 AM) · Peak Cognitive Window**\n• **Focus**: Quantitative Aptitude / Mathematics or Complex Reasoning.\n• **Rationale**: Peak brain energy and willpower. Zero mobile phone distractions.\n\n☀️ **Slot 2 (10:30 AM – 01:00 PM) · Concept Deep-Dive & Theory**\n• **Focus**: General Studies, Static GK, Current Affairs, or English Comprehension.\n• **Method**: Active recall and 1-page summary notes rather than passive reading.\n\n☕ **Slot 3 (03:30 PM – 05:30 PM) · Active Speed Drills**\n• **Focus**: Subject-wise practice quizzes on Result Darpan.\n• **Target**: Speed calculations, short-tricks, and elimination techniques under timer pressure.\n\n🌙 **Slot 4 (07:30 PM – 09:30 PM) · Full Mock Test & Error Log**\n• **Focus**: Attempt 1 mock test or 50 mixed PYQs.\n• **Crucial Step**: Log all mistakes into your Error Notebook with the underlying rule.\n\n💤 **Slot 5 (10:00 PM – 10:30 PM) · 15-Minute Review & Sleep**\n• **Focus**: Quick formula cards glance, lock tomorrow's top 3 priorities, and get 7+ hours of restful sleep for memory consolidation.\n\n💡 *Guideline: Follow 50-minute study blocks with 10-minute stretch/water breaks. Keep your daily streak unbroken!*",
+    "createdAt": "2026-10-01T17:23:15.156Z"
+  },
+  {
+    "id": 1790875409150,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "who is pm of india",
+    "createdAt": "2026-10-01T17:23:29.150Z"
+  },
+  {
+    "id": 1790875409153,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875409150,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Welcome to Result Darpan AI Study Mentor!**\nI am your 24/7 dedicated exam assistant for **SSC** and all national competitive exams.\n\nHere is what I can help you with right now:\n• 📅 **Plan Study Guide**: Type *\"Give me a 60-day study plan\"* for a phased roadmap.\n• ⏰ **Fix Daily Routine**: Type *\"Fix my daily routine\"* for a personalized timetable.\n• 📝 **Daily Tasks**: Type *\"Today's study tasks\"* for your 5-point action checklist.\n• 📢 **Exam Updates**: Type *\"Upcoming exam dates\"* for verified deadlines, vacancies & notices.\n\nWhat would you like to plan today?",
+    "createdAt": "2026-10-01T17:23:29.202Z"
+  },
+  {
+    "id": 1790875880805,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "Give me topper calculation shortcuts, speed math tricks, and reasoning formulas",
+    "createdAt": "2026-10-01T17:31:20.805Z"
+  },
+  {
+    "id": 1790875880808,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875880805,
+    "email": "",
+    "helpfulBy": [],
+    "text": "⚡ **Result Darpan Topper Speed Math & Calculation Shortcuts**\n\nHere are the highest-yield calculation hacks used by AIR-1 rankers:\n\n1. **Squaring Numbers Ending in 5 (N5² Rule)**:\n   - Multiply the tens digit N by (N + 1), then append 25.\n   - *Example*: 65² ➔ 6 × 7 = 42 ➔ **4225**.\n   - *Example*: 95² ➔ 9 × 10 = 90 ➔ **9025**.\n\n2. **Base-100 Multiplication Trick (Near 100)**:\n   - For 104 × 107: Excesses are +4 and +7.\n   - Left part: 104 + 7 = 111.\n   - Right part: 4 × 7 = 28.\n   - Answer: **11,128** (calculated in 2 seconds without pen!).\n\n3. **Digital Root (Casting Out 9s)**:\n   - Add digits of every number until single digits remain; treat 9 as 0.\n   - The digital root of the question must match the digital root of the correct option.\n   - Eliminates 2 to 3 multiple-choice options instantly in lengthy arithmetic or simplification!\n\n4. **Percentage Ladder (Fraction-to-Percent)**:\n   - 1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%, 1/16 = 6.25%.\n   - Successive percentage change: [A + B + (AB / 100)]%.\n\n5. **Reasoning EJOTY & Opposites (Sum = 27)**:\n   - E(5), J(10), O(15), T(20), Y(25).\n   - Opposite pairs: A-Z, B-Y, C-X, D-W, E-V, F-U, G-T, H-S, I-R, J-Q, K-P, L-O, M-N.\n\n6. **The 3-Pass Exam Hall Rule**:\n   - **Pass 1 (0-20m)**: Solve sure-shot questions under 15 seconds (GK, Vocab, simple Reasoning).\n   - **Pass 2 (20-50m)**: Work through moderate Math and DI sets with formulas.\n   - **Pass 3 (Last 10m)**: Revisit flagged tricky problems; never guess negatively marked questions.\n\n💡 *Tip: Test these speed methods in real-time under Result Darpan's Free Mock Tests!*",
+    "createdAt": "2026-10-01T17:31:20.857Z"
+  },
+  {
+    "id": 1790875896538,
+    "author": "student",
+    "email": "profile-1790875896487@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:31:36.538Z"
+  },
+  {
+    "id": 1790875896543,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875896538,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: CAT)\n\nRegarding: *\"**My account message**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **CAT**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T17:31:36.592Z"
+  },
+  {
+    "id": 1790875897194,
+    "author": "student",
+    "email": "levels-author-1790875896815@example.com",
+    "helpfulBy": [
+      "2babe05e-cae5-49fb-bf73-6965ddcf46ad"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:31:37.194Z"
+  },
+  {
+    "id": 1790875897197,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875897194,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC CGL)\n\nRegarding: *\"**Here is a useful study tip.**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC CGL**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T17:31:37.246Z"
+  },
+  {
+    "id": 1790875897307,
+    "author": "student",
+    "email": "chat-owner-1790875897245@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:31:37.307Z"
+  },
+  {
+    "id": 1790875897311,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875897307,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC CGL)\n\nRegarding: *\"**A private identity message**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC CGL**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T17:31:37.360Z"
+  },
+  {
+    "id": 1790875897991,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790875897855@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:31:37.991Z"
+  },
+  {
+    "id": 1790875898037,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "How do I solve percentage shortcuts?",
+    "createdAt": "2026-10-01T17:31:38.037Z"
+  },
+  {
+    "id": 1790875898039,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790875898037,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers & Rapid Fractions**\n\n• **Fraction Conversions to Memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%, 1/16 = 6.25%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n• **Successive Percentage Rule**:\n  - Two successive changes of x% and y% ➔ Net change = [x + y + (xy / 100)]%\n• **Price & Consumption Inversion**:\n  - If the price of an article increases by 1/n, consumption must decrease by 1/(n + 1) to keep the total expense unchanged!\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:31:38.088Z"
+  },
+  {
+    "id": 1790876578440,
+    "author": "student",
+    "email": "profile-1790876578392@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:42:58.440Z"
+  },
+  {
+    "id": 1790876578444,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790876578440,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: CAT)\n\nRegarding: *\"**My account message**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **CAT**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T17:42:58.493Z"
+  },
+  {
+    "id": 1790876579011,
+    "author": "student",
+    "email": "levels-author-1790876578687@example.com",
+    "helpfulBy": [
+      "476dff63-d197-4400-9459-96e3feb95252"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:42:59.011Z"
+  },
+  {
+    "id": 1790876579013,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790876579011,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC CGL)\n\nRegarding: *\"**Here is a useful study tip.**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC CGL**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T17:42:59.062Z"
+  },
+  {
+    "id": 1790876579098,
+    "author": "student",
+    "email": "chat-owner-1790876579046@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:42:59.098Z"
+  },
+  {
+    "id": 1790876579100,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790876579098,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC CGL)\n\nRegarding: *\"**A private identity message**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC CGL**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T17:42:59.149Z"
+  },
+  {
+    "id": 1790876579729,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790876579609@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:42:59.729Z"
+  },
+  {
+    "id": 1790876579765,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "How do I solve percentage shortcuts?",
+    "createdAt": "2026-10-01T17:42:59.765Z"
+  },
+  {
+    "id": 1790876579768,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790876579765,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers & Rapid Fractions**\n\n• **Fraction Conversions to Memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%, 1/16 = 6.25%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n• **Successive Percentage Rule**:\n  - Two successive changes of x% and y% ➔ Net change = [x + y + (xy / 100)]%\n• **Price & Consumption Inversion**:\n  - If the price of an article increases by 1/n, consumption must decrease by 1/(n + 1) to keep the total expense unchanged!\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:42:59.817Z"
+  },
+  {
+    "id": 1790876607497,
+    "author": "student",
+    "email": "profile-1790876607448@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T17:43:27.497Z"
+  },
+  {
+    "id": 1790876607500,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790876607497,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: CAT)\n\nRegarding: *\"**My account message**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **CAT**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T17:43:27.549Z"
+  },
+  {
+    "id": 1790876608068,
+    "author": "student",
+    "email": "levels-author-1790876607733@example.com",
+    "helpfulBy": [
+      "e83ca22a-c4e1-429b-af5e-8e02b43f490d"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T17:43:28.068Z"
+  },
+  {
+    "id": 1790876608071,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790876608068,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC CGL)\n\nRegarding: *\"**Here is a useful study tip.**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC CGL**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T17:43:28.120Z"
+  },
+  {
+    "id": 1790876608159,
+    "author": "student",
+    "email": "chat-owner-1790876608107@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T17:43:28.159Z"
+  },
+  {
+    "id": 1790876608162,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790876608159,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC CGL)\n\nRegarding: *\"**A private identity message**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC CGL**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T17:43:28.211Z"
+  },
+  {
+    "id": 1790876608771,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790876608662@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T17:43:28.771Z"
+  },
+  {
+    "id": 1790876608815,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "How do I solve percentage shortcuts?",
+    "createdAt": "2026-10-01T17:43:28.815Z"
+  },
+  {
+    "id": 1790876608817,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790876608815,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers & Rapid Fractions**\n\n• **Fraction Conversions to Memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%, 1/16 = 6.25%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n• **Successive Percentage Rule**:\n  - Two successive changes of x% and y% ➔ Net change = [x + y + (xy / 100)]%\n• **Price & Consumption Inversion**:\n  - If the price of an article increases by 1/n, consumption must decrease by 1/(n + 1) to keep the total expense unchanged!\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T17:43:28.866Z"
+  },
+  {
+    "id": 1790876904867,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "Help me fix my daily routine and timetable for exam prep",
+    "createdAt": "2026-10-01T17:48:24.867Z"
+  },
+  {
+    "id": 1790876904872,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790876904867,
+    "email": "",
+    "helpfulBy": [],
+    "text": "⏰ **High-Yield Daily Routine & Study Timetable** (Recommended for SSC)\n\n🌅 **Slot 1 (06:30 AM – 09:00 AM) · Peak Cognitive Window**\n• **Focus**: Quantitative Aptitude / Mathematics or Complex Reasoning.\n• **Rationale**: Peak brain energy and willpower. Zero mobile phone distractions.\n\n☀️ **Slot 2 (10:30 AM – 01:00 PM) · Concept Deep-Dive & Theory**\n• **Focus**: General Studies, Static GK, Current Affairs, or English Comprehension.\n• **Method**: Active recall and 1-page summary notes rather than passive reading.\n\n☕ **Slot 3 (03:30 PM – 05:30 PM) · Active Speed Drills**\n• **Focus**: Subject-wise practice quizzes on Result Darpan.\n• **Target**: Speed calculations, short-tricks, and elimination techniques under timer pressure.\n\n🌙 **Slot 4 (07:30 PM – 09:30 PM) · Full Mock Test & Error Log**\n• **Focus**: Attempt 1 mock test or 50 mixed PYQs.\n• **Crucial Step**: Log all mistakes into your Error Notebook with the underlying rule.\n\n💤 **Slot 5 (10:00 PM – 10:30 PM) · 15-Minute Review & Sleep**\n• **Focus**: Quick formula cards glance, lock tomorrow's top 3 priorities, and get 7+ hours of restful sleep for memory consolidation.\n\n💡 *Guideline: Follow 50-minute study blocks with 10-minute stretch/water breaks. Keep your daily streak unbroken!*",
+    "createdAt": "2026-10-01T17:48:24.921Z"
+  },
+  {
+    "id": 1790876905970,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "What are the latest upcoming exam updates, dates, and deadlines?",
+    "createdAt": "2026-10-01T17:48:25.970Z"
+  },
+  {
+    "id": 1790876905974,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790876905970,
+    "email": "",
+    "helpfulBy": [],
+    "text": "📢 **Result Darpan Live Exam Radar & Updates**\n\nHere are the latest active exam notices verified by our research desk:\n\n• **SSC CGL**: SSC CGL 2026 Tier-I Notification Released\n  📅 Date: 2026-11-20 (in 50 days) | 👥 Vacancies: 17,727 Posts\n  🔗 Portal: https://ssc.gov.in\n\n• **CTET**: CTET September 2026 Admit Card & Exam City Slip\n  📅 Date: 2026-10-18 (in 17 days) | 👥 Vacancies: Eligibility Certificate\n  🔗 Portal: https://ctet.nic.in\n\n• **NDA**: NDA II 2026 Examination Schedule & Guidelines\n  📅 Date: 2026-11-16 (in 46 days) | 👥 Vacancies: 400 Cadet Vacancies\n  🔗 Portal: https://upsc.gov.in\n\n• **AIIMS NORCET**: AIIMS NORCET-11 Nursing Officer Notification\n  📅 Date: 2026-11-01 (in 31 days) | 👥 Vacancies: 3,000+ Posts\n  🔗 Portal: https://aiimsexams.ac.in\n\n💡 *All mock tests and PYQs on Result Darpan are 100% free with instant detailed solutions.*",
+    "createdAt": "2026-10-01T17:48:26.023Z"
+  },
+  {
+    "id": 1790877927452,
+    "author": "student",
+    "email": "guest-1790863932760-tbr3dm@guest.resultdarpan.local",
+    "helpfulBy": [],
+    "text": "hii",
+    "createdAt": "2026-10-01T18:05:27.452Z"
+  },
+  {
+    "id": 1790877927455,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790877927452,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC)\n\nRegarding: *\"**hii**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T18:05:27.504Z"
+  },
+  {
+    "id": 1790878811855,
+    "author": "student",
+    "email": "profile-1790878811802@example.com",
+    "helpfulBy": [],
+    "text": "My account message",
+    "createdAt": "2026-10-01T18:20:11.855Z"
+  },
+  {
+    "id": 1790878811859,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790878811855,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: CAT)\n\nRegarding: *\"**My account message**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **CAT**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T18:20:11.908Z"
+  },
+  {
+    "id": 1790878812459,
+    "author": "student",
+    "email": "levels-author-1790878812113@example.com",
+    "helpfulBy": [
+      "c70ce21c-fa74-4416-a49d-585cceebb81b"
+    ],
+    "text": "Here is a useful study tip.",
+    "createdAt": "2026-10-01T18:20:12.459Z"
+  },
+  {
+    "id": 1790878812462,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790878812459,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC CGL)\n\nRegarding: *\"**Here is a useful study tip.**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC CGL**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T18:20:12.511Z"
+  },
+  {
+    "id": 1790878812559,
+    "author": "student",
+    "email": "chat-owner-1790878812503@example.com",
+    "helpfulBy": [],
+    "text": "A private identity message",
+    "createdAt": "2026-10-01T18:20:12.559Z"
+  },
+  {
+    "id": 1790878812562,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790878812559,
+    "email": "",
+    "helpfulBy": [],
+    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC CGL)\n\nRegarding: *\"**A private identity message**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC CGL**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
+    "createdAt": "2026-10-01T18:20:12.611Z"
+  },
+  {
+    "id": 1790878813201,
+    "author": "topper",
+    "topperName": "Warish Raj · Official Mentor",
+    "replyToId": null,
+    "email": "admin-cms-1790878813083@example.com",
+    "helpfulBy": [],
+    "text": "Keep practicing 20 minutes daily and your speed will improve!",
+    "createdAt": "2026-10-01T18:20:13.201Z"
+  },
+  {
+    "id": 1790878813241,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "How do I solve percentage shortcuts?",
+    "createdAt": "2026-10-01T18:20:13.241Z"
+  },
+  {
+    "id": 1790878813244,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790878813241,
+    "email": "",
+    "helpfulBy": [],
+    "text": "💡 **Topper Math Shortcut: Percentage Multipliers & Rapid Fractions**\n\n• **Fraction Conversions to Memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%, 1/16 = 6.25%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n• **Successive Percentage Rule**:\n  - Two successive changes of x% and y% ➔ Net change = [x + y + (xy / 100)]%\n• **Price & Consumption Inversion**:\n  - If the price of an article increases by 1/n, consumption must decrease by 1/(n + 1) to keep the total expense unchanged!\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
+    "createdAt": "2026-10-01T18:20:13.293Z"
+  }
+]

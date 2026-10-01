@@ -1,0 +1,24 @@
+{
+  "name": "result-darpan-backend",
+  "version": "1.0.0",
+  "description": "Backend API for the Result Darpan website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "express",
+    "backend",
+    "website"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemailer": "^10.0.13"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  }
+}
