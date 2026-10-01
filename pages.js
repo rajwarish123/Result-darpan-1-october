@@ -153,7 +153,27 @@ if (mainNav && !mainNav.querySelector('.more-menu')) {
     document.addEventListener('click', (event) => { if (!moreMenu.contains(event.target)) closeMore(); });
   }
 }
-menuToggle?.addEventListener('click', () => mainNav.classList.toggle('open'));
+menuToggle?.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.textContent = isOpen ? '×' : '☰';
+});
+
+document.addEventListener('click', (e) => {
+  if (mainNav && mainNav.classList.contains('open') && !mainNav.contains(e.target) && !menuToggle?.contains(e.target)) {
+    mainNav.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    if (menuToggle) menuToggle.textContent = '☰';
+  }
+});
+
+mainNav?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    if (menuToggle) menuToggle.textContent = '☰';
+  });
+});
 
 const previousYearQuestions = document.querySelector('#previousYearQuestions');
 const previousYearFilter = document.querySelector('#previousYearFilter');
