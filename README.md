@@ -1,5 +1,7 @@
 # Result Darpan
 
+> **Auto-Sync:** Connected to GitHub [`rajwarish123/Result-darpan-1-october`](https://github.com/rajwarish123/Result-darpan-1-october). Real-time automated Git push enabled.
+
 ## Run locally
 
 ```powershell
