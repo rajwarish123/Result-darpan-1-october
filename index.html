@@ -101,14 +101,46 @@
       <div class="rd-ad-container rd-ad-leaderboard" data-ad-slot="topLeaderboard" data-ad-slot-id="rd-home-leaderboard"></div>
     </div>
 
-    <section class="section catalog" id="popular">
-      <div class="shell"><div class="section-heading catalog-heading"><div><span class="kicker">FIND YOUR EDGE</span><h2>What are you preparing for?</h2></div><div class="slider-controls"><button class="slider-btn prev" aria-label="Previous">←</button><button class="slider-btn next" aria-label="Next">→</button></div></div>
-        <div class="category-row" role="tablist"><button class="category active" data-filter="all">All exams</button><button class="category" data-filter="banking">Banking</button><button class="category" data-filter="ssc">SSC</button><button class="category" data-filter="railways">Railways</button><button class="category" data-filter="defence">Defence</button><button class="category" data-filter="teaching">Teaching</button></div>
+        <section class="section catalog" id="popular">
+      <div class="shell">
+        <div class="section-heading catalog-heading">
+          <div>
+            <span class="kicker">FIND YOUR EDGE</span>
+            <h2>What are you preparing for?</h2>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-btn prev" aria-label="Previous">←</button>
+            <button class="slider-btn next" aria-label="Next">→</button>
+          </div>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <div class="catalog-search-wrap">
+          <div class="catalog-search-box">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" id="catalogSearchInput" class="catalog-search-input" placeholder="Search any exam (e.g. JEE, NEET, SSC CGL, RRB NTPC, SBI PO, UPSC, CTET)..." autocomplete="off" spellcheck="false" aria-label="Search exams">
+            <button type="button" id="catalogSearchClear" class="catalog-search-clear" aria-label="Clear search" hidden>×</button>
+          </div>
+        </div>
+
+        <!-- CATEGORY TABS -->
+        <div class="category-row" role="tablist">
+          <button class="category active" data-filter="all">All exams</button>
+          <button class="category" data-filter="college">College / Entrance</button>
+          <button class="category" data-filter="banking">Banking</button>
+          <button class="category" data-filter="ssc">SSC</button>
+          <button class="category" data-filter="railways">Railways</button>
+          <button class="category" data-filter="civil">Civil Services</button>
+          <button class="category" data-filter="defence">Defence</button>
+          <button class="category" data-filter="teaching">Teaching</button>
+        </div>
+
+        <!-- TEST GRID -->
         <div class="test-grid" id="testGrid">
-          <article class="test-card" data-category="ssc">
+          <article class="test-card" data-category="ssc" data-popular="true" data-exam-id="ssc-cgl">
             <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
               <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
-                <img class="test-logo-img" src="images/logos/ssc.png" alt="SSC Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+                <img class="test-logo-img" src="images/logos/ssc.png" alt="SSC CGL Tier-I Mock 01 Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
               </div>
               <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
                 <span class="test-tag tag-ssc">SSC</span>
@@ -123,15 +155,14 @@
               </div>
             </div>
             <div class="test-bottom">
-              <span class="attempts">● 6,109 attempts</span>
+              <span class="attempts">● 14,210 attempts</span>
               <button class="outline-btn start-test" data-mock-test="ssc-cgl">Take test <span>→</span></button>
             </div>
           </article>
-
-          <article class="test-card" data-category="banking">
+          <article class="test-card" data-category="banking" data-popular="true" data-exam-id="sbi-clerk">
             <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
               <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
-                <img class="test-logo-img" src="images/logos/sbi.svg" alt="SBI Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+                <img class="test-logo-img" src="images/logos/sbi.svg" alt="SBI Clerk Prelims 2026 Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
               </div>
               <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
                 <span class="test-tag tag-banking">BANKING</span>
@@ -146,15 +177,14 @@
               </div>
             </div>
             <div class="test-bottom">
-              <span class="attempts">● 8,421 attempts</span>
+              <span class="attempts">● 12,840 attempts</span>
               <button class="outline-btn start-test" data-mock-test="sbi-clerk">Take test <span>→</span></button>
             </div>
           </article>
-
-          <article class="test-card" data-category="railways">
+          <article class="test-card" data-category="railways" data-popular="true" data-exam-id="rrb-ntpc">
             <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
               <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
-                <img class="test-logo-img" src="images/logos/railways.png" alt="Indian Railways Official Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+                <img class="test-logo-img" src="images/logos/railways.png" alt="RRB NTPC CBT-I Mock 01 Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
               </div>
               <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
                 <span class="test-tag tag-railways">RAILWAYS</span>
@@ -169,15 +199,432 @@
               </div>
             </div>
             <div class="test-bottom">
-              <span class="attempts">● 9,840 attempts</span>
+              <span class="attempts">● 18,920 attempts</span>
               <button class="outline-btn start-test" data-mock-test="rrb-ntpc">Take test <span>→</span></button>
             </div>
           </article>
-
-          <article class="test-card" data-category="defence">
+          <article class="test-card" data-category="college" data-popular="true" data-exam-id="jee-main">
             <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
               <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
-                <img class="test-logo-img" src="images/logos/nda.svg" alt="NDA Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+                <img class="test-logo-img" src="images/logos/college.svg" alt="JEE Main 2026 · Full Mock Test Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-college">COLLEGE</span>
+                <span class="test-pill">NTA · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>JEE Main 2026 · Full Mock Test</h3>
+              <div class="test-meta">
+                <span>📝 90 questions</span>
+                <span>⏱ 180 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 21,340 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="jee-main">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="college" data-popular="true" data-exam-id="neet-ug">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/aiims.png" alt="NEET UG 2026 · Full Practice Paper Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-college">COLLEGE</span>
+                <span class="test-pill">Medical · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>NEET UG 2026 · Full Practice Paper</h3>
+              <div class="test-meta">
+                <span>📝 180 questions</span>
+                <span>⏱ 200 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 24,180 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="neet-ug">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="civil" data-popular="true" data-exam-id="upsc-prelims">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/upsc.png" alt="UPSC Civil Services Prelims · GS Paper I Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-civil">CIVIL SERVICES</span>
+                <span class="test-pill">CSE · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>UPSC Civil Services Prelims · GS Paper I</h3>
+              <div class="test-meta">
+                <span>📝 100 questions</span>
+                <span>⏱ 120 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 16,750 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="upsc-prelims">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="college" data-popular="false" data-exam-id="jee-advanced">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/college.svg" alt="JEE Advanced 2026 · Paper 1 Mock Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-college">COLLEGE</span>
+                <span class="test-pill">IIT · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>JEE Advanced 2026 · Paper 1 Mock</h3>
+              <div class="test-meta">
+                <span>📝 54 questions</span>
+                <span>⏱ 180 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 6,410 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="jee-advanced">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="college" data-popular="false" data-exam-id="cuet-ug">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/college.svg" alt="CUET UG 2026 · General Test Mock Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-college">COLLEGE</span>
+                <span class="test-pill">NTA · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>CUET UG 2026 · General Test Mock</h3>
+              <div class="test-meta">
+                <span>📝 60 questions</span>
+                <span>⏱ 60 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 8,920 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="cuet-ug">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="college" data-popular="false" data-exam-id="gate-cs">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/college.svg" alt="GATE 2026 · Computer Science & IT Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-college">COLLEGE</span>
+                <span class="test-pill">IIT/IISc · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>GATE 2026 · Computer Science & IT</h3>
+              <div class="test-meta">
+                <span>📝 65 questions</span>
+                <span>⏱ 180 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 5,210 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="gate-cs">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="college" data-popular="false" data-exam-id="cat-exam">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/college.svg" alt="CAT 2026 · Speed & Accuracy Drill Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-college">COLLEGE</span>
+                <span class="test-pill">IIM · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>CAT 2026 · Speed & Accuracy Drill</h3>
+              <div class="test-meta">
+                <span>📝 66 questions</span>
+                <span>⏱ 120 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 7,340 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="cat-exam">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="college" data-popular="false" data-exam-id="clat-exam">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/college.svg" alt="CLAT 2026 · Legal & Logical Reasoning Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-college">COLLEGE</span>
+                <span class="test-pill">NLUs · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>CLAT 2026 · Legal & Logical Reasoning</h3>
+              <div class="test-meta">
+                <span>📝 120 questions</span>
+                <span>⏱ 120 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 4,670 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="clat-exam">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="banking" data-popular="false" data-exam-id="sbi-po">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/sbi.svg" alt="SBI PO Prelims 2026 · Mock Test Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-banking">BANKING</span>
+                <span class="test-pill">PO · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>SBI PO Prelims 2026 · Mock Test</h3>
+              <div class="test-meta">
+                <span>📝 100 questions</span>
+                <span>⏱ 60 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 9,450 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="sbi-po">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="banking" data-popular="false" data-exam-id="ibps-po">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/sbi.svg" alt="IBPS PO Prelims 2026 · Mock Test Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-banking">BANKING</span>
+                <span class="test-pill">IBPS · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>IBPS PO Prelims 2026 · Mock Test</h3>
+              <div class="test-meta">
+                <span>📝 100 questions</span>
+                <span>⏱ 60 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 8,210 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="ibps-po">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="banking" data-popular="false" data-exam-id="ibps-clerk">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/sbi.svg" alt="IBPS Clerk Prelims 2026 · Mock Test Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-banking">BANKING</span>
+                <span class="test-pill">IBPS · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>IBPS Clerk Prelims 2026 · Mock Test</h3>
+              <div class="test-meta">
+                <span>📝 100 questions</span>
+                <span>⏱ 60 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 7,630 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="ibps-clerk">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="banking" data-popular="false" data-exam-id="rbi-grade-b">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/sbi.svg" alt="RBI Grade B Phase-I · Mock 2026 Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-banking">BANKING</span>
+                <span class="test-pill">RBI · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>RBI Grade B Phase-I · Mock 2026</h3>
+              <div class="test-meta">
+                <span>📝 200 questions</span>
+                <span>⏱ 120 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 5,120 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="rbi-grade-b">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="ssc" data-popular="false" data-exam-id="ssc-chsl">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/ssc.png" alt="SSC CHSL (10+2) Tier-I Mock 2026 Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-ssc">SSC</span>
+                <span class="test-pill">10+2 · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>SSC CHSL (10+2) Tier-I Mock 2026</h3>
+              <div class="test-meta">
+                <span>📝 100 questions</span>
+                <span>⏱ 60 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 9,820 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="ssc-chsl">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="ssc" data-popular="false" data-exam-id="ssc-mts">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/ssc.png" alt="SSC MTS & Havaldar Mock 2026 Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-ssc">SSC</span>
+                <span class="test-pill">CBT · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>SSC MTS & Havaldar Mock 2026</h3>
+              <div class="test-meta">
+                <span>📝 90 questions</span>
+                <span>⏱ 90 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 8,760 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="ssc-mts">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="ssc" data-popular="false" data-exam-id="ssc-gd">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/ssc.png" alt="SSC GD Constable Practice Set 2026 Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-ssc">SSC</span>
+                <span class="test-pill">Constable · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>SSC GD Constable Practice Set 2026</h3>
+              <div class="test-meta">
+                <span>📝 80 questions</span>
+                <span>⏱ 60 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 10,430 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="ssc-gd">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="railways" data-popular="false" data-exam-id="rrb-group-d">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/railways.png" alt="RRB Group D CBT Mock 2026 Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-railways">RAILWAYS</span>
+                <span class="test-pill">CBT · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>RRB Group D CBT Mock 2026</h3>
+              <div class="test-meta">
+                <span>📝 100 questions</span>
+                <span>⏱ 90 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 13,540 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="rrb-group-d">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="railways" data-popular="false" data-exam-id="rrb-alp">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/railways.png" alt="RRB ALP CBT-I Practice Test Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-railways">RAILWAYS</span>
+                <span class="test-pill">Loco Pilot · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>RRB ALP CBT-I Practice Test</h3>
+              <div class="test-meta">
+                <span>📝 75 questions</span>
+                <span>⏱ 60 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 8,210 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="rrb-alp">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="civil" data-popular="false" data-exam-id="bpsc-prelims">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/upsc.png" alt="70th BPSC Prelims · Full Mock Test Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-civil">CIVIL SERVICES</span>
+                <span class="test-pill">BPSC · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>70th BPSC Prelims · Full Mock Test</h3>
+              <div class="test-meta">
+                <span>📝 150 questions</span>
+                <span>⏱ 120 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 7,120 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="bpsc-prelims">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="civil" data-popular="false" data-exam-id="uppsc-prelims">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/upsc.png" alt="UPPSC PCS Prelims · GS Paper I Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-civil">CIVIL SERVICES</span>
+                <span class="test-pill">UPPSC · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>UPPSC PCS Prelims · GS Paper I</h3>
+              <div class="test-meta">
+                <span>📝 150 questions</span>
+                <span>⏱ 120 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 6,490 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="uppsc-prelims">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="defence" data-popular="false" data-exam-id="nda-mathematics">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/nda.svg" alt="NDA II 2026 · Mathematics Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
               </div>
               <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
                 <span class="test-tag tag-defence">DEFENCE</span>
@@ -192,15 +639,58 @@
               </div>
             </div>
             <div class="test-bottom">
-              <span class="attempts">● 4,537 attempts</span>
+              <span class="attempts">● 5,820 attempts</span>
               <button class="outline-btn start-test" data-mock-test="nda-mathematics">Take test <span>→</span></button>
             </div>
           </article>
-
-          <article class="test-card" data-category="teaching">
+          <article class="test-card" data-category="defence" data-popular="false" data-exam-id="cds-exam">
             <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
               <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
-                <img class="test-logo-img" src="images/logos/ctet.png" alt="CTET Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+                <img class="test-logo-img" src="images/logos/nda.svg" alt="UPSC CDS II 2026 · English & GK Mock Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-defence">DEFENCE</span>
+                <span class="test-pill">CDS · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>UPSC CDS II 2026 · English & GK Mock</h3>
+              <div class="test-meta">
+                <span>📝 120 questions</span>
+                <span>⏱ 120 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 5,940 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="cds-exam">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="defence" data-popular="false" data-exam-id="afcat-exam">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/nda.svg" alt="AFCAT 01/2026 · Full Practice Test Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-defence">DEFENCE</span>
+                <span class="test-pill">Air Force · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>AFCAT 01/2026 · Full Practice Test</h3>
+              <div class="test-meta">
+                <span>📝 100 questions</span>
+                <span>⏱ 120 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 4,520 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="afcat-exam">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="teaching" data-popular="false" data-exam-id="ctet-paper-1">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/ctet.png" alt="CTET Paper-I Mock 2026 Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
               </div>
               <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
                 <span class="test-tag tag-teaching">TEACHING</span>
@@ -215,10 +705,70 @@
               </div>
             </div>
             <div class="test-bottom">
-              <span class="attempts">● 7,215 attempts</span>
+              <span class="attempts">● 8,190 attempts</span>
               <button class="outline-btn start-test" data-mock-test="ctet-paper-1">Take test <span>→</span></button>
             </div>
           </article>
+          <article class="test-card" data-category="teaching" data-popular="false" data-exam-id="ctet-paper-2">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/ctet.png" alt="CTET Paper-II (Class 6-8) Mock 2026 Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-teaching">TEACHING</span>
+                <span class="test-pill">Paper-II · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>CTET Paper-II (Class 6-8) Mock 2026</h3>
+              <div class="test-meta">
+                <span>📝 150 questions</span>
+                <span>⏱ 150 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 6,840 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="ctet-paper-2">Take test <span>→</span></button>
+            </div>
+          </article>
+          <article class="test-card" data-category="teaching" data-popular="false" data-exam-id="ugc-net">
+            <div class="test-card-top" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:12px;">
+              <div class="test-logo-badge" style="width:48px; height:48px; min-width:48px; max-width:48px; border-radius:12px; background:#ffffff; border:1px solid #e2e8e4; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box; overflow:hidden; flex-shrink:0;">
+                <img class="test-logo-img" src="images/logos/ctet.png" alt="UGC NET Paper 1 · Teaching & Research Mock Logo" width="34" height="34" style="width:34px; height:34px; max-width:34px; max-height:34px; object-fit:contain; display:block;">
+              </div>
+              <div class="test-badges-group" style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                <span class="test-tag tag-teaching">TEACHING</span>
+                <span class="test-pill">NTA · Free</span>
+              </div>
+            </div>
+            <div class="test-content">
+              <h3>UGC NET Paper 1 · Teaching & Research Mock</h3>
+              <div class="test-meta">
+                <span>📝 50 questions</span>
+                <span>⏱ 60 mins</span>
+              </div>
+            </div>
+            <div class="test-bottom">
+              <span class="attempts">● 5,780 attempts</span>
+              <button class="outline-btn start-test" data-mock-test="ugc-net">Take test <span>→</span></button>
+            </div>
+          </article>
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div class="catalog-empty-state" id="catalogEmptyState" hidden>
+          <div class="empty-icon">🔍</div>
+          <h3>No exams found matching "<span id="emptyQueryText"></span>"</h3>
+          <p>Try searching with another keyword or explore the categories above.</p>
+          <button type="button" class="outline-btn" id="resetSearchBtn">Clear search &amp; view all</button>
+        </div>
+
+        <!-- TOGGLE ALL EXAMS (Default shows 6 most popular, toggles all 28) -->
+        <div class="view-all-exams-wrap" id="viewAllExamsWrap">
+          <button class="view-all-exams-btn" id="toggleAllExamsBtn" type="button">
+            <span>Show all 28 exams</span>
+            <span class="btn-icon">↓</span>
+          </button>
         </div>
       </div>
     </section>
