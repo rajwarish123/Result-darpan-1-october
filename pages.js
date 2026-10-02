@@ -466,13 +466,7 @@ function savePageProfile() {
     .catch((error) => window.alert(error.message));
 }
 
-document.querySelector('#profileSettings')?.addEventListener('click', () => {
-  if (!localStorage.getItem('preply-session-token')) { window.location.href = '/'; return; }
-  document.querySelector('#settingsName').value = profileName?.textContent || '';
-  document.querySelector('#settingsExam').value = savedExam;
-  document.querySelector('#settingsLocation').value = savedLocation;
-  document.querySelector('#settingsModal').classList.add('visible');
-});
+
 document.querySelector('#settingsClose')?.addEventListener('click', () => document.querySelector('#settingsModal').classList.remove('visible'));
 document.querySelector('#settingsForm')?.addEventListener('submit', (event) => { event.preventDefault(); savePageProfile(); });
 document.querySelector('#newQuote')?.addEventListener('click', () => {
