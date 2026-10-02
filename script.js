@@ -231,7 +231,82 @@ let questions = [
   { topic: 'General Awareness', text: 'Which gas is most abundant in Earth’s atmosphere?', options: ['Oxygen', 'Carbon dioxide', 'Hydrogen', 'Nitrogen'], answer: 3 }
 ];
 
-const apiOrigin = '';
+const apiOrigin = (() => {
+  if (typeof window === 'undefined') return '';
+  const port = window.location.port;
+  const host = window.location.hostname;
+  if (window.location.protocol === 'file:' || (host === '127.0.0.1' && port !== '3000') || (host === 'localhost' && port !== '3000')) {
+    return 'http://localhost:3000';
+  }
+  return '';
+})();
+
+function getFallbackMockTest(testId) {
+  const configs = {
+    'ssc-cgl': { title: 'SSC CGL Tier-I Mock 01', durationSeconds: 3600, total: 25 },
+    'sbi-clerk': { title: 'SBI Clerk Prelims 2026', durationSeconds: 3600, total: 25 },
+    'rrb-ntpc': { title: 'RRB NTPC CBT-I Mock 01', durationSeconds: 5400, total: 25 },
+    'jee-main': { title: 'JEE Main 2026 · Full Mock Test', durationSeconds: 10800, total: 25 },
+    'neet-ug': { title: 'NEET UG 2026 · Full Practice Paper', durationSeconds: 12000, total: 25 },
+    'upsc-prelims': { title: 'UPSC Civil Services Prelims · GS Paper I', durationSeconds: 7200, total: 25 },
+    'jee-advanced': { title: 'JEE Advanced 2026 · Paper 1 Mock', durationSeconds: 10800, total: 20 },
+    'cuet-ug': { title: 'CUET UG 2026 · General Test Mock', durationSeconds: 3600, total: 20 },
+    'gate-cs': { title: 'GATE 2026 · Computer Science & IT', durationSeconds: 10800, total: 20 },
+    'cat-exam': { title: 'CAT 2026 · Speed & Accuracy Drill', durationSeconds: 7200, total: 20 },
+    'clat-exam': { title: 'CLAT 2026 · Legal & Logical Reasoning', durationSeconds: 7200, total: 20 },
+    'sbi-po': { title: 'SBI PO Prelims 2026 · Mock Test', durationSeconds: 3600, total: 25 },
+    'ibps-po': { title: 'IBPS PO Prelims 2026 · Mock Test', durationSeconds: 3600, total: 25 },
+    'ibps-clerk': { title: 'IBPS Clerk Prelims 2026 · Mock Test', durationSeconds: 3600, total: 25 },
+    'rbi-grade-b': { title: 'RBI Grade B Phase-I · Mock 2026', durationSeconds: 7200, total: 25 },
+    'ssc-chsl': { title: 'SSC CHSL (10+2) Tier-I Mock 2026', durationSeconds: 3600, total: 25 },
+    'ssc-mts': { title: 'SSC MTS & Havaldar Mock 2026', durationSeconds: 5400, total: 25 },
+    'ssc-gd': { title: 'SSC GD Constable Practice Set 2026', durationSeconds: 3600, total: 25 },
+    'rrb-group-d': { title: 'RRB Group D CBT Mock 2026', durationSeconds: 5400, total: 25 },
+    'rrb-alp': { title: 'RRB ALP CBT-I Practice Test', durationSeconds: 3600, total: 25 },
+    'bpsc-prelims': { title: '70th BPSC Prelims · Full Mock Test', durationSeconds: 7200, total: 25 },
+    'uppsc-prelims': { title: 'UPPSC PCS Prelims · GS Paper I', durationSeconds: 7200, total: 25 },
+    'nda-mathematics': { title: 'NDA II 2026 · Mathematics', durationSeconds: 9000, total: 25 },
+    'cds-exam': { title: 'UPSC CDS II 2026 · English & GK Mock', durationSeconds: 7200, total: 25 },
+    'afcat-exam': { title: 'AFCAT 01/2026 · Full Practice Test', durationSeconds: 7200, total: 25 },
+    'ctet-paper-1': { title: 'CTET Paper-I Mock 2026', durationSeconds: 9000, total: 25 },
+    'ctet-paper-2': { title: 'CTET Paper-II (Class 6-8) Mock 2026', durationSeconds: 9000, total: 25 },
+    'ugc-net': { title: 'UGC NET Paper 1 · Teaching & Research Mock', durationSeconds: 3600, total: 25 }
+  };
+  const conf = configs[testId] || { title: 'Result Darpan Mock Test', durationSeconds: 3600, total: 20 };
+  const pool = [
+    { topic: 'Quantitative Aptitude', text: 'If a train 150m long passes a pole in 9 seconds, what is its speed in km/h?', options: ['54 km/h', '60 km/h', '72 km/h', '80 km/h'], answer: 1 },
+    { topic: 'Reasoning', text: 'Select the missing number in the series: 4, 9, 25, 49, 121, ?', options: ['144', '169', '196', '225'], answer: 1 },
+    { topic: 'General Science', text: 'What is the powerhouse of the eukaryotic cell?', options: ['Ribosome', 'Mitochondria', 'Golgi apparatus', 'Lysosome'], answer: 1 },
+    { topic: 'General Awareness', text: 'Who is known as the Chief Architect of the Indian Constitution?', options: ['Mahatma Gandhi', 'Dr. B.R. Ambedkar', 'Jawaharlal Nehru', 'Sardar Vallabhbhai Patel'], answer: 1 },
+    { topic: 'English Language', text: 'Choose the word nearest in meaning to "CANDID":', options: ['Deceptive', 'Frank', 'Arrogant', 'Shy'], answer: 1 },
+    { topic: 'Mathematics', text: 'What is the value of sin²(30°) + cos²(30°)?', options: ['0.5', '1', '1.5', '2'], answer: 1 },
+    { topic: 'Indian Polity', text: 'Under which Article of the Constitution of India are Fundamental Rights guaranteed?', options: ['Articles 5-11', 'Articles 12-35', 'Articles 36-51', 'Article 51A'], answer: 1 },
+    { topic: 'Current Affairs', text: 'Which river is known as the "Dakshin Ganga" of India?', options: ['Krishna', 'Godavari', 'Cauvery', 'Mahanadi'], answer: 1 },
+    { topic: 'General Intelligence', text: 'Find the odd one out: Circle, Square, Sphere, Triangle.', options: ['Circle', 'Square', 'Sphere', 'Triangle'], answer: 2 },
+    { topic: 'Data Interpretation', text: 'If the price of petrol increases by 25%, by what percent must consumption be reduced to keep expenditure constant?', options: ['15%', '20%', '25%', '30%'], answer: 1 },
+    { topic: 'Physics', text: 'What is the acceleration due to gravity on the surface of the Earth approximately?', options: ['8.9 m/s²', '9.8 m/s²', '10.8 m/s²', '12 m/s²'], answer: 1 },
+    { topic: 'Chemistry', text: 'What is the chemical formula of common salt?', options: ['KCl', 'NaCl', 'CaCO3', 'NaHCO3'], answer: 1 }
+  ];
+  const qList = Array.from({ length: conf.total }, (_, i) => {
+    const item = pool[i % pool.length];
+    return {
+      id: `${testId}-${i + 1}`,
+      number: i + 1,
+      topic: item.topic,
+      text: item.text,
+      options: [...item.options],
+      answer: item.answer
+    };
+  });
+  return {
+    id: testId,
+    title: conf.title,
+    durationSeconds: conf.durationSeconds,
+    totalQuestions: conf.total,
+    questions: qList
+  };
+}
+
 const questionBankPromise = Promise.resolve();
 
 const testModal = document.querySelector('#testModal');
