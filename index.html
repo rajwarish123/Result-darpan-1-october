@@ -1127,7 +1127,7 @@
   <div class="settings-modal" id="settingsModal" aria-hidden="true"><div class="settings-window" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><button class="auth-close" id="settingsClose" aria-label="Close profile settings">×</button><span class="kicker">PROFILE SETTINGS</span><h2 id="settingsTitle">Keep your prep details current.</h2><p>We use these details to tune your exam feed and study suggestions.</p><form id="settingsForm" class="auth-form"><label>Your name<input id="settingsName" type="text" required></label><label>Exam you are preparing for<input id="settingsExam" type="text" required></label><label>Where are you located?<input id="settingsLocation" type="text" required></label><button class="primary-btn" type="submit">Save profile <span>✓</span></button></form></div></div>
 
   <!-- PRACTICE SET SELECTION MODAL (30 Sets for Every Exam & Subject) -->
-  <div class="modal-overlay" id="setSelectionModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="setModalTitle">
+  <div class="modal-overlay" id="setSelectionModal" style="display:none; position:fixed; inset:0; background:rgba(18,45,39,0.78); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); z-index:99999; align-items:center; justify-content:center; padding:20px; box-sizing:border-box;" role="dialog" aria-modal="true" aria-labelledby="setModalTitle">
     <div class="modal-card set-selection-card" style="max-width:760px; width:92%; max-height:88vh; display:flex; flex-direction:column; padding:28px 24px; border-radius:18px;">
       <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px; border-bottom:1px solid #edf2ef; padding-bottom:14px;">
         <div>

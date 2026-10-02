@@ -994,7 +994,9 @@ function openSetSelectionModal(type, id, title) {
 
   if (modal) {
     modal.style.display = 'flex';
+    modal.classList.add('visible');
     modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 }
 
@@ -1002,7 +1004,9 @@ function closeSetSelectionModal() {
   const modal = document.getElementById('setSelectionModal');
   if (modal) {
     modal.style.display = 'none';
+    modal.classList.remove('visible');
     modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
   }
 }
 
