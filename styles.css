@@ -1391,45 +1391,168 @@
   color: #a9c0b2 !important;
 }
 
-/* 16. Real Exam Logos & Card Illustrations */
-.test-illustration {
-  height: 124px;
+/* 16. Real Exam Logos & Modern Test Cards */
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.test-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid var(--line, #e2e8e4);
+  padding: 22px;
   display: flex !important;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  box-sizing: border-box;
+  flex-direction: column !important;
+  justify-content: space-between;
+  box-shadow: 0 4px 16px rgba(18, 45, 39, 0.04);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
   position: relative;
   overflow: hidden;
-  background: #f8faf9;
-  border-bottom: 1px solid var(--line, #e2e8e4);
+  box-sizing: border-box;
+  min-height: 200px;
 }
-.test-illustration .exam-logo-img {
-  max-height: 76px;
-  max-width: 140px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
-  transition: transform 0.25s ease;
+
+.test-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(18, 45, 39, 0.1);
+  border-color: #28a745;
 }
-.test-card:hover .exam-logo-img {
-  transform: scale(1.08);
+
+.test-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
 }
-.test-illustration.lavender {
-  background: linear-gradient(135deg, #f0f4ff, #e3ecfc);
+
+.test-logo-badge {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  max-width: 48px;
+  max-height: 48px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8e4;
+  box-shadow: 0 2px 8px rgba(18, 45, 39, 0.06);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 6px;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
 }
-.test-illustration.mint {
-  background: linear-gradient(135deg, #eef9f2, #dff4e7);
+
+.test-logo-img {
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+  object-fit: contain !important;
+  display: block !important;
 }
-.test-illustration.peach {
-  background: linear-gradient(135deg, #fff8eb, #fae6d8);
+
+.test-badges-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
 }
-.test-illustration.rail-bg {
-  background: linear-gradient(135deg, #fff2f2, #ffe4e4);
+
+.test-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-block;
 }
-.test-illustration.ctet-bg {
-  background: linear-gradient(135deg, #eff8f9, #dcf0f2);
+
+.tag-ssc { background: #fee2e2; color: #b91c1c; }
+.tag-banking { background: #dbeafe; color: #1d4ed8; }
+.tag-railways { background: #ffedd5; color: #c2410c; }
+.tag-defence { background: #fef3c7; color: #b45309; }
+.tag-teaching { background: #e0e7ff; color: #4338ca; }
+
+.test-pill {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  display: inline-block;
+}
+
+.test-content {
+  flex: 1;
+  padding: 0 !important;
+  margin-bottom: 14px;
+}
+
+.test-content h3 {
+  font: 700 17px/1.35 var(--serif, 'DM Sans', sans-serif);
+  margin: 0 0 10px 0;
+  color: var(--ink, #14352b);
+  letter-spacing: -0.2px;
+}
+
+.test-meta {
+  display: flex;
+  gap: 14px;
+  color: var(--muted, #64748b);
+  font-size: 12px;
+}
+
+.test-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f2;
+  margin-top: auto;
+}
+
+.attempts {
+  font-size: 11px;
+  color: var(--muted, #64748b);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.outline-btn.start-test {
+  font-size: 12px;
+  font-weight: 700;
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.outline-btn.start-test:hover {
+  background: #166534;
+  color: #ffffff;
+  border-color: #166534;
+}
+
+/* Fallback protection: completely suppress legacy big illustrations */
+.test-illustration {
+  display: none !important;
 }
 
 /* Upcoming Exam Cards Real Logos */
@@ -1470,28 +1593,51 @@
   object-fit: contain;
 }
 
-/* Dark Theme Overrides for Real Exam Logos */
-.dark-theme .test-illustration {
-  background: #112d24 !important;
-  border-bottom-color: #214b3b !important;
+/* Dark Theme Overrides for Real Exam Logos & Test Cards */
+.dark-theme .test-card {
+  background: #16362a !important;
+  border-color: #275240 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
 }
-.dark-theme .test-illustration.lavender {
-  background: linear-gradient(135deg, #1c2b3c, #131e2b) !important;
+.dark-theme .test-card:hover {
+  border-color: #52b788 !important;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45) !important;
 }
-.dark-theme .test-illustration.mint {
-  background: linear-gradient(135deg, #16362a, #0e241c) !important;
+.dark-theme .test-logo-badge {
+  background: #ffffff !important;
+  border-color: #315747 !important;
 }
-.dark-theme .test-illustration.peach {
-  background: linear-gradient(135deg, #352516, #24190e) !important;
+.dark-theme .test-content h3 {
+  color: #ecf7ef !important;
 }
-.dark-theme .test-illustration.rail-bg {
-  background: linear-gradient(135deg, #381c1c, #261111) !important;
+.dark-theme .test-meta {
+  color: #a9c0b2 !important;
 }
-.dark-theme .test-illustration.ctet-bg {
-  background: linear-gradient(135deg, #153238, #0e2125) !important;
+.dark-theme .test-bottom {
+  border-top-color: #214838 !important;
 }
-.dark-theme .test-illustration .exam-logo-img {
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+.dark-theme .attempts {
+  color: #a9c0b2 !important;
+}
+.dark-theme .outline-btn.start-test {
+  background: #102920 !important;
+  border-color: #275240 !important;
+  color: #86efac !important;
+}
+.dark-theme .outline-btn.start-test:hover {
+  background: #1d7b57 !important;
+  color: #ffffff !important;
+  border-color: #1d7b57 !important;
+}
+.dark-theme .tag-ssc { background: #451a1a !important; color: #fca5a5 !important; }
+.dark-theme .tag-banking { background: #1e293b !important; color: #93c5fd !important; }
+.dark-theme .tag-railways { background: #3c2014 !important; color: #fdba74 !important; }
+.dark-theme .tag-defence { background: #372a12 !important; color: #fde047 !important; }
+.dark-theme .tag-teaching { background: #232244 !important; color: #c7d2fe !important; }
+.dark-theme .test-pill {
+  background: #14352b !important;
+  color: #86efac !important;
+  border-color: #2a5543 !important;
 }
 .dark-theme .exam-badge-logo {
   background: #ffffff !important;
