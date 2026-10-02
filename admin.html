@@ -3561,6 +3561,115 @@ Topic: Mechanics
       } catch (e) {}
     }
 
+    // ==========================================
+    // MONETIZATION & ADS (GOOGLE ADSENSE READY)
+    // ==========================================
+    async function loadAdminAdSettings() {
+      const feedback = document.getElementById('adSettingsFeedback');
+      if (feedback) {
+        feedback.textContent = 'Loading monetization settings...';
+        feedback.style.color = 'var(--muted)';
+      }
+      try {
+        const res = await fetch('/api/ad-settings');
+        if (res.ok) {
+          const data = await res.json();
+          const s = data.adSettings || {};
+          const enabledToggle = document.getElementById('adEnabledToggle');
+          const clientInput = document.getElementById('adClientInput');
+          const testModeToggle = document.getElementById('adTestModeToggle');
+          const autoAdsToggle = document.getElementById('adAutoAdsToggle');
+          const topLeaderboardToggle = document.getElementById('adSlotTopLeaderboard');
+          const inFeedToggle = document.getElementById('adSlotInFeed');
+          const articleInlineToggle = document.getElementById('adSlotArticleInline');
+          const badge = document.getElementById('adStatusBadge');
+
+          if (enabledToggle) enabledToggle.checked = Boolean(s.enabled);
+          if (clientInput) clientInput.value = s.adClient || '';
+          if (testModeToggle) testModeToggle.checked = Boolean(s.testMode);
+          if (autoAdsToggle) autoAdsToggle.checked = Boolean(s.autoAds);
+          if (topLeaderboardToggle) topLeaderboardToggle.checked = s.showTopBanner !== false;
+          if (inFeedToggle) inFeedToggle.checked = s.showInFeed !== false;
+          if (articleInlineToggle) articleInlineToggle.checked = s.showArticleBanner !== false;
+
+          if (badge) {
+            if (s.enabled && s.adClient) {
+              badge.textContent = '● Live Ads Active';
+              badge.style.background = '#dcfce7';
+              badge.style.color = '#15803d';
+            } else if (s.testMode) {
+              badge.textContent = '● Visual Preview Mode';
+              badge.style.background = '#fef3c7';
+              badge.style.color = '#b45309';
+            } else {
+              badge.textContent = '○ Ads Inactive';
+              badge.style.background = '#f1f5f9';
+              badge.style.color = '#64748b';
+            }
+          }
+          if (feedback) feedback.textContent = '';
+        }
+      } catch (err) {
+        if (feedback) {
+          feedback.textContent = 'Failed to load ad settings.';
+          feedback.style.color = 'var(--danger)';
+        }
+        console.error('Ad settings fetch error:', err);
+      }
+    }
+
+    document.getElementById('adSettingsForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const feedback = document.getElementById('adSettingsFeedback');
+      const btn = document.getElementById('btnSaveAdSettings');
+      if (feedback) {
+        feedback.textContent = 'Saving monetization settings & syncing ads.txt...';
+        feedback.style.color = 'var(--muted)';
+      }
+      if (btn) btn.disabled = true;
+
+      const payload = {
+        enabled: document.getElementById('adEnabledToggle')?.checked || false,
+        adClient: document.getElementById('adClientInput')?.value?.trim() || '',
+        testMode: document.getElementById('adTestModeToggle')?.checked || false,
+        autoAds: document.getElementById('adAutoAdsToggle')?.checked || false,
+        showTopBanner: document.getElementById('adSlotTopLeaderboard')?.checked || false,
+        showInFeed: document.getElementById('adSlotInFeed')?.checked || false,
+        showArticleBanner: document.getElementById('adSlotArticleInline')?.checked || false
+      };
+
+      try {
+        const res = await apiFetch('/api/admin/ad-settings', {
+          method: 'PUT',
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          showToast('Monetization settings & ads.txt updated successfully!');
+          if (feedback) {
+            feedback.textContent = '✓ Saved! ads.txt updated and live on root domain.';
+            feedback.style.color = '#15803d';
+          }
+          await loadAdminAdSettings();
+        } else {
+          const errMsg = data.error || 'Failed to save monetization settings.';
+          showToast(errMsg, true);
+          if (feedback) {
+            feedback.textContent = errMsg;
+            feedback.style.color = 'var(--danger)';
+          }
+        }
+      } catch (err) {
+        showToast('Network error while saving monetization settings.', true);
+        if (feedback) {
+          feedback.textContent = 'Network error saving settings.';
+          feedback.style.color = 'var(--danger)';
+        }
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    });
+
     // Helper for safe HTML rendering
     function escapeHtml(str) {
       if (typeof str !== 'string') return '';
