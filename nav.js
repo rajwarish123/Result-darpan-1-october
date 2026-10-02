@@ -64,14 +64,14 @@
   dropdown.appendChild(heading);
 
   const shortcuts = [
-    { label: 'Read Blogs', href: 'blogs', icon: '✍️' },
-    { label: 'Contact Us', href: 'contact#contact-form', icon: '📬' },
+    { label: 'Read Strategy Blogs', href: 'blogs', icon: '✍️' },
+    { label: 'Free Study Notes & PDFs', href: 'resources', icon: '📚' },
+    { label: 'Upcoming Exam Dates', href: 'notifications', icon: '📢' },
     { label: 'Previous Year Questions', href: 'previous-year-questions', icon: '📜' },
     { label: 'School Classes (9-12)', href: 'class-series', icon: '🏫' },
-    { label: 'Study Notes & PDFs', href: 'resources', icon: '📚' },
-    { label: 'Subject Practice', href: 'index.html#subjects', icon: '🎯' },
-    { label: 'Upcoming Exams', href: 'index.html#exams', icon: '🏛️' },
-    { label: 'AI Study Mentor', href: 'mentor-chat', icon: '🤖' }
+    { label: 'Subject Practice Tests', href: '/#subjects', icon: '🎯' },
+    { label: 'AI Study Mentor 24/7', href: 'mentor-chat', icon: '🤖' },
+    { label: 'Contact Us', href: 'contact#contact-form', icon: '📬' }
   ];
 
   shortcuts.forEach((sc) => {
@@ -82,7 +82,7 @@
   });
 
   // Retain any distinct custom links that may have been in the source markup
-  const shortcutKeywords = ['blog', 'contact', 'previous', 'class', 'resource', 'subject', 'exam', 'mentor', 'test series', 'profile', 'about'];
+  const shortcutKeywords = ['blog', 'contact', 'previous', 'class', 'resource', 'subject', 'exam', 'notification', 'mentor', 'test series', 'profile', 'about'];
   const extraLinks = movedLinks.filter((link) => {
     const text = link.textContent.trim().toLowerCase();
     return !shortcutKeywords.some((kw) => text.includes(kw));
@@ -116,14 +116,16 @@
   dropdown.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href') || '';
-      const [path, hash] = href.split('#');
+      let [path, hash] = href.split('#');
       const currentPath = window.location.pathname.replace(/^\/+/g, '').split('/').pop() || '';
 
       if (hash) {
         const isCurrentPage =
           !path ||
+          path === '/' ||
           path === currentPath ||
-          ((path === 'index.html' || path === '') && (currentPath === '' || currentPath === 'index.html'));
+          path.replace(/\.html$/, '') === currentPath.replace(/\.html$/, '') ||
+          ((path === 'index.html' || path === '' || path === '/') && (currentPath === '' || currentPath === 'index.html'));
 
         if (isCurrentPage) {
           const targetEl = document.getElementById(hash);
@@ -149,5 +151,55 @@
 
   document.addEventListener('click', (event) => {
     if (!moreMenu.contains(event.target)) closeMenu();
+  });
+
+  // Universal clean-route click resolver:
+  // If testing on local static server (file://, port 5500, port 5501) where server URL rewrites do not exist,
+  // ensure clicking clean routes (blogs, contact, resources, notifications, etc.) transparently loads the .html file
+  // and nav.js will immediately clean the address bar with history.replaceState!
+  const internalCleanRoutes = new Set([
+    'blogs',
+    'contact',
+    'resources',
+    'profile',
+    'mentor-chat',
+    'class-series',
+    'previous-year-questions',
+    'notifications',
+    'privacy',
+    'terms',
+    'wariya'
+  ]);
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    const rawHref = link.getAttribute('href');
+    if (!rawHref || rawHref.startsWith('http://') || rawHref.startsWith('https://') || rawHref.startsWith('//') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:') || rawHref.startsWith('#')) return;
+
+    const isLocalStatic = window.location.protocol === 'file:' || window.location.port === '5500' || window.location.port === '5501';
+
+    let path = rawHref;
+    let queryAndHash = '';
+    const qIndex = rawHref.search(/[?#]/);
+    if (qIndex !== -1) {
+      path = rawHref.slice(0, qIndex);
+      queryAndHash = rawHref.slice(qIndex);
+    }
+
+    const cleanPath = path.replace(/^\/+/, '');
+
+    if (isLocalStatic) {
+      if (cleanPath === '' || cleanPath === 'index') {
+        e.preventDefault();
+        window.location.href = 'index.html' + queryAndHash;
+        return;
+      }
+      if (internalCleanRoutes.has(cleanPath)) {
+        e.preventDefault();
+        window.location.href = cleanPath + '.html' + queryAndHash;
+        return;
+      }
+    }
   });
 })();
