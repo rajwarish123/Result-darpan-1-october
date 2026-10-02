@@ -40,8 +40,15 @@ app.use((req, res, next) => {
     'http://resultdarpan.com',
     'http://www.resultdarpan.com'
   ];
-  if (origin && allowedOrigins.includes(origin)) {
+  const isLocalDev = origin && (origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:'));
+  if (origin && (allowedOrigins.includes(origin) || isLocalDev)) {
     res.set('Access-Control-Allow-Origin', origin);
+    res.set('Access-Control-Allow-Credentials', 'true');
+    res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.set('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
+  }
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
   }
   next();
 });
