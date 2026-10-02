@@ -611,23 +611,38 @@ function renderHomeGoals(goals = []) {
 
 async function loadHomeProfile() {
   const name = document.querySelector('#profileName');
-  const label = document.querySelector('.profile-top p');
-  const avatar = document.querySelector('.profile-avatar');
+  const label = document.querySelector('#profileExamLabel') || document.querySelector('.profile-top p');
+  const avatar = document.querySelector('#profileSummaryAvatar') || document.querySelector('.profile-avatar');
   const token = window.localStorage.getItem('preply-session-token');
-  if (name) name.textContent = token ? 'Loading profile...' : 'Your profile';
-  if (label) label.textContent = token ? 'Loading your personal data' : 'Sign in to view your personal profile';
-  if (avatar && !token) avatar.textContent = '?';
+  const savedName = window.localStorage.getItem('preply-profile-name');
+
+  const activityLabel = document.querySelector('#profileConsistencyLabel') || document.querySelector('.profile-progress .progress-label span');
+  const activityBar = document.querySelector('#profileTrackFill') || document.querySelector('.profile-progress .progress-track span');
+  const streak = document.querySelector('#profileStreakPill') || document.querySelector('.streak-pill');
+  const testsMetric = document.querySelector('#profileTests');
+  const bestMetric = document.querySelector('#profileBest');
+  const studyMetric = document.querySelector('#profileStudyHours') || document.querySelector('#profileStudyTime') || document.querySelector('.profile-metrics > div:nth-child(3) strong');
+
+  if (!token || !savedName) {
+    if (name) name.textContent = 'Student Account';
+    if (label) label.textContent = 'Sign in to track your test scores & streak';
+    if (avatar) avatar.textContent = 'RD';
+    if (streak) streak.textContent = '0 day streak';
+    if (activityLabel) activityLabel.textContent = '0 of 7 days';
+    if (activityBar) activityBar.style.width = '0%';
+    if (testsMetric) testsMetric.textContent = '0';
+    if (bestMetric) bestMetric.textContent = '—';
+    if (studyMetric) studyMetric.textContent = '0h';
+    renderHomeGoals([]);
+    return;
+  }
+  if (name) name.textContent = 'Loading profile...';
+  if (label) label.textContent = 'Loading your personal data';
   updateProfileMetrics({ testsTaken: 0, averageAccuracy: 0, studyTimeMinutes: 0 });
   renderHomeGoals();
-  const activityLabel = document.querySelector('.profile-progress .progress-label span');
-  const activityBar = document.querySelector('.profile-progress .progress-track span');
-  const streak = document.querySelector('.streak-pill');
   if (activityLabel) activityLabel.textContent = '0 of 7 days';
   if (activityBar) activityBar.style.width = '0%';
   if (streak) streak.textContent = '0 active days this week';
-  if (!token) {
-    return;
-  }
   try {
     const response = await fetch('/api/profile/me', { headers: { Authorization: `Bearer ${token}` } });
     if (!response.ok) throw new Error('Your profile could not be loaded.');
