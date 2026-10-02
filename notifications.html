@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Latest Indian government and entrance exam notifications, upcoming test dates, eligibility, vacancies, and application deadlines on Result Darpan.">
+  <link rel="canonical" href="https://resultdarpan.com/notifications">
+  <title>Upcoming Exam Dates &amp; Official Notifications | Result Darpan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="mobile.css">
+  <script src="nav.js" defer></script>
+  <style>
+    .notif-page { background: #f3f9f4; padding: 60px 0 90px; min-height: 70vh; }
+    .notif-wrap { max-width: 1100px; margin: 0 auto; }
+    .notif-heading { margin-bottom: 30px; }
+    .notif-heading h1 { font: 800 42px/1.15 var(--serif, 'DM Sans', sans-serif); letter-spacing: -0.5px; margin: 10px 0; color: var(--ink, #182c2a); }
+    .notif-heading h1 em { color: var(--green, #175e4b); font-style: normal; }
+    .notif-subtitle { color: var(--muted, #5e756d); font-size: 15px; max-width: 680px; line-height: 1.6; }
+    
+    .notif-controls { display: flex; gap: 14px; margin-bottom: 28px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .notif-search-box { position: relative; flex: 1; min-width: 260px; max-width: 480px; }
+    .notif-search-box input { width: 100%; padding: 12px 16px 12px 42px; border-radius: 12px; border: 1px solid var(--line, #d4e4dc); background: #ffffff; font-size: 14px; box-sizing: border-box; outline: none; }
+    .notif-search-box input:focus { border-color: var(--green, #175e4b); box-shadow: 0 0 0 3px rgba(23,94,75,0.1); }
+    .notif-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 16px; opacity: 0.6; }
+
+    .notif-filter-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .notif-filter-btn { background: #ffffff; border: 1px solid var(--line, #d4e4dc); border-radius: 20px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--muted, #5e756d); cursor: pointer; transition: 0.2s ease; }
+    .notif-filter-btn.active, .notif-filter-btn:hover { background: var(--green, #175e4b); color: #ffffff; border-color: var(--green, #175e4b); }
+
+    .notif-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .notif-card { background: #ffffff; border: 1px solid var(--line, #d4e4dc); border-radius: 16px; padding: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .notif-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(20,57,42,0.08); border-color: var(--green, #175e4b); }
+    
+    .notif-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 10px; }
+    .notif-badge { font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; background: #eef7f2; color: #175e4b; }
+    .notif-countdown { font-size: 12px; font-weight: 700; color: #d9534f; background: #fdf2f2; padding: 4px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; }
+    
+    .notif-card h3 { font: 700 18px/1.35 var(--serif, 'DM Sans', sans-serif); margin: 0 0 10px; color: var(--ink, #182c2a); }
+    .notif-details { font-size: 13.5px; color: #4b6358; line-height: 1.55; margin-bottom: 16px; flex: 1; }
+    
+    .notif-meta-list { display: grid; gap: 6px; font-size: 12.5px; color: var(--muted, #5e756d); background: #f7faf8; padding: 12px 14px; border-radius: 10px; margin-bottom: 18px; }
+    .notif-meta-item { display: flex; justify-content: space-between; }
+    .notif-meta-item strong { color: var(--ink, #182c2a); }
+
+    .notif-actions { display: flex; gap: 10px; align-items: center; }
+    .notif-btn-prep { flex: 1; background: var(--green, #175e4b); color: #ffffff; text-decoration: none; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 12.5px; text-align: center; transition: 0.2s; }
+    .notif-btn-prep:hover { background: #114637; }
+    .notif-btn-link { background: #ffffff; border: 1px solid var(--line, #d4e4dc); color: var(--ink, #182c2a); text-decoration: none; padding: 9px 12px; border-radius: 8px; font-weight: 600; font-size: 12.5px; text-align: center; }
+    .notif-btn-link:hover { border-color: var(--green, #175e4b); color: var(--green, #175e4b); }
+
+    .notif-count { font-size: 13.5px; color: var(--muted, #5e756d); margin-bottom: 14px; }
+  </style>
+</head>
+<body class="subpage-body">
+  <div class="topbar">
+    <div class="shell topbar-inner">
+      <span><span class="spark">✦</span> India's most loved free mock test platform</span>
+      <div class="top-links">
+        <a href="/#stats">Why Result Darpan?</a>
+        <a href="blogs">Strategy Blogs</a>
+        <a href="resources">Study Notes &amp; PDFs</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="/" aria-label="Result Darpan home">
+        <span class="brand-mark">R</span><span>Result <span>Darpan</span></span>
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/#exams">Exams</a>
+        <a href="/#popular">Test series</a>
+        <a href="resources">Resources</a>
+        <a href="profile">My profile</a>
+        <a class="mentor-chat-btn" href="mentor-chat">AI Study Mentor ✦</a>
+        <a href="contact">About us</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">
+          <span class="theme-sun">☼</span><span class="theme-moon">◐</span>
+        </button>
+        <a class="login-btn" href="/">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="notif-page">
+    <div class="shell notif-wrap">
+      <div class="notif-heading">
+        <span class="kicker">OFFICIAL EXAM CALENDAR &amp; NOTIFICATIONS</span>
+        <h1>Upcoming Exam Dates &amp; <em>Alerts</em></h1>
+        <p class="notif-subtitle">Track confirmed examination schedules, official notifications, vacancies, eligibility, and direct portal application links — curated live by Result Darpan Team.</p>
+      </div>
+
+      <div class="notif-controls">
+        <div class="notif-search-box">
+          <span class="notif-search-icon">🔍</span>
+          <input type="text" id="notifSearch" placeholder="Search by exam name, post, or organization..." autocomplete="off">
+        </div>
+        <div class="notif-filter-row" role="tablist">
+          <button class="notif-filter-btn active" data-filter="all">All</button>
+          <button class="notif-filter-btn" data-filter="Central Govt">Central Govt / SSC</button>
+          <button class="notif-filter-btn" data-filter="Railways">Railways</button>
+          <button class="notif-filter-btn" data-filter="Banking">Banking</button>
+          <button class="notif-filter-btn" data-filter="Teaching">Teaching</button>
+          <button class="notif-filter-btn" data-filter="Defence">Defence</button>
+          <button class="notif-filter-btn" data-filter="College">College / Entrance</button>
+        </div>
+      </div>
+
+      <div class="notif-count" id="notifCountLabel">Loading verified exam notifications...</div>
+      <div class="notif-grid" id="notifGrid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="siteFooter">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand footer-logo" href="/"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
+          <p class="footer-tagline">Student-focused mock tests, practice series, and topper guidance — 100% free.</p>
+          <p class="footer-owner">Result Darpan Team · Dedicated to Student Success</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/#popular">Mock Test Series</a></li>
+            <li><a href="/#subjects">Subject Practice</a></li>
+            <li><a href="previous-year-questions">Previous Year Papers</a></li>
+            <li><a href="class-series">School Classes (9-12)</a></li>
+            <li><a href="blogs">Topper Strategy Blogs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="profile">My Prep Desk</a></li>
+            <li><a href="mentor-chat">AI Study Mentor ✦</a></li>
+            <li><a href="resources">Resources</a></li>
+            <li><a href="contact">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Privacy &amp; Terms</h4>
+          <ul>
+            <li><a href="privacy">Privacy Policy</a></li>
+            <li><a href="terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Result Darpan. All rights reserved. Built for India's ambitious learners.</div>
+        <div class="footer-bottom-links">
+          <a href="contact">About Result Darpan</a>
+          <a href="privacy" class="footer-legal-link">Privacy Policy</a>
+          <a href="terms" class="footer-legal-link">Terms &amp; Conditions</a>
+          <a href="contact#contact-form">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const fallbackNotifications = [
+      {
+        id: "notif-1",
+        title: "SSC CGL 2026 Tier-I Notification Released",
+        exam: "SSC CGL",
+        category: "Central Govt",
+        badge: "SSC",
+        examDate: "2026-11-20",
+        daysText: "in 50 days",
+        vacancies: "17,727 Posts",
+        eligibility: "Bachelor's Degree in any discipline",
+        applyDeadline: "2026-10-30",
+        officialLink: "https://ssc.gov.in",
+        details: "Tier-I computer-based exam consisting of General Intelligence, General Awareness, Quantitative Aptitude, and English Comprehension.",
+        isUpcoming: true
+      },
+      {
+        id: "notif-2",
+        title: "CTET September 2026 Admit Card & Exam City Slip",
+        exam: "CTET",
+        category: "Teaching",
+        badge: "CTET",
+        examDate: "2026-10-18",
+        daysText: "in 17 days",
+        vacancies: "Eligibility Certificate",
+        eligibility: "D.El.Ed / B.Ed / Graduation with teaching qualification",
+        applyDeadline: "2026-09-15",
+        officialLink: "https://ctet.nic.in",
+        details: "Paper I & Paper II will be held in two shifts across India. Download your city intimation slip from the official portal.",
+        isUpcoming: true
+      },
+      {
+        id: "notif-3",
+        title: "NDA II 2026 Examination Schedule & Guidelines",
+        exam: "NDA",
+        category: "Defence",
+        badge: "NDA",
+        examDate: "2026-11-16",
+        daysText: "in 46 days",
+        vacancies: "400 Cadet Vacancies",
+        eligibility: "12th Standard Pass / Appearing (Physics & Maths for Air Force/Navy)",
+        applyDeadline: "2026-09-20",
+        officialLink: "https://upsc.gov.in",
+        details: "Conducted by UPSC for admission to Army, Navy and Air Force wings of the NDA. Total 900 marks across Mathematics and GAT.",
+        isUpcoming: true
+      },
+      {
+        id: "notif-4",
+        title: "RRB NTPC 2026 CEN 05/2026 Recruitment Notice",
+        exam: "RRB NTPC",
+        category: "Railways",
+        badge: "Railways",
+        examDate: "2026-12-15",
+        daysText: "in 74 days",
+        vacancies: "11,558 Posts",
+        eligibility: "12th Pass / Graduate depending on level",
+        applyDeadline: "2026-10-25",
+        officialLink: "https://indianrailways.gov.in",
+        details: "Non-Technical Popular Categories (Graduate & Undergraduate levels) CBT-1 scheduled across railway zones.",
+        isUpcoming: true
+      },
+      {
+        id: "notif-5",
+        title: "SBI PO 2026 Phase-I (Prelims) Examination Notice",
+        exam: "SBI PO",
+        category: "Banking",
+        badge: "Banking",
+        examDate: "2026-11-28",
+        daysText: "in 58 days",
+        vacancies: "2,000 Probationary Officers",
+        eligibility: "Graduation in any discipline",
+        applyDeadline: "2026-10-15",
+        officialLink: "https://sbi.co.in/careers",
+        details: "Preliminary Examination consisting of English, Quantitative Aptitude, and Reasoning Ability (100 marks / 60 mins).",
+        isUpcoming: true
+      },
+      {
+        id: "notif-6",
+        title: "AIIMS NORCET-11 Nursing Officer Recruitment",
+        exam: "AIIMS",
+        category: "Central Govt",
+        badge: "AIIMS",
+        examDate: "2026-11-02",
+        daysText: "in 31 days",
+        vacancies: "3,000+ Posts",
+        eligibility: "B.Sc Nursing / GNM with experience",
+        applyDeadline: "2026-10-12",
+        officialLink: "https://aiimsexams.ac.in",
+        details: "Stage-1 Prelims CBT followed by Stage-2 Mains CBT for recruitment to AIIMS hospitals across India.",
+        isUpcoming: true
+      }
+    ];
+
+    let allNotifs = [];
+    let activeFilter = 'all';
+
+    const notifApiOrigin = (window.location.protocol === 'file:' || window.location.port === '5500' || window.location.port === '5501')
+      ? 'http://localhost:3000'
+      : '';
+
+    async function loadNotifications() {
+      try {
+        const res = await fetch(`${notifApiOrigin}/api/notifications`);
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data.notifications) && data.notifications.length) {
+            allNotifs = data.notifications;
+            renderNotifications();
+            return;
+          }
+        }
+      } catch (_) {}
+      allNotifs = fallbackNotifications;
+      renderNotifications();
+    }
+
+    function renderNotifications() {
+      const grid = document.getElementById('notifGrid');
+      const countLabel = document.getElementById('notifCountLabel');
+      const query = (document.getElementById('notifSearch')?.value || '').trim().toLowerCase();
+
+      const filtered = allNotifs.filter((n) => {
+        const matchesFilter = activeFilter === 'all' || 
+          (n.category && n.category.toLowerCase().includes(activeFilter.toLowerCase())) ||
+          (n.exam && n.exam.toLowerCase().includes(activeFilter.toLowerCase())) ||
+          (n.badge && n.badge.toLowerCase().includes(activeFilter.toLowerCase()));
+        
+        const matchesSearch = !query ||
+          (n.title && n.title.toLowerCase().includes(query)) ||
+          (n.exam && n.exam.toLowerCase().includes(query)) ||
+          (n.details && n.details.toLowerCase().includes(query)) ||
+          (n.eligibility && n.eligibility.toLowerCase().includes(query));
+
+        return matchesFilter && matchesSearch;
+      });
+
+      countLabel.textContent = `Showing ${filtered.length} verified exam notification${filtered.length === 1 ? '' : 's'}`;
+
+      if (!filtered.length) {
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 48px 20px; background:#fff; border-radius:16px; border:1px solid #d4e4dc;"><p style="color:#5e756d; font-size:15px; margin:0 0 12px;">No notifications found matching your search.</p><button type="button" class="notif-filter-btn" onclick="clearNotifSearch()">Clear filters &amp; view all</button></div>';
+        return;
+      }
+
+      grid.innerHTML = '';
+      filtered.forEach((n) => {
+        const card = document.createElement('article');
+        card.className = 'notif-card';
+        card.innerHTML = `
+          <div>
+            <div class="notif-top">
+              <span class="notif-badge">${escapeHtml(n.badge || n.exam || 'Exam')}</span>
+              <span class="notif-countdown">⏳ ${escapeHtml(n.daysText || 'Upcoming')}</span>
+            </div>
+            <h3>${escapeHtml(n.title)}</h3>
+            <p class="notif-details">${escapeHtml(n.details || '')}</p>
+            <div class="notif-meta-list">
+              <div class="notif-meta-item"><span>Target Exam:</span> <strong>${escapeHtml(n.exam || 'All India')}</strong></div>
+              ${n.vacancies ? `<div class="notif-meta-item"><span>Vacancies / Scope:</span> <strong>${escapeHtml(n.vacancies)}</strong></div>` : ''}
+              ${n.examDate ? `<div class="notif-meta-item"><span>Exam Date:</span> <strong>${escapeHtml(n.examDate)}</strong></div>` : ''}
+              ${n.eligibility ? `<div class="notif-meta-item"><span>Eligibility:</span> <strong>${escapeHtml(n.eligibility)}</strong></div>` : ''}
+              ${n.applyDeadline ? `<div class="notif-meta-item"><span>Apply Deadline:</span> <strong>${escapeHtml(n.applyDeadline)}</strong></div>` : ''}
+            </div>
+          </div>
+          <div class="notif-actions">
+            <a class="notif-btn-prep" href="/#popular">Practice Mock Tests ↗</a>
+            ${n.officialLink ? `<a class="notif-btn-link" href="${escapeHtml(n.officialLink)}" target="_blank" rel="noopener noreferrer">Official Portal ↗</a>` : ''}
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function clearNotifSearch() {
+      const search = document.getElementById('notifSearch');
+      if (search) search.value = '';
+      activeFilter = 'all';
+      document.querySelectorAll('.notif-filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+      renderNotifications();
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/[&<>"']/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[m]);
+    }
+
+    document.querySelectorAll('.notif-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.notif-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        renderNotifications();
+      });
+    });
+
+    document.getElementById('notifSearch')?.addEventListener('input', renderNotifications);
+
+    loadNotifications();
+  </script>
+</body>
+</html>
