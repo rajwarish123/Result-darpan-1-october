@@ -829,4 +829,87 @@ test('Result Darpan AI Study Mentor generates study guides, routines, tasks, and
   assert.ok(fallbackRes.body.reply.includes('Core Concept Breakdown'));
 });
 
+test('Admin Previous Year Questions (PYQ) endpoints allow retrieval, creation, update, and deletion', async () => {
+  const adminEmail = `pyqadmin-${Date.now()}@resultdarpan.test`;
+  const previousAdminEmail = process.env.ADMIN_EMAIL;
+  process.env.ADMIN_EMAIL = adminEmail;
+
+  try {
+    // 1. Sign up admin
+    const signup = await request(app).post('/api/auth/signup').send({
+      name: 'PYQ Moderator',
+      email: adminEmail,
+      password: 'adminSecurePassword123'
+    });
+    assert.equal(signup.status, 201);
+    const adminToken = signup.body.token;
+
+    // 2. Public retrieval
+    const publicList = await request(app).get('/api/previous-year-questions');
+    assert.equal(publicList.status, 200);
+    assert.ok(Array.isArray(publicList.body.questions));
+    assert.ok(publicList.body.questions.length >= 18);
+    // By default without includeAnswers, answers are hidden
+    assert.equal('answer' in publicList.body.questions[0], false);
+
+    // With includeAnswers=true
+    const publicWithAnswers = await request(app).get('/api/previous-year-questions?includeAnswers=true');
+    assert.equal(publicWithAnswers.status, 200);
+    assert.equal('answer' in publicWithAnswers.body.questions[0], true);
+
+    // Filter by exam
+    const sscList = await request(app).get('/api/previous-year-questions?exam=SSC+CGL');
+    assert.equal(sscList.status, 200);
+    assert.ok(sscList.body.questions.every((q) => q.exam === 'SSC CGL'));
+
+    // 3. Admin creation
+    const createRes = await request(app)
+      .post('/api/admin/previous-year-questions')
+      .set('Authorization', `Bearer ${adminToken}`)
+      .send({
+        exam: 'SSC CGL',
+        year: '2024 Tier-I Practice',
+        topic: 'General Awareness',
+        text: 'Who was the first woman President of India?',
+        options: ['Sarojini Naidu', 'Pratibha Patil', 'Indira Gandhi', 'Droupadi Murmu'],
+        answer: 1,
+        sourceUrl: 'https://ssc.gov.in'
+      });
+    assert.equal(createRes.status, 201);
+    const createdId = createRes.body.question.id;
+    assert.ok(createdId);
+    assert.equal(createRes.body.question.text, 'Who was the first woman President of India?');
+    assert.equal(createRes.body.question.answer, 1);
+
+    // 4. Admin update
+    const updateRes = await request(app)
+      .put(`/api/admin/previous-year-questions/${createdId}`)
+      .set('Authorization', `Bearer ${adminToken}`)
+      .send({
+        topic: 'Indian Polity & History',
+        year: '2024 Shift-1'
+      });
+    assert.equal(updateRes.status, 200);
+    assert.equal(updateRes.body.question.topic, 'Indian Polity & History');
+    assert.equal(updateRes.body.question.year, '2024 Shift-1');
+
+    // 5. Admin deletion (cleanup)
+    const deleteRes = await request(app)
+      .delete(`/api/admin/previous-year-questions/${createdId}`)
+      .set('Authorization', `Bearer ${adminToken}`);
+    assert.equal(deleteRes.status, 200);
+    assert.equal(deleteRes.body.ok, true);
+
+    // Verify deletion
+    const verifyRes = await request(app)
+      .get('/api/admin/previous-year-questions')
+      .set('Authorization', `Bearer ${adminToken}`);
+    assert.equal(verifyRes.status, 200);
+    assert.ok(!verifyRes.body.questions.some((q) => q.id === createdId));
+  } finally {
+    process.env.ADMIN_EMAIL = previousAdminEmail;
+  }
+});
+
+
 
