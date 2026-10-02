@@ -42,13 +42,6 @@ document.querySelectorAll('a').forEach((link) => {
   if (link.textContent.trim().toLowerCase() === 'privacy') link.href = 'privacy.html';
   if (link.textContent.trim().toLowerCase() === 'terms') link.href = 'terms.html';
 });
-document.querySelector('#editProfile')?.remove();
-document.querySelector('.learner-choice')?.remove();
-document.querySelector('.subject-tabs')?.remove();
-const statsSection = document.querySelector('.stats-section');
-const heroSection = document.querySelector('.hero');
-if (statsSection && heroSection) heroSection.parentNode.insertBefore(statsSection, heroSection);
-
 menuToggle?.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
   menuToggle.setAttribute('aria-expanded', String(isOpen));
@@ -71,16 +64,134 @@ document.querySelectorAll('.main-nav a').forEach((link) => {
   });
 });
 
-document.querySelectorAll('.category').forEach((category) => {
-  category.addEventListener('click', () => {
+// --- CATALOG CONTROLLER: SEARCH, CATEGORIES, AND VIEW ALL TOGGLE ---
+let activeCatalogCategory = 'all';
+let showAllExamsExpanded = false;
+
+function applyCatalogFilters() {
+  const searchInput = document.getElementById('catalogSearchInput');
+  const searchClear = document.getElementById('catalogSearchClear');
+  const emptyState = document.getElementById('catalogEmptyState');
+  const emptyQueryText = document.getElementById('emptyQueryText');
+  const toggleBtn = document.getElementById('toggleAllExamsBtn');
+  const toggleWrap = document.getElementById('viewAllExamsWrap');
+  const allCards = document.querySelectorAll('.test-card');
+
+  const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+  if (searchClear) searchClear.hidden = query.length === 0;
+
+  const isSearching = query.length > 0;
+  let visibleCount = 0;
+
+  allCards.forEach((card) => {
+    const cardCat = card.dataset.category || '';
+    const isPopular = card.dataset.popular === 'true';
+    const text = card.textContent.toLowerCase();
+
+    const matchesCategory = activeCatalogCategory === 'all' || cardCat === activeCatalogCategory;
+    const matchesQuery = !isSearching || text.includes(query);
+
+    let shouldShow = false;
+    if (isSearching) {
+      shouldShow = matchesCategory && matchesQuery;
+    } else if (activeCatalogCategory === 'all') {
+      shouldShow = showAllExamsExpanded ? true : isPopular;
+    } else {
+      shouldShow = cardCat === activeCatalogCategory;
+    }
+
+    card.hidden = !shouldShow;
+    if (shouldShow) visibleCount++;
+  });
+
+  if (emptyState) {
+    if (visibleCount === 0 && isSearching) {
+      emptyState.hidden = false;
+      if (emptyQueryText) emptyQueryText.textContent = query;
+    } else {
+      emptyState.hidden = true;
+    }
+  }
+
+  if (toggleWrap && toggleBtn) {
+    if (activeCatalogCategory === 'all' && !isSearching) {
+      toggleWrap.hidden = false;
+      if (showAllExamsExpanded) {
+        toggleBtn.innerHTML = '<span>Show less</span> <span class="btn-icon">↑</span>';
+      } else {
+        toggleBtn.innerHTML = `<span>Show all ${allCards.length} exams</span> <span class="btn-icon">↓</span>`;
+      }
+    } else {
+      toggleWrap.hidden = true;
+    }
+  }
+}
+
+document.querySelectorAll('.category').forEach((categoryBtn) => {
+  categoryBtn.addEventListener('click', () => {
     document.querySelector('.category.active')?.classList.remove('active');
-    category.classList.add('active');
-    const filter = category.dataset.filter;
-    document.querySelectorAll('.test-card').forEach((card) => {
-      card.hidden = filter !== 'all' && card.dataset.category !== filter;
+    categoryBtn.classList.add('active');
+    activeCatalogCategory = categoryBtn.dataset.filter || 'all';
+    const searchInput = document.getElementById('catalogSearchInput');
+    if (searchInput && searchInput.value) searchInput.value = '';
+    applyCatalogFilters();
+  });
+});
+
+document.getElementById('catalogSearchInput')?.addEventListener('input', () => {
+  applyCatalogFilters();
+});
+
+document.getElementById('catalogSearchClear')?.addEventListener('click', () => {
+  const input = document.getElementById('catalogSearchInput');
+  if (input) {
+    input.value = '';
+    input.focus();
+  }
+  applyCatalogFilters();
+});
+
+document.getElementById('resetSearchBtn')?.addEventListener('click', () => {
+  const input = document.getElementById('catalogSearchInput');
+  if (input) input.value = '';
+  document.querySelector('.category.active')?.classList.remove('active');
+  document.querySelector('.category[data-filter="all"]')?.classList.add('active');
+  activeCatalogCategory = 'all';
+  showAllExamsExpanded = false;
+  applyCatalogFilters();
+});
+
+document.getElementById('toggleAllExamsBtn')?.addEventListener('click', () => {
+  showAllExamsExpanded = !showAllExamsExpanded;
+  applyCatalogFilters();
+  if (!showAllExamsExpanded) {
+    document.getElementById('popular')?.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+const testGridElement = document.getElementById('testGrid');
+document.querySelector('.slider-btn.prev')?.addEventListener('click', () => {
+  if (testGridElement) testGridElement.scrollBy({ left: -320, behavior: 'smooth' });
+});
+document.querySelector('.slider-btn.next')?.addEventListener('click', () => {
+  if (testGridElement) testGridElement.scrollBy({ left: 320, behavior: 'smooth' });
+});
+
+// Subject tabs filtering
+document.querySelectorAll('.subject-tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    document.querySelector('.subject-tab.active')?.classList.remove('active');
+    tab.classList.add('active');
+    const subject = tab.dataset.subject;
+    document.querySelectorAll('.subject-card').forEach((card) => {
+      card.hidden = subject !== 'all' && card.dataset.subject !== subject;
     });
   });
 });
+
+// Run catalog filter initially
+window.addEventListener('DOMContentLoaded', applyCatalogFilters);
+applyCatalogFilters();
 
 document.querySelectorAll('.subject-test-btn').forEach((button) => {
   button.addEventListener('click', () => {
