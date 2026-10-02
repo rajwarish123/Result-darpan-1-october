@@ -1,10 +1,30 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # Clean URL routing for school classes
-  RewriteRule ^classes/([0-9]+)/?$ class-series.html?class=$1 [QSA,L]
+
   # Redirect HTTP to HTTPS
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Block /admin and /admin.html explicitly and redirect to home
+  RewriteRule ^admin(\.html)?$ / [R=301,L]
+
+  # Secret admin console mapping
+  RewriteRule ^wariya/?$ wariya.html [L,QSA]
+
+  # Clean URL routing for school classes
+  RewriteRule ^classes/([0-9]+)/?$ class-series.html?class=$1 [QSA,L]
+
+  # Redirect direct requests for .html files to their clean URL (SEO canonical)
+  RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+  RewriteCond %{REQUEST_URI} !^/wariya\.html$ [NC]
+  RewriteRule ^ /%1 [NC,L,R=301]
+
+  # Clean URL rewriting: serve .html file if matching file exists
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f [OR]
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^([^/]+)/?$ $1.html [L,QSA]
 </IfModule>
 
 # Prevent direct access to sensitive data files and scripts
@@ -18,7 +38,7 @@
   </IfModule>
 </FilesMatch>
 
-<Files "server.js">
+<FilesMatch "^(server\.js|set-admin-password\.js|auto-git-sync\.js)$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>
@@ -26,4 +46,4 @@
     Order allow,deny
     Deny from all
   </IfModule>
-</Files>
+</FilesMatch>
