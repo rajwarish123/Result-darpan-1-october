@@ -1,5 +1,7 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # Clean URL routing for school classes
+  RewriteRule ^classes/([0-9]+)/?$ class-series.html?class=$1 [QSA,L]
   # Redirect HTTP to HTTPS
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
