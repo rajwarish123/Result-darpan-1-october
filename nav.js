@@ -69,7 +69,7 @@
     { label: 'Upcoming Exam Dates', href: 'notifications', icon: '📢' },
     { label: 'Previous Year Questions', href: 'previous-year-questions', icon: '📜' },
     { label: 'School Classes (9-12)', href: 'class-series', icon: '🏫' },
-    { label: 'Subject Practice Tests', href: '/#subjects', icon: '🎯' },
+    { label: 'Subject Practice Tests', href: 'index.html#subjects', icon: '🎯' },
     { label: 'AI Study Mentor 24/7', href: 'mentor-chat', icon: '🤖' },
     { label: 'Contact Us', href: 'contact#contact-form', icon: '📬' }
   ];
@@ -154,7 +154,7 @@
   });
 
   // Universal clean-route click resolver:
-  // If testing on local static server (file://, port 5500, port 5501) where server URL rewrites do not exist,
+  // If testing on local static server (file://, port 5500, port 3001, etc.) where server URL rewrites do not exist,
   // ensure clicking clean routes (blogs, contact, resources, notifications, etc.) transparently loads the .html file
   // and nav.js will immediately clean the address bar with history.replaceState!
   const internalCleanRoutes = new Set([
@@ -177,7 +177,9 @@
     const rawHref = link.getAttribute('href');
     if (!rawHref || rawHref.startsWith('http://') || rawHref.startsWith('https://') || rawHref.startsWith('//') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:') || rawHref.startsWith('#')) return;
 
-    const isLocalStatic = window.location.protocol === 'file:' || window.location.port === '5500' || window.location.port === '5501';
+    const isLocalStatic = 
+      window.location.protocol === 'file:' || 
+      ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '3000');
 
     let path = rawHref;
     let queryAndHash = '';
