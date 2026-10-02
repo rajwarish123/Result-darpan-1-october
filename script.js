@@ -938,12 +938,90 @@ function launchConfetti() {
   window.setTimeout(() => confetti.remove(), 3000);
 }
 
+function openSetSelectionModal(type, id, title) {
+  const modal = document.getElementById('setSelectionModal');
+  const titleEl = document.getElementById('setModalTitle');
+  const subtitleEl = document.getElementById('setModalSubtitle');
+  const badgeEl = document.getElementById('setModalBadge');
+  const container = document.getElementById('setGridContainer');
+
+  if (titleEl) titleEl.textContent = title;
+  if (subtitleEl) subtitleEl.textContent = 'Select any practice set from Set 01 to Set 30 curated by Result Darpan Team';
+  if (badgeEl) badgeEl.textContent = '30 PRACTICE SETS AVAILABLE';
+
+  if (container) {
+    container.innerHTML = '';
+    for (let i = 1; i <= 30; i++) {
+      const pad = String(i).padStart(2, '0');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'set-btn-item';
+      btn.setAttribute('data-set-number', i);
+      btn.style.cssText = 'background:#ffffff; border:1px solid #d4e4dc; border-radius:12px; padding:14px 10px; text-align:center; cursor:pointer; transition:all 0.2s ease; display:flex; flex-direction:column; align-items:center; gap:6px; font-family:inherit;';
+      btn.innerHTML = `
+        <span style="font-size:22px; line-height:1;">📝</span>
+        <strong style="font-size:14px; font-weight:700; color:#1a2e26;">Set ${pad}</strong>
+        <small style="font-size:11.5px; color:#175e4b; font-weight:700;">Start Test →</small>
+      `;
+      btn.addEventListener('mouseenter', () => {
+        btn.style.borderColor = '#175e4b';
+        btn.style.background = '#eef7f2';
+        btn.style.transform = 'translateY(-2px)';
+        btn.style.boxShadow = '0 4px 12px rgba(23,94,75,0.12)';
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.borderColor = '#d4e4dc';
+        btn.style.background = '#ffffff';
+        btn.style.transform = 'none';
+        btn.style.boxShadow = 'none';
+      });
+      btn.addEventListener('click', () => {
+        closeSetSelectionModal();
+        activeTestSetNumber = i;
+        if (type === 'exam') {
+          activeQuestionSubject = null;
+          activeMockTestId = id;
+          openTest();
+        } else if (type === 'subject') {
+          activeQuestionSubject = id;
+          activeMockTestId = null;
+          openTest();
+        }
+      });
+      container.appendChild(btn);
+    }
+  }
+
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+  }
+}
+
+function closeSetSelectionModal() {
+  const modal = document.getElementById('setSelectionModal');
+  if (modal) {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+  }
+}
+
+document.getElementById('btnCloseSetModal')?.addEventListener('click', closeSetSelectionModal);
+document.getElementById('setSelectionModal')?.addEventListener('click', (e) => {
+  if (e.target.id === 'setSelectionModal') closeSetSelectionModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && document.getElementById('setSelectionModal')?.style.display === 'flex') {
+    closeSetSelectionModal();
+  }
+});
+
 document.addEventListener('click', (event) => {
   const button = event.target.closest('.start-test');
   if (!button) return;
-  activeQuestionSubject = null;
-  activeMockTestId = button.dataset.mockTest || null;
-  openTest();
+  const mockTestId = button.dataset.mockTest || null;
+  const cardTitle = button.closest('.test-card')?.querySelector('h3')?.textContent || 'Mock Test';
+  openSetSelectionModal('exam', mockTestId, cardTitle);
 });
 
 // --- INTERACTIVE TESTIMONIALS CAROUSEL ---
