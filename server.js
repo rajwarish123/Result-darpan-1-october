@@ -2968,6 +2968,8 @@ app.delete('/api/admin/mentor-chat/messages/:id', requireAuth, requireAdmin, (re
   messages.splice(index, 1);
   persistMessages();
   res.json({ ok: true, message: 'Message moderated and removed.' });
+});
+
 // --- MONETIZATION & ADS (GOOGLE ADSENSE & SPONSORS) ---
 app.get('/ads.txt', (req, res) => {
   res.type('text/plain');
