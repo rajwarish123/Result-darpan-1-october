@@ -2347,6 +2347,7 @@ app.get('/api/admin/summary', requireAuth, requireAdmin, (req, res) => {
   const totalNotifications = notifications.length;
   const totalBlogs = blogs.length;
   const totalMaterials = studyMaterials.length;
+  const totalPreviousYearQuestions = previousYearQuestionsList.length;
   const recentUsers = [...users].slice(-5).reverse().map((user) => ({
     id: user.id,
     name: user.name,
@@ -2371,6 +2372,7 @@ app.get('/api/admin/summary', requireAuth, requireAdmin, (req, res) => {
     totalNotifications,
     totalBlogs,
     totalMaterials,
+    totalPreviousYearQuestions,
     recentUsers,
     recentMessages,
     generatedAt: new Date().toISOString()
