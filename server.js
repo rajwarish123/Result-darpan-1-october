@@ -3098,12 +3098,33 @@ app.put('/api/admin/ad-settings', requireAuth, requireAdmin, (req, res) => {
   res.json({ success: true, adSettings });
 });
 
+// Clean URLs page routes
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(staticDir, 'contact.html'));
+});
+
 app.get('/blogs', (req, res) => {
   res.sendFile(path.join(staticDir, 'blogs.html'));
 });
 
-app.get('/admin', (req, res) => {
-  res.sendFile(path.join(staticDir, 'admin.html'));
+app.get('/resources', (req, res) => {
+  res.sendFile(path.join(staticDir, 'resources.html'));
+});
+
+app.get('/profile', (req, res) => {
+  res.sendFile(path.join(staticDir, 'profile.html'));
+});
+
+app.get('/mentor-chat', (req, res) => {
+  res.sendFile(path.join(staticDir, 'mentor-chat.html'));
+});
+
+app.get('/class-series', (req, res) => {
+  res.sendFile(path.join(staticDir, 'class-series.html'));
+});
+
+app.get('/previous-year-questions', (req, res) => {
+  res.sendFile(path.join(staticDir, 'previous-year-questions.html'));
 });
 
 app.get('/privacy', (req, res) => {
@@ -3112,6 +3133,16 @@ app.get('/privacy', (req, res) => {
 
 app.get('/terms', (req, res) => {
   res.sendFile(path.join(staticDir, 'terms.html'));
+});
+
+// Admin management portal restricted to /wariya
+app.get('/wariya', (req, res) => {
+  res.sendFile(path.join(staticDir, 'wariya.html'));
+});
+
+// Explicitly block /admin and /admin.html so it is not accessible to anyone
+app.all(['/admin', '/admin.html'], (req, res) => {
+  res.status(404).sendFile(path.join(staticDir, 'index.html'));
 });
 
 app.get('/classes/:classNumber', (req, res, next) => {
