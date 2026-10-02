@@ -909,17 +909,55 @@ app.get('/api/question-set-catalog', (req, res) => {
 });
 
 const mockTests = {
+  // Existing baseline
   'sbi-clerk': { exam: 'SBI Clerk', title: 'SBI Clerk Prelims 2026', totalQuestions: 100, durationSeconds: 3600 },
   'ssc-cgl': { exam: 'SSC CGL', title: 'SSC CGL Tier-I Mock 01', totalQuestions: 100, durationSeconds: 3600 },
   'nda-mathematics': { exam: 'NDA', title: 'NDA II 2026 · Mathematics', totalQuestions: 120, durationSeconds: 9000 },
   'rrb-ntpc': { exam: 'Railway NTPC', title: 'RRB NTPC CBT-I Mock 01', totalQuestions: 100, durationSeconds: 5400 },
-  'ctet-paper-1': { exam: 'CTET', title: 'CTET Paper-I Mock 2026', totalQuestions: 150, durationSeconds: 9000 }
+  'ctet-paper-1': { exam: 'CTET', title: 'CTET Paper-I Mock 2026', totalQuestions: 150, durationSeconds: 9000 },
+
+  // College & University Entrance
+  'jee-main': { exam: 'JEE Main', title: 'JEE Main 2026 · Full Mock Test', totalQuestions: 90, durationSeconds: 10800 },
+  'jee-advanced': { exam: 'JEE Advanced', title: 'JEE Advanced 2026 · Paper 1 Mock', totalQuestions: 54, durationSeconds: 10800 },
+  'neet-ug': { exam: 'NEET UG', title: 'NEET UG 2026 · Full Practice Paper', totalQuestions: 180, durationSeconds: 12000 },
+  'cuet-ug': { exam: 'CUET UG', title: 'CUET UG 2026 · General Test Mock', totalQuestions: 60, durationSeconds: 3600 },
+  'gate-cs': { exam: 'GATE', title: 'GATE 2026 · Computer Science & IT', totalQuestions: 65, durationSeconds: 10800 },
+  'cat-exam': { exam: 'CAT', title: 'CAT 2026 · Full Speed & Accuracy Mock', totalQuestions: 66, durationSeconds: 7200 },
+  'clat-exam': { exam: 'CLAT', title: 'CLAT 2026 · Legal & Logical Reasoning', totalQuestions: 120, durationSeconds: 7200 },
+
+  // Banking Exams
+  'sbi-po': { exam: 'SBI PO', title: 'SBI PO Prelims 2026 · Mock Test', totalQuestions: 100, durationSeconds: 3600 },
+  'ibps-po': { exam: 'IBPS PO', title: 'IBPS PO Prelims 2026 · Mock Test', totalQuestions: 100, durationSeconds: 3600 },
+  'ibps-clerk': { exam: 'IBPS Clerk', title: 'IBPS Clerk Prelims 2026 · Mock Test', totalQuestions: 100, durationSeconds: 3600 },
+  'rbi-grade-b': { exam: 'RBI Grade B', title: 'RBI Grade B Phase-I · Mock 2026', totalQuestions: 200, durationSeconds: 7200 },
+
+  // SSC Exams
+  'ssc-chsl': { exam: 'SSC CHSL', title: 'SSC CHSL (10+2) Tier-I Mock 2026', totalQuestions: 100, durationSeconds: 3600 },
+  'ssc-mts': { exam: 'SSC MTS', title: 'SSC MTS & Havaldar Mock 2026', totalQuestions: 90, durationSeconds: 5400 },
+  'ssc-gd': { exam: 'SSC GD', title: 'SSC GD Constable Practice Set 2026', totalQuestions: 80, durationSeconds: 3600 },
+
+  // Railways Exams
+  'rrb-group-d': { exam: 'Railway Group D', title: 'RRB Group D CBT Mock 2026', totalQuestions: 100, durationSeconds: 5400 },
+  'rrb-alp': { exam: 'Railway ALP', title: 'RRB ALP CBT-I Practice Test', totalQuestions: 75, durationSeconds: 3600 },
+
+  // Civil Services & State PCS
+  'upsc-prelims': { exam: 'UPSC CSE', title: 'UPSC Civil Services Prelims · GS Paper I', totalQuestions: 100, durationSeconds: 7200 },
+  'bpsc-prelims': { exam: 'BPSC', title: '70th BPSC Prelims · Full Mock Test', totalQuestions: 150, durationSeconds: 7200 },
+  'uppsc-prelims': { exam: 'UPPSC', title: 'UPPSC PCS Prelims · GS Paper I', totalQuestions: 150, durationSeconds: 7200 },
+
+  // Defence Exams
+  'cds-exam': { exam: 'CDS', title: 'UPSC CDS II 2026 · English & GK Mock', totalQuestions: 120, durationSeconds: 7200 },
+  'afcat-exam': { exam: 'AFCAT', title: 'AFCAT 01/2026 · Full Practice Test', totalQuestions: 100, durationSeconds: 7200 },
+
+  // Teaching Exams
+  'ctet-paper-2': { exam: 'CTET Paper 2', title: 'CTET Paper-II (Class 6-8) Mock 2026', totalQuestions: 150, durationSeconds: 9000 },
+  'ugc-net': { exam: 'UGC NET', title: 'UGC NET Paper 1 · Teaching & Research Mock', totalQuestions: 50, durationSeconds: 3600 }
 };
 
 function buildMockTest(testId) {
   const test = mockTests[testId];
   if (!test) return null;
-  const subjects = questionSetSubjects[test.exam];
+  const subjects = questionSetSubjects[test.exam] || questionSetSubjects['SSC CGL'] || ['English', 'Mathematics', 'Reasoning', 'General Awareness'];
   const subjectSets = subjects.map((subject) => getQuestionSet(test.exam, subject, 1));
   const questions = Array.from({ length: test.totalQuestions }, (_, index) => {
     const subjectIndex = index % subjects.length;
