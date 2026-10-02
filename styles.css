@@ -1392,6 +1392,115 @@
 }
 
 /* 16. Real Exam Logos & Modern Test Cards */
+.catalog-search-wrap {
+  margin: 0 0 20px 0;
+  width: 100%;
+}
+.catalog-search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1.5px solid #d1d5db;
+  border-radius: 12px;
+  padding: 10px 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.catalog-search-box:focus-within {
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.15);
+}
+.catalog-search-box .search-icon {
+  font-size: 16px;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+.catalog-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  color: #1f2937;
+  background: transparent;
+}
+.catalog-search-input::placeholder {
+  color: #9ca3af;
+}
+.catalog-search-clear {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.catalog-search-clear:hover {
+  color: #374151;
+}
+
+.view-all-exams-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+.view-all-exams-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #166534;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 999px;
+  padding: 11px 26px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(22, 101, 52, 0.08);
+  transition: all 0.2s ease;
+}
+.view-all-exams-btn:hover {
+  background: #166534;
+  color: #ffffff;
+  border-color: #166534;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(22, 101, 52, 0.2);
+}
+.view-all-exams-btn .btn-icon {
+  font-size: 15px;
+  transition: transform 0.2s ease;
+}
+
+.catalog-empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px dashed #d1d5db;
+  margin-top: 10px;
+  grid-column: 1 / -1;
+}
+.catalog-empty-state .empty-icon {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+.catalog-empty-state h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 6px;
+}
+.catalog-empty-state p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
 .test-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
