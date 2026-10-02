@@ -1,6 +1,10 @@
 (() => {
   const nav = document.querySelector('.main-nav');
-  if (!nav || nav.querySelector('.more-menu')) return;
+  if (!nav) return;
+
+  // If a broken more-menu was left behind, clear it so we rebuild clean
+  const existingMore = nav.querySelector('.more-menu');
+  if (existingMore) existingMore.remove();
 
   // Remove admin dashboard link if present for public visitors
   nav.querySelectorAll(':scope > a').forEach((link) => {
@@ -30,9 +34,11 @@
     )
   );
 
-  // Client-side address bar cleaner: seamlessly remove .html for clean URL display
+  // Client-side address bar cleaner: seamlessly remove .html for clean URL display on production/clean servers
   try {
-    if (window.location.pathname.endsWith('.html') && !window.location.pathname.endsWith('index.html')) {
+    const isStaticEnv = window.location.protocol === 'file:' || 
+      ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '3000');
+    if (!isStaticEnv && window.location.pathname.endsWith('.html') && !window.location.pathname.endsWith('index.html')) {
       const cleanPath = window.location.pathname.replace(/\.html$/, '');
       window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
     }
@@ -52,6 +58,7 @@
   // Remove non-kept links from the top bar to keep layout clean
   movedLinks.forEach((link) => link.remove());
 
+  // Build the universal More dropdown containing the full set of 8 shortcuts
   const moreMenu = document.createElement('div');
   moreMenu.className = 'more-menu';
   moreMenu.innerHTML =
@@ -104,14 +111,34 @@
   const toggle = moreMenu.querySelector('.more-toggle');
   const closeMenu = () => {
     moreMenu.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-expanded', 'false');
   };
 
-  toggle.addEventListener('click', (event) => {
+  toggle?.addEventListener('click', (event) => {
     event.stopPropagation();
     const open = moreMenu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(open));
   });
+
+  // Mobile drawer toggle controller
+  const menuToggle = document.querySelector('.menu-toggle');
+  if (menuToggle && !menuToggle.dataset.bound) {
+    menuToggle.dataset.bound = 'true';
+    menuToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '×' : '☰';
+    });
+  }
+
+  const closeAllNav = () => {
+    closeMenu();
+    nav.classList.remove('open');
+    if (menuToggle) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }
+  };
 
   dropdown.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -137,26 +164,18 @@
         }
       }
 
-      closeMenu();
-
-      // Close mobile drawer if open
-      nav.classList.remove('open');
-      const menuToggle = document.querySelector('.menu-toggle');
-      if (menuToggle) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.textContent = '☰';
-      }
+      closeAllNav();
     });
   });
 
   document.addEventListener('click', (event) => {
     if (!moreMenu.contains(event.target)) closeMenu();
+    if (nav.classList.contains('open') && !nav.contains(event.target) && !menuToggle?.contains(event.target)) {
+      closeAllNav();
+    }
   });
 
   // Universal clean-route click resolver:
-  // If testing on local static server (file://, port 5500, port 3001, etc.) where server URL rewrites do not exist,
-  // ensure clicking clean routes (blogs, contact, resources, notifications, etc.) transparently loads the .html file
-  // and nav.js will immediately clean the address bar with history.replaceState!
   const internalCleanRoutes = new Set([
     'blogs',
     'contact',
@@ -190,6 +209,20 @@
     }
 
     const cleanPath = path.replace(/^\/+/, '');
+    const currentFile = window.location.pathname.replace(/^\/+/g, '').split('/').pop() || '';
+    const isHomePage = currentFile === '' || currentFile === 'index.html';
+
+    // Smooth scroll to in-page Prep Desk if student clicks 'My profile' on home page
+    if (isHomePage && (cleanPath === 'profile' || cleanPath === 'profile.html')) {
+      const profileSection = document.getElementById('profile');
+      if (profileSection) {
+        e.preventDefault();
+        profileSection.scrollIntoView({ behavior: 'smooth' });
+        history.pushState(null, '', '#profile');
+        closeAllNav();
+        return;
+      }
+    }
 
     if (isLocalStatic) {
       if (cleanPath === '' || cleanPath === 'index') {
@@ -204,4 +237,72 @@
       }
     }
   });
+
+  // Global Header Profile Button Synchronizer
+  function syncHeaderProfileButton() {
+    const navActions = document.querySelector('.nav-actions');
+    if (!navActions) return;
+
+    let profileBtn = navActions.querySelector('#guestProfileBtn, .nav-cta, .login-btn');
+    if (!profileBtn) {
+      profileBtn = document.createElement('button');
+      profileBtn.id = 'guestProfileBtn';
+      profileBtn.className = 'primary-btn nav-cta';
+      navActions.appendChild(profileBtn);
+    }
+
+    const isLocalStatic = 
+      window.location.protocol === 'file:' || 
+      ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '3000');
+
+    const currentFile = window.location.pathname.replace(/^\/+/g, '').split('/').pop() || '';
+    const isHomePage = currentFile === '' || currentFile === 'index.html';
+
+    const token = window.localStorage.getItem('preply-session-token');
+    const savedName = window.localStorage.getItem('preply-profile-name');
+
+    if (token && savedName) {
+      const shortName = savedName.split(' ')[0] || 'Learner';
+      profileBtn.innerHTML = `<span>👤</span> ${shortName}`;
+      profileBtn.setAttribute('aria-label', `Profile: ${savedName}`);
+      profileBtn.setAttribute('title', `Logged in as ${savedName}`);
+      profileBtn.classList.remove('login-btn');
+      profileBtn.classList.add('primary-btn', 'nav-cta');
+    } else {
+      profileBtn.innerHTML = `<span>👤</span> Log in / Sign up`;
+      profileBtn.setAttribute('aria-label', 'Log in or sign up');
+      profileBtn.removeAttribute('title');
+      profileBtn.classList.remove('login-btn');
+      profileBtn.classList.add('primary-btn', 'nav-cta');
+    }
+
+    // Attach click handler
+    profileBtn.onclick = (e) => {
+      e.preventDefault();
+      const hasSession = window.localStorage.getItem('preply-session-token') && window.localStorage.getItem('preply-profile-name');
+      if (hasSession) {
+        const profileSection = document.getElementById('profile');
+        if (isHomePage && profileSection) {
+          profileSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.href = isLocalStatic ? 'profile.html' : 'profile';
+        }
+      } else {
+        if (typeof openAuth === 'function') {
+          openAuth();
+        } else {
+          window.location.href = isLocalStatic ? 'index.html?login=1#auth' : '/?login=1#auth';
+        }
+      }
+    };
+  }
+
+  syncHeaderProfileButton();
+  window.addEventListener('profile-session-changed', syncHeaderProfileButton);
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'preply-session-token' || e.key === 'preply-profile-name') {
+      syncHeaderProfileButton();
+    }
+  });
+
 })();
