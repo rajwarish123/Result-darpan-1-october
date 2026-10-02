@@ -1273,6 +1273,84 @@
 .dark-theme .primary-btn:hover {
   background: #24986b !important;
 }
+/* More Dropdown Navigation Menu & Shortcuts */
+.more-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.more-toggle {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink, #182c2a);
+  cursor: pointer;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.more-toggle:hover,
+.more-menu.open .more-toggle {
+  background: rgba(23, 94, 75, 0.08);
+  color: var(--green, #175e4b);
+}
+.more-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 250px;
+  background: #ffffff;
+  border: 1px solid var(--line, #cbdad1);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(16, 42, 31, 0.14);
+  padding: 8px 0;
+  z-index: 1000;
+}
+.more-menu.open .more-dropdown {
+  display: block;
+}
+.more-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink, #182c2a);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.more-dropdown a:hover {
+  background: #f0f7f3;
+  color: var(--green, #175e4b);
+}
+.more-divider {
+  height: 1px;
+  background: var(--line, #d4e4dc);
+  margin: 6px 0;
+}
+.more-heading {
+  padding: 6px 18px 4px;
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted, #5e756d);
+}
+.more-icon {
+  font-size: 15px;
+  line-height: 1;
+  display: inline-block;
+  width: 18px;
+  text-align: center;
+}
+
 .dark-theme .more-dropdown {
   background: #14352b !important;
   border-color: #315747 !important;
@@ -1287,6 +1365,12 @@
 }
 .dark-theme .more-toggle {
   color: #d2ead9 !important;
+}
+.dark-theme .more-heading {
+  color: #7da593 !important;
+}
+.dark-theme .more-divider {
+  background: #1e3f34 !important;
 }
 
 /* 15. General Links & Card Actions in Dark Mode */
