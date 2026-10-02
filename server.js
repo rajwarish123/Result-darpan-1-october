@@ -211,10 +211,9 @@ function createGeneratedQuestion(exam, index) {
 }
 
 function getQuestionBank() {
-  const curatedQuestions = readJson(path.join(DATA_DIR, 'previous-year-questions.json'), []);
   const exams = ['SSC CGL', 'Railway NTPC', 'Railway Group D'];
   const generatedQuestions = Array.from({ length: 500 }, (_, index) => createGeneratedQuestion(exams[index % exams.length], index));
-  return curatedQuestions.concat(generatedQuestions);
+  return previousYearQuestionsList.concat(generatedQuestions);
 }
 
 const questionSetSubjects = {
