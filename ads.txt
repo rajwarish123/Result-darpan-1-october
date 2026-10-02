@@ -1,0 +1,7 @@
+# Result Darpan (resultdarpan.com) Authorized Digital Sellers (ads.txt)
+# Required by Google AdSense and IAB Tech Lab for programmatic advertising authorization.
+#
+# When your Google AdSense account is approved:
+# Replace pub-0000000000000000 below with your real Google AdSense Publisher ID (pub-xxxxxxxxxxxxxxxx).
+#
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
