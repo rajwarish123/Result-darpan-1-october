@@ -116,6 +116,10 @@ function ensureStore() {
   if (!fs.existsSync(STUDY_MATERIALS_PATH)) {
     fs.writeFileSync(STUDY_MATERIALS_PATH, JSON.stringify([], null, 2));
   }
+
+  if (!fs.existsSync(PREVIOUS_YEAR_QUESTIONS_PATH)) {
+    fs.writeFileSync(PREVIOUS_YEAR_QUESTIONS_PATH, JSON.stringify([], null, 2));
+  }
 }
 
 function readJson(filePath, fallback) {
