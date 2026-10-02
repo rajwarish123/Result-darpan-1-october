@@ -795,6 +795,17 @@ app.get('/api/questions', (req, res) => {
   res.json({ questions });
 });
 
+app.get('/api/previous-year-questions', (req, res) => {
+  const exam = typeof req.query.exam === 'string' ? req.query.exam.trim() : '';
+  const list = exam && exam !== 'all'
+    ? previousYearQuestionsList.filter((q) => String(q.exam || '').toLowerCase() === exam.toLowerCase())
+    : previousYearQuestionsList;
+  const questions = req.query.includeAnswers === 'true'
+    ? list
+    : list.map(({ answer, ...q }) => q);
+  res.json({ questions, total: questions.length });
+});
+
 app.get('/api/question-sets', (req, res) => {
   const exam = questionSetSubjects[req.query.exam] ? req.query.exam : 'SSC CGL';
   const subjects = questionSetSubjects[exam];
