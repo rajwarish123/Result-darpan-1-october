@@ -920,7 +920,7 @@ async function finishTest() {
   document.querySelector('#resultSubmitted').textContent = totalParticipants.toLocaleString('en-IN');
   document.querySelector('#resultRank').textContent = `#${(peopleAbove + 1).toLocaleString('en-IN')}`;
   const leaderboard = [
-    ['Aarav Mehta', '10/10', '99%', 'AM'],
+    ['Ananya Mehta', '10/10', '99%', 'AM'],
     ['Ishita Rao', '9/10', '94%', 'IR'],
     ['You', `${correct}/${questions.length}`, `${percentile}%`, 'YO'],
     ['Rohan Singh', '7/10', '78%', 'RS']
