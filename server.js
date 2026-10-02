@@ -122,6 +122,29 @@ function ensureStore() {
   if (!fs.existsSync(PREVIOUS_YEAR_QUESTIONS_PATH)) {
     fs.writeFileSync(PREVIOUS_YEAR_QUESTIONS_PATH, JSON.stringify([], null, 2));
   }
+
+  if (!fs.existsSync(AD_SETTINGS_PATH)) {
+    fs.writeFileSync(AD_SETTINGS_PATH, JSON.stringify({
+      enabled: false,
+      adClient: '',
+      autoAds: false,
+      showTopBanner: true,
+      showInFeed: true,
+      showArticleBanner: true,
+      testMode: false,
+      updatedAt: new Date().toISOString()
+    }, null, 2));
+  }
+}
+
+function readJsonObject(filePath, fallback) {
+  try {
+    const raw = fs.readFileSync(filePath, 'utf8');
+    const parsed = JSON.parse(raw);
+    return typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed) ? parsed : fallback;
+  } catch (error) {
+    return fallback;
+  }
 }
 
 function readJson(filePath, fallback) {
