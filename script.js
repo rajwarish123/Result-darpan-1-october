@@ -1703,13 +1703,13 @@ async function loadLiveNotifications() {
 const fallbackHomeBlogs = [
   {
     id: "blog-1",
-    slug: "ssc-cgl-60-day-roadmap",
-    title: "SSC CGL 2026: 60-Day High-Yield Revision Roadmap & Subject Checklist",
+    slug: "how-to-crack-competitive-exams-60-days",
+    title: "How to Crack Competitive Exams in 60 Days: Complete Daily Roadmap",
     category: "Preparation Strategy",
     readTime: "7 min read",
-    author: "Warish Raj",
+    author: "Result Darpan Team",
     summary: "A battle-tested 8-week structured roadmap balancing Quant calculation drills, English comprehension rules, Reasoning puzzle mastery, and General Studies topic weightage.",
-    tags: ["SSCCGL", "Roadmap", "Quant", "Reasoning"],
+    tags: ["CompetitiveExams", "Roadmap", "Quant", "Reasoning"],
     createdAt: "2026-10-01T10:00:00.000Z"
   },
   {
@@ -1718,7 +1718,7 @@ const fallbackHomeBlogs = [
     title: "Speed Math & Calculation Shortcuts: Boost Score in Quantitative Aptitude",
     category: "Subject Guide",
     readTime: "5 min read",
-    author: "Warish Raj",
+    author: "Result Darpan Team",
     summary: "Essential mental math techniques, Vedic multiplication, percentage-fraction conversion tables, and digital sum methods to slash your solving time by 40%.",
     tags: ["SpeedMath", "Aptitude", "Shortcuts", "Banking"],
     createdAt: "2026-10-01T12:00:00.000Z"
@@ -1750,7 +1750,7 @@ async function loadLiveBlogs() {
             <span class="muted cms-card-readtime" style="font-size:12px; font-weight:600;">⏱️ ${escapeHtmlText(b.readTime || '5 min read')}</span>
           </div>
           <h3 class="cms-card-title">${escapeHtmlText(b.title)}</h3>
-          <p class="cms-card-meta">By <strong>${escapeHtmlText(b.author || 'Warish Raj')}</strong></p>
+          <p class="cms-card-meta">By <strong>${escapeHtmlText(b.author || 'Result Darpan Team')}</strong></p>
           <p class="cms-card-summary">${escapeHtmlText(b.summary || '')}</p>
           ${tagsHtml}
         </div>
@@ -1817,5 +1817,48 @@ document.getElementById('btnCloseArticleReader')?.addEventListener('click', () =
   if (reader) reader.style.display = 'none';
 });
 
+// --- NUMBER COUNTING ANIMATION FOR STATS ("Small steps. Big results.") ---
+function initStatsAnimation() {
+  const statsSection = document.getElementById('stats');
+  if (!statsSection) return;
+
+  const animateCount = (el) => {
+    const target = Number(el.dataset.target) || 0;
+    const numEl = el.querySelector('.stat-number');
+    if (!numEl) return;
+    const duration = 1400;
+    const startTime = performance.now();
+
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(ease * target);
+      numEl.textContent = current;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        numEl.textContent = target;
+      }
+    };
+    requestAnimationFrame(step);
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.stat-counter').forEach(animateCount);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    observer.observe(statsSection);
+  } else {
+    document.querySelectorAll('.stat-counter').forEach(animateCount);
+  }
+}
+
 loadLiveNotifications();
 loadLiveBlogs();
+initStatsAnimation();
