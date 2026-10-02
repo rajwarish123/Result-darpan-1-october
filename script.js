@@ -1135,9 +1135,9 @@ function openAuth() {
   const restoreInput = document.querySelector('#restoreIdentifier');
   const restoreMsg = document.querySelector('#restoreMsg');
 
-  if (nameInput) nameInput.value = window.localStorage.getItem('preply-profile-name') || 'Aarav Sharma';
-  if (examInput) examInput.value = window.localStorage.getItem('preply-profile-exam') || 'SSC CGL';
-  if (locInput) locInput.value = window.localStorage.getItem('preply-profile-location') || 'India';
+  if (nameInput) nameInput.value = window.localStorage.getItem('preply-profile-name') || '';
+  if (examInput) examInput.value = window.localStorage.getItem('preply-profile-exam') || '';
+  if (locInput) locInput.value = window.localStorage.getItem('preply-profile-location') || '';
   if (contactInput) contactInput.value = window.localStorage.getItem('preply-profile-contact') || '';
   if (typeSelect) typeSelect.value = window.localStorage.getItem('preply-learner-type') || 'boy';
   if (restoreInput) restoreInput.value = '';
@@ -1215,8 +1215,8 @@ document.querySelector('#btnRestoreProgress')?.addEventListener('click', async (
 
 authForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const name = document.querySelector('#signupName')?.value.trim() || 'Aarav Sharma';
-  const exam = document.querySelector('#signupExam')?.value.trim() || 'SSC CGL';
+  const name = document.querySelector('#signupName')?.value.trim() || 'Learner';
+  const exam = document.querySelector('#signupExam')?.value.trim() || 'Competitive Exams';
   const location = document.querySelector('#signupLocation')?.value.trim() || 'India';
   const contact = document.querySelector('#signupContact')?.value.trim() || '';
   const type = document.querySelector('#signupLearnerType')?.value || 'boy';
