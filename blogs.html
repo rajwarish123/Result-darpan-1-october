@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read expert exam preparation roadmaps, toppers' revision strategies, and subject guides on Result Darpan.">
+  <title>Strategy Blogs &amp; Topper Roadmaps | Result Darpan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="mobile.css">
+  <script src="nav.js" defer></script>
+  <style>
+    .blogs-hero {
+      background: linear-gradient(180deg, #eaf5ee 0%, #f6faf7 100%);
+      padding: 56px 0 36px;
+      border-bottom: 1px solid var(--line, #cbdad1);
+    }
+    .blogs-hero h1 {
+      font: 800 clamp(32px, 5vw, 48px)/1.15 var(--serif, 'Montserrat', sans-serif);
+      letter-spacing: -0.5px;
+      margin: 12px 0 16px;
+      color: var(--ink, #182c2a);
+    }
+    .blogs-hero p {
+      color: var(--muted, #5e756d);
+      font-size: 16px;
+      max-width: 680px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .blogs-toolbar {
+      background: #ffffff;
+      border: 1px solid var(--line, #cbdad1);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin: 32px 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(16, 42, 31, 0.04);
+    }
+    .blog-category-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .category-chip {
+      background: #f0f5f2;
+      border: 1px solid #d4e4dc;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted, #5e756d);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+    .category-chip:hover {
+      background: #e2ede6;
+      color: var(--ink, #182c2a);
+    }
+    .category-chip.active {
+      background: var(--green, #175e4b);
+      border-color: var(--green, #175e4b);
+      color: #ffffff;
+    }
+    .blog-search-box {
+      min-width: 260px;
+      flex: 1;
+      max-width: 360px;
+    }
+    .blog-search-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 9px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--line, #cbdad1);
+      font-family: inherit;
+      font-size: 13.5px;
+      color: var(--ink, #182c2a);
+      background: #ffffff;
+      outline: none;
+    }
+    .blog-search-input:focus {
+      border-color: var(--green, #175e4b);
+      box-shadow: 0 0 0 3px rgba(23, 94, 75, 0.12);
+    }
+    .blogs-grid-section {
+      padding-bottom: 70px;
+    }
+    .blog-count-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted, #5e756d);
+      margin-bottom: 18px;
+    }
+
+    /* Dark Mode Overrides */
+    .dark-theme .blogs-hero {
+      background: linear-gradient(180deg, #102a21 0%, #0d221b 100%) !important;
+      border-color: #1e3f34 !important;
+    }
+    .dark-theme .blogs-hero h1 {
+      color: #ffffff !important;
+    }
+    .dark-theme .blogs-toolbar {
+      background: #14352b !important;
+      border-color: #275243 !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+    }
+    .dark-theme .category-chip {
+      background: #1d4337 !important;
+      border-color: #2b5c4c !important;
+      color: #b7cebf !important;
+    }
+    .dark-theme .category-chip:hover {
+      background: #255747 !important;
+      color: #ffffff !important;
+    }
+    .dark-theme .category-chip.active {
+      background: #1d7b57 !important;
+      border-color: #1d7b57 !important;
+      color: #ffffff !important;
+    }
+    .dark-theme .blog-search-input {
+      background: #0f2b23 !important;
+      border-color: #2b5c4c !important;
+      color: #ecf7ef !important;
+    }
+    .dark-theme .blog-search-input:focus {
+      border-color: #79d4a8 !important;
+      box-shadow: 0 0 0 3px rgba(121, 212, 168, 0.15) !important;
+    }
+    .dark-theme .cms-card {
+      background: #14352b !important;
+      border-color: #275243 !important;
+    }
+    .dark-theme .cms-card-title {
+      color: #ffffff !important;
+    }
+    .dark-theme .cms-card-meta strong {
+      color: #ecf7ef !important;
+    }
+    .dark-theme .cms-card-summary {
+      color: #b7cebf !important;
+    }
+    .dark-theme .outline-btn {
+      color: #79d4a8 !important;
+      border-color: #316d55 !important;
+    }
+    .dark-theme .outline-btn:hover {
+      background: #1d4337 !important;
+    }
+  </style>
+</head>
+<body class="subpage-body">
+  <div class="topbar">
+    <div class="shell topbar-inner">
+      <span><span class="spark">✦</span> India's most loved free mock test platform</span>
+      <div class="top-links"><a href="index.html#stats">Why Result Darpan?</a><a href="index.html#testimonials">Learner stories</a></div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="index.html" aria-label="Result Darpan home"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation">☰</button>
+      <nav class="main-nav">
+        <a href="index.html#exams">Exams</a>
+        <a href="index.html#popular">Test series</a>
+        <a href="resources.html">Resources</a>
+        <a href="previous-year-questions.html">Previous year questions</a>
+        <a class="active-page" href="blogs.html">Blogs</a>
+        <a href="profile.html">My profile</a>
+        <a class="mentor-chat-btn" href="mentor-chat.html">AI Study Mentor ✦</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark theme" aria-pressed="false"><span class="theme-sun">☼</span><span class="theme-moon">◐</span></button>
+        <a class="login-btn" href="index.html">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="blogs-hero">
+      <div class="shell">
+        <span class="kicker">PREPARATION INTELLIGENCE</span>
+        <h1>Strategy Blogs &amp;<br><em>Exam Roadmaps.</em></h1>
+        <p>Proven preparation strategies, topic checklists, speed math shortcuts, and toppers' insights curated by Warish Raj for ambitious learners across India.</p>
+      </div>
+    </section>
+
+    <section class="blogs-grid-section">
+      <div class="shell">
+        <div class="blogs-toolbar">
+          <div class="blog-category-chips" id="categoryChips">
+            <button class="category-chip active" data-category="all" type="button">All Articles</button>
+            <button class="category-chip" data-category="Preparation Strategy" type="button">Preparation Strategy</button>
+            <button class="category-chip" data-category="Subject Guide" type="button">Subject Guide</button>
+            <button class="category-chip" data-category="Topper Tips" type="button">Topper Tips</button>
+            <button class="category-chip" data-category="Exam Analysis" type="button">Exam Analysis</button>
+            <button class="category-chip" data-category="Current Affairs" type="button">Current Affairs</button>
+          </div>
+          <div class="blog-search-box">
+            <input type="search" id="blogSearchInput" class="blog-search-input" placeholder="Search strategy articles..." aria-label="Search strategy articles" />
+          </div>
+        </div>
+
+        <div class="blog-count-label" id="blogCountLabel">Loading articles...</div>
+
+        <div class="cms-grid" id="allBlogsGrid">
+          <p class="muted">Loading strategy articles...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Full Article Reader Modal -->
+  <div class="modal-overlay modal-wide" id="articleReaderModal" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-reader-header" style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:18px;">
+        <div>
+          <span id="readBlogCategory" class="badge">Category</span>
+          <h2 id="readBlogTitle" style="font-size:1.45rem; margin:8px 0 6px; font-family:'Montserrat', sans-serif; line-height:1.3;">Title</h2>
+          <small id="readBlogMeta" style="color:var(--muted); font-size:0.85rem;">By Author · Date</small>
+        </div>
+        <button class="btn-tool" id="btnCloseArticleReader" type="button">✕ Close</button>
+      </div>
+      <div id="readBlogBody" style="font-size:0.98rem; line-height:1.75; color:var(--text); white-space:pre-wrap; border-top:1px solid var(--line); padding-top:16px;"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer" id="siteFooter">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand footer-logo" href="index.html"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
+          <p class="footer-tagline">Student-focused mock tests, practice series, and topper guidance — 100% free.</p>
+          <p class="footer-owner">Owned and operated by Warish Raj</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html#popular">Mock Test Series</a></li>
+            <li><a href="index.html#subjects">Subject Practice</a></li>
+            <li><a href="previous-year-questions.html">Previous Year Papers</a></li>
+            <li><a href="class-series.html">School Classes (9-12)</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="profile.html">My Prep Desk</a></li>
+            <li><a href="mentor-chat.html">AI Study Mentor ✦</a></li>
+            <li><a href="blogs.html">Strategy Blogs</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Privacy &amp; Terms</h4>
+          <ul>
+            <li><a href="contact.html#privacy-policy" class="footer-privacy-badge">🔒 Privacy Policy <span>↗</span></a></li>
+            <li><a href="contact.html#terms-conditions" class="footer-privacy-badge">📜 Terms &amp; Conditions <span>↗</span></a></li>
+            <li><a href="privacy.html">Full Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="mailto:Rajwarish38@gmail.com">Rajwarish38@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Result Darpan. All rights reserved. Built for India's ambitious learners.</div>
+        <div class="footer-bottom-links">
+          <a href="contact.html">About Result Darpan</a>
+          <a href="contact.html#privacy-policy" class="footer-legal-link">Privacy Policy</a>
+          <a href="contact.html#terms-conditions" class="footer-legal-link">Terms &amp; Conditions</a>
+          <a href="contact.html#contact-form">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Management
+    const themeToggle = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+      const isDark = theme === 'dark';
+      document.body.classList.toggle('dark-theme', isDark);
+      if (themeToggle) {
+        themeToggle.setAttribute('aria-pressed', String(isDark));
+        themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+      }
+      localStorage.setItem('preply-theme', theme);
+    }
+    applyTheme(localStorage.getItem('preply-theme') || 'light');
+    themeToggle?.addEventListener('click', () => {
+      applyTheme(document.body.classList.contains('dark-theme') ? 'light' : 'dark');
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '×' : '☰';
+    });
+
+    let allBlogsList = [];
+    let activeCategory = 'all';
+
+    async function loadAllBlogs() {
+      const grid = document.getElementById('allBlogsGrid');
+      const countLabel = document.getElementById('blogCountLabel');
+      try {
+        const res = await fetch('/api/blogs');
+        if (!res.ok) throw new Error('Failed to load articles');
+        const data = await res.json();
+        allBlogsList = data.blogs || [];
+        renderBlogs();
+      } catch (err) {
+        grid.innerHTML = `<p class="muted" style="color:var(--danger,#d93838);">Could not load blogs: ${err.message}</p>`;
+        countLabel.textContent = 'Articles currently unavailable.';
+      }
+    }
+
+    function renderBlogs() {
+      const grid = document.getElementById('allBlogsGrid');
+      const countLabel = document.getElementById('blogCountLabel');
+      const searchTerm = (document.getElementById('blogSearchInput')?.value || '').toLowerCase().trim();
+
+      const filtered = allBlogsList.filter((b) => {
+        if (activeCategory !== 'all' && String(b.category || '').toLowerCase() !== activeCategory.toLowerCase()) {
+          return false;
+        }
+        if (searchTerm) {
+          const matchTitle = String(b.title || '').toLowerCase().includes(searchTerm);
+          const matchSummary = String(b.summary || '').toLowerCase().includes(searchTerm);
+          const matchAuthor = String(b.author || '').toLowerCase().includes(searchTerm);
+          const matchCategory = String(b.category || '').toLowerCase().includes(searchTerm);
+          if (!matchTitle && !matchSummary && !matchAuthor && !matchCategory) return false;
+        }
+        return true;
+      });
+
+      countLabel.textContent = `Showing ${filtered.length} of ${allBlogsList.length} articles`;
+
+      if (!filtered.length) {
+        grid.innerHTML = '<div class="cms-card" style="grid-column:1/-1;"><p class="muted">No strategy articles found matching your criteria. Try another search or filter.</p></div>';
+        return;
+      }
+
+      grid.innerHTML = '';
+      filtered.forEach((b) => {
+        const card = document.createElement('article');
+        card.className = 'cms-card';
+        card.innerHTML = `
+          <div>
+            <div class="cms-card-top">
+              <span class="badge">${escapeHtml(b.category || 'Article')}</span>
+              <span class="muted cms-card-readtime">${escapeHtml(b.readTime || '5 min')}</span>
+            </div>
+            <h3 class="cms-card-title">${escapeHtml(b.title)}</h3>
+            <p class="cms-card-meta">By <strong>${escapeHtml(b.author || 'Warish Raj')}</strong></p>
+            <p class="cms-card-summary">${escapeHtml(b.summary || '')}</p>
+          </div>
+          <div class="cms-card-footer">
+            <span class="cms-card-date">${new Date(b.createdAt).toLocaleDateString()}</span>
+            <button class="outline-btn btn-read-article" type="button">Read Full Guide <span>↗</span></button>
+          </div>
+        `;
+
+        card.querySelector('.btn-read-article').addEventListener('click', () => openArticleReader(b));
+        grid.appendChild(card);
+      });
+    }
+
+    function openArticleReader(blog) {
+      const modal = document.getElementById('articleReaderModal');
+      document.getElementById('readBlogCategory').textContent = blog.category || 'Article';
+      document.getElementById('readBlogTitle').textContent = blog.title;
+      document.getElementById('readBlogMeta').textContent = `By ${blog.author || 'Warish Raj'} · ${blog.readTime || '5 min read'} · Published ${new Date(blog.createdAt).toLocaleDateString()}`;
+      document.getElementById('readBlogBody').textContent = blog.content || blog.summary;
+      modal.style.display = 'flex';
+    }
+
+    function closeArticleReader() {
+      document.getElementById('articleReaderModal').style.display = 'none';
+    }
+
+    document.getElementById('btnCloseArticleReader')?.addEventListener('click', closeArticleReader);
+    document.getElementById('articleReaderModal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'articleReaderModal') closeArticleReader();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeArticleReader();
+    });
+
+    document.querySelectorAll('.category-chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.category-chip').forEach((c) => c.classList.remove('active'));
+        chip.classList.add('active');
+        activeCategory = chip.dataset.category;
+        renderBlogs();
+      });
+    });
+
+    document.getElementById('blogSearchInput')?.addEventListener('input', renderBlogs);
+
+    function escapeHtml(str) {
+      if (typeof str !== 'string') return '';
+      return str.replace(/[&<>"']/g, (m) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      }[m]));
+    }
+
+    loadAllBlogs();
+  </script>
+</body>
+</html>
