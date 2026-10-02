@@ -9,6 +9,7 @@
 
   // Top navigation items that stay permanently on the main bar
   const keepLabels = new Set([
+    'home',
     'my profile',
     'about us',
     'test series',
@@ -16,6 +17,12 @@
     'ai study mentor',
     'ai study mentor ✦'
   ]);
+
+  const isKeep = (link) => {
+    const text = link.textContent.replace(/[↗✦⌄]/g, '').trim().toLowerCase();
+    if (link.classList.contains('active-page')) return true;
+    return keepLabels.has(text);
+  };
 
   const existingLabels = new Set(
     [...nav.querySelectorAll(':scope > a')].map((link) =>
@@ -32,9 +39,10 @@
   }
 
   const links = [...nav.querySelectorAll(':scope > a')];
-  const movedLinks = links.filter(
-    (link) => !keepLabels.has(link.textContent.replace(/[↗✦⌄]/g, '').trim().toLowerCase())
-  );
+  const movedLinks = links.filter((link) => !isKeep(link));
+
+  // Remove non-kept links from the top bar to keep layout clean
+  movedLinks.forEach((link) => link.remove());
 
   const moreMenu = document.createElement('div');
   moreMenu.className = 'more-menu';
@@ -42,33 +50,45 @@
     '<button class="more-toggle" type="button" aria-expanded="false">More <span>⌄</span></button><div class="more-dropdown"></div>';
   const dropdown = moreMenu.querySelector('.more-dropdown');
 
-  movedLinks.forEach((link) => {
-    // Strip redundant chevron indicators from dropdown links
-    const chevron = link.querySelector('.chevron');
-    if (chevron) chevron.remove();
-    dropdown.appendChild(link);
+  const heading = document.createElement('div');
+  heading.className = 'more-heading';
+  heading.textContent = 'Quick Shortcuts';
+  dropdown.appendChild(heading);
+
+  const shortcuts = [
+    { label: 'Read Blogs', href: 'blogs.html', icon: '✍️' },
+    { label: 'Contact Us', href: 'contact.html#contact-form', icon: '📬' },
+    { label: 'Previous Year Questions', href: 'previous-year-questions.html', icon: '📜' },
+    { label: 'School Classes (9-12)', href: 'class-series.html', icon: '🏫' },
+    { label: 'Study Notes & PDFs', href: 'resources.html', icon: '📚' },
+    { label: 'Subject Practice', href: 'index.html#subjects', icon: '🎯' },
+    { label: 'Upcoming Exams', href: 'index.html#exams', icon: '🏛️' },
+    { label: 'AI Study Mentor', href: 'mentor-chat.html', icon: '🤖' }
+  ];
+
+  shortcuts.forEach((sc) => {
+    const a = document.createElement('a');
+    a.href = sc.href;
+    a.innerHTML = `<span class="more-icon">${sc.icon}</span><span>${sc.label}</span>`;
+    dropdown.appendChild(a);
   });
 
-  // Shortcut 1: Read Blogs -> links to index.html#strategy-blogs
-  const hasBlogsShortcut = [...dropdown.querySelectorAll('a')].some((a) =>
-    a.textContent.toLowerCase().includes('blog')
-  );
-  if (!hasBlogsShortcut) {
-    const blogLink = document.createElement('a');
-    blogLink.href = 'index.html#strategy-blogs';
-    blogLink.textContent = 'Read Blogs';
-    dropdown.appendChild(blogLink);
-  }
+  // Retain any distinct custom links that may have been in the source markup
+  const shortcutKeywords = ['blog', 'contact', 'previous', 'class', 'resource', 'subject', 'exam', 'mentor', 'test series', 'profile', 'about'];
+  const extraLinks = movedLinks.filter((link) => {
+    const text = link.textContent.trim().toLowerCase();
+    return !shortcutKeywords.some((kw) => text.includes(kw));
+  });
 
-  // Shortcut 2: Contact Us -> links to contact.html#contact-form
-  const hasContactShortcut = [...dropdown.querySelectorAll('a')].some((a) =>
-    a.textContent.toLowerCase().includes('contact')
-  );
-  if (!hasContactShortcut) {
-    const contactLink = document.createElement('a');
-    contactLink.href = 'contact.html#contact-form';
-    contactLink.textContent = 'Contact Us';
-    dropdown.appendChild(contactLink);
+  if (extraLinks.length) {
+    const divider = document.createElement('div');
+    divider.className = 'more-divider';
+    dropdown.appendChild(divider);
+    extraLinks.forEach((link) => {
+      const chevron = link.querySelector('.chevron');
+      if (chevron) chevron.remove();
+      dropdown.appendChild(link);
+    });
   }
 
   nav.appendChild(moreMenu);
@@ -88,26 +108,34 @@
   dropdown.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href') || '';
+      const [path, hash] = href.split('#');
+      const currentPath = window.location.pathname.replace(/^\/+/g, '').split('/').pop() || '';
 
-      // Smooth scroll if clicking Read Blogs while already on index page
-      if (href.includes('#strategy-blogs')) {
-        const blogEl = document.getElementById('strategy-blogs');
-        if (blogEl) {
-          e.preventDefault();
-          blogEl.scrollIntoView({ behavior: 'smooth' });
-          history.pushState(null, '', '#strategy-blogs');
-        }
-      } else if (href.includes('#contact-form')) {
-        // Smooth scroll if clicking Contact Us while already on contact page
-        const contactEl = document.getElementById('contact-form') || document.getElementById('contactForm');
-        if (contactEl) {
-          e.preventDefault();
-          contactEl.scrollIntoView({ behavior: 'smooth' });
-          history.pushState(null, '', '#contact-form');
+      if (hash) {
+        const isCurrentPage =
+          !path ||
+          path === currentPath ||
+          ((path === 'index.html' || path === '') && (currentPath === '' || currentPath === 'index.html'));
+
+        if (isCurrentPage) {
+          const targetEl = document.getElementById(hash);
+          if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+            history.pushState(null, '', '#' + hash);
+          }
         }
       }
 
       closeMenu();
+
+      // Close mobile drawer if open
+      nav.classList.remove('open');
+      const menuToggle = document.querySelector('.menu-toggle');
+      if (menuToggle) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      }
     });
   });
 
