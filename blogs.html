@@ -711,7 +711,7 @@
         "datePublished": blog.createdAt || new Date().toISOString(),
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `${window.location.origin}/blogs.html?article=${encodeURIComponent(blog.slug || blog.id)}`
+          "@id": `${window.location.origin}/blogs?article=${encodeURIComponent(blog.slug || blog.id)}`
         }
       };
       scriptEl.textContent = JSON.stringify(schemaData);
@@ -736,7 +736,8 @@
     // Share / Copy Link Button
     document.getElementById('btnShareArticle')?.addEventListener('click', async () => {
       if (!currentReadingBlog) return;
-      const shareUrl = `${window.location.origin}${window.location.pathname}?article=${encodeURIComponent(currentReadingBlog.slug || currentReadingBlog.id)}`;
+      const cleanPath = window.location.pathname.replace(/\.html$/, '');
+      const shareUrl = `${window.location.origin}${cleanPath}?article=${encodeURIComponent(currentReadingBlog.slug || currentReadingBlog.id)}`;
       const shareBtn = document.getElementById('btnShareArticle');
 
       if (navigator.share) {
