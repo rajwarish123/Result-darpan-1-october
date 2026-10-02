@@ -18,7 +18,7 @@ const BLOGS_PATH = path.join(DATA_DIR, 'blogs.json');
 const STUDY_MATERIALS_PATH = path.join(DATA_DIR, 'study-materials.json');
 const PREVIOUS_YEAR_QUESTIONS_PATH = path.join(DATA_DIR, 'previous-year-questions.json');
 const AD_SETTINGS_PATH = path.join(DATA_DIR, 'ad-settings.json');
-const ADS_TXT_PATH = path.join(staticDir, 'ads.txt');
+const ADS_TXT_PATH = path.join(__dirname, 'ads.txt');
 
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
