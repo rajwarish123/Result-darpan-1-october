@@ -16,6 +16,7 @@ const QUESTION_SETS_PATH = path.join(DATA_DIR, 'question-sets.json');
 const NOTIFICATIONS_PATH = path.join(DATA_DIR, 'notifications.json');
 const BLOGS_PATH = path.join(DATA_DIR, 'blogs.json');
 const STUDY_MATERIALS_PATH = path.join(DATA_DIR, 'study-materials.json');
+const PREVIOUS_YEAR_QUESTIONS_PATH = path.join(DATA_DIR, 'previous-year-questions.json');
 
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
