@@ -2670,6 +2670,193 @@ Topic: Mechanics
     }
 
     // ==========================================
+    // PREVIOUS YEAR QUESTIONS (PYQ) MODULE
+    // ==========================================
+    let adminPyqs = [];
+
+    async function loadAdminPyqs() {
+      const grid = document.getElementById('pyqGrid');
+      grid.innerHTML = '<p class="muted">Loading previous year questions...</p>';
+      try {
+        const res = await apiFetch('/api/admin/previous-year-questions');
+        const data = await res.json();
+        adminPyqs = data.questions || [];
+
+        // Update stats
+        document.getElementById('statPyqTotal').textContent = adminPyqs.length;
+        document.getElementById('statPyqSsc').textContent = adminPyqs.filter((q) => /ssc/i.test(q.exam)).length;
+        document.getElementById('statPyqRailway').textContent = adminPyqs.filter((q) => /railway/i.test(q.exam)).length;
+
+        renderPyqCards();
+      } catch (err) {
+        grid.innerHTML = `<p class="muted" style="color:var(--danger);">Error loading previous year questions: ${err.message}</p>`;
+      }
+    }
+
+    function renderPyqCards() {
+      const grid = document.getElementById('pyqGrid');
+      const selectedExam = document.getElementById('pyqFilterExam')?.value || 'all';
+      const searchTerm = (document.getElementById('pyqSearchInput')?.value || '').toLowerCase().trim();
+
+      const filtered = adminPyqs.filter((q) => {
+        if (selectedExam !== 'all' && String(q.exam || '').toLowerCase() !== selectedExam.toLowerCase()) {
+          return false;
+        }
+        if (searchTerm) {
+          const matchText = String(q.text || '').toLowerCase().includes(searchTerm);
+          const matchTopic = String(q.topic || '').toLowerCase().includes(searchTerm);
+          const matchYear = String(q.year || '').toLowerCase().includes(searchTerm);
+          const matchOpts = Array.isArray(q.options) && q.options.some((opt) => String(opt).toLowerCase().includes(searchTerm));
+          if (!matchText && !matchTopic && !matchYear && !matchOpts) return false;
+        }
+        return true;
+      });
+
+      if (!filtered.length) {
+        grid.innerHTML = '<div class="cms-card" style="grid-column:1/-1;"><p class="muted">No questions found matching your filter. Click "+ Add Previous Year Question" to create one.</p></div>';
+        return;
+      }
+
+      grid.innerHTML = '';
+      filtered.forEach((q) => {
+        const card = document.createElement('article');
+        card.className = 'cms-card';
+        const optLetters = ['A', 'B', 'C', 'D'];
+        const optionsHtml = (q.options || []).map((opt, i) => {
+          const isCorrect = i === q.answer;
+          return `<div style="padding:6px 10px; border-radius:6px; font-size:0.85rem; margin-bottom:4px; display:flex; justify-content:space-between; align-items:center; background:${isCorrect ? '#f0fdf4' : '#f8faf9'}; border:1px solid ${isCorrect ? '#86efac' : '#edf2ef'}; color:${isCorrect ? '#15803d' : 'inherit'}; font-weight:${isCorrect ? '600' : 'normal'};">
+            <span><strong>${optLetters[i] || i + 1}.</strong> ${escapeHtml(opt)}</span>
+            ${isCorrect ? '<span style="font-size:0.75rem; background:#dcfce7; padding:2px 6px; border-radius:4px; font-weight:700;">✓ Correct</span>' : ''}
+          </div>`;
+        }).join('');
+
+        card.innerHTML = `
+          <div>
+            <div class="cms-card-top">
+              <span class="badge badge-custom">${escapeHtml(q.exam || 'SSC CGL')}</span>
+              <span class="muted" style="font-size:0.8rem; font-weight:700;">${escapeHtml(q.year || '')}</span>
+            </div>
+            <p style="font-size:0.82rem; font-weight:700; color:var(--primary); margin:8px 0 4px;">${escapeHtml(q.topic || 'General')}</p>
+            <p style="font-size:0.95rem; font-weight:600; line-height:1.4; color:var(--text); margin-bottom:12px;">${escapeHtml(q.text)}</p>
+            <div style="margin-bottom:10px;">
+              ${optionsHtml}
+            </div>
+            ${q.sourceUrl ? `<div><a href="${encodeURI(q.sourceUrl)}" target="_blank" rel="noopener" style="font-size:0.8rem; color:var(--primary); font-weight:600;">Paper Source ↗</a></div>` : ''}
+          </div>
+          <div class="cms-card-actions">
+            <button class="btn-tool btn-edit-pyq" type="button">✏️ Edit</button>
+            <button class="btn-delete-q btn-delete-pyq" type="button">🗑 Delete</button>
+          </div>
+        `;
+
+        card.querySelector('.btn-edit-pyq').addEventListener('click', () => editPyq(q.id));
+        card.querySelector('.btn-delete-pyq').addEventListener('click', () => deletePyq(q.id));
+        grid.appendChild(card);
+      });
+    }
+
+    function openPyqModal(isEdit = false) {
+      document.getElementById('pyqModalTitle').textContent = isEdit ? 'Edit Previous Year Question' : 'Add Previous Year Question';
+      document.getElementById('pyqSaveFeedback').textContent = '';
+      document.getElementById('pyqModal').style.display = 'flex';
+    }
+
+    function closePyqModal() {
+      document.getElementById('pyqModal').style.display = 'none';
+      document.getElementById('pyqForm').reset();
+      document.getElementById('pyqEditId').value = '';
+    }
+
+    function editPyq(id) {
+      const q = adminPyqs.find((item) => String(item.id) === String(id));
+      if (!q) return;
+
+      document.getElementById('pyqEditId').value = q.id;
+      document.getElementById('pyqFormExam').value = q.exam || 'SSC CGL';
+      document.getElementById('pyqFormYear').value = q.year || '2023 topic practice';
+      document.getElementById('pyqFormTopic').value = q.topic || 'General Awareness';
+      document.getElementById('pyqFormSourceUrl').value = q.sourceUrl || '';
+      document.getElementById('pyqFormText').value = q.text || '';
+
+      const opts = q.options || [];
+      document.getElementById('pyqOption0').value = opts[0] || '';
+      document.getElementById('pyqOption1').value = opts[1] || '';
+      document.getElementById('pyqOption2').value = opts[2] || '';
+      document.getElementById('pyqOption3').value = opts[3] || '';
+
+      const correctRadio = document.querySelector(`input[name="pyqCorrectAnswer"][value="${q.answer ?? 0}"]`);
+      if (correctRadio) correctRadio.checked = true;
+
+      openPyqModal(true);
+    }
+
+    async function deletePyq(id) {
+      if (!confirm('Are you sure you want to delete this previous year question?')) return;
+      try {
+        const res = await apiFetch(`/api/admin/previous-year-questions/${encodeURIComponent(id)}`, { method: 'DELETE' });
+        if (!res.ok) throw new Error('Failed to delete question');
+        showToast('Question deleted successfully.');
+        await loadAdminPyqs();
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    document.getElementById('pyqFilterExam')?.addEventListener('change', renderPyqCards);
+    document.getElementById('pyqSearchInput')?.addEventListener('input', renderPyqCards);
+    document.getElementById('btnOpenNewPyqModal')?.addEventListener('click', () => openPyqModal(false));
+    document.getElementById('btnClosePyqModal')?.addEventListener('click', closePyqModal);
+    document.getElementById('btnCancelPyqModal')?.addEventListener('click', closePyqModal);
+
+    document.getElementById('pyqForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const feedback = document.getElementById('pyqSaveFeedback');
+      feedback.textContent = 'Saving...';
+      feedback.style.color = 'var(--muted)';
+
+      const editId = document.getElementById('pyqEditId').value;
+      const opt0 = document.getElementById('pyqOption0').value.trim();
+      const opt1 = document.getElementById('pyqOption1').value.trim();
+      const opt2 = document.getElementById('pyqOption2').value.trim();
+      const opt3 = document.getElementById('pyqOption3').value.trim();
+
+      const options = [opt0, opt1, opt2, opt3].filter(Boolean);
+      if (options.length < 2) {
+        feedback.textContent = 'Please fill at least 2 options.';
+        feedback.style.color = 'var(--danger)';
+        return;
+      }
+
+      const selectedAnswer = document.querySelector('input[name="pyqCorrectAnswer"]:checked')?.value;
+      const answer = Number(selectedAnswer ?? 0);
+
+      const payload = {
+        exam: document.getElementById('pyqFormExam').value.trim() || 'SSC CGL',
+        year: document.getElementById('pyqFormYear').value.trim() || '2023 topic practice',
+        topic: document.getElementById('pyqFormTopic').value.trim() || 'General Awareness',
+        sourceUrl: document.getElementById('pyqFormSourceUrl').value.trim(),
+        text: document.getElementById('pyqFormText').value.trim(),
+        options,
+        answer
+      };
+
+      try {
+        const url = editId ? `/api/admin/previous-year-questions/${encodeURIComponent(editId)}` : '/api/admin/previous-year-questions';
+        const method = editId ? 'PUT' : 'POST';
+        const res = await apiFetch(url, { method, body: JSON.stringify(payload) });
+        const result = await res.json();
+        if (!res.ok) throw new Error(result.error || 'Failed to save question');
+
+        closePyqModal();
+        showToast(editId ? 'Previous year question updated!' : 'New previous year question published!');
+        await loadAdminPyqs();
+      } catch (err) {
+        feedback.textContent = err.message;
+        feedback.style.color = 'var(--danger)';
+      }
+    });
+
+    // ==========================================
     // NOTIFICATIONS & UPCOMING EXAMS MODULE
     // ==========================================
     let adminNotifications = [];
