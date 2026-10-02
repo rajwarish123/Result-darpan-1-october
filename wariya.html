@@ -3174,7 +3174,7 @@ Topic: Mechanics
                 <span class="muted" style="font-size:0.8rem;">${escapeHtml(b.readTime || '5 min')}</span>
               </div>
               <h3>${escapeHtml(b.title)}</h3>
-              <p style="font-size:0.82rem; color:var(--muted); margin-bottom:8px;">By <strong>${escapeHtml(b.author || 'Warish Raj')}</strong> · ${new Date(b.createdAt).toLocaleDateString()}</p>
+              <p style="font-size:0.82rem; color:var(--muted); margin-bottom:8px;">By <strong>${escapeHtml(b.author || 'Result Darpan Team')}</strong> · ${new Date(b.createdAt).toLocaleDateString()}</p>
               <p>${escapeHtml(b.summary || '')}</p>
               ${tagsStr ? `<div style="margin-top:10px; display:flex; gap:6px; flex-wrap:wrap;">${tagsStr.split(',').map((t) => `<span style="font-size:0.75rem; background:#edf2ef; padding:2px 8px; border-radius:4px; color:#2d3748;">#${escapeHtml(t.trim())}</span>`).join('')}</div>` : ''}
             </div>
@@ -3209,7 +3209,7 @@ Topic: Mechanics
     document.getElementById('btnOpenNewBlogModal')?.addEventListener('click', () => {
       document.getElementById('blogForm').reset();
       document.getElementById('blogEditId').value = '';
-      document.getElementById('blogAuthor').value = 'Warish Raj · Founder & Mentor';
+      document.getElementById('blogAuthor').value = 'Result Darpan Team';
       openBlogModal(false);
     });
 
@@ -3222,7 +3222,7 @@ Topic: Mechanics
       document.getElementById('blogEditId').value = b.id;
       document.getElementById('blogTitle').value = b.title || '';
       document.getElementById('blogCategory').value = b.category || 'Preparation Strategy';
-      document.getElementById('blogAuthor').value = b.author || 'Warish Raj · Founder & Mentor';
+      document.getElementById('blogAuthor').value = b.author || 'Result Darpan Team';
       document.getElementById('blogReadTime').value = b.readTime || '5 min read';
       document.getElementById('blogTags').value = Array.isArray(b.tags) ? b.tags.join(', ') : (b.tags || '');
       document.getElementById('blogSummary').value = b.summary || '';
