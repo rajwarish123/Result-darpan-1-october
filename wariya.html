@@ -921,25 +921,21 @@
     <!-- Sign In Card (When not authorized) -->
     <div id="authRequiredCard" class="auth-banner-card" style="display:none;">
       <span class="kicker">ADMIN ACCESS REQUIRED</span>
-      <h2>Sign in to Result Darpan Admin</h2>
-      <p class="muted">Access is reserved for the designated administrator account (configured with <code>ADMIN_EMAIL</code>).</p>
+      <h2>Sign in to Result Darpan Control Center</h2>
+      <p class="muted">Access is restricted to authorized administrative personnel.</p>
       
       <form class="auth-form" id="adminLoginForm">
         <div>
           <label style="font-size:0.85rem; font-weight:700;">Admin Email</label>
-          <input type="email" id="loginEmail" class="filter-input" style="width:100%; box-sizing:border-box;" required value="rajwarish38@gmail.com" />
+          <input type="email" id="loginEmail" class="filter-input" style="width:100%; box-sizing:border-box;" required placeholder="Enter admin email" autocomplete="email" />
         </div>
         <div>
           <label style="font-size:0.85rem; font-weight:700;">Password</label>
-          <input type="password" id="loginPassword" class="filter-input" style="width:100%; box-sizing:border-box;" required placeholder="Enter password (default: admin123)" />
+          <input type="password" id="loginPassword" class="filter-input" style="width:100%; box-sizing:border-box;" required placeholder="Enter password" autocomplete="current-password" />
         </div>
         <div id="loginError" class="toast-msg error" style="margin-top:6px;"></div>
         <button class="primary-btn" type="submit" style="width:100%; justify-content:center; margin-top:8px;">Sign In to Dashboard <span>→</span></button>
       </form>
-
-      <div style="margin-top:20px; font-size:0.82rem; color:#6b7280; text-align:left; background:#f9fafb; padding:12px; border-radius:8px; line-height:1.4;">
-        <strong>Quick note:</strong> Your admin email is set to <code>rajwarish38@gmail.com</code> and password is ready as <code>admin123</code>. You can change this anytime using <code>node set-admin-password.js &lt;new-password&gt;</code>.
-      </div>
     </div>
 
     <!-- Main Admin Content Area -->
