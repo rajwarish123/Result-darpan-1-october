@@ -1106,6 +1106,52 @@
         </div>
       </section>
 
+      <!-- TAB: PREVIOUS YEAR QUESTIONS (PYQ) -->
+      <section id="tabPyq" style="display:none;">
+        <div class="cms-section-header">
+          <div>
+            <h2>📜 Previous Year Questions (PYQ) Manager</h2>
+            <p>View, curate, add, edit, and delete real past exam questions. Any changes sync instantly with student previous year question pages and test banks.</p>
+          </div>
+          <button class="primary-btn" id="btnOpenNewPyqModal" type="button">➕ Add Previous Year Question</button>
+        </div>
+
+        <div class="admin-grid" style="margin-bottom:20px;">
+          <article class="admin-card">
+            <span class="label">Total Curated Questions</span>
+            <strong id="statPyqTotal">0</strong>
+          </article>
+          <article class="admin-card">
+            <span class="label">SSC CGL Questions</span>
+            <strong id="statPyqSsc">0</strong>
+          </article>
+          <article class="admin-card">
+            <span class="label">Railway Questions</span>
+            <strong id="statPyqRailway">0</strong>
+          </article>
+        </div>
+
+        <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px; margin-bottom:20px; display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+          <div style="flex:1; min-width:220px;">
+            <label style="font-size:0.8rem; font-weight:700; color:var(--muted); text-transform:uppercase; display:block; margin-bottom:4px;">Filter by Exam</label>
+            <select id="pyqFilterExam" class="filter-select" style="width:100%;">
+              <option value="all">All Exams</option>
+              <option value="SSC CGL">SSC CGL</option>
+              <option value="Railway NTPC">Railway NTPC</option>
+              <option value="Railway Group D">Railway Group D</option>
+            </select>
+          </div>
+          <div style="flex:2; min-width:260px;">
+            <label style="font-size:0.8rem; font-weight:700; color:var(--muted); text-transform:uppercase; display:block; margin-bottom:4px;">Search Question or Topic</label>
+            <input type="search" id="pyqSearchInput" class="filter-input" style="width:100%; box-sizing:border-box;" placeholder="Type words, topics, or formulas..." />
+          </div>
+        </div>
+
+        <div class="cms-grid" id="pyqGrid">
+          <p class="muted">Loading previous year questions...</p>
+        </div>
+      </section>
+
       <!-- TAB: TOPPER & MENTOR CONSOLE -->
       <section id="tabMentorDesk" style="display:none;">
         <div class="cms-section-header">
