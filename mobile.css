@@ -140,6 +140,11 @@ html, body {
     box-shadow: none;
     background: transparent;
   }
+  .more-heading {
+    padding: 10px 4px 4px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
   .more-dropdown a {
     border-bottom: 1px solid var(--line, #dce5df);
     font-size: 13px;
