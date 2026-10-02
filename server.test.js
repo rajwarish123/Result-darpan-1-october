@@ -987,5 +987,20 @@ test('Google AdSense monetization & ads.txt endpoints work properly', async () =
   }
 });
 
+test('GET /api/translate and POST /api/translate/batch return translated text for students', async () => {
+  const single = await request(app).get('/api/translate?text=What%20is%20gravity&target=hi');
+  assert.equal(single.status, 200);
+  assert.ok(single.body.translatedText);
+  assert.equal(single.body.target, 'hi');
+
+  const batch = await request(app).post('/api/translate/batch').send({
+    texts: ['Physics', 'Chemistry', 'Mathematics'],
+    target: 'hi'
+  });
+  assert.equal(batch.status, 200);
+  assert.equal(batch.body.translatedTexts.length, 3);
+});
+
+
 
 
