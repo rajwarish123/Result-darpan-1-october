@@ -328,44 +328,32 @@ async function profileRequest(endpoint, options = {}) {
 
 async function loadAccountProfile() {
   if (!profileName) return;
-  profileName.textContent = localStorage.getItem('preply-session-token') ? 'Loading profile...' : 'Your profile';
-  renderProfileGoals();
-  const metrics = document.querySelectorAll('.profile-metrics strong');
-  if (metrics[0]) metrics[0].textContent = '0';
-  if (metrics[1]) metrics[1].textContent = '0%';
-  if (metrics[2]) metrics[2].textContent = '0m';
+  const token = localStorage.getItem('preply-session-token');
+  const savedName = localStorage.getItem('preply-profile-name');
+
   const avatar = document.querySelector('.profile-avatar');
   const activityLabel = document.querySelector('.profile-progress .progress-label span');
   const activityBar = document.querySelector('.profile-progress .progress-track span');
   const streak = document.querySelector('.streak-pill');
-  if (avatar && !localStorage.getItem('preply-session-token')) avatar.textContent = '?';
-  if (activityLabel) activityLabel.textContent = '0 of 7 days';
-  if (activityBar) activityBar.style.width = '0%';
-  if (streak) streak.textContent = '0 active days this week';
-  if (!localStorage.getItem('preply-session-token')) {
-    try {
-      const guestRes = await fetch('/api/auth/guest', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: localStorage.getItem('preply-profile-name') || 'Aarav Sharma',
-          exam: localStorage.getItem('preply-profile-exam') || 'SSC CGL',
-          location: localStorage.getItem('preply-profile-location') || 'India',
-          schoolClass: localStorage.getItem('preply-school-class') || ''
-        })
-      });
-      if (guestRes.ok) {
-        const guestData = await guestRes.json();
-        localStorage.setItem('preply-session-token', guestData.token);
-        localStorage.setItem('preply-guest-id', guestData.guestId);
-        localStorage.setItem('preply-account-email', guestData.user.email);
-        localStorage.setItem('preply-is-guest', 'true');
-        localStorage.setItem('preply-authenticated', 'true');
-      }
-    } catch (err) {
-      console.warn('Guest profile auto-init failed:', err);
-    }
+  const metrics = document.querySelectorAll('.profile-metrics strong');
+
+  // If user is NOT logged in: show clean unauthenticated student profile state with NO dummy data
+  if (!token) {
+    profileName.textContent = 'Student Account';
+    if (profileLabel) profileLabel.textContent = 'Sign in or take a test to personalize your desk';
+    if (avatar) avatar.textContent = 'RD';
+    if (activityLabel) activityLabel.textContent = '0 of 7 days';
+    if (activityBar) activityBar.style.width = '0%';
+    if (streak) streak.textContent = '0 day streak';
+    if (metrics[0]) metrics[0].textContent = '0';
+    if (metrics[1]) metrics[1].textContent = '—';
+    if (metrics[2]) metrics[2].textContent = '0h';
+    renderProfileGoals([]);
+    return;
   }
+
+  profileName.textContent = savedName || 'Student Account';
+  renderProfileGoals();
 
   try {
     const payload = await profileRequest('/api/profile/me');
@@ -383,7 +371,6 @@ async function loadAccountProfile() {
       }
       guestLabel.textContent = `Guest ID: ${user.guestId}`;
     }
-    const avatar = document.querySelector('.profile-avatar');
     if (avatar) avatar.textContent = user.name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join('').toUpperCase();
     const activeDates = new Set((payload.stats.testAttempts || []).filter((attempt) => Date.now() - Date.parse(attempt.createdAt) < 7 * 86400000).map((attempt) => new Date(attempt.createdAt).toDateString()));
     if (activityLabel) activityLabel.textContent = `${activeDates.size} of 7 days`;
@@ -401,24 +388,25 @@ async function loadAccountProfile() {
     renderProfileGoals(user.goals);
     const messageMetric = document.querySelector('#profileMessagesSent');
     if (messageMetric) messageMetric.textContent = payload.stats?.messagesSent || 0;
-    const metrics = document.querySelectorAll('.profile-metrics strong');
     if (metrics[0]) metrics[0].textContent = payload.stats?.testsTaken || 0;
     if (metrics[1]) metrics[1].textContent = `${payload.stats?.averageAccuracy || 0}%`;
     if (metrics[2]) metrics[2].textContent = formatStudyTime(payload.stats?.studyTimeMinutes || 0);
     const accuracyLabel = document.querySelectorAll('.profile-metrics span')[1];
     if (accuracyLabel) accuracyLabel.textContent = 'Average accuracy';
   } catch (error) {
-    if (error.message.includes('session') || error.message.includes('sign in')) {
+    if (error.message.includes('401') || error.message.includes('Invalid token') || error.message.includes('expired')) {
       localStorage.removeItem('preply-authenticated');
       localStorage.removeItem('preply-account-email');
       localStorage.removeItem('preply-session-token');
       localStorage.removeItem('preply-profile-name');
       localStorage.removeItem('preply-profile-exam');
       localStorage.removeItem('preply-profile-location');
-      if (profileName) profileName.textContent = 'Guest Learner';
-      if (profileLabel) profileLabel.textContent = 'SSC CGL aspirant · India';
+      if (profileName) profileName.textContent = 'Student Account';
+      if (profileLabel) profileLabel.textContent = 'Sign in or take a test to personalize your desk';
+    } else {
+      if (savedName) profileName.textContent = savedName;
     }
-    console.warn('Unable to load account profile:', error.message);
+    console.warn('Profile load info:', error.message);
   }
 }
 loadAccountProfile();
@@ -430,6 +418,13 @@ function formatStudyTime(minutes) {
   const remainingMinutes = minutes % 60;
   return remainingMinutes ? `${hours}h ${remainingMinutes}m` : `${hours}h`;
 }
+
+document.querySelector('#profileSettings')?.addEventListener('click', () => {
+  document.querySelector('#settingsName').value = profileName?.textContent !== 'Student Account' ? (profileName?.textContent || '') : '';
+  document.querySelector('#settingsExam').value = savedExam;
+  document.querySelector('#settingsLocation').value = savedLocation;
+  document.querySelector('#settingsModal').classList.add('visible');
+});
 
 function updateLiveProfile(stats) {
   const metrics = document.querySelectorAll('.profile-metrics strong');
