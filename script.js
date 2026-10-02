@@ -69,6 +69,11 @@ let activeCatalogCategory = 'all';
 let showAllExamsExpanded = false;
 
 function applyCatalogFilters() {
+  if (typeof window.__applyCatalogFilters === 'function') {
+    window.__applyCatalogFilters();
+    return;
+  }
+
   const searchInput = document.getElementById('catalogSearchInput');
   const searchClear = document.getElementById('catalogSearchClear');
   const emptyState = document.getElementById('catalogEmptyState');
@@ -78,15 +83,26 @@ function applyCatalogFilters() {
   const allCards = document.querySelectorAll('.test-card');
 
   const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
-  if (searchClear) searchClear.hidden = query.length === 0;
-
   const isSearching = query.length > 0;
+
+  if (searchClear) {
+    if (isSearching) {
+      searchClear.hidden = false;
+      searchClear.removeAttribute('hidden');
+      searchClear.style.setProperty('display', 'inline-flex', 'important');
+    } else {
+      searchClear.hidden = true;
+      searchClear.setAttribute('hidden', '');
+      searchClear.style.setProperty('display', 'none', 'important');
+    }
+  }
+
   let visibleCount = 0;
 
   allCards.forEach((card) => {
-    const cardCat = card.dataset.category || '';
+    const cardCat = (card.dataset.category || '').toLowerCase();
     const isPopular = card.dataset.popular === 'true';
-    const text = card.textContent.toLowerCase();
+    const text = (card.textContent || '').toLowerCase();
 
     const matchesCategory = activeCatalogCategory === 'all' || cardCat === activeCatalogCategory;
     const matchesQuery = !isSearching || text.includes(query);
@@ -100,22 +116,38 @@ function applyCatalogFilters() {
       shouldShow = cardCat === activeCatalogCategory;
     }
 
-    card.hidden = !shouldShow;
-    if (shouldShow) visibleCount++;
+    if (shouldShow) {
+      card.hidden = false;
+      card.removeAttribute('hidden');
+      card.classList.remove('is-catalog-hidden');
+      card.style.setProperty('display', 'flex', 'important');
+      visibleCount++;
+    } else {
+      card.hidden = true;
+      card.setAttribute('hidden', '');
+      card.classList.add('is-catalog-hidden');
+      card.style.setProperty('display', 'none', 'important');
+    }
   });
 
   if (emptyState) {
     if (visibleCount === 0 && isSearching) {
       emptyState.hidden = false;
+      emptyState.removeAttribute('hidden');
+      emptyState.style.setProperty('display', 'block', 'important');
       if (emptyQueryText) emptyQueryText.textContent = query;
     } else {
       emptyState.hidden = true;
+      emptyState.setAttribute('hidden', '');
+      emptyState.style.setProperty('display', 'none', 'important');
     }
   }
 
   if (toggleWrap && toggleBtn) {
     if (activeCatalogCategory === 'all' && !isSearching) {
       toggleWrap.hidden = false;
+      toggleWrap.removeAttribute('hidden');
+      toggleWrap.style.setProperty('display', 'flex', 'important');
       if (showAllExamsExpanded) {
         toggleBtn.innerHTML = '<span>Show less</span> <span class="btn-icon">↑</span>';
       } else {
@@ -123,68 +155,22 @@ function applyCatalogFilters() {
       }
     } else {
       toggleWrap.hidden = true;
+      toggleWrap.setAttribute('hidden', '');
+      toggleWrap.style.setProperty('display', 'none', 'important');
     }
   }
 }
 
-document.querySelectorAll('.category').forEach((categoryBtn) => {
-  categoryBtn.addEventListener('click', () => {
-    document.querySelector('.category.active')?.classList.remove('active');
-    categoryBtn.classList.add('active');
-    activeCatalogCategory = categoryBtn.dataset.filter || 'all';
-    const searchInput = document.getElementById('catalogSearchInput');
-    if (searchInput && searchInput.value) searchInput.value = '';
-    applyCatalogFilters();
-  });
-});
-
-document.getElementById('catalogSearchInput')?.addEventListener('input', () => {
-  applyCatalogFilters();
-});
-
-document.getElementById('catalogSearchClear')?.addEventListener('click', () => {
-  const input = document.getElementById('catalogSearchInput');
-  if (input) {
-    input.value = '';
-    input.focus();
-  }
-  applyCatalogFilters();
-});
-
-document.getElementById('resetSearchBtn')?.addEventListener('click', () => {
-  const input = document.getElementById('catalogSearchInput');
-  if (input) input.value = '';
-  document.querySelector('.category.active')?.classList.remove('active');
-  document.querySelector('.category[data-filter="all"]')?.classList.add('active');
-  activeCatalogCategory = 'all';
-  showAllExamsExpanded = false;
-  applyCatalogFilters();
-});
-
-document.getElementById('toggleAllExamsBtn')?.addEventListener('click', () => {
-  showAllExamsExpanded = !showAllExamsExpanded;
-  applyCatalogFilters();
-  if (!showAllExamsExpanded) {
-    document.getElementById('popular')?.scrollIntoView({ behavior: 'smooth' });
-  }
-});
-
-const testGridElement = document.getElementById('testGrid');
-document.querySelector('.slider-btn.prev')?.addEventListener('click', () => {
-  if (testGridElement) testGridElement.scrollBy({ left: -320, behavior: 'smooth' });
-});
-document.querySelector('.slider-btn.next')?.addEventListener('click', () => {
-  if (testGridElement) testGridElement.scrollBy({ left: 320, behavior: 'smooth' });
-});
-
-// Subject tabs filtering
+// Subject tabs filtering with guaranteed display styling
 document.querySelectorAll('.subject-tab').forEach((tab) => {
   tab.addEventListener('click', () => {
     document.querySelector('.subject-tab.active')?.classList.remove('active');
     tab.classList.add('active');
     const subject = tab.dataset.subject;
     document.querySelectorAll('.subject-card').forEach((card) => {
-      card.hidden = subject !== 'all' && card.dataset.subject !== subject;
+      const shouldShow = subject === 'all' || card.dataset.subject === subject;
+      card.hidden = !shouldShow;
+      card.style.setProperty('display', shouldShow ? 'flex' : 'none', 'important');
     });
   });
 });

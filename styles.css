@@ -1,3 +1,15 @@
+/* Guaranteed Hidden Elements Handling */
+[hidden],
+[hidden="true"],
+.test-card.is-catalog-hidden,
+.test-card[hidden],
+.subject-card[hidden],
+.view-all-exams-wrap[hidden],
+.catalog-search-clear[hidden],
+.catalog-empty-state[hidden] {
+  display: none !important;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 .school-classes-section { padding: 72px 0; background: #f2f7f3; }
@@ -1512,8 +1524,8 @@
   border-radius: 16px;
   border: 1px solid var(--line, #e2e8e4);
   padding: 22px;
-  display: flex !important;
-  flex-direction: column !important;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 4px 16px rgba(18, 45, 39, 0.04);
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;

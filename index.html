@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.1" />
+  <link rel="stylesheet" href="styles.css?v=4.0" />
   <link rel="stylesheet" href="mobile.css?v=3.1" />
   <link rel="stylesheet" href="levels.css" />
   <script src="nav.js" defer></script>
@@ -19,8 +19,23 @@
       .subjects-section .section-heading h2 { font-size: 34px; }
     }
     /* Critical Guaranteed Test Card & Logo Badge Sizing */
+    /* Critical Guaranteed Hidden & Display Rules */
+    [hidden],
+    [hidden="true"],
+    .test-card.is-catalog-hidden,
+    .test-card[hidden],
+    .subject-card[hidden],
+    .view-all-exams-wrap[hidden],
+    .catalog-search-clear[hidden],
+    .catalog-empty-state[hidden] {
+      display: none !important;
+    }
+    .test-card:not([hidden]):not(.is-catalog-hidden) {
+      display: flex !important;
+      flex-direction: column !important;
+    }
     .test-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important; gap: 20px !important; }
-    .test-card { background: #ffffff !important; border-radius: 16px !important; border: 1px solid #e2e8e4 !important; padding: 22px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; min-height: 200px !important; box-shadow: 0 4px 16px rgba(18,45,39,0.04) !important; transition: transform 0.22s ease, box-shadow 0.22s ease !important; position: relative !important; overflow: hidden !important; box-sizing: border-box !important; }
+    .test-card { background: #ffffff !important; border-radius: 16px !important; border: 1px solid #e2e8e4 !important; padding: 22px !important; display: flex; flex-direction: column; justify-content: space-between !important; min-height: 200px !important; box-shadow: 0 4px 16px rgba(18,45,39,0.04) !important; transition: transform 0.22s ease, box-shadow 0.22s ease !important; position: relative !important; overflow: hidden !important; box-sizing: border-box !important; }
     .test-card:hover { transform: translateY(-4px) !important; box-shadow: 0 14px 30px rgba(18,45,39,0.1) !important; border-color: #28a745 !important; }
     .test-card-top { display: flex !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 14px !important; gap: 12px !important; }
     .test-logo-badge { width: 48px !important; height: 48px !important; min-width: 48px !important; max-width: 48px !important; border-radius: 12px !important; background: #ffffff !important; border: 1px solid #e2e8e4 !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 5px !important; box-sizing: border-box !important; overflow: hidden !important; flex-shrink: 0 !important; box-shadow: 0 2px 8px rgba(18,45,39,0.06) !important; }
@@ -770,6 +785,167 @@
             <span class="btn-icon">↓</span>
           </button>
         </div>
+
+        <script>
+          // Self-contained instant catalog controller for guaranteed reactivity
+          (function() {
+            var activeCat = 'all';
+            var isExpanded = false;
+
+            function runCatalogFilter() {
+              var input = document.getElementById('catalogSearchInput');
+              var clearBtn = document.getElementById('catalogSearchClear');
+              var emptyState = document.getElementById('catalogEmptyState');
+              var emptyText = document.getElementById('emptyQueryText');
+              var toggleWrap = document.getElementById('viewAllExamsWrap');
+              var toggleBtn = document.getElementById('toggleAllExamsBtn');
+              var cards = document.querySelectorAll('.test-card');
+
+              var query = (input ? input.value : '').trim().toLowerCase();
+              var isSearching = query.length > 0;
+
+              if (clearBtn) {
+                if (isSearching) {
+                  clearBtn.hidden = false;
+                  clearBtn.removeAttribute('hidden');
+                  clearBtn.style.setProperty('display', 'inline-flex', 'important');
+                } else {
+                  clearBtn.hidden = true;
+                  clearBtn.setAttribute('hidden', '');
+                  clearBtn.style.setProperty('display', 'none', 'important');
+                }
+              }
+
+              var visibleCount = 0;
+              cards.forEach(function(card) {
+                var cat = (card.dataset.category || '').toLowerCase();
+                var isPop = card.dataset.popular === 'true';
+                var text = (card.textContent || '').toLowerCase();
+
+                var matchesCat = activeCat === 'all' || cat === activeCat;
+                var matchesQuery = !isSearching || text.indexOf(query) !== -1;
+
+                var show = false;
+                if (isSearching) {
+                  show = matchesCat && matchesQuery;
+                } else if (activeCat === 'all') {
+                  show = isExpanded ? true : isPop;
+                } else {
+                  show = cat === activeCat;
+                }
+
+                if (show) {
+                  card.hidden = false;
+                  card.removeAttribute('hidden');
+                  card.classList.remove('is-catalog-hidden');
+                  card.style.setProperty('display', 'flex', 'important');
+                  visibleCount++;
+                } else {
+                  card.hidden = true;
+                  card.setAttribute('hidden', '');
+                  card.classList.add('is-catalog-hidden');
+                  card.style.setProperty('display', 'none', 'important');
+                }
+              });
+
+              if (emptyState) {
+                if (visibleCount === 0 && isSearching) {
+                  emptyState.hidden = false;
+                  emptyState.removeAttribute('hidden');
+                  emptyState.style.setProperty('display', 'block', 'important');
+                  if (emptyText) emptyText.textContent = query;
+                } else {
+                  emptyState.hidden = true;
+                  emptyState.setAttribute('hidden', '');
+                  emptyState.style.setProperty('display', 'none', 'important');
+                }
+              }
+
+              if (toggleWrap && toggleBtn) {
+                if (activeCat === 'all' && !isSearching) {
+                  toggleWrap.hidden = false;
+                  toggleWrap.removeAttribute('hidden');
+                  toggleWrap.style.setProperty('display', 'flex', 'important');
+                  if (isExpanded) {
+                    toggleBtn.innerHTML = '<span>Show less</span> <span class="btn-icon">↑</span>';
+                  } else {
+                    toggleBtn.innerHTML = '<span>Show all ' + cards.length + ' exams</span> <span class="btn-icon">↓</span>';
+                  }
+                } else {
+                  toggleWrap.hidden = true;
+                  toggleWrap.setAttribute('hidden', '');
+                  toggleWrap.style.setProperty('display', 'none', 'important');
+                }
+              }
+            }
+
+            window.__applyCatalogFilters = runCatalogFilter;
+            window.__setActiveCatalogCategory = function(c) { activeCat = c; isExpanded = false; runCatalogFilter(); };
+            window.__toggleAllExams = function() { isExpanded = !isExpanded; runCatalogFilter(); return isExpanded; };
+
+            document.addEventListener('click', function(e) {
+              var catBtn = e.target.closest('.category');
+              if (catBtn) {
+                e.preventDefault();
+                document.querySelectorAll('.category').forEach(function(b) { b.classList.remove('active'); });
+                catBtn.classList.add('active');
+                activeCat = catBtn.dataset.filter || 'all';
+                isExpanded = false;
+                var input = document.getElementById('catalogSearchInput');
+                if (input && input.value) input.value = '';
+                runCatalogFilter();
+                return;
+              }
+
+              var togBtn = e.target.closest('#toggleAllExamsBtn');
+              if (togBtn) {
+                e.preventDefault();
+                isExpanded = !isExpanded;
+                runCatalogFilter();
+                if (!isExpanded) {
+                  var pop = document.getElementById('popular');
+                  if (pop) pop.scrollIntoView({ behavior: 'smooth' });
+                }
+                return;
+              }
+
+              var clrBtn = e.target.closest('#catalogSearchClear');
+              if (clrBtn) {
+                e.preventDefault();
+                var input = document.getElementById('catalogSearchInput');
+                if (input) { input.value = ''; input.focus(); }
+                runCatalogFilter();
+                return;
+              }
+
+              var rstBtn = e.target.closest('#resetSearchBtn');
+              if (rstBtn) {
+                e.preventDefault();
+                var input = document.getElementById('catalogSearchInput');
+                if (input) input.value = '';
+                document.querySelectorAll('.category').forEach(function(b) { b.classList.remove('active'); });
+                var allBtn = document.querySelector('.category[data-filter="all"]');
+                if (allBtn) allBtn.classList.add('active');
+                activeCat = 'all';
+                isExpanded = false;
+                runCatalogFilter();
+                return;
+              }
+            });
+
+            document.addEventListener('input', function(e) {
+              if (e.target && e.target.id === 'catalogSearchInput') {
+                runCatalogFilter();
+              }
+            });
+
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', runCatalogFilter);
+            } else {
+              runCatalogFilter();
+            }
+          })();
+        </script>
       </div>
     </section>
 
@@ -783,7 +959,7 @@
     <section class="section testimonials" id="testimonials"><div class="shell testimonial-grid"><div><span class="kicker">REAL PEOPLE, REAL PROGRESS</span><h2>“The confidence<br>feels <em>different</em>.”</h2><div class="quote-mark">“</div></div><div class="quote-panel"><div class="stars">★★★★★</div><blockquote id="testimonialQuote">Result Darpan made my preparation feel organised for the first time. The detailed solutions helped me understand exactly where I was losing marks.</blockquote><div class="reviewer"><div class="review-avatar" id="testimonialAvatar">NS</div><div><strong id="testimonialAuthor">Namrata Sharma</strong><span id="testimonialRole">Selected · SBI Clerk 2025</span></div><div class="quote-arrows"><button type="button" id="prevTestimonial" aria-label="Previous testimonial">←</button><button type="button" id="nextTestimonial" aria-label="Next testimonial">→</button></div></div></div></div></section>
 
     <section class="signup-band" id="resources"><div class="shell signup-inner"><div class="signup-illustration"><div class="signup-blob"></div><span class="signup-person">✎</span><span class="signup-star">✦</span></div><div><span class="kicker">YOUR BEST ATTEMPT STARTS HERE</span><h2>Ready to make<br>your mark?</h2><p>Join a community of learners who are showing up every day.</p><a class="primary-btn" href="#popular">Start Free Mock Tests <span>→</span></a></div></div></section>
-    <section class="subjects-section" id="subjects"><div class="shell"><div class="section-heading"><div><span class="kicker">PRACTISE BY TOPIC</span><h2>Pick a subject.<br><em>Build your edge.</em></h2></div><span class="subject-note">Short, focused tests for every part of your syllabus.</span></div><div class="subject-tabs" role="tablist"><button class="subject-tab active" data-subject="all">All subjects</button><button class="subject-tab" data-subject="mathematics">Mathematics</button><button class="subject-tab" data-subject="english">English</button><button class="subject-tab" data-subject="awareness">General Awareness</button><button class="subject-tab" data-subject="history">History</button><button class="subject-tab" data-subject="polity">Polity</button><button class="subject-tab" data-subject="science">Science</button><button class="subject-tab" data-subject="hindi">Hindi</button><button class="subject-tab" data-subject="reasoning">Reasoning</button></div><div class="subject-grid" id="subjectGrid"><article class="subject-card" data-subject="mathematics"><span class="subject-icon math-icon">∑</span><div><span class="subject-label">QUANTITATIVE APTITUDE</span><h3>Mathematics</h3><p>Percentages, algebra, geometry, and arithmetic.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="english"><span class="subject-icon english-icon">Aa</span><div><span class="subject-label">LANGUAGE</span><h3>English</h3><p>Grammar, vocabulary, comprehension, and usage.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="awareness"><span class="subject-icon awareness-icon">◎</span><div><span class="subject-label">GENERAL STUDIES</span><h3>General Awareness</h3><p>Current affairs, static GK, and everyday knowledge.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="history"><span class="subject-icon history-icon">⌛</span><div><span class="subject-label">SOCIAL STUDIES</span><h3>History</h3><p>Ancient, medieval, modern India, and world history.</p></div><button class="subject-test-btn">Practice <span>→</span></article><article class="subject-card" data-subject="polity"><span class="subject-icon polity-icon">⚖</span><div><span class="subject-label">CIVICS</span><h3>Polity</h3><p>Constitution, governance, rights, and institutions.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="science"><span class="subject-icon science-icon">✦</span><div><span class="subject-label">GENERAL SCIENCE</span><h3>Science</h3><p>Physics, chemistry, biology, and technology.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="hindi"><span class="subject-icon hindi-icon">अ</span><div><span class="subject-label">LANGUAGE</span><h3>Hindi</h3><p>व्याकरण, शब्दावली, comprehension, and usage.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="reasoning"><span class="subject-icon reasoning-icon">◇</span><div><span class="subject-label">GENERAL INTELLIGENCE</span><h3>Reasoning</h3><p>Series, coding, logic, puzzles, and patterns.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article></div></div></section>
+    <section class="subjects-section" id="subjects"><div class="shell"><div class="section-heading"><div><span class="kicker">PRACTISE BY TOPIC</span><h2>Pick a subject.<br><em>Build your edge.</em></h2></div><span class="subject-note">Short, focused tests for every part of your syllabus.</span></div><div class="subject-tabs" role="tablist"><button class="subject-tab active" data-subject="all">All subjects</button><button class="subject-tab" data-subject="mathematics">Mathematics</button><button class="subject-tab" data-subject="english">English</button><button class="subject-tab" data-subject="awareness">General Awareness</button><button class="subject-tab" data-subject="history">History</button><button class="subject-tab" data-subject="polity">Polity</button><button class="subject-tab" data-subject="science">Science</button><button class="subject-tab" data-subject="hindi">Hindi</button><button class="subject-tab" data-subject="reasoning">Reasoning</button></div><div class="subject-grid" id="subjectGrid"><article class="subject-card" data-subject="mathematics"><span class="subject-icon math-icon">∑</span><div><span class="subject-label">QUANTITATIVE APTITUDE</span><h3>Mathematics</h3><p>Percentages, algebra, geometry, and arithmetic.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="english"><span class="subject-icon english-icon">Aa</span><div><span class="subject-label">LANGUAGE</span><h3>English</h3><p>Grammar, vocabulary, comprehension, and usage.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="awareness"><span class="subject-icon awareness-icon">◎</span><div><span class="subject-label">GENERAL STUDIES</span><h3>General Awareness</h3><p>Current affairs, static GK, and everyday knowledge.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="history"><span class="subject-icon history-icon">⌛</span><div><span class="subject-label">SOCIAL STUDIES</span><h3>History</h3><p>Ancient, medieval, modern India, and world history.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="polity"><span class="subject-icon polity-icon">⚖</span><div><span class="subject-label">CIVICS</span><h3>Polity</h3><p>Constitution, governance, rights, and institutions.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="science"><span class="subject-icon science-icon">✦</span><div><span class="subject-label">GENERAL SCIENCE</span><h3>Science</h3><p>Physics, chemistry, biology, and technology.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="hindi"><span class="subject-icon hindi-icon">अ</span><div><span class="subject-label">LANGUAGE</span><h3>Hindi</h3><p>व्याकरण, शब्दावली, comprehension, and usage.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article><article class="subject-card" data-subject="reasoning"><span class="subject-icon reasoning-icon">◇</span><div><span class="subject-label">GENERAL INTELLIGENCE</span><h3>Reasoning</h3><p>Series, coding, logic, puzzles, and patterns.</p></div><button class="subject-test-btn">Practice <span>→</span></button></article></div></div></section>
 
     <!-- FUTURE-READY MONETIZATION: IN-FEED AD SLOT -->
     <div class="shell">
@@ -911,7 +1087,10 @@
       <div class="test-progress"><span id="progressBar"></span></div>
       <div class="test-body"><aside class="question-sidebar"><div class="timer-label">TIME LEFT</div><div class="test-timer" id="testTimer">15:00</div><div class="question-map" id="questionMap"></div><div class="legend"><span><i class="answered-dot"></i> Answered</span><span><i class="current-dot"></i> Current</span></div></aside><section class="question-area"><div class="question-topic" id="questionTopic">English Comprehension</div><h2 id="questionText"></h2><div class="answer-options" id="answerOptions"></div><div class="question-actions"><button class="secondary-btn" id="previousQuestion">← Previous</button><button class="primary-btn" id="nextQuestion">Next question <span>→</span></button></div></section></div>
       <div class="test-result" id="testResult" hidden><div class="result-icon">✓</div><span class="kicker">TEST COMPLETE</span><h2 id="resultTitle">Well attempted.</h2><p id="resultSummary"></p><div class="result-encouragement" id="resultEncouragement" hidden><strong>Keep going, your next score can be better.</strong><span id="resultEncouragementText"></span></div><div class="result-stats"><div><strong id="resultScore">0/10</strong><span>Score</span></div><div><strong id="resultPercent">0%</strong><span>Accuracy</span></div><div><strong id="resultCorrect">0</strong><span>Correct</span></div></div><div class="result-insights"><div class="insight-card"><span class="insight-icon">↗</span><div><strong id="resultAbove">0%</strong><span>of learners are below you</span></div></div><div class="insight-card"><span class="insight-icon">◎</span><div><strong id="resultSubmitted">6,110</strong><span>people submitted this test</span></div></div><div class="insight-card"><span class="insight-icon">#</span><div><strong id="resultRank">#1</strong><span>your virtual rank</span></div></div></div><div class="leaderboard"><div class="leaderboard-heading"><strong>Virtual leaderboard</strong><span>Top performers today</span></div><div id="leaderboardRows"></div></div><button class="primary-btn" id="retryTest">Try again <span>↻</span></button></div>
-    <div class="modal-overlay modal-wide" id="articleReaderModal">
+    </div>
+  </div>
+
+  <div class="modal-overlay modal-wide" id="articleReaderModal">
     <div class="modal-card">
       <div class="modal-reader-header">
         <div>
@@ -928,7 +1107,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
   <script src="firebase-config.js"></script>
-  <script src="script.js?v=3.1"></script>
+  <script src="script.js?v=4.0"></script>
   <script src="levels.js"></script>
   <script src="community.js"></script>
   <script src="goal-picker.js"></script>
