@@ -2925,6 +2925,10 @@ app.delete('/api/admin/mentor-chat/messages/:id', requireAuth, requireAdmin, (re
   res.json({ ok: true, message: 'Message moderated and removed.' });
 });
 
+app.get('/blogs', (req, res) => {
+  res.sendFile(path.join(staticDir, 'blogs.html'));
+});
+
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(staticDir, 'admin.html'));
 });
