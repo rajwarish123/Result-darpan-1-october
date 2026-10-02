@@ -1,5 +1,10 @@
 const pageThemeToggles = document.querySelectorAll('.theme-toggle');
 
+// Unified API Origin resolution for Live Server (5500) and production
+const pagesApiOrigin = (window.location.protocol === 'file:' || window.location.port === '5500')
+  ? 'http://localhost:3000'
+  : '';
+
 // --- CONTACT US FORM & FADE-OUT POPUP DESK ---
 const contactForm = document.getElementById('contactForm');
 const contactFeedbackModal = document.getElementById('contactFeedbackModal');
@@ -43,7 +48,7 @@ if (contactForm) {
     }
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(`${pagesApiOrigin}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, subject, message })
