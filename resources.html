@@ -1,20 +1,346 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Resources | Result Darpan</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="mobile.css"><script src="nav.js" defer></script></head>
-<body class="subpage-body"><div class="topbar"><div class="shell topbar-inner"><span><span class="spark">✦</span> India's most loved free mock test platform</span><div class="top-links"><a href="index.html#stats">Why Result Darpan?</a><a href="index.html#testimonials">Learner stories</a></div></div></div><header class="site-header"><div class="shell nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a><button class="menu-toggle" aria-label="Open navigation">☰</button><nav class="main-nav"><a href="index.html#exams">Exams</a><a href="index.html#popular">Test series</a><a class="active-page" href="resources.html">Resources</a><a href="profile.html">My profile</a><a class="mentor-chat-btn" href="mentor-chat.html">AI Study Mentor ✦</a></nav><div class="nav-actions"><button class="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false"><span class="theme-sun">☼</span><span class="theme-moon">◐</span></button><a class="login-btn" href="index.html">Home</a></div></div></header><main><section class="page-hero"><div class="shell"><span class="kicker">FREE LEARNING LIBRARY</span><h1>Study from<br><em>wherever you are.</em></h1><p>Short lectures, exam explainers, and focused revision resources from the Result Darpan team.</p></div></section><section class="resources-page"><div class="shell"><div class="resource-toolbar"><div><span class="kicker">LATEST RESOURCES</span><h2>Watch, practise, repeat.</h2></div><button class="primary-btn" id="resourceNotify">Notify me about new lectures <span>→</span></button></div><div class="resource-grid"><article class="resource-card featured-resource"><div class="video-thumb green-thumb"><span class="play-badge">▶</span><small>NEW LECTURE</small></div><div class="resource-copy"><span class="resource-tag">SSC CGL · QUANT</span><h3>Percentages in 30 minutes</h3><p>Build the basics, learn the shortcuts, and solve a timed practice set with a topper.</p><div><span>38 min · 12.4k views</span><button class="watch-btn">Watch lecture ↗</button></div></div></article><article class="resource-card"><div class="video-thumb coral-thumb"><span class="play-badge">▶</span></div><div class="resource-copy"><span class="resource-tag">SSC CGL · REASONING</span><h3>Series questions made easy</h3><p>Four patterns you should recognise before the timer starts.</p><div><span>24 min · 8.2k views</span><button class="watch-btn">Watch ↗</button></div></div></article><article class="resource-card"><div class="video-thumb yellow-thumb"><span class="play-badge">▶</span></div><div class="resource-copy"><span class="resource-tag">CURRENT AFFAIRS</span><h3>July revision sprint</h3><p>Key updates and a quick recall quiz for your next mock.</p><div><span>19 min · 6.8k views</span><button class="watch-btn">Watch ↗</button></div></div></article></div><div class="notification-strip" id="resourceNotice" hidden>Lecture alerts are on. We will show new resources in your feed.</div></div></section>
-<section class="resources-page" style="padding-top:10px; margin-top:20px; border-top:1px solid #d4e4dc;">
-  <div class="shell">
-    <div class="resource-toolbar">
-      <div>
-        <span class="kicker">STUDY MATERIALS &amp; NOTES</span>
-        <h2>Download Revision Notes &amp; Formula Sheets</h2>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Download free study notes, formula sheets, NCERT summaries, and revision PDFs for SSC, Banking, Railways, UPSC, and School Classes (9-12) on Result Darpan.">
+  <link rel="canonical" href="https://resultdarpan.com/resources.html">
+  <title>Free Study Materials, Revision Notes &amp; Formula Sheets | Result Darpan</title>
+
+  <!-- OpenGraph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Result Darpan">
+  <meta property="og:title" content="Free Study Materials, Revision Notes &amp; Formula Sheets | Result Darpan">
+  <meta property="og:description" content="Download curated PDF revision notes, formula sheets, and topper study roadmaps for Indian competitive exams and school classes.">
+  <meta property="og:url" content="https://resultdarpan.com/resources.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="mobile.css?v=4.0">
+  <script src="nav.js" defer></script>
+  <script src="ads.js" defer></script>
+
+  <!-- Schema.org Structured Data for Educational Resources -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Result Darpan Study Materials & Resources",
+    "description": "Free revision notes, formula sheets, and exam prep PDFs for Indian competitive exams and school classes.",
+    "url": "https://resultdarpan.com/resources.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Result Darpan",
+      "founder": "Warish Raj"
+    }
+  }
+  </script>
+
+  <style>
+    .materials-toolbar {
+      background: #ffffff;
+      border: 1px solid var(--line, #cbdad1);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin: 24px 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(16, 42, 31, 0.04);
+    }
+    .materials-search-box {
+      min-width: 260px;
+      flex: 1;
+      max-width: 380px;
+      position: relative;
+    }
+    .materials-search-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 14px 10px 38px;
+      border-radius: 10px;
+      border: 1px solid var(--line, #cbdad1);
+      font-family: inherit;
+      font-size: 13.5px;
+      color: var(--ink, #182c2a);
+      background: #ffffff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .materials-search-input:focus {
+      border-color: var(--green, #175e4b);
+      box-shadow: 0 0 0 3px rgba(23, 94, 75, 0.12);
+    }
+    .materials-search-icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: #94a3b8;
+      pointer-events: none;
+    }
+    .materials-chips-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .mat-chip {
+      background: #f0f5f2;
+      border: 1px solid #d4e4dc;
+      padding: 7px 15px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted, #5e756d);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+    .mat-chip:hover {
+      background: #e2ede6;
+      color: var(--ink, #182c2a);
+    }
+    .mat-chip.active {
+      background: var(--green, #175e4b);
+      border-color: var(--green, #175e4b);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(23, 94, 75, 0.2);
+    }
+    .mat-badge-sub {
+      background: #eef7f2;
+      color: #175e4b;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .mat-card-footer {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #edf2ef;
+    }
+    .btn-share-mat {
+      padding: 9px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      background: #f8faf9;
+      border: 1px solid var(--line, #cbdad1);
+      border-radius: 8px;
+      color: var(--ink, #182c2a);
+      transition: background 0.15s;
+    }
+    .btn-share-mat:hover {
+      background: #e9f0ec;
+    }
+    .mat-highlight {
+      outline: 2px solid var(--green, #175e4b);
+      box-shadow: 0 0 16px rgba(23, 94, 75, 0.25) !important;
+      animation: pulseHighlight 2s ease;
+    }
+    @keyframes pulseHighlight {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+    .mat-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #182c2a;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .mat-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Dark theme adjustments */
+    .dark-theme .materials-toolbar {
+      background: #193c33;
+      border-color: #315747;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+    .dark-theme .materials-search-input {
+      background: #14352e;
+      border-color: #315747;
+      color: #ecf7ef;
+    }
+    .dark-theme .materials-search-input:focus {
+      border-color: #4f8770;
+      box-shadow: 0 0 0 3px rgba(79, 135, 112, 0.2);
+    }
+    .dark-theme .mat-chip {
+      background: #14352e;
+      border-color: #295244;
+      color: #b7ceca;
+    }
+    .dark-theme .mat-chip:hover {
+      background: #1d4b41;
+      color: #ffffff;
+    }
+    .dark-theme .mat-chip.active {
+      background: #258f70;
+      border-color: #258f70;
+      color: #ffffff;
+    }
+    .dark-theme .mat-badge-sub {
+      background: #1e4537;
+      color: #86efac;
+    }
+    .dark-theme .mat-card-footer {
+      border-top-color: #315747;
+    }
+    .dark-theme .btn-share-mat {
+      background: #1e4537;
+      border-color: #315747;
+      color: #ecf7ef;
+    }
+    .dark-theme .btn-share-mat:hover {
+      background: #285a48;
+    }
+  </style>
+</head>
+<body class="subpage-body">
+  <div class="topbar">
+    <div class="shell topbar-inner">
+      <span><span class="spark">✦</span> India's most loved free mock test &amp; study resources platform</span>
+      <div class="top-links">
+        <a href="index.html#stats">Why Result Darpan?</a>
+        <a href="blogs.html">Strategy Blogs</a>
+        <a href="index.html#testimonials">Learner stories</a>
       </div>
     </div>
-    <div class="cms-grid" id="publicMaterialsGrid" style="margin-top:20px;">
-      <p class="muted">Loading study notes...</p>
-    </div>
   </div>
-</section>
-</main>
+
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="index.html"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation">☰</button>
+      <nav class="main-nav">
+        <a href="index.html#exams">Exams</a>
+        <a href="index.html#popular">Test series</a>
+        <a class="active-page" href="resources.html">Resources</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="profile.html">My profile</a>
+        <a class="mentor-chat-btn" href="mentor-chat.html">AI Study Mentor ✦</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false"><span class="theme-sun">☼</span><span class="theme-moon">◐</span></button>
+        <a class="login-btn" href="index.html">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="shell">
+        <span class="kicker">FREE LEARNING &amp; REVISION LIBRARY</span>
+        <h1>Study from<br><em>wherever you are.</em></h1>
+        <p>Short lectures, exam explainers, high-yield formula sheets, and PDF revision notes curated by Warish Raj and the Result Darpan team.</p>
+      </div>
+    </section>
+
+    <!-- Video Lectures & Explainers -->
+    <section class="resources-page">
+      <div class="shell">
+        <div class="resource-toolbar">
+          <div>
+            <span class="kicker">FEATURED VIDEO SESSIONS</span>
+            <h2>Watch, practise, repeat.</h2>
+          </div>
+          <button class="primary-btn" id="resourceNotify">Notify me about new lectures <span>→</span></button>
+        </div>
+        <div class="resource-grid">
+          <article class="resource-card featured-resource">
+            <div class="video-thumb green-thumb"><span class="play-badge">▶</span><small>NEW LECTURE</small></div>
+            <div class="resource-copy">
+              <span class="resource-tag">SSC CGL · QUANT</span>
+              <h3>Percentages in 30 minutes</h3>
+              <p>Build the basics, learn the shortcuts, and solve a timed practice set with a topper.</p>
+              <div><span>38 min · 12.4k views</span><button class="watch-btn">Watch lecture ↗</button></div>
+            </div>
+          </article>
+          <article class="resource-card">
+            <div class="video-thumb coral-thumb"><span class="play-badge">▶</span></div>
+            <div class="resource-copy">
+              <span class="resource-tag">SSC CGL · REASONING</span>
+              <h3>Series questions made easy</h3>
+              <p>Four patterns you should recognise before the timer starts.</p>
+              <div><span>24 min · 8.2k views</span><button class="watch-btn">Watch ↗</button></div>
+            </div>
+          </article>
+          <article class="resource-card">
+            <div class="video-thumb yellow-thumb"><span class="play-badge">▶</span></div>
+            <div class="resource-copy">
+              <span class="resource-tag">CURRENT AFFAIRS</span>
+              <h3>Monthly revision sprint</h3>
+              <p>Key updates and a quick recall quiz for your next mock test.</p>
+              <div><span>19 min · 6.8k views</span><button class="watch-btn">Watch ↗</button></div>
+            </div>
+          </article>
+        </div>
+        <div class="notification-strip" id="resourceNotice" hidden>Lecture alerts are on. We will show new resources in your feed.</div>
+      </div>
+    </section>
+
+    <!-- Study Materials & Revision Notes (PDFs / Formula Sheets) -->
+    <section class="resources-page" style="padding-top:20px; margin-top:20px; border-top:1px solid #d4e4dc;" id="notesSection">
+      <div class="shell">
+        <div class="resource-toolbar" style="margin-bottom:16px;">
+          <div>
+            <span class="kicker">STUDY MATERIALS &amp; NOTES</span>
+            <h2>Download Revision Notes &amp; Formula Sheets</h2>
+            <p style="margin:4px 0 0; color:var(--muted, #5e756d); font-size:14px;">Instant access to high-yield formula handbooks, topic checklists, and PDF summaries for rapid exam recall.</p>
+          </div>
+          <div class="materials-search-box">
+            <span class="materials-search-icon">🔍</span>
+            <input type="search" id="materialsSearchInput" class="materials-search-input" placeholder="Search notes, formulas, exams, subjects..." aria-label="Search study notes">
+          </div>
+        </div>
+
+        <!-- Subject & Exam Filter Chips -->
+        <div class="materials-chips-bar" id="materialsFilterChips">
+          <button type="button" class="mat-chip active" data-subject="all">All Notes</button>
+          <button type="button" class="mat-chip" data-subject="mathematics">Mathematics &amp; Quant</button>
+          <button type="button" class="mat-chip" data-subject="polity">Indian Polity</button>
+          <button type="button" class="mat-chip" data-subject="english">English Vocabulary</button>
+          <button type="button" class="mat-chip" data-subject="science">General Science</button>
+          <button type="button" class="mat-chip" data-subject="reasoning">Logical Reasoning</button>
+          <button type="button" class="mat-chip" data-subject="school">School Classes (9-12)</button>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+          <div id="materialsCountLabel" style="font-size:13px; font-weight:600; color:var(--muted, #5e756d);">Loading notes...</div>
+        </div>
+
+        <div class="cms-grid" id="publicMaterialsGrid">
+          <p class="muted">Loading study notes...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast Notification for Share / Copy -->
+  <div class="mat-toast" id="matToast">Link copied to clipboard!</div>
 
   <footer class="site-footer" id="siteFooter">
     <div class="shell">
@@ -31,6 +357,7 @@
             <li><a href="index.html#subjects">Subject Practice</a></li>
             <li><a href="previous-year-questions.html">Previous Year Papers</a></li>
             <li><a href="class-series.html">School Classes (9-12)</a></li>
+            <li><a href="blogs.html">Topper Strategy Blogs</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -38,7 +365,7 @@
           <ul>
             <li><a href="profile.html">My Prep Desk</a></li>
             <li><a href="mentor-chat.html">AI Study Mentor ✦</a></li>
-            <li><a href="resources.html">Resources</a></li>
+            <li><a href="resources.html">Resources &amp; Notes</a></li>
             <li><a href="contact.html">About Us</a></li>
           </ul>
         </div>
@@ -65,4 +392,6 @@
     </div>
   </footer>
 
-<script src="pages.js"></script></body></html>
+  <script src="pages.js"></script>
+</body>
+</html>
