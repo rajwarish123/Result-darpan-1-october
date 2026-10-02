@@ -1017,10 +1017,12 @@ document.addEventListener('keydown', (e) => {
 });
 
 document.addEventListener('click', (event) => {
-  const button = event.target.closest('.start-test');
+  const button = event.target.closest('.start-test, [data-mock-test]');
   if (!button) return;
+  if (button.tagName === 'A') event.preventDefault();
   const mockTestId = button.dataset.mockTest || null;
-  const cardTitle = button.closest('.test-card')?.querySelector('h3')?.textContent || 'Mock Test';
+  const card = button.closest('.test-card, .exam-card');
+  const cardTitle = card?.querySelector('h3')?.textContent?.trim() || 'Mock Test';
   openSetSelectionModal('exam', mockTestId, cardTitle);
 });
 
