@@ -221,7 +221,8 @@ const questionSetSubjects = {
   'Railway NTPC': ['Mathematics', 'Hindi', 'Reasoning', 'General Awareness', 'General Science', 'Indian Polity'],
   'Railway Group D': ['Mathematics', 'Hindi', 'Reasoning', 'General Awareness', 'General Science', 'Indian Polity'],
   'SBI Clerk': ['English', 'Mathematics', 'Reasoning', 'General Awareness', 'Banking Awareness'],
-  NDA: ['English', 'Mathematics', 'Reasoning', 'General Awareness', 'General Science']
+  NDA: ['English', 'Mathematics', 'Reasoning', 'General Awareness', 'General Science'],
+  CTET: ['English', 'Hindi', 'Mathematics', 'Reasoning', 'General Awareness', 'General Science']
 };
 
 const popularExamGoalGroups = [
