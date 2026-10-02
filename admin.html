@@ -1973,6 +1973,7 @@ Topic: Mechanics
         document.getElementById('tabMaterials').style.display = tab === 'materials' ? 'block' : 'none';
         document.getElementById('tabMentorDesk').style.display = tab === 'mentorDesk' ? 'block' : 'none';
         document.getElementById('tabOverview').style.display = tab === 'overview' ? 'block' : 'none';
+        document.getElementById('tabAds').style.display = tab === 'ads' ? 'block' : 'none';
         document.getElementById('tabGuide').style.display = tab === 'guide' ? 'block' : 'none';
 
         if (tab === 'pyq') loadAdminPyqs();
@@ -1981,6 +1982,7 @@ Topic: Mechanics
         if (tab === 'materials') loadAdminMaterials();
         if (tab === 'mentorDesk') loadMentorThreads();
         if (tab === 'overview') refreshOverview();
+        if (tab === 'ads') loadAdminAdSettings();
       });
     });
 
