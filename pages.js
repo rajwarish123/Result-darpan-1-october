@@ -526,45 +526,315 @@ document.querySelector('#resourceNotify')?.addEventListener('click', () => {
   document.querySelector('#resourceNotice').hidden = false;
 });
 
-// --- LOAD PUBLIC STUDY MATERIALS ---
+// --- RESILIENT STUDY MATERIALS & REVISION NOTES SYSTEM ---
+const fallbackStudyMaterials = [
+  {
+    id: "mat-1",
+    title: "Quantitative Aptitude Formula Sheet & Quick Shortcuts",
+    exam: "SSC / Banking / Railways",
+    subject: "Mathematics",
+    fileType: "PDF",
+    fileSize: "3.8 MB",
+    downloadUrl: "https://resultdarpan.com/resources.html#math-formulas",
+    description: "Essential formulas for Percentages, Profit & Loss, Time & Work, Algebra identities, Mensuration 2D/3D, and Trigonometry tables.",
+    createdAt: "2026-10-01T20:00:00.000Z"
+  },
+  {
+    id: "mat-2",
+    title: "Indian Constitution Key Articles & Landmark Judgements",
+    exam: "UPSC / SSC / State PCS",
+    subject: "Indian Polity",
+    fileType: "PDF",
+    fileSize: "2.5 MB",
+    downloadUrl: "https://resultdarpan.com/resources.html#polity-notes",
+    description: "Quick revision notes on Fundamental Rights, DPSP, Parliament procedures, Constitutional Amendments, and the Basic Structure Doctrine.",
+    createdAt: "2026-10-01T20:00:00.000Z"
+  },
+  {
+    id: "mat-3",
+    title: "High-Yield English Vocabulary & Grammar Rules Checklist",
+    exam: "SSC CGL / CHSL / Banking",
+    subject: "English",
+    fileType: "PDF",
+    fileSize: "1.9 MB",
+    downloadUrl: "https://resultdarpan.com/resources.html#english-rules",
+    description: "100 Most Repeated Idioms & Phrases, One-Word Substitutions, Subject-Verb Agreement rules, and preposition exceptions.",
+    createdAt: "2026-10-01T20:00:00.000Z"
+  },
+  {
+    id: "mat-4",
+    title: "General Science High-Yield Handout (Physics, Chemistry & Biology)",
+    exam: "Railways RRB / SSC / State Exams",
+    subject: "General Science",
+    fileType: "PDF",
+    fileSize: "4.2 MB",
+    downloadUrl: "https://resultdarpan.com/resources.html#general-science",
+    description: "Complete breakdown of SI units, human anatomy, diseases & vitamins, chemical reactions, periodic table trends, and everyday scientific laws.",
+    createdAt: "2026-10-02T10:00:00.000Z"
+  },
+  {
+    id: "mat-5",
+    title: "Logical & Analytical Reasoning Mastery Cheat Sheet",
+    exam: "Banking IBPS / SBI / SSC / Railways",
+    subject: "Reasoning",
+    fileType: "PDF",
+    fileSize: "2.8 MB",
+    downloadUrl: "https://resultdarpan.com/resources.html#reasoning-shortcuts",
+    description: "Shortcuts and deduction matrices for Syllogisms, Blood Relations, Seating Arrangements, Coding-Decoding, and Direction Sense.",
+    createdAt: "2026-10-02T11:00:00.000Z"
+  },
+  {
+    id: "mat-6",
+    title: "NCERT Class 9-12 Science & Mathematics Concept Compendium",
+    exam: "School Boards / CBSE / ICSE",
+    subject: "School Classes",
+    fileType: "PDF",
+    fileSize: "5.1 MB",
+    downloadUrl: "https://resultdarpan.com/resources.html#ncert-concepts",
+    description: "Chapter-wise quick revision summaries and formula reference sheets for Class 9, 10, 11, and 12 STEM curricula.",
+    createdAt: "2026-10-02T12:00:00.000Z"
+  }
+];
+
+let allMaterialsList = [];
+let activeMaterialSubject = 'all';
+
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function showMatToast(msg) {
+  const toast = document.getElementById('matToast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2600);
+}
+
+function shareMaterial(id, title) {
+  const cleanUrl = `${window.location.origin}${window.location.pathname}#mat-${id}`;
+  if (navigator.share) {
+    navigator.share({
+      title: `${title} | Result Darpan`,
+      text: `Download free study notes: ${title} on Result Darpan`,
+      url: cleanUrl
+    }).catch(() => {});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(cleanUrl).then(() => {
+      showMatToast('Resource link copied to clipboard!');
+    }).catch(() => {
+      prompt('Copy study resource link:', cleanUrl);
+    });
+  } else {
+    prompt('Copy study resource link:', cleanUrl);
+  }
+}
+
+function renderMaterials() {
+  const grid = document.getElementById('publicMaterialsGrid');
+  const countLabel = document.getElementById('materialsCountLabel');
+  if (!grid) return;
+
+  const searchTerm = (document.getElementById('materialsSearchInput')?.value || '').toLowerCase().trim();
+
+  const filtered = allMaterialsList.filter((m) => {
+    if (activeMaterialSubject !== 'all') {
+      const subj = String(m.subject || '').toLowerCase();
+      const exam = String(m.exam || '').toLowerCase();
+      const target = activeMaterialSubject.toLowerCase();
+      if (!subj.includes(target) && !exam.includes(target)) {
+        return false;
+      }
+    }
+    if (searchTerm) {
+      const matchTitle = String(m.title || '').toLowerCase().includes(searchTerm);
+      const matchDesc = String(m.description || '').toLowerCase().includes(searchTerm);
+      const matchSubj = String(m.subject || '').toLowerCase().includes(searchTerm);
+      const matchExam = String(m.exam || '').toLowerCase().includes(searchTerm);
+      if (!matchTitle && !matchDesc && !matchSubj && !matchExam) return false;
+    }
+    return true;
+  });
+
+  if (countLabel) {
+    countLabel.textContent = `Showing ${filtered.length} of ${allMaterialsList.length} notes & sheets`;
+  }
+
+  if (!filtered.length) {
+    grid.innerHTML = `
+      <div class="cms-card" style="grid-column:1/-1; text-align:center; padding:36px 20px;">
+        <p class="muted" style="margin:0 0 14px; font-size:15px;">No study materials found matching your search. Try another subject keyword or clear your filter.</p>
+        <button type="button" class="outline-btn" id="btnClearMatSearch">Clear search &amp; view all</button>
+      </div>
+    `;
+    document.getElementById('btnClearMatSearch')?.addEventListener('click', () => {
+      const inp = document.getElementById('materialsSearchInput');
+      if (inp) inp.value = '';
+      document.querySelectorAll('.mat-chip').forEach(c => c.classList.remove('active'));
+      document.querySelector('.mat-chip[data-subject="all"]')?.classList.add('active');
+      activeMaterialSubject = 'all';
+      renderMaterials();
+    });
+    return;
+  }
+
+  grid.innerHTML = '';
+  filtered.forEach((m) => {
+    const card = document.createElement('article');
+    card.className = 'cms-card mat-card';
+    card.id = `mat-${m.id}`;
+
+    let downloadUrl = m.downloadUrl || '#';
+    let isAnchorOrBlank = !downloadUrl || downloadUrl === '#' || downloadUrl.startsWith('#');
+    let downloadAttr = (downloadUrl.startsWith('http') && !downloadUrl.endsWith('.pdf')) ? '' : `download="${escapeHtml(m.title)}.pdf"`;
+
+    card.innerHTML = `
+      <div>
+        <div class="cms-card-top" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+            <span class="badge filetype-badge">${escapeHtml(m.fileType || 'PDF')}</span>
+            <span class="mat-badge-sub">${escapeHtml(m.subject || 'General')}</span>
+          </div>
+          <span class="muted cms-card-readtime" style="font-size:12px; font-weight:600;">📦 ${escapeHtml(m.fileSize || '2 MB')}</span>
+        </div>
+        <h3 class="cms-card-title">${escapeHtml(m.title)}</h3>
+        <p class="cms-card-tag" style="margin-bottom:6px;">🎯 Target: ${escapeHtml(m.exam || 'All Exams')}</p>
+        ${m.description ? `<p class="cms-card-description">${escapeHtml(m.description)}</p>` : ''}
+      </div>
+      <div class="mat-card-footer">
+        <a href="${escapeHtml(downloadUrl)}" ${isAnchorOrBlank ? '' : 'target="_blank" rel="noopener"'} class="primary-btn download-material-btn" ${downloadAttr} style="flex:1; justify-content:center; text-align:center;">
+          Download Resource <span>📥</span>
+        </a>
+        <button type="button" class="btn-share-mat" data-id="${escapeHtml(m.id)}" data-title="${escapeHtml(m.title)}" title="Share study note link">
+          🔗
+        </button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Attach share event listeners
+  grid.querySelectorAll('.btn-share-mat').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.getAttribute('data-id');
+      const title = btn.getAttribute('data-title');
+      shareMaterial(id, title);
+    });
+  });
+}
+
+function checkUrlForMaterial() {
+  const hash = window.location.hash;
+  if (hash && hash.startsWith('#mat-')) {
+    const el = document.querySelector(hash);
+    if (el) {
+      el.classList.add('mat-highlight');
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => el.classList.remove('mat-highlight'), 3000);
+      return;
+    }
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const subj = params.get('subject');
+  if (subj) {
+    const matchingChip = document.querySelector(`.mat-chip[data-subject="${subj.toLowerCase()}"]`);
+    if (matchingChip) {
+      document.querySelectorAll('.mat-chip').forEach(c => c.classList.remove('active'));
+      matchingChip.classList.add('active');
+      activeMaterialSubject = subj.toLowerCase();
+      renderMaterials();
+    }
+  }
+  const q = params.get('search') || params.get('q');
+  if (q) {
+    const inp = document.getElementById('materialsSearchInput');
+    if (inp) {
+      inp.value = q;
+      renderMaterials();
+    }
+  }
+  const id = params.get('id');
+  if (id) {
+    const el = document.getElementById(`mat-${id}`);
+    if (el) {
+      el.classList.add('mat-highlight');
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => el.classList.remove('mat-highlight'), 3000);
+    }
+  }
+}
+
 async function loadPublicMaterials() {
   const grid = document.getElementById('publicMaterialsGrid');
   if (!grid) return;
-  try {
-    const res = await fetch('/api/study-materials');
-    if (!res.ok) return;
-    const data = await res.json();
-    const materials = data.materials || [];
-    if (!materials.length) {
-      grid.innerHTML = '<p class="muted">Check back soon for freshly uploaded revision sheets and notes.</p>';
-      return;
-    }
 
-    grid.innerHTML = '';
-    materials.forEach((m) => {
-      const card = document.createElement('article');
-      card.className = 'cms-card';
-      card.innerHTML = `
-        <div>
-          <div class="cms-card-top">
-            <span class="badge filetype-badge">${m.fileType || 'PDF'}</span>
-            <span class="muted cms-card-readtime">${m.fileSize || '2 MB'}</span>
-          </div>
-          <h3 class="cms-card-title">${m.title}</h3>
-          <p class="cms-card-tag">${m.subject} · ${m.exam || 'All Exams'}</p>
-          ${m.description ? `<p class="cms-card-description">${m.description}</p>` : ''}
-        </div>
-        <div class="cms-card-action">
-          <a href="${m.downloadUrl || '#'}" target="_blank" rel="noopener" class="primary-btn download-material-btn">Download Resource <span>📥</span></a>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-  } catch (err) {
-    console.warn('Could not load public study materials:', err.message);
+  // 1. Instant render from local cache
+  let cached = null;
+  try {
+    const raw = localStorage.getItem('rd-cached-study-materials');
+    if (raw) cached = JSON.parse(raw);
+  } catch (_) {}
+
+  if (Array.isArray(cached) && cached.length) {
+    allMaterialsList = cached;
+    renderMaterials();
   }
+
+  // 2. Fetch fresh from API
+  try {
+    const res = await fetch(`${pagesApiOrigin}/api/study-materials`);
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.materials) && data.materials.length) {
+        allMaterialsList = data.materials;
+        try {
+          localStorage.setItem('rd-cached-study-materials', JSON.stringify(data.materials));
+        } catch (_) {}
+        renderMaterials();
+        checkUrlForMaterial();
+        return;
+      }
+    }
+  } catch (err) {
+    console.warn('Backend study-materials fetch error, using resilient fallback:', err.message);
+  }
+
+  // 3. Fallback to pre-seeded bank if empty or error
+  if (!allMaterialsList.length) {
+    allMaterialsList = fallbackStudyMaterials;
+    renderMaterials();
+  }
+  checkUrlForMaterial();
 }
-loadPublicMaterials();
+
+// Bind search and filter chips on resources page
+if (document.getElementById('publicMaterialsGrid')) {
+  let searchDebounce = null;
+  document.getElementById('materialsSearchInput')?.addEventListener('input', () => {
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(() => {
+      renderMaterials();
+    }, 150);
+  });
+
+  document.querySelectorAll('.mat-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.mat-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeMaterialSubject = chip.dataset.subject || 'all';
+      renderMaterials();
+    });
+  });
+
+  loadPublicMaterials();
+}
 
 const chatForm = document.querySelector('#chatForm');
 const chatInput = document.querySelector('#chatInput');
