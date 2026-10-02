@@ -1297,13 +1297,14 @@ if (chatMessages) {
 function getExamLogoSrc(badgeOrExam) {
   const text = (badgeOrExam || '').toLowerCase();
   if (text.includes('ssc')) return 'images/logos/ssc.png';
-  if (text.includes('sbi') || text.includes('bank')) return 'images/logos/sbi.svg';
-  if (text.includes('rail') || text.includes('rrb') || text.includes('ntpc')) return 'images/logos/railways.png';
-  if (text.includes('nda') || text.includes('defence')) return 'images/logos/nda.svg';
-  if (text.includes('upsc')) return 'images/logos/upsc.png';
-  if (text.includes('ctet') || text.includes('cbse') || text.includes('teach')) return 'images/logos/ctet.png';
-  if (text.includes('aiims') || text.includes('norcet') || text.includes('medic')) return 'images/logos/aiims.png';
-  return '';
+  if (text.includes('sbi') || text.includes('bank') || text.includes('ibps') || text.includes('rbi')) return 'images/logos/sbi.svg';
+  if (text.includes('rail') || text.includes('rrb') || text.includes('ntpc') || text.includes('alp') || text.includes('group d')) return 'images/logos/railways.png';
+  if (text.includes('nda') || text.includes('defence') || text.includes('cds') || text.includes('afcat')) return 'images/logos/nda.svg';
+  if (text.includes('upsc') || text.includes('civil') || text.includes('bpsc') || text.includes('uppsc') || text.includes('pcs')) return 'images/logos/upsc.png';
+  if (text.includes('ctet') || text.includes('cbse') || text.includes('teach') || text.includes('ugc') || text.includes('net')) return 'images/logos/ctet.png';
+  if (text.includes('aiims') || text.includes('norcet') || text.includes('medic') || text.includes('neet')) return 'images/logos/aiims.png';
+  if (text.includes('jee') || text.includes('college') || text.includes('iit') || text.includes('cuet') || text.includes('gate') || text.includes('cat') || text.includes('clat')) return 'images/logos/college.svg';
+  return 'images/logos/college.svg';
 }
 
 async function loadLiveNotifications() {
