@@ -5445,87 +5445,57 @@
     "createdAt": "2026-10-02T17:22:41.578Z"
   },
   {
-    "id": 1790961820031,
-    "author": "student",
-    "email": "profile-1790961819968@example.com",
-    "helpfulBy": [],
-    "text": "My account message",
-    "createdAt": "2026-10-02T17:23:40.031Z"
-  },
-  {
-    "id": 1790961820037,
-    "author": "mentor",
-    "topperName": "Result Darpan AI Mentor ✦",
-    "replyToId": 1790961820031,
-    "email": "",
-    "helpfulBy": [],
-    "text": "✦ **Result Darpan AI Study Assistant** (Target: CAT)\n\nRegarding: *\"**My account message**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **CAT**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
-    "createdAt": "2026-10-02T17:23:40.086Z"
-  },
-  {
-    "id": 1790961820792,
-    "author": "student",
-    "email": "levels-author-1790961820329@example.com",
-    "helpfulBy": [
-      "d4541a1e-5a7c-42b3-aa60-5bc93f3dbda5"
-    ],
-    "text": "Here is a useful study tip.",
-    "createdAt": "2026-10-02T17:23:40.792Z"
-  },
-  {
-    "id": 1790961820797,
-    "author": "mentor",
-    "topperName": "Result Darpan AI Mentor ✦",
-    "replyToId": 1790961820792,
-    "email": "",
-    "helpfulBy": [],
-    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC CGL)\n\nRegarding: *\"**Here is a useful study tip.**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC CGL**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
-    "createdAt": "2026-10-02T17:23:40.846Z"
-  },
-  {
-    "id": 1790961820919,
-    "author": "student",
-    "email": "chat-owner-1790961820852@example.com",
-    "helpfulBy": [],
-    "text": "A private identity message",
-    "createdAt": "2026-10-02T17:23:40.919Z"
-  },
-  {
-    "id": 1790961820924,
-    "author": "mentor",
-    "topperName": "Result Darpan AI Mentor ✦",
-    "replyToId": 1790961820919,
-    "email": "",
-    "helpfulBy": [],
-    "text": "✦ **Result Darpan AI Study Assistant** (Target: SSC CGL)\n\nRegarding: *\"**A private identity message**\"*\n\nHere is how you can approach and master this topic for your competitive exam preparation:\n\n1. **Core Concept Breakdown**:\n   - Identify whether this topic is tested under Quantitative Aptitude, Logical Reasoning, General Science, or General Studies.\n   - Focus first on fundamental definitions, core formulas, and standard exam conditions before attempting speed drills.\n\n2. **Exam Pacing & Strategy**:\n   - For **SSC CGL**, aim to recognize the standard pattern of this question within 15 to 20 seconds.\n   - Use option elimination (e.g. digital root, units digit, or eliminating extreme choices) whenever available.\n\n3. **Active Practice on Result Darpan**:\n   • 🔍 **Subject Practice**: Solve targeted 15-question sets to solidify this concept.\n   • 🎯 **PYQs**: Review previous year question papers on Result Darpan to see how examiners frame this question.\n   • ⚡ **Topper Tricks**: Ask me *\"Give me topper calculation shortcuts\"* for speed math hacks!\n\n💡 *Would you like me to build a 60-day study plan, daily routine, or provide shortcuts for this subject? Just ask!*",
-    "createdAt": "2026-10-02T17:23:40.973Z"
-  },
-  {
-    "id": 1790961821667,
-    "author": "topper",
-    "topperName": "Warish Raj · Official Mentor",
-    "replyToId": null,
-    "email": "admin-cms-1790961821512@example.com",
-    "helpfulBy": [],
-    "text": "Keep practicing 20 minutes daily and your speed will improve!",
-    "createdAt": "2026-10-02T17:23:41.667Z"
-  },
-  {
-    "id": 1790961821727,
+    "id": 1790962153971,
     "author": "student",
     "email": "",
     "helpfulBy": [],
-    "text": "How do I solve percentage shortcuts?",
-    "createdAt": "2026-10-02T17:23:41.727Z"
+    "text": "Help me fix my daily routine and timetable for exam prep",
+    "createdAt": "2026-10-02T17:29:13.971Z"
   },
   {
-    "id": 1790961821733,
+    "id": 1790962153978,
     "author": "mentor",
     "topperName": "Result Darpan AI Mentor ✦",
-    "replyToId": 1790961821727,
+    "replyToId": 1790962153971,
     "email": "",
     "helpfulBy": [],
-    "text": "💡 **Topper Math Shortcut: Percentage Multipliers & Rapid Fractions**\n\n• **Fraction Conversions to Memorize**:\n  1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%, 1/6 = 16.66%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/11 = 9.09%, 1/12 = 8.33%, 1/16 = 6.25%.\n• **Multiplier Method**:\n  - Increase by 20% ➔ Multiply by 1.2\n  - Decrease by 15% ➔ Multiply by 0.85\n• **Successive Percentage Rule**:\n  - Two successive changes of x% and y% ➔ Net change = [x + y + (xy / 100)]%\n• **Price & Consumption Inversion**:\n  - If the price of an article increases by 1/n, consumption must decrease by 1/(n + 1) to keep the total expense unchanged!\n• Practice 30 timed percentage questions on Result Darpan under **Subject Practice** to lock in your speed!",
-    "createdAt": "2026-10-02T17:23:41.782Z"
+    "text": "⏰ **High-Yield Daily Routine & Study Timetable** (Recommended for SSC CGL)\n\n🌅 **Slot 1 (06:30 AM – 09:00 AM) · Peak Cognitive Window**\n• **Focus**: Quantitative Aptitude / Mathematics or Complex Reasoning.\n• **Rationale**: Peak brain energy and willpower. Zero mobile phone distractions.\n\n☀️ **Slot 2 (10:30 AM – 01:00 PM) · Concept Deep-Dive & Theory**\n• **Focus**: General Studies, Static GK, Current Affairs, or English Comprehension.\n• **Method**: Active recall and 1-page summary notes rather than passive reading.\n\n☕ **Slot 3 (03:30 PM – 05:30 PM) · Active Speed Drills**\n• **Focus**: Subject-wise practice quizzes on Result Darpan.\n• **Target**: Speed calculations, short-tricks, and elimination techniques under timer pressure.\n\n🌙 **Slot 4 (07:30 PM – 09:30 PM) · Full Mock Test & Error Log**\n• **Focus**: Attempt 1 mock test or 50 mixed PYQs.\n• **Crucial Step**: Log all mistakes into your Error Notebook with the underlying rule.\n\n💤 **Slot 5 (10:00 PM – 10:30 PM) · 15-Minute Review & Sleep**\n• **Focus**: Quick formula cards glance, lock tomorrow's top 3 priorities, and get 7+ hours of restful sleep for memory consolidation.\n\n💡 *Guideline: Follow 50-minute study blocks with 10-minute stretch/water breaks. Keep your daily streak unbroken!*",
+    "createdAt": "2026-10-02T17:29:14.027Z"
+  },
+  {
+    "id": 1790962155949,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "What are the latest upcoming exam updates, dates, and deadlines?",
+    "createdAt": "2026-10-02T17:29:15.949Z"
+  },
+  {
+    "id": 1790962155955,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790962155949,
+    "email": "",
+    "helpfulBy": [],
+    "text": "📢 **Result Darpan Live Exam Radar & Updates**\n\nHere are the latest active exam notices verified by our research desk:\n\n• **SSC CGL**: SSC CGL 2026 Tier-I Notification Released\n  📅 Date: 2026-11-20 (in 50 days) | 👥 Vacancies: 17,727 Posts\n  🔗 Portal: https://ssc.gov.in\n\n• **CTET**: CTET September 2026 Admit Card & Exam City Slip\n  📅 Date: 2026-10-18 (in 17 days) | 👥 Vacancies: Eligibility Certificate\n  🔗 Portal: https://ctet.nic.in\n\n• **NDA**: NDA II 2026 Examination Schedule & Guidelines\n  📅 Date: 2026-11-16 (in 46 days) | 👥 Vacancies: 400 Cadet Vacancies\n  🔗 Portal: https://upsc.gov.in\n\n• **AIIMS NORCET**: AIIMS NORCET-11 Nursing Officer Notification\n  📅 Date: 2026-11-01 (in 31 days) | 👥 Vacancies: 3,000+ Posts\n  🔗 Portal: https://aiimsexams.ac.in\n\n💡 *All mock tests and PYQs on Result Darpan are 100% free with instant detailed solutions.*",
+    "createdAt": "2026-10-02T17:29:16.004Z"
+  },
+  {
+    "id": 1790962158005,
+    "author": "student",
+    "email": "",
+    "helpfulBy": [],
+    "text": "Give me today's priority study tasks and revision checklist",
+    "createdAt": "2026-10-02T17:29:18.005Z"
+  },
+  {
+    "id": 1790962158011,
+    "author": "mentor",
+    "topperName": "Result Darpan AI Mentor ✦",
+    "replyToId": 1790962158005,
+    "email": "",
+    "helpfulBy": [],
+    "text": "📝 **Today's Actionable Study Checklist** (Target: SSC CGL)\n\n[ ] **Task 1 (Concept Focus)**: Deep-dive into 1 weak chapter for 45 minutes; write down key formulas or grammar rules.\n[ ] **Task 2 (Timed Practice)**: Attempt at least 40 fresh MCQs on Result Darpan with the timer running.\n[ ] **Task 3 (Error Log)**: Record every wrong answer or lucky guess into your Error Notebook; write *why* the right option works.\n[ ] **Task 4 (Memory Sprint)**: Revise 20 formula cards, multiplication tables (up to 30), or high-frequency vocabulary roots.\n[ ] **Task 5 (Current Affairs)**: Read today's 15-minute national and international news digest and solve a 10-question quiz.\n\n✨ *Check off all 5 items before your night review to keep your preparation streak at 100%!*",
+    "createdAt": "2026-10-02T17:29:18.060Z"
   }
 ]
