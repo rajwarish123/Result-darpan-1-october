@@ -423,6 +423,135 @@
     }
   }
 
+  const clientTranslationCache = new Map();
+
+  async function translateSchoolText(text, targetLang = 'hi') {
+    if (!text || typeof text !== 'string') return text;
+    const clean = text.trim();
+    if (!clean) return clean;
+    if (targetLang === 'hi' && /[\u0900-\u097F]/.test(clean)) return clean;
+    const cacheKey = `${targetLang}:${clean}`;
+    if (clientTranslationCache.has(cacheKey)) return clientTranslationCache.get(cacheKey);
+
+    // 1. Try local backend translation proxy endpoint
+    try {
+      const res = await classApi('/api/translate?text=' + encodeURIComponent(clean) + '&target=' + targetLang);
+      if (res.ok) {
+        const data = await res.json();
+        if (data?.translatedText) {
+          clientTranslationCache.set(cacheKey, data.translatedText);
+          return data.translatedText;
+        }
+      }
+    } catch (_) {}
+
+    // 2. Direct online translation fallback
+    try {
+      const directRes = await fetch('https://api.mymemory.translated.net/get?q=' + encodeURIComponent(clean) + '&langpair=en|' + targetLang);
+      if (directRes.ok) {
+        const data = await directRes.json();
+        if (data?.responseData?.translatedText) {
+          const result = data.responseData.translatedText;
+          clientTranslationCache.set(cacheKey, result);
+          return result;
+        }
+      }
+    } catch (_) {}
+
+    return clean;
+  }
+
+  let allSchoolQuestionsHindi = false;
+
+  async function toggleQuestionHindi(q, index, fieldset, btn) {
+    q._isHindi = !q._isHindi;
+    const textSpan = fieldset.querySelector('.class-q-text');
+    const optSpans = fieldset.querySelectorAll('.class-opt-text');
+    const labelSpan = btn.querySelector('.trans-btn-text');
+
+    if (q._isHindi) {
+      if (labelSpan) labelSpan.textContent = 'Translating...';
+      btn.disabled = true;
+
+      if (!q._hindiText) {
+        try {
+          const [tText, ...tOpts] = await Promise.all([
+            translateSchoolText(q.text, 'hi'),
+            ...q.options.map((opt) => translateSchoolText(opt, 'hi'))
+          ]);
+          q._hindiText = tText;
+          q._hindiOptions = tOpts;
+        } catch (_) {
+          q._hindiText = q.text;
+          q._hindiOptions = [...q.options];
+        }
+      }
+
+      if (textSpan && q._hindiText) textSpan.textContent = q._hindiText;
+      if (optSpans && q._hindiOptions) {
+        optSpans.forEach((span, i) => {
+          if (q._hindiOptions[i]) span.textContent = ' ' + q._hindiOptions[i];
+        });
+      }
+
+      btn.disabled = false;
+      btn.classList.add('active');
+      btn.style.background = '#175e4b';
+      btn.style.color = '#ffffff';
+      btn.style.borderColor = '#175e4b';
+      if (labelSpan) labelSpan.textContent = 'Show English (मूल अंग्रेजी)';
+    } else {
+      if (textSpan) textSpan.textContent = q.text;
+      if (optSpans) {
+        optSpans.forEach((span, i) => {
+          span.textContent = ' ' + q.options[i];
+        });
+      }
+      btn.classList.remove('active');
+      btn.style.background = '#eef7f2';
+      btn.style.color = '#175e4b';
+      btn.style.borderColor = '#bdd3c4';
+      if (labelSpan) labelSpan.textContent = 'Translate to Hindi (हिंदी)';
+    }
+  }
+
+  const btnTranslateAll = document.querySelector('#btnTranslateAllSchoolQuestions');
+  const translateAllLabel = document.querySelector('#translateAllSchoolLabel');
+  btnTranslateAll?.addEventListener('click', async () => {
+    if (!activeSeries?.questions?.length) return;
+    allSchoolQuestionsHindi = !allSchoolQuestionsHindi;
+
+    if (translateAllLabel) {
+      translateAllLabel.textContent = allSchoolQuestionsHindi ? 'Translating all questions...' : 'Translate Test to Hindi (हिंदी में देखें)';
+    }
+    btnTranslateAll.disabled = true;
+
+    const questionElements = classQuestionList.querySelectorAll('.class-question');
+    const promises = [];
+    activeSeries.questions.forEach((q, idx) => {
+      const fieldset = questionElements[idx];
+      const btn = fieldset?.querySelector('.btn-translate-q');
+      if (fieldset && btn) {
+        if ((allSchoolQuestionsHindi && !q._isHindi) || (!allSchoolQuestionsHindi && q._isHindi)) {
+          promises.push(toggleQuestionHindi(q, idx, fieldset, btn));
+        }
+      }
+    });
+
+    await Promise.all(promises);
+    btnTranslateAll.disabled = false;
+    if (translateAllLabel) {
+      translateAllLabel.textContent = allSchoolQuestionsHindi ? 'Show All in English (अंग्रेजी में देखें)' : 'Translate Test to Hindi (हिंदी में देखें)';
+    }
+    if (allSchoolQuestionsHindi) {
+      btnTranslateAll.style.background = '#175e4b';
+      btnTranslateAll.style.color = '#ffffff';
+    } else {
+      btnTranslateAll.style.background = '#eef7f2';
+      btnTranslateAll.style.color = '#175e4b';
+    }
+  });
+
   async function loadTest(subject, set) {
     activeSeries = { subject, set };
     startedAt = Date.now();
@@ -446,22 +575,64 @@
     }
 
     activeSeries.questions = questions;
+    allSchoolQuestionsHindi = false;
+    if (translateAllLabel) translateAllLabel.textContent = 'Translate Test to Hindi (हिंदी में देखें)';
+    if (btnTranslateAll) {
+      btnTranslateAll.style.background = '#eef7f2';
+      btnTranslateAll.style.color = '#175e4b';
+    }
 
     questions.forEach((q, index) => {
+      q._isHindi = false;
       const fieldset = document.createElement('fieldset');
       fieldset.className = 'class-question';
+
+      const topRow = document.createElement('div');
+      topRow.className = 'class-question-top';
+      topRow.style.cssText = 'display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:12px; flex-wrap:wrap;';
+
       const legend = document.createElement('legend');
-      legend.textContent = 'Q' + (index + 1) + '. ' + q.text;
-      fieldset.appendChild(legend);
+      legend.style.cssText = 'font-weight:700; font-size:15px; color:var(--ink, #182c2a); margin:0; line-height:1.45; flex:1; min-width:200px; padding:0;';
+      const numSpan = document.createElement('span');
+      numSpan.style.color = '#175e4b';
+      numSpan.style.marginRight = '6px';
+      numSpan.textContent = 'Q' + (index + 1) + '.';
+      const textSpan = document.createElement('span');
+      textSpan.className = 'class-q-text';
+      textSpan.textContent = q.text;
+      legend.append(numSpan, textSpan);
+      topRow.appendChild(legend);
+
+      const transBtn = document.createElement('button');
+      transBtn.type = 'button';
+      transBtn.className = 'btn-translate-q';
+      transBtn.title = 'Translate question to Hindi';
+      transBtn.style.cssText = 'background:#eef7f2; border:1px solid #bdd3c4; color:#175e4b; font-size:11.5px; font-weight:700; padding:5px 10px; border-radius:6px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; white-space:nowrap; transition:all 0.2s ease; font-family:inherit; flex-shrink:0;';
+      transBtn.innerHTML = `<span>🌐</span> <span class="trans-btn-text">Translate to Hindi (हिंदी)</span>`;
+      transBtn.addEventListener('click', () => toggleQuestionHindi(q, index, fieldset, transBtn));
+      topRow.appendChild(transBtn);
+
+      fieldset.appendChild(topRow);
 
       q.options.forEach((opt, optIndex) => {
         const label = document.createElement('label');
+        label.style.cssText = 'display:flex; align-items:flex-start; gap:8px; cursor:pointer; font-size:13.5px; margin-bottom:6px; line-height:1.4;';
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = 'question-' + index;
         input.value = optIndex;
         input.required = (optIndex === 0);
-        label.append(input, document.createTextNode(' ' + opt));
+        input.style.marginTop = '3px';
+
+        const optPrefix = document.createElement('strong');
+        optPrefix.style.color = '#175e4b';
+        optPrefix.textContent = String.fromCharCode(65 + optIndex) + '.';
+
+        const optSpan = document.createElement('span');
+        optSpan.className = 'class-opt-text';
+        optSpan.textContent = ' ' + opt;
+
+        label.append(input, optPrefix, optSpan);
         fieldset.appendChild(label);
       });
 
