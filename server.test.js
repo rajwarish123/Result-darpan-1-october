@@ -911,5 +911,81 @@ test('Admin Previous Year Questions (PYQ) endpoints allow retrieval, creation, u
   }
 });
 
+test('Google AdSense monetization & ads.txt endpoints work properly', async () => {
+  // 1. GET /ads.txt returns 200 with standard IAB direct seller format
+  const adsTxtRes = await request(app).get('/ads.txt');
+  assert.equal(adsTxtRes.status, 200);
+  assert.ok(adsTxtRes.text.includes('google.com'));
+  assert.ok(adsTxtRes.text.includes('DIRECT'));
+  assert.ok(adsTxtRes.text.includes('f08c47fec0942fa0'));
+
+  // 2. Public GET /api/ad-settings returns current settings
+  const getSettingsRes = await request(app).get('/api/ad-settings');
+  assert.equal(getSettingsRes.status, 200);
+  assert.ok(getSettingsRes.body.adSettings);
+  assert.equal(typeof getSettingsRes.body.adSettings.enabled, 'boolean');
+
+  // 3. Unauthorized PUT /api/admin/ad-settings returns 401
+  const unauthRes = await request(app).put('/api/admin/ad-settings').send({ enabled: true });
+  assert.equal(unauthRes.status, 401);
+
+  // 4. Authorized admin can update settings and sync ads.txt
+  const adminEmail = `adstest_${Date.now()}@resultdarpan.com`;
+  const previousAdminEmail = process.env.ADMIN_EMAIL;
+  process.env.ADMIN_EMAIL = adminEmail;
+
+  try {
+    const signup = await request(app).post('/api/auth/register').send({
+      name: 'AdSense Manager',
+      email: adminEmail,
+      password: 'adminSecurePassword123'
+    });
+    assert.equal(signup.status, 201);
+    const adminToken = signup.body.token;
+
+    // Update settings with a test publisher ID
+    const updateRes = await request(app)
+      .put('/api/admin/ad-settings')
+      .set('Authorization', `Bearer ${adminToken}`)
+      .send({
+        enabled: true,
+        adClient: 'ca-pub-9876543210123456',
+        testMode: true,
+        autoAds: false,
+        showTopBanner: true,
+        showInFeed: true,
+        showArticleBanner: false
+      });
+
+    assert.equal(updateRes.status, 200);
+    assert.equal(updateRes.body.success, true);
+    assert.equal(updateRes.body.adSettings.enabled, true);
+    assert.equal(updateRes.body.adSettings.adClient, 'ca-pub-9876543210123456');
+    assert.equal(updateRes.body.adSettings.showArticleBanner, false);
+
+    // Verify /ads.txt was automatically synced with the new pub-ID
+    const updatedAdsTxt = await request(app).get('/ads.txt');
+    assert.equal(updatedAdsTxt.status, 200);
+    assert.ok(updatedAdsTxt.text.includes('pub-9876543210123456'));
+
+    // Reset settings to default disabled state for clean test environment
+    await request(app)
+      .put('/api/admin/ad-settings')
+      .set('Authorization', `Bearer ${adminToken}`)
+      .send({
+        enabled: false,
+        adClient: '',
+        testMode: false,
+        autoAds: false,
+        showTopBanner: true,
+        showInFeed: true,
+        showArticleBanner: true
+      });
+  } finally {
+    if (typeof previousAdminEmail === 'undefined') delete process.env.ADMIN_EMAIL;
+    else process.env.ADMIN_EMAIL = previousAdminEmail;
+  }
+});
+
 
 
