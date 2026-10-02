@@ -161,67 +161,8 @@ function applyPageTheme(theme) {
 applyPageTheme(localStorage.getItem('preply-theme') || 'light');
 pageThemeToggles.forEach((button) => button.addEventListener('click', () => applyPageTheme(document.body.classList.contains('dark-theme') ? 'light' : 'dark')));
 
-const menuToggle = document.querySelector('.menu-toggle');
-const mainNav = document.querySelector('.main-nav');
-mainNav?.querySelectorAll(':scope > a').forEach((link) => {
-  if (link.textContent.trim().toLowerCase() === 'admin dashboard') link.remove();
-});
-mainNav?.querySelectorAll(':scope > a').forEach((link) => {
-  if (link.textContent.trim().toLowerCase() === 'contact us') link.remove();
-});
-const keepNavLabels = new Set(['my profile', 'about us', 'test series', 'previous year questions', 'chat with mentor']);
-if (mainNav && !mainNav.querySelector('.more-menu')) {
-  const existingNavLabels = new Set([...mainNav.querySelectorAll(':scope > a')].map((link) => link.textContent.replace('↗', '').trim().toLowerCase()));
-  [['About us', 'contact.html']].forEach(([label, href]) => {
-    if (!existingNavLabels.has(label.toLowerCase())) {
-      const link = document.createElement('a');
-      link.href = href;
-      link.textContent = label;
-      mainNav.appendChild(link);
-    }
-  });
-  if (!mainNav.querySelector('a[href="previous-year-questions.html"]')) {
-    const link = document.createElement('a');
-    link.href = 'previous-year-questions.html';
-    link.textContent = 'Previous year questions';
-    mainNav.appendChild(link);
-  }
-  const movedNavLinks = [...mainNav.querySelectorAll(':scope > a')].filter((link) => !keepNavLabels.has(link.textContent.replace('↗', '').trim().toLowerCase()));
-  if (movedNavLinks.length) {
-    const moreMenu = document.createElement('div');
-    moreMenu.className = 'more-menu';
-    moreMenu.innerHTML = '<button class="more-toggle" type="button" aria-expanded="false">More <span>⌄</span></button><div class="more-dropdown"></div>';
-    const dropdown = moreMenu.querySelector('.more-dropdown');
-    movedNavLinks.forEach((link) => dropdown.appendChild(link));
-    mainNav.appendChild(moreMenu);
-    const toggle = moreMenu.querySelector('.more-toggle');
-    const closeMore = () => { moreMenu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
-    toggle.addEventListener('click', (event) => { event.stopPropagation(); const open = moreMenu.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
-    dropdown.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMore));
-    document.addEventListener('click', (event) => { if (!moreMenu.contains(event.target)) closeMore(); });
-  }
-}
-menuToggle?.addEventListener('click', () => {
-  const isOpen = mainNav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-  menuToggle.textContent = isOpen ? '×' : '☰';
-});
+// Header navigation and mobile drawer are handled exclusively and cleanly by nav.js
 
-document.addEventListener('click', (e) => {
-  if (mainNav && mainNav.classList.contains('open') && !mainNav.contains(e.target) && !menuToggle?.contains(e.target)) {
-    mainNav.classList.remove('open');
-    menuToggle?.setAttribute('aria-expanded', 'false');
-    if (menuToggle) menuToggle.textContent = '☰';
-  }
-});
-
-mainNav?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    mainNav.classList.remove('open');
-    menuToggle?.setAttribute('aria-expanded', 'false');
-    if (menuToggle) menuToggle.textContent = '☰';
-  });
-});
 
 const previousYearQuestions = document.querySelector('#previousYearQuestions');
 const previousYearFilter = document.querySelector('#previousYearFilter');
