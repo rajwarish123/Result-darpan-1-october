@@ -698,7 +698,18 @@ function createSmtpTransport() {
   const port = Number(process.env.SMTP_PORT || 587);
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
-  if (!host || !Number.isInteger(port) || !user || !pass) return null;
+  if (!host || !Number.isInteger(port) || !user || !pass) {
+    if (user && pass && user.includes('@gmail.com')) {
+      return {
+        from: process.env.SMTP_FROM || user,
+        transport: nodemailer.createTransport({
+          service: 'gmail',
+          auth: { user, pass }
+        })
+      };
+    }
+    return null;
+  }
   return {
     from: process.env.SMTP_FROM || user,
     transport: nodemailer.createTransport({
