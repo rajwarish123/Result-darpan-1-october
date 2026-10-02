@@ -1057,7 +1057,7 @@ app.get('/api/question-set-catalog', (req, res) => {
       classNumber,
       subjects: subjects.map((subject) => ({
         subject,
-        totalSets: Math.max(10, ...customQuestionSets.filter((entry) => String(entry.classNumber || '') === String(classNumber) && String(entry.subject || '').toLowerCase() === String(subject).toLowerCase()).map((entry) => Number(entry.setNumber) || 1))
+        totalSets: Math.max(30, ...customQuestionSets.filter((entry) => String(entry.classNumber || '') === String(classNumber) && String(entry.subject || '').toLowerCase() === String(subject).toLowerCase()).map((entry) => Number(entry.setNumber) || 1))
       }))
     }))
   });
