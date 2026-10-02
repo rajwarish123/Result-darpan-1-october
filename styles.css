@@ -1499,3 +1499,85 @@
 .dark-theme .goal-logo-wrap {
   background: #ffffff !important;
 }
+
+/* 17. Monetization & Future-Ready Ad Containers */
+.rd-ad-container {
+  width: 100%;
+  max-width: 970px;
+  margin: 32px auto;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.rd-ad-container:empty {
+  display: none;
+}
+.ad-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted, #6d7f76);
+  margin-bottom: 6px;
+  text-align: center;
+}
+.ad-preview-box {
+  background: #f7faf8;
+  border: 2px dashed #cbdad1;
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.ad-preview-box:hover {
+  border-color: var(--green, #175e4b);
+}
+.ad-preview-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+.ad-preview-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+.ad-preview-box strong {
+  display: block;
+  font-size: 14px;
+  color: var(--ink, #182c2a);
+  margin-bottom: 3px;
+}
+.ad-preview-box p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted, #5e756d);
+  max-width: 520px;
+}
+
+/* Specific Slot Layouts */
+.rd-ad-leaderboard {
+  min-height: 90px;
+}
+.rd-ad-infeed {
+  max-width: 728px;
+  margin: 28px auto;
+}
+
+/* Dark Theme Overrides for Ads */
+.dark-theme .ad-label {
+  color: #7da593 !important;
+}
+.dark-theme .ad-preview-box {
+  background: #102a21 !important;
+  border-color: #275243 !important;
+}
+.dark-theme .ad-preview-box strong {
+  color: #ffffff !important;
+}
+.dark-theme .ad-preview-box p {
+  color: #b7cebf !important;
+}
+
