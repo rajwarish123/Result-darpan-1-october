@@ -1391,3 +1391,111 @@
   color: #a9c0b2 !important;
 }
 
+/* 16. Real Exam Logos & Card Illustrations */
+.test-illustration {
+  height: 124px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: #f8faf9;
+  border-bottom: 1px solid var(--line, #e2e8e4);
+}
+.test-illustration .exam-logo-img {
+  max-height: 76px;
+  max-width: 140px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+  transition: transform 0.25s ease;
+}
+.test-card:hover .exam-logo-img {
+  transform: scale(1.08);
+}
+.test-illustration.lavender {
+  background: linear-gradient(135deg, #f0f4ff, #e3ecfc);
+}
+.test-illustration.mint {
+  background: linear-gradient(135deg, #eef9f2, #dff4e7);
+}
+.test-illustration.peach {
+  background: linear-gradient(135deg, #fff8eb, #fae6d8);
+}
+.test-illustration.rail-bg {
+  background: linear-gradient(135deg, #fff2f2, #ffe4e4);
+}
+.test-illustration.ctet-bg {
+  background: linear-gradient(135deg, #eff8f9, #dcf0f2);
+}
+
+/* Upcoming Exam Cards Real Logos */
+.exam-card-badge-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.exam-badge-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #ffffff;
+  padding: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Prep Desk Goal Icons with Real Logos */
+.goal-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.goal-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Dark Theme Overrides for Real Exam Logos */
+.dark-theme .test-illustration {
+  background: #112d24 !important;
+  border-bottom-color: #214b3b !important;
+}
+.dark-theme .test-illustration.lavender {
+  background: linear-gradient(135deg, #1c2b3c, #131e2b) !important;
+}
+.dark-theme .test-illustration.mint {
+  background: linear-gradient(135deg, #16362a, #0e241c) !important;
+}
+.dark-theme .test-illustration.peach {
+  background: linear-gradient(135deg, #352516, #24190e) !important;
+}
+.dark-theme .test-illustration.rail-bg {
+  background: linear-gradient(135deg, #381c1c, #261111) !important;
+}
+.dark-theme .test-illustration.ctet-bg {
+  background: linear-gradient(135deg, #153238, #0e2125) !important;
+}
+.dark-theme .test-illustration .exam-logo-img {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+.dark-theme .exam-badge-logo {
+  background: #ffffff !important;
+}
+.dark-theme .goal-logo-wrap {
+  background: #ffffff !important;
+}
