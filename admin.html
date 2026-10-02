@@ -1836,6 +1836,7 @@ Topic: Mechanics
         btn.classList.add('active');
         const tab = btn.dataset.tab;
         document.getElementById('tabStudio').style.display = tab === 'studio' ? 'flex' : 'none';
+        document.getElementById('tabPyq').style.display = tab === 'pyq' ? 'block' : 'none';
         document.getElementById('tabNotifications').style.display = tab === 'notifications' ? 'block' : 'none';
         document.getElementById('tabBlogs').style.display = tab === 'blogs' ? 'block' : 'none';
         document.getElementById('tabMaterials').style.display = tab === 'materials' ? 'block' : 'none';
@@ -1843,6 +1844,7 @@ Topic: Mechanics
         document.getElementById('tabOverview').style.display = tab === 'overview' ? 'block' : 'none';
         document.getElementById('tabGuide').style.display = tab === 'guide' ? 'block' : 'none';
 
+        if (tab === 'pyq') loadAdminPyqs();
         if (tab === 'notifications') loadAdminNotifications();
         if (tab === 'blogs') loadAdminBlogs();
         if (tab === 'materials') loadAdminMaterials();
