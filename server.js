@@ -323,8 +323,16 @@ const hindiGrammarQuestions = [
 const classCurricula = {
   9: ['Mathematics', 'Science', 'English', 'Social Science'],
   10: ['Mathematics', 'Science', 'English', 'Social Science'],
-  11: ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English'],
-  12: ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English']
+  11: [
+    'Mathematics', 'Physics', 'Chemistry', 'Biology', 'English',
+    'Computer Science', 'Accountancy', 'Business Studies', 'Economics',
+    'History', 'Political Science', 'Geography', 'Sociology', 'Psychology', 'Hindi'
+  ],
+  12: [
+    'Mathematics', 'Physics', 'Chemistry', 'Biology', 'English',
+    'Computer Science', 'Accountancy', 'Business Studies', 'Economics',
+    'History', 'Political Science', 'Geography', 'Sociology', 'Psychology', 'Hindi'
+  ]
 };
 
 const builtInQuestionSetSubjects = Object.fromEntries(Object.entries(questionSetSubjects).map(([exam, subjects]) => [exam, [...subjects]]));
@@ -402,6 +410,126 @@ const classQuestionPools = {
     ['Which hormone helps regulate blood glucose?', ['Insulin', 'Adrenaline', 'Thyroxine', 'Melatonin'], 0, 'Human Physiology'],
     ['Which process produces two genetically identical daughter cells?', ['Meiosis', 'Mitosis', 'Fertilisation', 'Pollination'], 1, 'Cell Division'],
     ['Which blood group is commonly called the universal red-cell donor?', ['AB positive', 'A positive', 'O negative', 'B negative'], 2, 'Human Physiology']
+  ],
+  Accountancy: [
+    ['Which accounting concept assumes a business will continue operating indefinitely?', ['Going Concern Concept', 'Money Measurement', 'Periodicity', 'Conservatism'], 0, 'Basic Concepts'],
+    ['The fundamental accounting equation is:', ['Assets = Liabilities + Capital', 'Assets = Capital - Liabilities', 'Capital = Assets + Liabilities', 'Liabilities = Assets + Capital'], 0, 'Accounting Equation'],
+    ['Goodwill of a business is classified as a/an:', ['Intangible Asset', 'Current Asset', 'Liquid Asset', 'Fictitious Asset'], 0, 'Assets'],
+    ['In double-entry bookkeeping, an increase in an asset is recorded as:', ['Debit', 'Credit', 'Contra', 'Reversal'], 0, 'Rules of Debit & Credit'],
+    ['Which financial statement shows financial position at a specific date?', ['Balance Sheet', 'Profit and Loss Account', 'Cash Flow Statement', 'Trial Balance'], 0, 'Financial Statements'],
+    ['Depreciation is charged on:', ['Fixed Tangible Assets', 'Current Assets', 'Liquid Cash', 'Goodwill'], 0, 'Depreciation'],
+    ['The excess of assets over liabilities in a non-profit organisation is called:', ['Capital Fund', 'Surplus', 'Net Profit', 'Deficit'], 0, 'NPO Accounting'],
+    ['Rent received in advance is classified as a/an:', ['Current Liability', 'Current Asset', 'Direct Revenue', 'Capital'], 0, 'Adjustments'],
+    ['Which account is credited when cash is withdrawn by proprietor for personal use?', ['Cash Account', 'Drawings Account', 'Capital Account', 'Purchases Account'], 0, 'Journal Entries'],
+    ['A Trial Balance is prepared primarily to check:', ['Arithmetical accuracy of ledger', 'Financial profit', 'Cash position', 'Tax obligation'], 0, 'Trial Balance']
+  ],
+  'Business Studies': [
+    ['Which management function is considered the primary function of management?', ['Planning', 'Organising', 'Controlling', 'Staffing'], 0, 'Management Functions'],
+    ['Who is universally acknowledged as the father of General Management?', ['Henri Fayol', 'F.W. Taylor', 'Peter Drucker', 'Elton Mayo'], 0, 'Principles of Management'],
+    ['Which Fayol principle states that an employee should receive orders from one superior only?', ['Unity of Command', 'Unity of Direction', 'Scalar Chain', 'Order'], 0, 'Fayol Principles'],
+    ['What are the traditional 4 Ps of Marketing Mix?', ['Product, Price, Place, Promotion', 'Plan, People, Process, Position', 'Power, Profit, Price, Place', 'Policy, Program, Path, Performance'], 0, 'Marketing'],
+    ['The process of initiating, guiding and inspiring subordinates to achieve goals is:', ['Directing', 'Planning', 'Controlling', 'Budgeting'], 0, 'Directing'],
+    ['Which recruitment method brings external fresh talent and diverse perspectives into a firm?', ['External recruitment', 'Transfer', 'Internal promotion', 'Demotion'], 0, 'Staffing'],
+    ['Under the Consumer Protection Act 2019, District Commission entertains complaints up to:', ['₹1 Crore', '₹20 Lakhs', '₹50 Lakhs', '₹10 Crores'], 0, 'Consumer Protection'],
+    ['Which financial market deals in medium and long-term borrowing and equity instruments?', ['Capital Market', 'Money Market', 'Call Money Market', 'Treasury Market'], 0, 'Financial Markets'],
+    ['Span of management refers to the:', ['Number of subordinates under one superior', 'Duration of leadership', 'Salary scale', 'Number of departments'], 0, 'Organising'],
+    ['Treasury Bills in India are issued on behalf of the Central Government by:', ['Reserve Bank of India (RBI)', 'SEBI', 'State Bank of India', 'Ministry of Commerce'], 0, 'Financial Markets']
+  ],
+  Economics: [
+    ['The Law of Demand states that other things being constant, quantity demanded increases when:', ['Price falls', 'Income falls', 'Price rises', 'Supply increases'], 0, 'Microeconomics'],
+    ['The opportunity cost of a chosen economic activity is the:', ['Value of the next best alternative forgone', 'Total financial outlay', 'Fixed overhead cost', 'Sunk cost'], 0, 'Introductory Economics'],
+    ['Which macroeconomic indicator measures total value of final goods & services produced in a country in a year?', ['Gross Domestic Product (GDP)', 'Net National Product', 'Gross National Income', 'Disposable Income'], 0, 'National Income'],
+    ['When price elasticity of demand is greater than 1, demand is termed:', ['Elastic', 'Inelastic', 'Unitary', 'Zero'], 0, 'Elasticity'],
+    ['Which apex authority formulates and executes Monetary Policy in India?', ['Reserve Bank of India (RBI)', 'NITI Aayog', 'Ministry of Finance', 'SEBI'], 0, 'Money & Banking'],
+    ['Inflation driven by rising costs of raw materials and employee wages is known as:', ['Cost-push inflation', 'Demand-pull inflation', 'Creeping inflation', 'Hyperinflation'], 0, 'Macroeconomics'],
+    ['A market structure characterized by a single seller with high barriers to entry is a:', ['Monopoly', 'Perfect Competition', 'Oligopoly', 'Monopolistic Competition'], 0, 'Market Forms'],
+    ['The difference between Total Revenue and Total Cost is defined as:', ['Economic Profit', 'Marginal Revenue', 'Gross Turnover', 'Operating Surplus'], 0, 'Producer Behavior'],
+    ['NITI Aayog replaced which historical planning institution in India in 2015?', ['Planning Commission', 'Finance Commission', 'National Development Council', 'Tariff Board'], 0, 'Indian Economy'],
+    ['An economic system where both private enterprises and state governance coexist is a:', ['Mixed Economy', 'Command Economy', 'Capitalist Economy', 'Barter Economy'], 0, 'Economic Systems']
+  ],
+  History: [
+    ['The Indus Valley / Harappan Civilization belonged chronologically to which archaeological age?', ['Bronze Age', 'Iron Age', 'Neolithic Age', 'Mesolithic Age'], 0, 'Ancient India'],
+    ['The famous steatite seal depicting "Pashupati" was excavated at which major site?', ['Mohenjo-daro', 'Harappa', 'Kalibangan', 'Lothal'], 0, 'Harappan Culture'],
+    ['Who was the illustrious founder of the Mauryan Empire in ancient India?', ['Chandragupta Maurya', 'Ashoka', 'Bindusara', 'Brihadratha'], 0, 'Mauryan Empire'],
+    ['The devastating Kalinga War prompted Emperor Ashoka to embrace and propagate:', ['Buddhism & Dhamma', 'Jainism', 'Ajivika philosophy', 'Vedic rituals'], 0, 'Ashoka Epigraphs'],
+    ['The world-renowned travel account "Rihla" was authored by medieval Moroccan traveler:', ['Ibn Battuta', 'Al-Biruni', 'Marco Polo', 'Abdur Razzaq'], 0, 'Medieval Travelers'],
+    ['The Permanent Settlement of Bengal was enacted in 1793 under Governor-General:', ['Lord Cornwallis', 'Lord Warren Hastings', 'Lord Dalhousie', 'Lord Wellesley'], 0, 'Colonial Rule'],
+    ['Mahatma Gandhi launched the Champaran Satyagraha in 1917 in Bihar to support:', ['Oppressed Indigo farmers', 'Cotton textile workers', 'Salt tax protesters', 'Peasants against land revenue'], 0, 'National Movement'],
+    ['The historic Indian Rebellion of 1857 was ignited on May 10 from the military station of:', ['Meerut', 'Barrackpore', 'Delhi', 'Jhansi'], 0, 'Revolt of 1857'],
+    ['Who presided over the iconic Lahore Session of 1929 where the "Purna Swaraj" resolution was passed?', ['Jawaharlal Nehru', 'Mahatma Gandhi', 'Subhas Chandra Bose', 'Motilal Nehru'], 0, 'National Movement'],
+    ['The Indian Independence Act was formally passed by the British Parliament in:', ['July 1947', 'August 1946', 'March 1947', 'January 1950'], 0, 'Independence of India']
+  ],
+  'Political Science': [
+    ['The Constitution of India was officially adopted by the Constituent Assembly on:', ['26 November 1949', '15 August 1947', '26 January 1950', '2 October 1948'], 0, 'Indian Constitution'],
+    ['Which Article was described as the "Heart and Soul" of the Indian Constitution by Dr. B.R. Ambedkar?', ['Article 32 (Right to Constitutional Remedies)', 'Article 21 (Right to Life)', 'Article 14 (Equality)', 'Article 19 (Freedoms)'], 0, 'Fundamental Rights'],
+    ['Who serves as the ex-officio Chairman of the Rajya Sabha in the Indian Parliament?', ['Vice-President of India', 'Speaker of Lok Sabha', 'Prime Minister', 'Chief Justice of India'], 0, 'Legislature'],
+    ['Fundamental Duties were incorporated into Part IV-A of the Constitution through which Amendment?', ['42nd Amendment Act, 1976', '44th Amendment Act, 1978', '86th Amendment Act, 2002', '73rd Amendment Act, 1992'], 0, 'Constitutional Amendments'],
+    ['The influential doctrine of "Separation of Powers" was conceptualised by:', ['Montesquieu', 'John Locke', 'Rousseau', 'Thomas Hobbes'], 0, 'Political Theory'],
+    ['Which Schedule of the Indian Constitution details the Union, State, and Concurrent Lists?', ['Seventh Schedule', 'Eighth Schedule', 'Eleventh Schedule', 'Third Schedule'], 0, 'Federalism'],
+    ['The minimum constitutional age required to contest election for the Lok Sabha is:', ['25 years', '30 years', '35 years', '21 years'], 0, 'Elections'],
+    ['The Election Commission of India functions as an autonomous authority under which Article?', ['Article 324', 'Article 280', 'Article 352', 'Article 312'], 0, 'Constitutional Bodies'],
+    ['Which European nation is globally renowned as the premier exemplar of Direct Democracy?', ['Switzerland', 'United Kingdom', 'Germany', 'France'], 0, 'Democratic Systems'],
+    ['The authority of courts to invalidate governmental acts that violate the Constitution is called:', ['Judicial Review', 'Judicial Activism', 'Rule of Law', 'Public Interest Litigation'], 0, 'Judiciary']
+  ],
+  Geography: [
+    ['Which layer of the Earth possesses the highest density and is predominantly composed of nickel and iron?', ['Core (Nife)', 'Crust (Sial)', 'Mantle (Sima)', 'Lithosphere'], 0, 'Earth Interior'],
+    ['The Continental Drift hypothesis was formulated and published in 1912 by:', ['Alfred Wegener', 'Harry Hess', 'Arthur Holmes', 'W.M. Davis'], 0, 'Geomorphology'],
+    ['Which atmospheric zone contains the protective ozone layer shielding Earth from ultraviolet radiation?', ['Stratosphere', 'Troposphere', 'Mesosphere', 'Thermosphere'], 0, 'Climatology'],
+    ['The Western Ghats and Eastern Ghats converge geographically at the:', ['Nilgiri Hills', 'Annamalai Hills', 'Cardamom Hills', 'Palani Hills'], 0, 'Physiography of India'],
+    ['Which is the longest river system flowing through Peninsular India (Dakshin Ganga)?', ['Godavari', 'Krishna', 'Mahanadi', 'Kaveri'], 0, 'Drainage Systems'],
+    ['The meteorological phenomenon bringing crucial winter precipitation to northwest India is called:', ['Western Disturbances', 'South-West Monsoon', 'North-East Monsoon', 'Loo'], 0, 'Indian Climate'],
+    ['Black soil, widely distributed across the Deccan Plateau, is exceptionally suitable for growing:', ['Cotton', 'Tea', 'Jute', 'Rubber'], 0, 'Soils of India'],
+    ['The demarcation line separating India and China in the eastern sector is designated as the:', ['McMahon Line', 'Radcliffe Line', 'Durand Line', 'Line of Control'], 0, 'Political Geography'],
+    ['Which planetary body is considered Earth’s "twin" due to comparable size, mass, and bulk composition?', ['Venus', 'Mars', 'Mercury', 'Neptune'], 0, 'Solar System'],
+    ['Majuli, the world’s largest inhabited riverine island, is situated on which great river?', ['Brahmaputra', 'Ganga', 'Indus', 'Narmada'], 0, 'Indian Drainage']
+  ],
+  Sociology: [
+    ['Who is universally acclaimed as the founding father of Sociology?', ['Auguste Comte', 'Karl Marx', 'Max Weber', 'Herbert Spencer'], 0, 'Sociological Foundations'],
+    ['The seminal treatise "The Division of Labour in Society" was authored by French sociologist:', ['Emile Durkheim', 'Pierre Bourdieu', 'Michel Foucault', 'Claude Levi-Strauss'], 0, 'Sociological Thinkers'],
+    ['The sociological concept of "Social Stratification" denotes:', ['Hierarchical ranking of social strata', 'Biological classification', 'Psychological grouping', 'Spatial migration'], 0, 'Social Stratification'],
+    ['Which fundamental social institution operates as the primary agent of human socialization?', ['Family', 'Mass Media', 'Workplace', 'Political Party'], 0, 'Social Institutions'],
+    ['The conceptual framework of "Sanskritization" in Indian social anthropology was introduced by:', ['M.N. Srinivas', 'G.S. Ghurye', 'Andre Beteille', 'Irawati Karve'], 0, 'Social Change in India'],
+    ['Which of the following serves as an archetypal illustration of an ascribed social status?', ['Caste acquired at birth', 'Doctorate degree', 'Elected parliamentary seat', 'Corporate promotion'], 0, 'Status and Role'],
+    ['The progressive demographic migration from agrarian rural countryside into cities is termed:', ['Urbanization', 'Industrialization', 'Modernization', 'Westernization'], 0, 'Social Processes'],
+    ['Max Weber formulated an enduring sociological paradigm dissecting rational legal authority and:', ['Bureaucracy', 'Historical Materialism', 'Mechanical Solidarity', 'Dramaturgy'], 0, 'Sociological Theory'],
+    ['Endogamy is formally defined as the social practice of wedding:', ['Within one’s own social group/community', 'Outside one’s clan', 'Multiple partners', 'Across nationality boundaries'], 0, 'Kinship & Marriage'],
+    ['The lifelong interactive process through which an individual internalises culture and norms is:', ['Socialization', 'Assimilation', 'Acculturation', 'Enculturation'], 0, 'Culture and Society']
+  ],
+  Psychology: [
+    ['Who established the Psychoanalytic school of psychology exploring the unconscious mind?', ['Sigmund Freud', 'Carl Jung', 'B.F. Skinner', 'John Watson'], 0, 'Psychological Traditions'],
+    ['Which memory store retains information for approximately 20 to 30 seconds without active rehearsal?', ['Short-Term Memory (STM)', 'Sensory Memory', 'Long-Term Memory', 'Episodic Memory'], 0, 'Human Memory'],
+    ['Ivan Pavlov discovered classical conditioning principles while investigating digestive salivation in:', ['Dogs', 'Pigeons', 'Rats', 'Chimpanzees'], 0, 'Learning'],
+    ['The classic standardized mathematical formula for Intelligence Quotient (IQ) is:', ['(Mental Age / Chronological Age) × 100', '(Chronological Age / Mental Age) × 100', '(Mental Age × Chronological Age) / 100', '(Mental Age + Chronological Age) × 10'], 0, 'Intelligence'],
+    ['Which subcortical structure within the temporal lobe plays a critical role in processing fear emotions?', ['Amygdala', 'Hippocampus', 'Medulla', 'Corpus Callosum'], 0, 'Biological Psychology'],
+    ['Jean Piaget formulated four landmark sequential stages delineating children’s:', ['Cognitive Development', 'Moral Evolution', 'Psychosexual Stages', 'Language Acquisition'], 0, 'Developmental Psychology'],
+    ['The modern "Big Five" personality taxonomy comprises Openness, Conscientiousness, Extraversion, Agreeableness, and:', ['Neuroticism', 'Introversion', 'Optimism', 'Impulsivity'], 0, 'Personality'],
+    ['In Abraham Maslow’s pyramid hierarchy of human needs, the culminating pinnacle need is:', ['Self-actualization', 'Self-esteem', 'Safety', 'Belongingness'], 0, 'Motivation & Emotion'],
+    ['The iconic "Bobo Doll" experiments evidencing observational vicarious learning were conducted by:', ['Albert Bandura', 'Edward Thorndike', 'Erik Erikson', 'Carl Rogers'], 0, 'Social Learning Theory'],
+    ['The initial neurobiological process whereby sensory receptors detect physical stimuli from the environment is:', ['Sensation', 'Perception', 'Attention', 'Cognition'], 0, 'Sensory Processes']
+  ],
+  'Computer Science': [
+    ['Which core Python compound data structure is strictly immutable once initialized?', ['Tuple', 'List', 'Dictionary', 'Set'], 0, 'Python Fundamentals'],
+    ['What is the algorithmic time complexity of searching an item in a balanced Binary Search Tree?', ['O(log n)', 'O(n)', 'O(1)', 'O(n log n)'], 0, 'Data Structures'],
+    ['Which SQL DDL command permanently removes a table along with its relational schema from a database?', ['DROP TABLE', 'DELETE TABLE', 'TRUNCATE TABLE', 'REMOVE TABLE'], 0, 'Database Systems'],
+    ['In internet protocols, the acronym HTTP stands for:', ['Hypertext Transfer Protocol', 'High Technology Transfer Process', 'Hyperlink Transmission Path', 'Host Telecommunication Platform'], 0, 'Computer Networks'],
+    ['Which Boolean logic gate is universally classified as a universal gate alongside NOR?', ['NAND gate', 'AND gate', 'OR gate', 'XOR gate'], 0, 'Boolean Logic'],
+    ['In Python, which built-in function returns the total number of items stored in an iterable?', ['len()', 'count()', 'size()', 'length()'], 0, 'Python Built-ins'],
+    ['Which layer within the seven-layer OSI reference model manages logical addressing and packet routing?', ['Network Layer', 'Transport Layer', 'Data Link Layer', 'Session Layer'], 0, 'Networking'],
+    ['The hexadecimal representation corresponding to the 4-bit binary value 1111 is:', ['F', 'E', 'A', '15'], 0, 'Number Systems'],
+    ['Which protocol provides cryptographic secure channel communication for file transfer over SSH?', ['SFTP', 'FTP', 'Telnet', 'TFTP'], 0, 'Network Security'],
+    ['In relational database design, an attribute or set of attributes uniquely identifying each tuple is the:', ['Primary Key', 'Foreign Key', 'Candidate Index', 'Alternate Key'], 0, 'Relational Databases']
+  ],
+  Hindi: [
+    ['\'दशानन\' (दस हैं आनन जिसके अर्थात् रावण) में कौन-सा समास है?', ['बहुव्रीहि समास', 'द्विगु समास', 'कर्मधारय समास', 'तत्पुरुष समास'], 0, 'समास'],
+    ['\'पवन\' का सही संधि-विच्छेद निम्नलिखित में से क्या है?', ['पो + अन', 'पौ + अन', 'प + वन', 'पव + न'], 0, 'संधि'],
+    ['\'अनुराग\' शब्द का सही विलोम शब्द क्या होगा?', ['विराग', 'राग', 'द्वेष', 'घृणा'], 0, 'विलोम शब्द'],
+    ['निम्नलिखित में से कौन-सा शब्द \'सूर्य\' का पर्यायवाची है?', ['दिनकर', 'शशि', 'जलद', 'निशाकर'], 0, 'पर्यायवाची'],
+    ['\'आँखों का तारा होना\' मुहावरे का सही अर्थ क्या है?', ['अत्यधिक प्रिय होना', 'बहुत दूर होना', 'कम दिखाई देना', 'घमंडी होना'], 0, 'मुहावरे'],
+    ['हिंदी वर्णमाला में मूल रूप से स्वरों की कुल संख्या कितनी मानी जाती है?', ['11', '13', '10', '12'], 0, 'वर्णमाला'],
+    ['उत्पत्ति अथवा इतिहास के आधार पर हिंदी शब्द-भंडार के कितने प्रमुख भेद हैं?', ['4 (तत्सम, तद्भव, देशज, विदेशज)', '3', '5', '2'], 0, 'शब्द विचार'],
+    ['\'जिसका कोई शत्रु कभी न जन्मा हो\' - वाक्यांश के लिए एक उपयुक्त शब्द है:', ['अजातशत्रु', 'शत्रुघ्न', 'अजेय', 'सर्वजयी'], 0, 'अनेक शब्दों के लिए एक शब्द'],
+    ['\'हाथ कंगन को आरसी क्या\' लोकोक्ति का सटीक अभिप्राय क्या है?', ['प्रत्यक्ष को प्रमाण की आवश्यकता नहीं होती', 'सुंदर आभूषण पहनना', 'दर्पण देखना', 'कठिन कार्य करना'], 0, 'लोकोक्तियाँ'],
+    ['श्रृंगार रस का स्थायी भाव निम्नलिखित में से क्या है?', ['रति', 'हास्य', 'उत्साह', 'शोक'], 0, 'काव्य शास्त्र & रस']
   ]
 };
 
