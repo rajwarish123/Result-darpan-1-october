@@ -935,12 +935,12 @@ test('Google AdSense monetization & ads.txt endpoints work properly', async () =
   process.env.ADMIN_EMAIL = adminEmail;
 
   try {
-    const signup = await request(app).post('/api/auth/register').send({
+    const signup = await request(app).post('/api/auth/signup').send({
       name: 'AdSense Manager',
       email: adminEmail,
       password: 'adminSecurePassword123'
     });
-    assert.equal(signup.status, 201);
+    assert.equal(signup.status, 200);
     const adminToken = signup.body.token;
 
     // Update settings with a test publisher ID
