@@ -2777,6 +2777,84 @@ app.delete('/api/admin/study-materials/:id', requireAuth, requireAdmin, (req, re
   res.json({ ok: true, message: 'Material deleted.' });
 });
 
+// --- PREVIOUS YEAR QUESTIONS (PYQ) ADMIN MANAGER ---
+app.get('/api/admin/previous-year-questions', requireAuth, requireAdmin, (req, res) => {
+  res.json({ questions: previousYearQuestionsList });
+});
+
+app.post('/api/admin/previous-year-questions', requireAuth, requireAdmin, (req, res) => {
+  const { exam, year, topic, text, options, answer, sourceUrl } = req.body || {};
+  const cleanText = typeof text === 'string' ? text.trim() : '';
+  if (!cleanText) {
+    return res.status(400).json({ error: 'Question text is required.' });
+  }
+
+  const cleanOptions = Array.isArray(options) ? options.map((opt) => String(opt || '').trim()).filter(Boolean) : [];
+  if (cleanOptions.length < 2) {
+    return res.status(400).json({ error: 'At least 2 non-empty options are required.' });
+  }
+
+  const answerIndex = Number(answer);
+  if (!Number.isInteger(answerIndex) || answerIndex < 0 || answerIndex >= cleanOptions.length) {
+    return res.status(400).json({ error: 'A valid correct answer option is required.' });
+  }
+
+  const newQuestion = {
+    id: `pyq-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+    exam: typeof exam === 'string' && exam.trim() ? exam.trim() : 'SSC CGL',
+    year: typeof year === 'string' && year.trim() ? year.trim() : 'Previous Year',
+    topic: typeof topic === 'string' && topic.trim() ? topic.trim() : 'General Awareness',
+    text: cleanText,
+    options: cleanOptions,
+    answer: answerIndex,
+    sourceUrl: typeof sourceUrl === 'string' && sourceUrl.trim() ? sourceUrl.trim() : 'https://ssc.gov.in/for-candidates/previous-year-question-paper'
+  };
+
+  previousYearQuestionsList.unshift(newQuestion);
+  persistPreviousYearQuestions();
+  res.status(201).json({ question: newQuestion });
+});
+
+app.put('/api/admin/previous-year-questions/:id', requireAuth, requireAdmin, (req, res) => {
+  const qId = String(req.params.id);
+  const q = previousYearQuestionsList.find((item) => String(item.id) === qId);
+  if (!q) return res.status(404).json({ error: 'Previous year question not found.' });
+
+  const body = req.body || {};
+  if (typeof body.text === 'string' && body.text.trim()) q.text = body.text.trim();
+  if (typeof body.exam === 'string' && body.exam.trim()) q.exam = body.exam.trim();
+  if (typeof body.year === 'string' && body.year.trim()) q.year = body.year.trim();
+  if (typeof body.topic === 'string' && body.topic.trim()) q.topic = body.topic.trim();
+  if (typeof body.sourceUrl === 'string') q.sourceUrl = body.sourceUrl.trim();
+
+  if (Array.isArray(body.options)) {
+    const cleanOpts = body.options.map((opt) => String(opt || '').trim()).filter(Boolean);
+    if (cleanOpts.length >= 2) {
+      q.options = cleanOpts;
+    }
+  }
+
+  if (body.answer !== undefined) {
+    const answerIndex = Number(body.answer);
+    if (Number.isInteger(answerIndex) && answerIndex >= 0 && answerIndex < q.options.length) {
+      q.answer = answerIndex;
+    }
+  }
+
+  persistPreviousYearQuestions();
+  res.json({ question: q });
+});
+
+app.delete('/api/admin/previous-year-questions/:id', requireAuth, requireAdmin, (req, res) => {
+  const qId = String(req.params.id);
+  const index = previousYearQuestionsList.findIndex((item) => String(item.id) === qId);
+  if (index === -1) return res.status(404).json({ error: 'Previous year question not found.' });
+
+  previousYearQuestionsList.splice(index, 1);
+  persistPreviousYearQuestions();
+  res.json({ ok: true, message: 'Question deleted successfully.' });
+});
+
 // --- TOPPER & MENTOR DESK / REPLY CONSOLE ---
 app.get('/api/admin/mentor-chat/threads', requireAuth, requireAdmin, (req, res) => {
   res.json({
