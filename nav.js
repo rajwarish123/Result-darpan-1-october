@@ -30,10 +30,18 @@
     )
   );
 
+  // Client-side address bar cleaner: seamlessly remove .html for clean URL display
+  try {
+    if (window.location.pathname.endsWith('.html') && !window.location.pathname.endsWith('index.html')) {
+      const cleanPath = window.location.pathname.replace(/\.html$/, '');
+      window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+    }
+  } catch (_) {}
+
   // Guarantee 'About us' link is present on top bar if missing
   if (!existingLabels.has('about us')) {
     const link = document.createElement('a');
-    link.href = 'contact.html';
+    link.href = 'contact';
     link.textContent = 'About us';
     nav.appendChild(link);
   }
@@ -56,14 +64,14 @@
   dropdown.appendChild(heading);
 
   const shortcuts = [
-    { label: 'Read Blogs', href: 'blogs.html', icon: '✍️' },
-    { label: 'Contact Us', href: 'contact.html#contact-form', icon: '📬' },
-    { label: 'Previous Year Questions', href: 'previous-year-questions.html', icon: '📜' },
-    { label: 'School Classes (9-12)', href: 'class-series.html', icon: '🏫' },
-    { label: 'Study Notes & PDFs', href: 'resources.html', icon: '📚' },
+    { label: 'Read Blogs', href: 'blogs', icon: '✍️' },
+    { label: 'Contact Us', href: 'contact#contact-form', icon: '📬' },
+    { label: 'Previous Year Questions', href: 'previous-year-questions', icon: '📜' },
+    { label: 'School Classes (9-12)', href: 'class-series', icon: '🏫' },
+    { label: 'Study Notes & PDFs', href: 'resources', icon: '📚' },
     { label: 'Subject Practice', href: 'index.html#subjects', icon: '🎯' },
     { label: 'Upcoming Exams', href: 'index.html#exams', icon: '🏛️' },
-    { label: 'AI Study Mentor', href: 'mentor-chat.html', icon: '🤖' }
+    { label: 'AI Study Mentor', href: 'mentor-chat', icon: '🤖' }
   ];
 
   shortcuts.forEach((sc) => {
