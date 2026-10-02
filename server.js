@@ -250,11 +250,33 @@ function getQuestionBank() {
 
 const questionSetSubjects = {
   'SSC CGL': ['English', 'Hindi', 'Mathematics', 'Reasoning', 'General Awareness', 'Indian Polity'],
+  'SSC CHSL': ['English', 'Mathematics', 'Reasoning', 'General Awareness'],
+  'SSC MTS': ['English', 'Mathematics', 'Reasoning', 'General Awareness'],
+  'SSC GD': ['Hindi', 'English', 'Mathematics', 'Reasoning', 'General Awareness'],
   'Railway NTPC': ['Mathematics', 'Hindi', 'Reasoning', 'General Awareness', 'General Science', 'Indian Polity'],
   'Railway Group D': ['Mathematics', 'Hindi', 'Reasoning', 'General Awareness', 'General Science', 'Indian Polity'],
+  'Railway ALP': ['Mathematics', 'Reasoning', 'General Science', 'General Awareness'],
   'SBI Clerk': ['English', 'Mathematics', 'Reasoning', 'General Awareness', 'Banking Awareness'],
+  'SBI PO': ['English', 'Mathematics', 'Reasoning', 'General Awareness', 'Banking Awareness'],
+  'IBPS PO': ['English', 'Mathematics', 'Reasoning', 'General Awareness', 'Banking Awareness'],
+  'IBPS Clerk': ['English', 'Mathematics', 'Reasoning', 'General Awareness', 'Banking Awareness'],
+  'RBI Grade B': ['English', 'Mathematics', 'Reasoning', 'General Awareness', 'Banking Awareness'],
+  'JEE Main': ['Mathematics', 'Physics', 'General Science'],
+  'JEE Advanced': ['Mathematics', 'Physics', 'General Science'],
+  'NEET UG': ['General Science', 'Physics', 'Biology'],
+  'CUET UG': ['English', 'Hindi', 'General Awareness', 'Reasoning'],
+  'GATE': ['Mathematics', 'General Science', 'Reasoning'],
+  'CAT': ['Mathematics', 'English', 'Reasoning'],
+  'CLAT': ['English', 'General Awareness', 'Reasoning', 'Indian Polity'],
+  'UPSC CSE': ['General Awareness', 'Indian Polity', 'Social Science', 'English'],
+  'BPSC': ['General Awareness', 'Indian Polity', 'General Science', 'Hindi'],
+  'UPPSC': ['General Awareness', 'Indian Polity', 'General Science', 'Hindi'],
   NDA: ['English', 'Mathematics', 'Reasoning', 'General Awareness', 'General Science'],
-  CTET: ['English', 'Hindi', 'Mathematics', 'Reasoning', 'General Awareness', 'General Science']
+  CDS: ['English', 'General Awareness', 'Mathematics', 'General Science'],
+  AFCAT: ['English', 'General Awareness', 'Reasoning', 'Mathematics'],
+  CTET: ['English', 'Hindi', 'Mathematics', 'Reasoning', 'General Awareness', 'General Science'],
+  'CTET Paper 2': ['English', 'Hindi', 'Mathematics', 'General Science', 'Social Science'],
+  'UGC NET': ['General Awareness', 'Reasoning', 'English']
 };
 
 const popularExamGoalGroups = [
