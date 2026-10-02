@@ -690,27 +690,51 @@ function getQuestionSetSubject(subject, exam) {
   return 'General Awareness';
 }
 
-async function loadSubjectQuestionSet() {
+async function loadSubjectQuestionSet(setNumber = activeTestSetNumber) {
   if (!activeQuestionSubject) return;
   const exam = getCurrentExam();
   const subject = getQuestionSetSubject(activeQuestionSubject, exam);
-  const response = await fetch(`${apiOrigin}/api/question-sets?exam=${encodeURIComponent(exam)}&subject=${encodeURIComponent(subject)}&set=1`);
+  const safeSet = Math.max(1, Number(setNumber) || 1);
+  const response = await fetch(`${apiOrigin}/api/question-sets?exam=${encodeURIComponent(exam)}&subject=${encodeURIComponent(subject)}&set=${safeSet}`);
   const payload = await response.json();
   if (!response.ok || !Array.isArray(payload.questions)) throw new Error('Subject questions could not be loaded.');
   questions = payload.questions;
   activeQuestionSet = { exam, subject, set: payload.set };
 }
 
+function updateTranslateButton() {
+  const btn = document.querySelector('#btnTranslateQuestion');
+  const label = document.querySelector('#translateBtnLabel');
+  if (!btn) return;
+  if (isQuestionHindi) {
+    if (label) label.textContent = 'Switch to English (अंग्रेज़ी)';
+    btn.style.background = '#175e4b';
+    btn.style.color = '#ffffff';
+    btn.style.borderColor = '#175e4b';
+  } else {
+    if (label) label.textContent = 'Translate to Hindi (हिंदी)';
+    btn.style.background = '#eef7f2';
+    btn.style.color = '#175e4b';
+    btn.style.borderColor = '#c2e2cf';
+  }
+}
+
 function renderQuestion() {
   const question = questions[currentQuestion];
-  questionTopic.textContent = [question.exam, question.year, question.topic].filter(Boolean).join(' · ');
-  questionText.textContent = question.text;
+  if (!question) return;
+
+  const rawTopic = [question.exam, question.year, question.topic].filter(Boolean).join(' · ');
+  questionTopic.textContent = isQuestionHindi ? getHindiTopic(question.topic || question.subject || rawTopic) : rawTopic;
+  questionText.textContent = isQuestionHindi ? getHindiQuestionText(question) : question.text;
   questionCount.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
   progressBar.style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
-  answerOptions.innerHTML = question.options.map((option, index) => `<button class="answer-option${answers[currentQuestion] === index ? ' selected' : ''}" data-answer="${index}"><span>${String.fromCharCode(65 + index)}</span>${option}</button>`).join('');
+
+  const renderedOptions = isQuestionHindi ? getHindiOptions(question) : question.options;
+  answerOptions.innerHTML = renderedOptions.map((option, index) => `<button class="answer-option${answers[currentQuestion] === index ? ' selected' : ''}" data-answer="${index}"><span>${String.fromCharCode(65 + index)}</span>${escapeHtmlText(String(option))}</button>`).join('');
   questionMap.innerHTML = questions.map((_, index) => `<button class="map-item${index === currentQuestion ? ' current' : ''}${answers[index] !== null ? ' answered' : ''}" data-question="${index}">${index + 1}</button>`).join('');
   document.querySelector('#previousQuestion').disabled = currentQuestion === 0;
   document.querySelector('#nextQuestion').innerHTML = currentQuestion === questions.length - 1 ? 'Submit test <span>✓</span>' : 'Next question <span>→</span>';
+  updateTranslateButton();
 }
 
 function updateTimer() {
@@ -726,28 +750,28 @@ async function openTest() {
   await questionBankPromise;
   if (activeQuestionSubject) {
     try {
-      await loadSubjectQuestionSet();
-      activeTestTitle = `${activeQuestionSubject[0].toUpperCase()}${activeQuestionSubject.slice(1)} practice test`;
+      await loadSubjectQuestionSet(activeTestSetNumber);
+      activeTestTitle = `${activeQuestionSubject[0].toUpperCase()}${activeQuestionSubject.slice(1)} Practice · Set ${String(activeTestSetNumber).padStart(2, '0')}`;
       activeTestDurationSeconds = 900;
     } catch (error) {
       console.warn('Subject test load error:', error.message);
-      const fallback = getFallbackMockTest('subject-practice');
+      const fallback = getFallbackMockTest('subject-practice', activeTestSetNumber);
       questions = fallback.questions;
       activeQuestionSet = null;
-      activeTestTitle = `${activeQuestionSubject[0].toUpperCase()}${activeQuestionSubject.slice(1)} practice test`;
+      activeTestTitle = `${activeQuestionSubject[0].toUpperCase()}${activeQuestionSubject.slice(1)} Practice · Set ${String(activeTestSetNumber).padStart(2, '0')}`;
       activeTestDurationSeconds = 900;
     }
   } else if (activeMockTestId) {
     let loadedFromServer = false;
     try {
-      const response = await fetch(`${apiOrigin}/api/mock-tests/${encodeURIComponent(activeMockTestId)}`);
+      const response = await fetch(`${apiOrigin}/api/mock-tests/${encodeURIComponent(activeMockTestId)}?set=${activeTestSetNumber}`);
       if (response.ok) {
         const text = await response.text();
         const payload = JSON.parse(text);
         if (payload && Array.isArray(payload.questions) && payload.questions.length > 0) {
           questions = payload.questions;
           activeQuestionSet = null;
-          activeTestTitle = payload.title || 'Result Darpan Mock Test';
+          activeTestTitle = payload.title || `${activeMockTestId} · Set ${String(activeTestSetNumber).padStart(2, '0')}`;
           activeTestDurationSeconds = payload.durationSeconds || 3600;
           loadedFromServer = true;
         }
@@ -756,13 +780,14 @@ async function openTest() {
       console.warn('Backend mock test fetch failed, using instant fallback:', error.message);
     }
     if (!loadedFromServer) {
-      const fallback = getFallbackMockTest(activeMockTestId);
+      const fallback = getFallbackMockTest(activeMockTestId, activeTestSetNumber);
       questions = fallback.questions;
       activeQuestionSet = null;
       activeTestTitle = fallback.title;
       activeTestDurationSeconds = fallback.durationSeconds;
     }
   }
+  isQuestionHindi = false;
   currentQuestion = 0;
   answers = Array(questions.length).fill(null);
   testSubmitting = false;
