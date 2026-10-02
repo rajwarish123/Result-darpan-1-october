@@ -589,6 +589,23 @@ function persistPreviousYearQuestions() {
   writeJson(PREVIOUS_YEAR_QUESTIONS_PATH, previousYearQuestionsList);
 }
 
+const defaultAdSettings = {
+  enabled: false,
+  adClient: '',
+  autoAds: false,
+  showTopBanner: true,
+  showInFeed: true,
+  showArticleBanner: true,
+  testMode: false,
+  updatedAt: new Date().toISOString()
+};
+
+let adSettings = readJsonObject(AD_SETTINGS_PATH, defaultAdSettings);
+
+function persistAdSettings() {
+  fs.writeFileSync(AD_SETTINGS_PATH, JSON.stringify(adSettings, null, 2), 'utf8');
+}
+
 function rebuildQuestionCatalog() {
   Object.keys(questionSetSubjects).forEach((exam) => delete questionSetSubjects[exam]);
   Object.entries(builtInQuestionSetSubjects).forEach(([exam, subjects]) => { questionSetSubjects[exam] = [...subjects]; });
