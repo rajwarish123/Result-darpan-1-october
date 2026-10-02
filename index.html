@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="mobile.css" />
+  <link rel="stylesheet" href="styles.css?v=3.0" />
+  <link rel="stylesheet" href="mobile.css?v=3.0" />
   <link rel="stylesheet" href="levels.css" />
   <script src="nav.js" defer></script>
   <script src="ads.js" defer></script>
@@ -17,6 +17,23 @@
     .subjects-section .section-heading h2 { font-size: 44px; line-height: 1.05; }
     @media (max-width: 650px) {
       .subjects-section .section-heading h2 { font-size: 34px; }
+    }
+    /* Critical Guaranteed Test Card & Logo Badge Sizing */
+    .test-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important; gap: 20px !important; }
+    .test-card { background: #ffffff !important; border-radius: 16px !important; border: 1px solid #e2e8e4 !important; padding: 22px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; min-height: 200px !important; box-shadow: 0 4px 16px rgba(18,45,39,0.04) !important; transition: transform 0.22s ease, box-shadow 0.22s ease !important; position: relative !important; overflow: hidden !important; box-sizing: border-box !important; }
+    .test-card:hover { transform: translateY(-4px) !important; box-shadow: 0 14px 30px rgba(18,45,39,0.1) !important; border-color: #28a745 !important; }
+    .test-card-top { display: flex !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 14px !important; gap: 12px !important; }
+    .test-logo-badge { width: 48px !important; height: 48px !important; min-width: 48px !important; max-width: 48px !important; border-radius: 12px !important; background: #ffffff !important; border: 1px solid #e2e8e4 !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 5px !important; box-sizing: border-box !important; overflow: hidden !important; flex-shrink: 0 !important; box-shadow: 0 2px 8px rgba(18,45,39,0.06) !important; }
+    .test-logo-img { width: 34px !important; height: 34px !important; max-width: 34px !important; max-height: 34px !important; object-fit: contain !important; display: block !important; }
+    .test-badges-group { display: flex !important; flex-direction: column !important; align-items: flex-end !important; gap: 4px !important; }
+    .test-content { flex: 1 !important; padding: 0 !important; margin-bottom: 12px !important; }
+    .test-content h3 { font: 700 17px/1.35 var(--serif, 'DM Sans', sans-serif) !important; margin: 0 0 8px 0 !important; color: var(--ink, #14352b) !important; }
+    .test-meta { display: flex !important; gap: 14px !important; color: var(--muted, #64748b) !important; font-size: 12px !important; }
+    .test-bottom { display: flex !important; justify-content: space-between !important; align-items: center !important; padding-top: 14px !important; border-top: 1px solid #f1f5f2 !important; margin-top: auto !important; }
+    .test-illustration { display: none !important; }
+    @media (max-width: 540px) {
+      .test-grid { grid-template-columns: 1fr !important; }
+      .test-card { padding: 16px !important; }
     }
   </style>
 </head>
