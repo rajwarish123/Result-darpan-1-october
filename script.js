@@ -826,6 +826,7 @@ async function saveTestResult() {
       headers,
       body: JSON.stringify({
         answers,
+        set: activeTestSetNumber,
         durationSeconds: Math.max(1, Math.round((Date.now() - testStartedAt) / 1000)),
         ...(activeQuestionSet || {})
       })
