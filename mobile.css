@@ -649,3 +649,33 @@ html, body {
     line-height: 1.65 !important;
   }
 }
+
+/* Responsive Mock Test Cards */
+@media (max-width: 600px) {
+  .test-card {
+    padding: 16px !important;
+  }
+  .test-logo-badge {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+  }
+  .test-logo-img {
+    max-width: 28px !important;
+    max-height: 28px !important;
+  }
+  .test-content h3 {
+    font-size: 15px !important;
+  }
+  .test-meta {
+    flex-wrap: wrap;
+    gap: 6px 12px !important;
+    font-size: 11px !important;
+  }
+  .outline-btn.start-test {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+  }
+}
+
