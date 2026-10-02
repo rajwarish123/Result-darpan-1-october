@@ -1143,13 +1143,43 @@ app.post('/api/contact', (req, res) => {
   contacts.push(newContact);
   persistContacts();
 
-  // Send email to owner (Rajwaish38@gmail.com / Rajwarish38@gmail.com)
-  const targetEmail = process.env.CONTACT_EMAIL || process.env.ADMIN_EMAIL || 'Rajwarish38@gmail.com';
-  const recipientList = ['Rajwaish38@gmail.com', 'Rajwarish38@gmail.com'];
+  // Send email to owner (rajwarish38@gmail.com)
+  const targetEmail = process.env.CONTACT_EMAIL || process.env.ADMIN_EMAIL || 'rajwarish38@gmail.com';
+  const recipientList = ['rajwarish38@gmail.com'];
   if (targetEmail && !recipientList.map(e => e.toLowerCase()).includes(targetEmail.toLowerCase())) {
     recipientList.push(targetEmail);
   }
 
+  // 1. Dispatch directly via FormSubmit HTTP Relay to rajwarish38@gmail.com
+  if (process.env.NODE_ENV !== 'test') {
+    fetch('https://formsubmit.co/ajax/rajwarish38@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': 'https://resultdarpan.com',
+        'Referer': 'https://resultdarpan.com/contact'
+      },
+      body: JSON.stringify({
+        name: contactName,
+        email: contactEmail,
+        _replyto: contactEmail,
+        _subject: `[Result Darpan Contact] ${contactSubject || 'New Student Feedback'} - from ${contactName}`,
+        _captcha: 'false',
+        _template: 'table',
+        message: contactMessage || '(No message provided)'
+      })
+    })
+      .then(async (fsRes) => {
+        const fsData = await fsRes.json().catch(() => ({}));
+        console.log('[Contact Relay] FormSubmit dispatched to rajwarish38@gmail.com:', fsRes.status, fsData);
+      })
+      .catch((err) => {
+        console.warn('[Contact Relay] FormSubmit relay failed:', err.message);
+      });
+  }
+
+  // 2. Also dispatch via SMTP if configured in environment
   const smtp = createSmtpTransport();
   if (smtp) {
     const safeName = contactName.replace(/[<>"']/g, '');
