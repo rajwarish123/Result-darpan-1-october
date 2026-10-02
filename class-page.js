@@ -18,10 +18,13 @@
   const classTestForm = document.querySelector('#classTestForm');
   const classQuestionList = document.querySelector('#classQuestionList');
   const classTestResult = document.querySelector('#classTestResult');
+  const streamPickerTabs = document.querySelector('#streamPickerTabs');
 
   let activeSeries = null;
   let startedAt = 0;
   let profile = null;
+  let currentSeriesData = [];
+  let activeStream = 'all';
 
   const apiOrigin = (() => {
     if (typeof window === 'undefined') return '';
@@ -33,32 +36,79 @@
     return '';
   })();
 
+  const streamMap = {
+    'Mathematics': ['science', 'commerce'],
+    'Physics': ['science'],
+    'Chemistry': ['science'],
+    'Biology': ['science'],
+    'Computer Science': ['science'],
+    'Accountancy': ['commerce'],
+    'Business Studies': ['commerce'],
+    'Economics': ['commerce', 'humanities'],
+    'History': ['humanities'],
+    'Political Science': ['humanities'],
+    'Geography': ['humanities'],
+    'Sociology': ['humanities'],
+    'Psychology': ['humanities'],
+    'English': ['core', 'science', 'commerce', 'humanities'],
+    'Hindi': ['core', 'humanities'],
+    'Science': ['science'],
+    'Social Science': ['humanities']
+  };
+
+  const streamBadgeLabels = {
+    'science': '🔬 Science',
+    'commerce': '📊 Commerce',
+    'humanities': '🏛️ Arts & Humanities',
+    'core': '📖 Core / Languages'
+  };
+
   const fallbackCurricula = {
     9: [
-      { subject: 'Mathematics', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'Science', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'English', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'Social Science', questionsPerSet: 10, totalSets: 10 }
+      { subject: 'Mathematics', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Science', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'English', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Social Science', questionsPerSet: 10, totalSets: 30 }
     ],
     10: [
-      { subject: 'Mathematics', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'Science', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'English', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'Social Science', questionsPerSet: 10, totalSets: 10 }
+      { subject: 'Mathematics', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Science', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'English', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Social Science', questionsPerSet: 10, totalSets: 30 }
     ],
     11: [
-      { subject: 'Mathematics', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'Physics', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'Chemistry', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'Biology', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'English', questionsPerSet: 10, totalSets: 10 }
+      { subject: 'Mathematics', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Physics', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Chemistry', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Biology', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Computer Science', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Accountancy', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Business Studies', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Economics', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'History', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Political Science', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Geography', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Sociology', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Psychology', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'English', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Hindi', questionsPerSet: 10, totalSets: 30 }
     ],
     12: [
-      { subject: 'Mathematics', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'Physics', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'Chemistry', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'Biology', questionsPerSet: 10, totalSets: 10 },
-      { subject: 'English', questionsPerSet: 10, totalSets: 10 }
+      { subject: 'Mathematics', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Physics', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Chemistry', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Biology', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Computer Science', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Accountancy', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Business Studies', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Economics', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'History', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Political Science', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Geography', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Sociology', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Psychology', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'English', questionsPerSet: 10, totalSets: 30 },
+      { subject: 'Hindi', questionsPerSet: 10, totalSets: 30 }
     ]
   };
 
@@ -107,45 +157,103 @@
       { text: 'Which gas is released during the electrolysis of brine at the cathode?', options: ['Hydrogen', 'Chlorine', 'Oxygen', 'Sodium vapor'], answer: 0, topic: 'Electrochemistry' },
       { text: 'The functional group present in an aldehyde is:', options: ['-CHO', '-COOH', '-OH', '-CO-'], answer: 0, topic: 'Organic Chemistry' },
       { text: 'Which law relates the solubility of a gas in a liquid to partial pressure?', options: ['Henry’s Law', 'Raoult’s Law', 'Dalton’s Law', 'Boyle’s Law'], answer: 0, topic: 'Solutions' },
-      { text: 'What type of colloid is milk?', options: ['Emulsion', 'Sol', 'Gel', 'Foam'], answer: 0, topic: 'Surface Chemistry' },
-      { text: 'The IUPAC name of acetic acid is:', options: ['Ethanoic acid', 'Methanoic acid', 'Propanoic acid', 'Ethanol'], answer: 0, topic: 'Nomenclature' },
-      { text: 'In Haber’s process for manufacture of ammonia, the catalyst used is:', options: ['Finely divided Iron', 'Nickel', 'Platinum', 'Copper'], answer: 0, topic: 'Inorganic Chemistry' }
+      { text: 'What type of colloid is milk?', options: ['Emulsion', 'Sol', 'Gel', 'Foam'], answer: 0, topic: 'Surface Chemistry' }
     ],
     Biology: [
-      { text: 'Which molecule carries genetic information from DNA to ribosomes?', options: ['mRNA', 'tRNA', 'rRNA', 'ATP'], answer: 0, topic: 'Genetics' },
-      { text: 'During which phase of meiosis does crossing over take place?', options: ['Pachytene', 'Leptotene', 'Zygotene', 'Diplotene'], answer: 0, topic: 'Cell Division' },
-      { text: 'Which hormone is known as the primary emergency or fight-or-flight hormone?', options: ['Adrenaline', 'Insulin', 'Thyroxine', 'Glucagon'], answer: 0, topic: 'Endocrine System' },
-      { text: 'The site of light reaction in chloroplasts during photosynthesis is:', options: ['Thylakoid membranes (Grana)', 'Stroma', 'Inner membrane', 'Matrix'], answer: 0, topic: 'Plant Physiology' },
-      { text: 'What is the phenotypic ratio in a standard Mendelian monohybrid F₂ cross?', options: ['3:1', '1:2:1', '9:3:3:1', '2:1'], answer: 0, topic: 'Principles of Inheritance' },
-      { text: 'Which valve prevents backflow of blood from left ventricle to left atrium?', options: ['Bicuspid (Mitral) valve', 'Tricuspid valve', 'Semilunar valve', 'Aortic valve'], answer: 0, topic: 'Circulatory System' },
-      { text: 'Which nitrogenous base is present in RNA but absent in DNA?', options: ['Uracil', 'Thymine', 'Cytosine', 'Guanine'], answer: 0, topic: 'Biomolecules' },
-      { text: 'The structural and functional unit of the nervous system is:', options: ['Neuron', 'Nephron', 'Axon', 'Synapse'], answer: 0, topic: 'Neural Control' },
-      { text: 'Which organelle is responsible for lipid synthesis in eukaryotic cells?', options: ['Smooth Endoplasmic Reticulum', 'Rough Endoplasmic Reticulum', 'Golgi apparatus', 'Lysosome'], answer: 0, topic: 'Cell Biology' },
-      { text: 'Which organism is commonly used as a bio-fertilizer for nitrogen fixation?', options: ['Rhizobium', 'Yeast', 'Penicillium', 'E. coli'], answer: 0, topic: 'Microbes & Ecology' }
+      { text: 'Which molecule carries hereditary information in most organisms?', options: ['DNA', 'Glucose', 'Starch', 'Chlorophyll'], answer: 0, topic: 'Genetics' },
+      { text: 'Which organelle is the main site of photosynthesis?', options: ['Mitochondrion', 'Chloroplast', 'Nucleus', 'Lysosome'], answer: 0, topic: 'Cell Biology' },
+      { text: 'What is the functional unit of the kidney?', options: ['Neuron', 'Alveolus', 'Nephron', 'Villus'], answer: 0, topic: 'Human Physiology' },
+      { text: 'Which blood cells primarily transport oxygen in the human body?', options: ['Red blood cells', 'Platelets', 'White blood cells', 'Lymphocytes'], answer: 0, topic: 'Human Physiology' },
+      { text: 'Which hormone helps regulate blood glucose levels in humans?', options: ['Insulin', 'Adrenaline', 'Thyroxine', 'Melatonin'], answer: 0, topic: 'Endocrine System' },
+      { text: 'Which plant tissue transports water and dissolved minerals from roots?', options: ['Xylem', 'Phloem', 'Epidermis', 'Cambium'], answer: 0, topic: 'Plant Anatomy' }
     ],
-    'Social Science': [
-      { text: 'In which year did the French Revolution begin?', options: ['1789', '1776', '1804', '1815'], answer: 0, topic: 'World History' },
-      { text: 'Who is considered the Father of the Indian Constitution?', options: ['Dr. B.R. Ambedkar', 'Mahatma Gandhi', 'Jawaharlal Nehru', 'Dr. Rajendra Prasad'], answer: 0, topic: 'Democratic Politics' },
-      { text: 'Which river forms the largest river island, Majuli, in the world?', options: ['Brahmaputra', 'Ganga', 'Indus', 'Godavari'], answer: 0, topic: 'Indian Geography' },
-      { text: 'The primary sector of the Indian economy includes:', options: ['Agriculture and forestry', 'Manufacturing', 'Banking and trade', 'Information technology'], answer: 0, topic: 'Economics' },
-      { text: 'Which latitude divides India into almost two equal halves?', options: ['Tropic of Cancer (23°30′ N)', 'Equator (0°)', 'Tropic of Capricorn (23°30′ S)', 'Arctic Circle'], answer: 0, topic: 'Geography' },
-      { text: 'The Simon Commission visited India in which year?', options: ['1928', '1919', '1930', '1942'], answer: 0, topic: 'Modern History' },
-      { text: 'Which body is the supreme law-making authority in India?', options: ['Parliament', 'Supreme Court', 'Election Commission', 'Cabinet'], answer: 0, topic: 'Civics' },
-      { text: 'Human Development Index (HDI) is published annually by:', options: ['UNDP', 'World Bank', 'IMF', 'UNESCO'], answer: 0, topic: 'Economics' },
-      { text: 'What was the immediate cause of the 1857 Indian Mutiny / Revolt?', options: ['Greased cartridges issue', 'Doctrine of Lapse', 'Subsidiary Alliance', 'Drain of wealth'], answer: 0, topic: 'History' },
-      { text: 'Which state in India has the highest literacy rate according to Census 2011?', options: ['Kerala', 'Mizoram', 'Goa', 'Tamil Nadu'], answer: 0, topic: 'Demographics' }
+    Accountancy: [
+      { text: 'Which accounting concept assumes a business will continue operating indefinitely?', options: ['Going Concern Concept', 'Money Measurement', 'Periodicity', 'Conservatism'], answer: 0, topic: 'Basic Concepts' },
+      { text: 'The fundamental accounting equation is:', options: ['Assets = Liabilities + Capital', 'Assets = Capital - Liabilities', 'Capital = Assets + Liabilities', 'Liabilities = Assets + Capital'], answer: 0, topic: 'Accounting Equation' },
+      { text: 'Goodwill of a business is classified as a/an:', options: ['Intangible Asset', 'Current Asset', 'Liquid Asset', 'Fictitious Asset'], answer: 0, topic: 'Assets' },
+      { text: 'In double-entry bookkeeping, an increase in an asset is recorded as:', options: ['Debit', 'Credit', 'Contra', 'Reversal'], answer: 0, topic: 'Rules of Debit & Credit' },
+      { text: 'Which financial statement shows financial position at a specific date?', options: ['Balance Sheet', 'Profit and Loss Account', 'Cash Flow Statement', 'Trial Balance'], answer: 0, topic: 'Financial Statements' },
+      { text: 'Depreciation is charged on which type of assets?', options: ['Fixed Tangible Assets', 'Current Assets', 'Liquid Cash', 'Goodwill'], answer: 0, topic: 'Depreciation' },
+      { text: 'The excess of assets over liabilities in a non-profit organisation is called:', options: ['Capital Fund', 'Surplus', 'Net Profit', 'Deficit'], answer: 0, topic: 'NPO Accounting' },
+      { text: 'A Trial Balance is prepared primarily to check:', options: ['Arithmetical accuracy of ledger', 'Financial profit', 'Cash position', 'Tax obligation'], answer: 0, topic: 'Trial Balance' }
+    ],
+    'Business Studies': [
+      { text: 'Which management function is considered the primary function of management?', options: ['Planning', 'Organising', 'Controlling', 'Staffing'], answer: 0, topic: 'Management Functions' },
+      { text: 'Who is universally acknowledged as the father of General Management?', options: ['Henri Fayol', 'F.W. Taylor', 'Peter Drucker', 'Elton Mayo'], answer: 0, topic: 'Principles of Management' },
+      { text: 'Which Fayol principle states that an employee should receive orders from one superior only?', options: ['Unity of Command', 'Unity of Direction', 'Scalar Chain', 'Order'], answer: 0, topic: 'Fayol Principles' },
+      { text: 'What are the traditional 4 Ps of Marketing Mix?', options: ['Product, Price, Place, Promotion', 'Plan, People, Process, Position', 'Power, Profit, Price, Place', 'Policy, Program, Path, Performance'], answer: 0, topic: 'Marketing' },
+      { text: 'Under the Consumer Protection Act 2019, District Commission entertains complaints up to:', options: ['₹1 Crore', '₹20 Lakhs', '₹50 Lakhs', '₹10 Crores'], answer: 0, topic: 'Consumer Protection' },
+      { text: 'Which financial market deals in medium and long-term funds?', options: ['Capital Market', 'Money Market', 'Call Money Market', 'Treasury Market'], answer: 0, topic: 'Financial Markets' }
+    ],
+    Economics: [
+      { text: 'The Law of Demand states that other things being constant, quantity demanded increases when:', options: ['Price falls', 'Income falls', 'Price rises', 'Supply increases'], answer: 0, topic: 'Microeconomics' },
+      { text: 'The opportunity cost of a chosen economic activity is the:', options: ['Value of the next best alternative forgone', 'Total financial outlay', 'Fixed overhead cost', 'Sunk cost'], answer: 0, topic: 'Introductory Economics' },
+      { text: 'Which macroeconomic indicator measures total value of final goods & services produced in a country in a year?', options: ['Gross Domestic Product (GDP)', 'Net National Product', 'Gross National Income', 'Disposable Income'], answer: 0, topic: 'National Income' },
+      { text: 'Which apex authority formulates and executes Monetary Policy in India?', options: ['Reserve Bank of India (RBI)', 'NITI Aayog', 'Ministry of Finance', 'SEBI'], answer: 0, topic: 'Money & Banking' },
+      { text: 'Inflation driven by rising costs of raw materials and employee wages is known as:', options: ['Cost-push inflation', 'Demand-pull inflation', 'Creeping inflation', 'Hyperinflation'], answer: 0, topic: 'Macroeconomics' },
+      { text: 'A market structure characterized by a single seller with high barriers to entry is a:', options: ['Monopoly', 'Perfect Competition', 'Oligopoly', 'Monopolistic Competition'], answer: 0, topic: 'Market Forms' }
+    ],
+    History: [
+      { text: 'The Indus Valley / Harappan Civilization belonged chronologically to which archaeological age?', options: ['Bronze Age', 'Iron Age', 'Neolithic Age', 'Mesolithic Age'], answer: 0, topic: 'Ancient India' },
+      { text: 'The famous steatite seal depicting "Pashupati" was excavated at which major site?', options: ['Mohenjo-daro', 'Harappa', 'Kalibangan', 'Lothal'], answer: 0, topic: 'Harappan Culture' },
+      { text: 'Who was the illustrious founder of the Mauryan Empire in ancient India?', options: ['Chandragupta Maurya', 'Ashoka', 'Bindusara', 'Brihadratha'], answer: 0, topic: 'Mauryan Empire' },
+      { text: 'The devastating Kalinga War prompted Emperor Ashoka to embrace and propagate:', options: ['Buddhism & Dhamma', 'Jainism', 'Ajivika philosophy', 'Vedic rituals'], answer: 0, topic: 'Ashoka Epigraphs' },
+      { text: 'Mahatma Gandhi launched the Champaran Satyagraha in 1917 in Bihar to support:', options: ['Oppressed Indigo farmers', 'Cotton textile workers', 'Salt tax protesters', 'Peasants against land revenue'], answer: 0, topic: 'National Movement' },
+      { text: 'Who presided over the iconic Lahore Session of 1929 where the "Purna Swaraj" resolution was passed?', options: ['Jawaharlal Nehru', 'Mahatma Gandhi', 'Subhas Chandra Bose', 'Motilal Nehru'], answer: 0, topic: 'National Movement' }
+    ],
+    'Political Science': [
+      { text: 'The Constitution of India was officially adopted by the Constituent Assembly on:', options: ['26 November 1949', '15 August 1947', '26 January 1950', '2 October 1948'], answer: 0, topic: 'Indian Constitution' },
+      { text: 'Which Article was described as the "Heart and Soul" of the Indian Constitution by Dr. B.R. Ambedkar?', options: ['Article 32 (Right to Constitutional Remedies)', 'Article 21 (Right to Life)', 'Article 14 (Equality)', 'Article 19 (Freedoms)'], answer: 0, topic: 'Fundamental Rights' },
+      { text: 'Who serves as the ex-officio Chairman of the Rajya Sabha in the Indian Parliament?', options: ['Vice-President of India', 'Speaker of Lok Sabha', 'Prime Minister', 'Chief Justice of India'], answer: 0, topic: 'Legislature' },
+      { text: 'The minimum constitutional age required to contest election for the Lok Sabha is:', options: ['25 years', '30 years', '35 years', '21 years'], answer: 0, topic: 'Elections' },
+      { text: 'The Election Commission of India functions as an autonomous authority under which Article?', options: ['Article 324', 'Article 280', 'Article 352', 'Article 312'], answer: 0, topic: 'Constitutional Bodies' }
+    ],
+    Geography: [
+      { text: 'Which layer of the Earth possesses the highest density and is predominantly composed of nickel and iron?', options: ['Core (Nife)', 'Crust (Sial)', 'Mantle (Sima)', 'Lithosphere'], answer: 0, topic: 'Earth Interior' },
+      { text: 'The Continental Drift hypothesis was formulated and published in 1912 by:', options: ['Alfred Wegener', 'Harry Hess', 'Arthur Holmes', 'W.M. Davis'], answer: 0, topic: 'Geomorphology' },
+      { text: 'Which atmospheric zone contains the protective ozone layer shielding Earth from ultraviolet radiation?', options: ['Stratosphere', 'Troposphere', 'Mesosphere', 'Thermosphere'], answer: 0, topic: 'Climatology' },
+      { text: 'The Western Ghats and Eastern Ghats converge geographically at the:', options: ['Nilgiri Hills', 'Annamalai Hills', 'Cardamom Hills', 'Palani Hills'], answer: 0, topic: 'Physiography of India' },
+      { text: 'Which is the longest river system flowing through Peninsular India (Dakshin Ganga)?', options: ['Godavari', 'Krishna', 'Mahanadi', 'Kaveri'], answer: 0, topic: 'Drainage Systems' }
+    ],
+    Sociology: [
+      { text: 'Who is universally acclaimed as the founding father of Sociology?', options: ['Auguste Comte', 'Karl Marx', 'Max Weber', 'Herbert Spencer'], answer: 0, topic: 'Sociological Foundations' },
+      { text: 'The sociological concept of "Social Stratification" denotes:', options: ['Hierarchical ranking of social strata', 'Biological classification', 'Psychological grouping', 'Spatial migration'], answer: 0, topic: 'Social Stratification' },
+      { text: 'Which fundamental social institution operates as the primary agent of human socialization?', options: ['Family', 'Mass Media', 'Workplace', 'Political Party'], answer: 0, topic: 'Social Institutions' },
+      { text: 'The conceptual framework of "Sanskritization" in Indian social anthropology was introduced by:', options: ['M.N. Srinivas', 'G.S. Ghurye', 'Andre Beteille', 'Irawati Karve'], answer: 0, topic: 'Social Change in India' }
+    ],
+    Psychology: [
+      { text: 'Who established the Psychoanalytic school of psychology exploring the unconscious mind?', options: ['Sigmund Freud', 'Carl Jung', 'B.F. Skinner', 'John Watson'], answer: 0, topic: 'Psychological Traditions' },
+      { text: 'Which memory store retains information for approximately 20 to 30 seconds without active rehearsal?', options: ['Short-Term Memory (STM)', 'Sensory Memory', 'Long-Term Memory', 'Episodic Memory'], answer: 0, topic: 'Human Memory' },
+      { text: 'The classic standardized mathematical formula for Intelligence Quotient (IQ) is:', options: ['(Mental Age / Chronological Age) × 100', '(Chronological Age / Mental Age) × 100', '(Mental Age × Chronological Age) / 100', '(Mental Age + Chronological Age) × 10'], answer: 0, topic: 'Intelligence' },
+      { text: 'In Abraham Maslow’s pyramid hierarchy of human needs, the culminating pinnacle need is:', options: ['Self-actualization', 'Self-esteem', 'Safety', 'Belongingness'], answer: 0, topic: 'Motivation & Emotion' }
+    ],
+    'Computer Science': [
+      { text: 'Which core Python compound data structure is strictly immutable once initialized?', options: ['Tuple', 'List', 'Dictionary', 'Set'], answer: 0, topic: 'Python Fundamentals' },
+      { text: 'What is the algorithmic time complexity of searching an item in a balanced Binary Search Tree?', options: ['O(log n)', 'O(n)', 'O(1)', 'O(n log n)'], answer: 0, topic: 'Data Structures' },
+      { text: 'Which SQL DDL command permanently removes a table along with its relational schema from a database?', options: ['DROP TABLE', 'DELETE TABLE', 'TRUNCATE TABLE', 'REMOVE TABLE'], answer: 0, topic: 'Database Systems' },
+      { text: 'In internet protocols, the acronym HTTP stands for:', options: ['Hypertext Transfer Protocol', 'High Technology Transfer Process', 'Hyperlink Transmission Path', 'Host Telecommunication Platform'], answer: 0, topic: 'Computer Networks' },
+      { text: 'Which Boolean logic gate is universally classified as a universal gate alongside NOR?', options: ['NAND gate', 'AND gate', 'OR gate', 'XOR gate'], answer: 0, topic: 'Boolean Logic' }
+    ],
+    Hindi: [
+      { text: '\'दशानन\' (दस हैं आनन जिसके अर्थात् रावण) में कौन-सा समास है?', options: ['बहुव्रीहि समास', 'द्विगु समास', 'कर्मधारय समास', 'तत्पुरुष समास'], answer: 0, topic: 'समास' },
+      { text: '\'पवन\' का सही संधि-विच्छेद निम्नलिखित में से क्या है?', options: ['पो + अन', 'पौ + अन', 'प + वन', 'पव + न'], answer: 0, topic: 'संधि' },
+      { text: '\'अनुराग\' शब्द का सही विलोम शब्द क्या होगा?', options: ['विराग', 'राग', 'द्वेष', 'घृणा'], answer: 0, topic: 'विलोम शब्द' },
+      { text: 'निम्नलिखित में से कौन-सा शब्द \'सूर्य\' का पर्यायवाची है?', options: ['दिनकर', 'शशि', 'जलद', 'निशाकर'], answer: 0, topic: 'पर्यायवाची' },
+      { text: '\'आँखों का तारा होना\' मुहावरे का सही अर्थ क्या है?', options: ['अत्यधिक प्रिय होना', 'बहुत दूर होना', 'कम दिखाई देना', 'घमंडी होना'], answer: 0, topic: 'मुहावरे' }
     ],
     English: [
-      { text: 'Choose the word nearest in meaning (synonym) to "ABUNDANT":', options: ['Plentiful', 'Scarce', 'Rare', 'Limited'], answer: 0, topic: 'Vocabulary' },
-      { text: 'Select the correct antonym of "PRUDENT":', options: ['Reckless', 'Cautious', 'Wise', 'Careful'], answer: 0, topic: 'Vocabulary' },
-      { text: 'Choose the correctly punctuated sentence:', options: ['"Where are you going?" asked mother.', '"Where are you going," asked mother?', '"Where are you going," asked mother.', 'Where are you going? Asked mother.'], answer: 0, topic: 'Punctuation' },
-      { text: 'Identify the active voice: "The novel was written by Arundhati Roy."', options: ['Arundhati Roy wrote the novel.', 'Arundhati Roy had written the novel.', 'Arundhati Roy was writing the novel.', 'The novel wrote Arundhati Roy.'], answer: 0, topic: 'Active & Passive Voice' },
-      { text: 'Choose the correct preposition: She has been studying ___ morning.', options: ['since', 'for', 'from', 'in'], answer: 0, topic: 'Grammar' },
-      { text: 'Identify the figure of speech: "The wind whispered through the dark trees."', options: ['Personification', 'Metaphor', 'Simile', 'Hyperbole'], answer: 0, topic: 'Literary Devices' },
-      { text: 'Choose the correct reported speech: He said, "I am reading a book."', options: ['He said that he was reading a book.', 'He said that I am reading a book.', 'He says that he is reading a book.', 'He said he will read a book.'], answer: 0, topic: 'Direct & Indirect Speech' },
-      { text: 'What is the plural form of the noun "Crisis"?', options: ['Crises', 'Crisises', 'Crisis', 'Crisi'], answer: 0, topic: 'Nouns' },
-      { text: 'Choose the correctly spelt word:', options: ['Bureaucracy', 'Burocracy', 'Bureaucrasy', 'Beurocracy'], answer: 0, topic: 'Spelling' },
-      { text: 'Identify the conjunction in: "She ran fast, yet she missed the train."', options: ['yet', 'ran', 'fast', 'missed'], answer: 0, topic: 'Parts of Speech' }
+      { text: 'Choose the correctly spelled word.', options: ['Environment', 'Enviroment', 'Envirnoment', 'Environmant'], answer: 0, topic: 'Spelling' },
+      { text: 'Choose the synonym of “brief”.', options: ['Concise', 'Lengthy', 'Unclear', 'Loud'], answer: 0, topic: 'Vocabulary' },
+      { text: 'Choose the grammatically correct sentence.', options: ['She has finished her work.', 'She have finished her work.', 'She having finished her work.', 'She finish her work.'], answer: 0, topic: 'Grammar' },
+      { text: 'Choose the antonym of “ancient”.', options: ['Modern', 'Historic', 'Old', 'Early'], answer: 0, topic: 'Vocabulary' },
+      { text: 'Choose the synonym of “diligent”.', options: ['Hard-working', 'Careless', 'Impatient', 'Uncertain'], answer: 0, topic: 'Vocabulary' },
+      { text: 'Choose the correctly spelled word.', options: ['Necessary', 'Neccessary', 'Necesary', 'Necessery'], answer: 0, topic: 'Spelling' }
+    ],
+    'Social Science': [
+      { text: 'Which imaginary line divides Earth into Northern and Southern Hemispheres?', options: ['Equator', 'Tropic of Cancer', 'Prime Meridian', 'Arctic Circle'], answer: 0, topic: 'Geography' },
+      { text: 'Which institution interprets the Constitution of India?', options: ['Supreme Court', 'Election Commission', 'NITI Aayog', 'Finance Commission'], answer: 0, topic: 'Civics' },
+      { text: 'Who led the Dandi March in 1930?', options: ['Mahatma Gandhi', 'Subhas Chandra Bose', 'Jawaharlal Nehru', 'Sardar Patel'], answer: 0, topic: 'History' },
+      { text: 'Which is the lower house of the Indian Parliament?', options: ['Lok Sabha', 'Rajya Sabha', 'Vidhan Parishad', 'Gram Sabha'], answer: 0, topic: 'Civics' }
     ]
   };
 
@@ -180,17 +288,65 @@
     document.querySelectorAll('.class-picker-tabs button[data-class]').forEach((btn) => {
       btn.classList.toggle('active', btn.dataset.class === String(classNumber));
     });
+
+    if (streamPickerTabs) {
+      if (classNumber === '11' || classNumber === '12') {
+        streamPickerTabs.style.display = 'flex';
+      } else {
+        streamPickerTabs.style.display = 'none';
+        activeStream = 'all';
+      }
+    }
   }
 
   function renderSeries(series) {
+    currentSeriesData = series || [];
     classSeriesList.replaceChildren();
-    series.forEach((item) => {
+
+    // Filter by activeStream if set on classes 11/12
+    let visibleSeries = currentSeriesData;
+    if ((classNumber === '11' || classNumber === '12') && activeStream !== 'all') {
+      visibleSeries = currentSeriesData.filter((item) => {
+        const streams = streamMap[item.subject] || [];
+        return streams.includes(activeStream);
+      });
+    }
+
+    if (!visibleSeries.length) {
+      const empty = document.createElement('p');
+      empty.style.cssText = 'grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px 0;';
+      empty.textContent = 'No subjects found for this stream filter.';
+      classSeriesList.appendChild(empty);
+      return;
+    }
+
+    visibleSeries.forEach((item) => {
       const card = document.createElement('article');
       card.className = 'class-series-card';
+
+      // Header with subject and stream tag
+      const headerRow = document.createElement('div');
+      headerRow.style.cssText = 'display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px; gap:8px;';
+
       const title = document.createElement('h2');
       title.textContent = item.subject;
+      title.style.margin = '0';
+      headerRow.appendChild(title);
+
+      if (classNumber === '11' || classNumber === '12') {
+        const primaryStream = (streamMap[item.subject] || [])[0] || 'core';
+        const badge = document.createElement('span');
+        badge.className = 'badge';
+        badge.style.cssText = 'background:#eef7f2; color:#175e4b; font-weight:700; font-size:11px; padding:3px 8px; border-radius:6px; white-space:nowrap;';
+        badge.textContent = streamBadgeLabels[primaryStream] || primaryStream.toUpperCase();
+        headerRow.appendChild(badge);
+      }
+
+      card.appendChild(headerRow);
+
+      const totalSets = Math.min(30, Math.max(30, item.totalSets || 30));
       const description = document.createElement('p');
-      description.textContent = (item.questionsPerSet || 10) + ' questions per set · ' + (item.totalSets || 10) + ' practice sets';
+      description.textContent = (item.questionsPerSet || 10) + ' questions per set · ' + totalSets + ' practice sets';
 
       const attemptsKey = 'rd-school-attempts-' + classNumber + '-' + item.subject;
       let savedScore = null;
@@ -205,19 +361,20 @@
         const progress = document.createElement('p');
         progress.className = 'class-series-progress';
         progress.textContent = 'Latest score: ' + latest.score + '/' + latest.total + ' · ' + latest.accuracy + '%';
-        card.append(title, description, progress);
+        card.append(description, progress);
       } else {
-        card.append(title, description);
+        card.append(description);
       }
 
       const sets = document.createElement('div');
       sets.className = 'class-series-sets';
       sets.setAttribute('aria-label', item.subject + ' test sets');
-      const totalSets = Math.min(10, item.totalSets || 10);
+
       for (let set = 1; set <= totalSets; set += 1) {
         const button = document.createElement('button');
         button.type = 'button';
-        button.textContent = 'Set ' + set;
+        button.textContent = 'Set ' + (set < 10 ? '0' + set : set);
+        button.title = 'Start Set ' + set + ' for ' + item.subject;
         button.addEventListener('click', () => loadTest(item.subject, set));
         sets.appendChild(button);
       }
@@ -229,7 +386,7 @@
   async function loadSeries() {
     updateClassTabs();
     document.querySelector('#classHeading').textContent = 'Class ' + classNumber + ' test series';
-    document.querySelector('#classIntro').textContent = 'Practice ' + (classNumber === '11' || classNumber === '12' ? 'senior secondary' : 'school board') + ' subjects with focused, class-wise sets.';
+    document.querySelector('#classIntro').textContent = 'Practice ' + (classNumber === '11' || classNumber === '12' ? 'senior secondary (Science, Commerce, Arts & Humanities)' : 'school board') + ' subjects with 30 focused practice sets.';
     classSeriesStatus.textContent = 'Loading test series...';
     classSeriesStatus.hidden = false;
 
@@ -261,121 +418,98 @@
     }
 
     if (!loaded) {
-      const fallback = fallbackCurricula[classNumber] || fallbackCurricula['10'];
       classSeriesStatus.hidden = true;
-      renderSeries(fallback);
+      renderSeries(fallbackCurricula[classNumber] || fallbackCurricula['10']);
     }
   }
 
   async function loadTest(subject, set) {
-    classTestResult.textContent = '';
+    activeSeries = { subject, set };
+    startedAt = Date.now();
+    document.querySelector('#classTestTitle').textContent = subject + ' · Set ' + (set < 10 ? '0' + set : set) + ' (Class ' + classNumber + ')';
     classQuestionList.replaceChildren();
+    classTestResult.textContent = '';
     classTest.hidden = false;
-    document.querySelector('#classTestTitle').textContent = 'Class ' + classNumber + ' · ' + subject + ' · Set ' + set;
     classTest.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    let testData = null;
+    let questions = [];
     try {
-      const response = await classApi('/api/classes/' + classNumber + '/series/' + encodeURIComponent(subject) + '/' + set);
-      if (response.ok) {
-        const payload = await response.json();
-        if (payload && Array.isArray(payload.questions)) {
-          testData = payload;
-        }
+      const res = await classApi('/api/classes/' + classNumber + '/series/' + encodeURIComponent(subject) + '/' + set);
+      if (res.ok) {
+        const payload = await res.json();
+        if (payload?.questions?.length) questions = payload.questions;
       }
-    } catch (error) {
-      console.warn('Backend test set fetch failed, using fallback questions:', error.message);
+    } catch (_) {}
+
+    if (!questions.length) {
+      questions = getFallbackQuestions(classNumber, subject, set);
     }
 
-    if (!testData) {
-      testData = {
-        classNumber: String(classNumber),
-        subject: subject,
-        set: set,
-        questions: getFallbackQuestions(classNumber, subject, set)
-      };
-    }
+    activeSeries.questions = questions;
 
-    activeSeries = testData;
-    startedAt = Date.now();
-
-    testData.questions.forEach((question, index) => {
+    questions.forEach((q, index) => {
       const fieldset = document.createElement('fieldset');
       fieldset.className = 'class-question';
       const legend = document.createElement('legend');
-      legend.innerHTML = '<strong>' + (index + 1) + '.</strong> ' + escapeHtml(question.text);
+      legend.textContent = 'Q' + (index + 1) + '. ' + q.text;
       fieldset.appendChild(legend);
 
-      question.options.forEach((option, optionIndex) => {
+      q.options.forEach((opt, optIndex) => {
         const label = document.createElement('label');
-        label.style.display = 'flex';
-        label.style.alignItems = 'center';
-        label.style.gap = '8px';
-        label.style.margin = '4px 0';
-        label.style.cursor = 'pointer';
-
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = 'question-' + index;
-        input.value = String(optionIndex);
-        label.append(input, document.createTextNode(option));
+        input.value = optIndex;
+        input.required = (optIndex === 0);
+        label.append(input, document.createTextNode(' ' + opt));
         fieldset.appendChild(label);
       });
+
       classQuestionList.appendChild(fieldset);
     });
   }
 
-  classTestForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    if (!activeSeries) return;
+  classTestForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!activeSeries || !activeSeries.questions) return;
 
-    const questionFields = [...classQuestionList.querySelectorAll('.class-question')];
-    const selectedAnswers = questionFields.map((fieldset) => {
-      const selected = fieldset.querySelector('input:checked');
-      return selected ? Number(selected.value) : null;
+    const answers = activeSeries.questions.map((_, index) => {
+      const checked = classTestForm.querySelector('input[name="question-' + index + '"]:checked');
+      return checked ? Number(checked.value) : null;
     });
 
-    classTestResult.textContent = 'Checking your answers...';
-
+    const durationSeconds = Math.round((Date.now() - startedAt) / 1000);
     let graded = null;
+
     try {
-      const response = await classApi('/api/classes/' + classNumber + '/series/' + encodeURIComponent(activeSeries.subject) + '/' + activeSeries.set + '/results', {
+      const res = await classApi('/api/classes/' + classNumber + '/series/' + encodeURIComponent(activeSeries.subject) + '/' + activeSeries.set + '/results', {
         method: 'POST',
-        body: JSON.stringify({
-          answers: selectedAnswers,
-          durationSeconds: Math.max(1, Math.round((Date.now() - startedAt) / 1000))
-        })
+        body: JSON.stringify({ answers, durationSeconds })
       });
-      if (response.ok) {
-        const payload = await response.json();
-        if (payload?.attempt) graded = payload.attempt;
+      if (res.ok) {
+        const data = await res.json();
+        graded = data.attempt;
       }
-    } catch (e) {
-      console.warn('API grading offline, calculating locally:', e.message);
-    }
+    } catch (_) {}
 
-    // Local grading fallback
     if (!graded) {
-      const total = activeSeries.questions.length;
       let score = 0;
-      selectedAnswers.forEach((ans, idx) => {
-        const expected = activeSeries.questions[idx]?.answer;
-        if (ans !== null && ans === expected) score += 1;
+      activeSeries.questions.forEach((q, idx) => {
+        if (q.answer !== undefined && answers[idx] === q.answer) score += 1;
       });
-      const accuracy = total > 0 ? Math.round((score / total) * 100) : 0;
-      graded = { score: score, total: total, accuracy: accuracy };
+      graded = {
+        score,
+        total: activeSeries.questions.length,
+        accuracy: Math.round((score / activeSeries.questions.length) * 100),
+        classNumber: String(classNumber),
+        subject: activeSeries.subject,
+        set: activeSeries.set
+      };
     }
 
-    let feedback = '';
-    if (graded.accuracy === 100) feedback = 'Outstanding Performance! 🎯';
-    else if (graded.accuracy >= 80) feedback = 'Excellent Accuracy! 🌟';
-    else if (graded.accuracy >= 60) feedback = 'Good Progress! 📈';
-    else if (graded.accuracy >= 40) feedback = 'Fair Attempt — Keep Practicing! 💡';
-    else feedback = 'Consistent Effort Wins — Review & Retry 📚';
+    classTestResult.textContent = 'Score: ' + graded.score + '/' + graded.total + ' (' + graded.accuracy + '% accuracy). Great practice!';
+    classTestResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-    classTestResult.textContent = feedback + ' Score: ' + graded.score + '/' + graded.total + ' (' + graded.accuracy + '% accuracy).';
-
-    // Persist attempt locally so series card displays progress
     try {
       const attemptsKey = 'rd-school-attempts-' + classNumber + '-' + activeSeries.subject;
       localStorage.setItem(attemptsKey, JSON.stringify(graded));
@@ -398,6 +532,7 @@
       const targetClass = tabBtn.dataset.class;
       if (targetClass && targetClass !== classNumber) {
         classNumber = targetClass;
+        activeStream = 'all';
         window.localStorage.setItem('preply-school-class', classNumber);
         try {
           const url = new URL(window.location);
@@ -406,21 +541,33 @@
         } catch (_) {}
         classTest.hidden = true;
         activeSeries = null;
+
+        // Reset stream filter active buttons
+        if (streamPickerTabs) {
+          streamPickerTabs.querySelectorAll('.stream-btn').forEach((b) => {
+            b.classList.toggle('active', b.dataset.stream === 'all');
+          });
+        }
+
         loadSeries();
+      }
+      return;
+    }
+
+    // Stream filter button listener
+    const streamBtn = e.target.closest('.stream-picker-tabs button[data-stream]');
+    if (streamBtn) {
+      e.preventDefault();
+      const targetStream = streamBtn.dataset.stream;
+      if (targetStream) {
+        activeStream = targetStream;
+        streamPickerTabs.querySelectorAll('.stream-btn').forEach((b) => {
+          b.classList.toggle('active', b === streamBtn);
+        });
+        renderSeries(currentSeriesData);
       }
     }
   });
-
-  function escapeHtml(str) {
-    if (typeof str !== 'string') return '';
-    return str.replace(/[&<>"']/g, (m) => ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#039;'
-    }[m]));
-  }
 
   loadSeries();
 })();
