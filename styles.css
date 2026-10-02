@@ -1745,6 +1745,38 @@
 .dark-theme .tag-railways { background: #3c2014 !important; color: #fdba74 !important; }
 .dark-theme .tag-defence { background: #372a12 !important; color: #fde047 !important; }
 .dark-theme .tag-teaching { background: #232244 !important; color: #c7d2fe !important; }
+.dark-theme .tag-college { background: #2e1065 !important; color: #d8b4fe !important; }
+.dark-theme .tag-civil { background: #064e3b !important; color: #86efac !important; }
+.dark-theme .catalog-search-box {
+  background: #16362a !important;
+  border-color: #275240 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+.dark-theme .catalog-search-input {
+  color: #f1f5f9 !important;
+}
+.dark-theme .catalog-search-input::placeholder {
+  color: #64748b !important;
+}
+.dark-theme .view-all-exams-btn {
+  background: #16362a !important;
+  border-color: #275240 !important;
+  color: #86efac !important;
+}
+.dark-theme .view-all-exams-btn:hover {
+  background: #275240 !important;
+  color: #ffffff !important;
+}
+.dark-theme .catalog-empty-state {
+  background: #16362a !important;
+  border-color: #275240 !important;
+}
+.dark-theme .catalog-empty-state h3 {
+  color: #f1f5f9 !important;
+}
+.dark-theme .catalog-empty-state p {
+  color: #94a3b8 !important;
+}
 .dark-theme .test-pill {
   background: #14352b !important;
   color: #86efac !important;
