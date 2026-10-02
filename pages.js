@@ -634,14 +634,14 @@ function appendChatMessage(message) {
 if (chatMessages) {
   const token = localStorage.getItem('preply-session-token');
   const headers = token ? { Authorization: `Bearer ${token}` } : {};
-  fetch('/api/chat/messages', { headers })
+  fetch(`${pagesApiOrigin}/api/chat/messages`, { headers })
     .then((response) => response.json())
     .then((payload) => {
       chatMessages.replaceChildren();
       (payload.messages || []).forEach(appendChatMessage);
     })
     .catch((error) => console.warn('Chat history could not be loaded:', error.message));
-  const chatStream = new EventSource('/api/chat/stream');
+  const chatStream = new EventSource(`${pagesApiOrigin}/api/chat/stream`);
   chatStream.addEventListener('message', (event) => {
     removeChatTyping();
     appendChatMessage(JSON.parse(event.data));
@@ -665,7 +665,7 @@ if (chatMessages) {
 
     showChatTyping();
     try {
-      const response = await fetch('/api/chat/messages', {
+      const response = await fetch(`${pagesApiOrigin}/api/chat/messages`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
