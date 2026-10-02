@@ -1282,11 +1282,12 @@ authForm?.addEventListener('submit', async (event) => {
 });
 
 async function apiRequest(endpoint, options = {}) {
+  const url = endpoint.startsWith('http') ? endpoint : `${apiOrigin}${endpoint}`;
   const headers = { ...(options.headers || {}) };
   const token = window.localStorage.getItem('preply-session-token');
   if (token) headers.Authorization = `Bearer ${token}`;
   if (options.body) headers['Content-Type'] = 'application/json';
-  const response = await fetch(endpoint, { ...options, headers });
+  const response = await fetch(url, { ...options, headers });
 
   const contentType = response.headers.get('content-type') || '';
   const payload = contentType.includes('application/json') ? await response.json() : {};
@@ -1301,11 +1302,18 @@ async function apiRequest(endpoint, options = {}) {
 function syncAuthButton() {
   const accountButton = document.querySelector('.nav-cta');
   if (!accountButton) return;
-  const guestName = window.localStorage.getItem('preply-profile-name') || 'Aarav Sharma';
-  const shortName = guestName.split(' ')[0] || 'Guest';
-  accountButton.classList.remove('logout-button');
-  accountButton.innerHTML = '<span>👤</span> ' + shortName;
-  accountButton.setAttribute('aria-label', 'Guest profile: ' + guestName);
+  const token = window.localStorage.getItem('preply-session-token');
+  const savedName = window.localStorage.getItem('preply-profile-name');
+  if (token && savedName) {
+    const shortName = savedName.split(' ')[0] || 'Learner';
+    accountButton.classList.remove('logout-button');
+    accountButton.innerHTML = '<span>👤</span> ' + escapeHtmlText(shortName);
+    accountButton.setAttribute('aria-label', 'Profile: ' + savedName);
+  } else {
+    accountButton.classList.remove('logout-button');
+    accountButton.innerHTML = '<span>👤</span> Log in / Sign up';
+    accountButton.setAttribute('aria-label', 'Log in or sign up');
+  }
   window.dispatchEvent(new Event('profile-session-changed'));
 }
 
@@ -1318,34 +1326,9 @@ async function ensureGuestSession() {
     syncAuthButton();
     return existingToken;
   }
-
-  const savedName = window.localStorage.getItem('preply-profile-name') || 'Aarav Sharma';
-  const savedExam = window.localStorage.getItem('preply-profile-exam') || 'SSC CGL';
-  const savedLocation = window.localStorage.getItem('preply-profile-location') || 'India';
-  const schoolClass = window.localStorage.getItem('preply-school-class') || '';
-
-  try {
-    const response = await fetch('/api/auth/guest', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: savedName, exam: savedExam, location: savedLocation, schoolClass })
-    });
-    if (response.ok) {
-      const data = await response.json();
-      window.localStorage.setItem('preply-session-token', data.token);
-      window.localStorage.setItem('preply-guest-id', data.guestId);
-      window.localStorage.setItem('preply-account-email', data.user.email);
-      window.localStorage.setItem('preply-is-guest', 'true');
-      window.localStorage.setItem('preply-authenticated', 'true');
-      if (typeof showGuestId === 'function') showGuestId(data.guestId);
-      syncAuthButton();
-      return data.token;
-    }
-  } catch (err) {
-    console.warn('Auto guest session init:', err.message);
-  }
+  return null;
 }
-ensureGuestSession();
+
 syncAuthButton();
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && authModal?.classList.contains('visible')) closeAuth(); });
 
