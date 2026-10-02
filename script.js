@@ -1297,7 +1297,7 @@ async function loadLiveNotifications() {
   const grid = document.getElementById('upcomingExamGrid');
   if (!grid) return;
   try {
-    const res = await fetch('/api/notifications');
+    const res = await fetch(`${apiOrigin}/api/notifications`);
     if (!res.ok) return;
     const data = await res.json();
     const notifs = (data.notifications || []).filter((n) => n.isUpcoming !== false);
@@ -1334,62 +1334,104 @@ async function loadLiveNotifications() {
   }
 }
 
+const fallbackHomeBlogs = [
+  {
+    id: "blog-1",
+    slug: "ssc-cgl-60-day-roadmap",
+    title: "SSC CGL 2026: 60-Day High-Yield Revision Roadmap & Subject Checklist",
+    category: "Preparation Strategy",
+    readTime: "7 min read",
+    author: "Warish Raj",
+    summary: "A battle-tested 8-week structured roadmap balancing Quant calculation drills, English comprehension rules, Reasoning puzzle mastery, and General Studies topic weightage.",
+    tags: ["SSCCGL", "Roadmap", "Quant", "Reasoning"],
+    createdAt: "2026-10-01T10:00:00.000Z"
+  },
+  {
+    id: "blog-2",
+    slug: "speed-math-shortcuts",
+    title: "Speed Math & Calculation Shortcuts: Boost Score in Quantitative Aptitude",
+    category: "Subject Guide",
+    readTime: "5 min read",
+    author: "Warish Raj",
+    summary: "Essential mental math techniques, Vedic multiplication, percentage-fraction conversion tables, and digital sum methods to slash your solving time by 40%.",
+    tags: ["SpeedMath", "Aptitude", "Shortcuts", "Banking"],
+    createdAt: "2026-10-01T12:00:00.000Z"
+  }
+];
+
 async function loadLiveBlogs() {
   const grid = document.getElementById('homeBlogsGrid');
   if (!grid) return;
   const moreBtn = document.getElementById('btnReadAllBlogs');
-  try {
-    const res = await fetch('/api/blogs');
-    if (!res.ok) return;
-    const data = await res.json();
-    const allBlogs = data.blogs || [];
-    if (!allBlogs.length) {
-      grid.innerHTML = '<p class="muted">Check back soon for fresh revision roadmaps and topper strategy articles.</p>';
-      if (moreBtn) moreBtn.style.display = 'none';
-      return;
-    }
 
-    // Only show 2 blogs at a time on homepage
-    const blogs = allBlogs.slice(0, 2);
-
+  function renderArticles(list) {
+    const safeList = (Array.isArray(list) && list.length) ? list : fallbackHomeBlogs;
+    const blogs = safeList.slice(0, 2);
     grid.innerHTML = '';
     blogs.forEach((b) => {
       const card = document.createElement('article');
       card.className = 'cms-card';
+      const tagsHtml = Array.isArray(b.tags) && b.tags.length
+        ? `<div class="article-tag-list" style="margin-top:8px; display:flex; flex-wrap:wrap; gap:4px;">${b.tags.map(t => `<span class="cms-tag-pill" style="font-size:10.5px; font-weight:600; padding:2px 8px; border-radius:4px; background:#eef7f2; color:#175e4b;">#${escapeHtmlText(t)}</span>`).join('')}</div>`
+        : '';
+
+      const articleUrl = `blogs?article=${encodeURIComponent(b.slug || b.id)}`;
+
       card.innerHTML = `
         <div>
-          <div class="cms-card-top">
-            <span class="badge">${escapeHtmlText(b.category || 'Article')}</span>
-            <span class="muted cms-card-readtime">${escapeHtmlText(b.readTime || '5 min')}</span>
+          <div class="cms-card-top" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span class="badge" style="background:#eef7f2; color:#175e4b; font-weight:700;">${escapeHtmlText(b.category || 'Article')}</span>
+            <span class="muted cms-card-readtime" style="font-size:12px; font-weight:600;">⏱️ ${escapeHtmlText(b.readTime || '5 min read')}</span>
           </div>
           <h3 class="cms-card-title">${escapeHtmlText(b.title)}</h3>
           <p class="cms-card-meta">By <strong>${escapeHtmlText(b.author || 'Warish Raj')}</strong></p>
           <p class="cms-card-summary">${escapeHtmlText(b.summary || '')}</p>
+          ${tagsHtml}
         </div>
-        <div class="cms-card-footer">
-          <span class="cms-card-date">${new Date(b.createdAt).toLocaleDateString()}</span>
-          <button class="outline-btn btn-read-article" type="button">Read Full Guide <span>↗</span></button>
+        <div class="cms-card-footer" style="margin-top:14px; padding-top:10px; border-top:1px solid #edf2ef; display:flex; justify-content:space-between; align-items:center;">
+          <span class="cms-card-date">${new Date(b.createdAt || Date.now()).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+          <a class="outline-btn btn-read-article" href="${articleUrl}" style="text-decoration:none; display:inline-flex; align-items:center; gap:4px;">Read Full Guide <span>↗</span></a>
         </div>
       `;
-
-      card.querySelector('.btn-read-article').addEventListener('click', () => {
-        const reader = document.getElementById('articleReaderModal');
-        if (!reader) return;
-        document.getElementById('readBlogCategory').textContent = b.category || 'Article';
-        document.getElementById('readBlogTitle').textContent = b.title;
-        document.getElementById('readBlogMeta').textContent = `By ${b.author || 'Warish Raj'} · ${b.readTime || '5 min read'} · Published ${new Date(b.createdAt).toLocaleDateString()}`;
-        document.getElementById('readBlogBody').textContent = b.content || b.summary;
-        reader.style.display = 'flex';
-      });
-
       grid.appendChild(card);
     });
 
     if (moreBtn) {
       moreBtn.style.display = 'inline-flex';
+      moreBtn.href = 'blogs';
+    }
+  }
+
+  // 1. Instant render from local cache
+  let cached = null;
+  try {
+    const raw = localStorage.getItem('rd-cached-blogs');
+    if (raw) cached = JSON.parse(raw);
+  } catch (_) {}
+  if (Array.isArray(cached) && cached.length) {
+    renderArticles(cached);
+  }
+
+  // 2. Fetch fresh from API
+  try {
+    const res = await fetch(`${apiOrigin}/api/blogs`);
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.blogs) && data.blogs.length) {
+        try {
+          localStorage.setItem('rd-cached-blogs', JSON.stringify(data.blogs));
+        } catch (_) {}
+        renderArticles(data.blogs);
+        return;
+      }
     }
   } catch (e) {
-    console.warn('Could not load live blogs:', e.message);
+    console.warn('Could not load live blogs from server, using fallback:', e.message);
+  }
+
+  // 3. Fallback if not rendered
+  if (!grid.children.length || grid.querySelector('.muted')) {
+    renderArticles(fallbackHomeBlogs);
   }
 }
 
