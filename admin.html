@@ -3239,6 +3239,8 @@ Topic: Mechanics
           if (ovBlogs) ovBlogs.textContent = data.totalBlogs || 0;
           const ovMats = document.getElementById('ovMaterialsCount');
           if (ovMats) ovMats.textContent = data.totalMaterials || 0;
+          const ovPyqs = document.getElementById('ovPyqCount');
+          if (ovPyqs) ovPyqs.textContent = data.totalPreviousYearQuestions || 0;
         }
       } catch (e) {}
     }
