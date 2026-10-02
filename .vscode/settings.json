@@ -2,7 +2,7 @@
   "livePreview.defaultPreviewPath": "/index.html",
   "livePreview.serverRoot": "${workspaceFolder}",
   "livePreview.openPreviewTarget": "External Browser",
-  "livePreview.customExternalBrowser": "Chrome",
+  "livePreview.customExternalBrowser": "Default",
   "liveServer.settings.root": "/",
   "liveServer.settings.port": 5500,
   "workbench.trustedDomains": [
