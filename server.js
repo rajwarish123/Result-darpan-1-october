@@ -3135,6 +3135,10 @@ app.get('/terms', (req, res) => {
   res.sendFile(path.join(staticDir, 'terms.html'));
 });
 
+app.get('/notifications', (req, res) => {
+  res.sendFile(path.join(staticDir, 'notifications.html'));
+});
+
 // Admin management portal restricted to /wariya
 app.get('/wariya', (req, res) => {
   res.sendFile(path.join(staticDir, 'wariya.html'));
