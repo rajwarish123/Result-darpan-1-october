@@ -3,15 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Read expert exam preparation roadmaps, toppers' revision strategies, and subject guides on Result Darpan.">
-  <title>Strategy Blogs &amp; Topper Roadmaps | Result Darpan</title>
+  <meta name="description" id="pageMetaDescription" content="Read expert exam preparation roadmaps, toppers' revision strategies, speed math shortcuts, and subject guides on Result Darpan.">
+  <link rel="canonical" id="pageCanonicalUrl" href="https://resultdarpan.com/blogs.html">
+  <title id="pageTitle">Strategy Blogs &amp; Topper Roadmaps | Result Darpan</title>
+  
+  <!-- OpenGraph / Social SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Result Darpan">
+  <meta property="og:title" id="ogTitle" content="Strategy Blogs &amp; Topper Roadmaps | Result Darpan">
+  <meta property="og:description" id="ogDescription" content="Discover proven competitive exam roadmaps, topic checklists, and toppers' insights curated by Warish Raj.">
+  <meta property="og:url" id="ogUrl" content="https://resultdarpan.com/blogs.html">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="mobile.css?v=4.0">
   <script src="nav.js" defer></script>
   <script src="ads.js" defer></script>
+
+  <!-- Schema.org Article Structured Data (Dynamically Updated for SEO) -->
+  <script type="application/ld+json" id="articleSchema">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Result Darpan Strategy Blogs",
+    "description": "Expert exam preparation roadmaps and subject guides for Indian competitive exams.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Result Darpan",
+      "founder": "Warish Raj"
+    }
+  }
+  </script>
+
   <style>
     .blogs-hero {
       background: linear-gradient(180deg, #eaf5ee 0%, #f6faf7 100%);
@@ -53,7 +78,7 @@
     .category-chip {
       background: #f0f5f2;
       border: 1px solid #d4e4dc;
-      padding: 7px 14px;
+      padding: 7px 15px;
       border-radius: 999px;
       font-size: 13px;
       font-weight: 600;
@@ -70,16 +95,18 @@
       background: var(--green, #175e4b);
       border-color: var(--green, #175e4b);
       color: #ffffff;
+      box-shadow: 0 2px 8px rgba(23, 94, 75, 0.2);
     }
     .blog-search-box {
       min-width: 260px;
       flex: 1;
       max-width: 360px;
+      position: relative;
     }
     .blog-search-input {
       width: 100%;
       box-sizing: border-box;
-      padding: 9px 14px;
+      padding: 9px 14px 9px 36px;
       border-radius: 10px;
       border: 1px solid var(--line, #cbdad1);
       font-family: inherit;
@@ -87,10 +114,20 @@
       color: var(--ink, #182c2a);
       background: #ffffff;
       outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
     .blog-search-input:focus {
       border-color: var(--green, #175e4b);
       box-shadow: 0 0 0 3px rgba(23, 94, 75, 0.12);
+    }
+    .blog-search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: #94a3b8;
+      pointer-events: none;
     }
     .blogs-grid-section {
       padding-bottom: 70px;
@@ -100,6 +137,67 @@
       font-weight: 600;
       color: var(--muted, #5e756d);
       margin-bottom: 18px;
+    }
+
+    /* Article Card Tags & Readability */
+    .cms-tag-pill {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #eef7f2;
+      color: #175e4b;
+      margin-right: 4px;
+      margin-top: 4px;
+    }
+    .article-tag-list {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    /* Rich Content Typography for SEO Articles */
+    .article-rich-content h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--ink, #182c2a);
+      margin: 24px 0 10px;
+      line-height: 1.3;
+    }
+    .article-rich-content h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--green, #175e4b);
+      margin: 20px 0 8px;
+      line-height: 1.35;
+    }
+    .article-rich-content p {
+      margin: 0 0 14px 0;
+      line-height: 1.8;
+      color: #334155;
+    }
+    .article-rich-content ul, .article-rich-content ol {
+      margin: 8px 0 16px 20px;
+      padding: 0;
+      line-height: 1.75;
+    }
+    .article-rich-content li {
+      margin-bottom: 6px;
+    }
+    .article-rich-content strong {
+      color: var(--ink, #182c2a);
+      font-weight: 700;
+    }
+    .article-rich-content blockquote {
+      margin: 16px 0;
+      padding: 12px 18px;
+      background: #f1f8f4;
+      border-left: 4px solid var(--green, #175e4b);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #1e3a32;
     }
 
     /* Dark Mode Overrides */
@@ -148,19 +246,29 @@
     .dark-theme .cms-card-meta strong {
       color: #ecf7ef !important;
     }
-    .dark-theme .cms-card-summary {
-      color: #b7cebf !important;
+    .dark-theme .article-rich-content h2,
+    .dark-theme .article-rich-content strong {
+      color: #ffffff !important;
     }
-    .dark-theme .outline-btn {
-      color: #79d4a8 !important;
-      border-color: #316d55 !important;
+    .dark-theme .article-rich-content h3 {
+      color: #86efac !important;
     }
-    .dark-theme .outline-btn:hover {
+    .dark-theme .article-rich-content p,
+    .dark-theme .article-rich-content li {
+      color: #cbd5e1 !important;
+    }
+    .dark-theme .article-rich-content blockquote {
+      background: #193c33 !important;
+      color: #bfe8ce !important;
+      border-color: #28a745 !important;
+    }
+    .dark-theme .cms-tag-pill {
       background: #1d4337 !important;
+      color: #86efac !important;
     }
   </style>
 </head>
-<body class="subpage-body">
+<body>
   <div class="topbar">
     <div class="shell topbar-inner">
       <span><span class="spark">✦</span> India's most loved free mock test platform</span>
@@ -170,14 +278,14 @@
 
   <header class="site-header">
     <div class="shell nav-wrap">
-      <a class="brand" href="index.html" aria-label="Result Darpan home"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
+      <a class="brand" href="index.html"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
       <button class="menu-toggle" aria-label="Open navigation">☰</button>
       <nav class="main-nav">
+        <a href="index.html">Home</a>
         <a href="index.html#exams">Exams</a>
         <a href="index.html#popular">Test series</a>
-        <a href="resources.html">Resources</a>
-        <a href="previous-year-questions.html">Previous year questions</a>
         <a class="active-page" href="blogs.html">Blogs</a>
+        <a href="resources.html">Resources</a>
         <a href="profile.html">My profile</a>
         <a class="mentor-chat-btn" href="mentor-chat.html">AI Study Mentor ✦</a>
       </nav>
@@ -200,7 +308,7 @@
     <section class="blogs-grid-section">
       <div class="shell">
         <div class="blogs-toolbar">
-          <div class="blog-category-chips" id="categoryChips">
+          <div class="blog-category-chips" id="categoryChips" role="tablist">
             <button class="category-chip active" data-category="all" type="button">All Articles</button>
             <button class="category-chip" data-category="Preparation Strategy" type="button">Preparation Strategy</button>
             <button class="category-chip" data-category="Subject Guide" type="button">Subject Guide</button>
@@ -209,7 +317,8 @@
             <button class="category-chip" data-category="Current Affairs" type="button">Current Affairs</button>
           </div>
           <div class="blog-search-box">
-            <input type="search" id="blogSearchInput" class="blog-search-input" placeholder="Search strategy articles..." aria-label="Search strategy articles" />
+            <span class="blog-search-icon" aria-hidden="true">🔍</span>
+            <input type="search" id="blogSearchInput" class="blog-search-input" placeholder="Search strategy articles..." aria-label="Search strategy articles" autocomplete="off" />
           </div>
         </div>
 
@@ -225,18 +334,22 @@
     </section>
   </main>
 
-  <!-- Full Article Reader Modal -->
-  <div class="modal-overlay modal-wide" id="articleReaderModal" style="display:none;">
+  <!-- Full Article Reader Modal (SEO Deep-Linked with Sharing) -->
+  <div class="modal-overlay modal-wide" id="articleReaderModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="readBlogTitle">
     <div class="modal-card">
-      <div class="modal-reader-header" style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:18px;">
-        <div>
+      <div class="modal-reader-header" style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:14px;">
+        <div style="flex:1;">
           <span id="readBlogCategory" class="badge">Category</span>
           <h2 id="readBlogTitle" style="font-size:1.45rem; margin:8px 0 6px; font-family:'Montserrat', sans-serif; line-height:1.3;">Title</h2>
           <small id="readBlogMeta" style="color:var(--muted); font-size:0.85rem;">By Author · Date</small>
+          <div id="readBlogTags" class="article-tag-list"></div>
         </div>
-        <button class="btn-tool" id="btnCloseArticleReader" type="button">✕ Close</button>
+        <div style="display:flex; gap:8px; align-items:center; flex-shrink:0;">
+          <button class="outline-btn" id="btnShareArticle" type="button" style="padding:6px 14px; font-size:12px; cursor:pointer;" title="Copy direct link to this article">🔗 Share</button>
+          <button class="btn-tool" id="btnCloseArticleReader" type="button" aria-label="Close article">✕ Close</button>
+        </div>
       </div>
-      <div id="readBlogBody" style="font-size:0.98rem; line-height:1.75; color:var(--text); white-space:pre-wrap; border-top:1px solid var(--line); padding-top:16px;"></div>
+      <div id="readBlogBody" class="article-rich-content" style="font-size:1rem; line-height:1.8; border-top:1px solid var(--line); padding-top:18px;"></div>
     </div>
   </div>
 
@@ -316,22 +429,113 @@
       menuToggle.textContent = isOpen ? '×' : '☰';
     });
 
+    // Dynamic Origin for API calls across localhost, Live Server, and production
+    const apiOrigin = (() => {
+      if (typeof window === 'undefined') return '';
+      const port = window.location.port;
+      const host = window.location.hostname;
+      if (window.location.protocol === 'file:' || (host === '127.0.0.1' && port !== '3000') || (host === 'localhost' && port !== '3000')) {
+        return 'http://localhost:3000';
+      }
+      return '';
+    })();
+
+    // High-Quality Pre-seeded Fallback Strategy Articles (Always Available Offline or Static)
+    const fallbackBlogs = [
+      {
+        id: "blog-1",
+        title: "How to Crack Competitive Exams with 60 Days of Timed Mock Practice",
+        slug: "how-to-crack-competitive-exams-60-days",
+        category: "Preparation Strategy",
+        author: "Warish Raj · Founder & Mentor",
+        readTime: "5 min read",
+        tags: ["Study Strategy", "Mock Tests", "Time Management"],
+        summary: "Discover the 3-phase revision framework that helped thousands of aspirants improve their test scores from 50% to 85%+.",
+        content: "Preparing for national competitive exams like SSC, Banking, Railways, or State PSC requires more than just reading books. High scorers separate themselves through targeted mock practice.\n\n### 1. The Error Log Habit\nNever complete a mock test without analyzing every incorrect answer. Write down why you missed it: was it a conceptual gap, a calculation error, or poor time management?\n\n### 2. Time-per-Question Rule\nIn exams like SSC CGL or Banking Prelims, spending more than 60 seconds on any single reasoning question can derail your entire section. Practice skipping smartly.\n\n### 3. Subject-wise Weak Spot Drills\nUse Result Darpan's topic tests to isolate and drill weak areas. If geometry is hurting your quant score, spend 3 days doing only geometry sets before taking another full mock.",
+        createdAt: "2026-10-01T20:00:00.000Z"
+      },
+      {
+        id: "blog-2",
+        title: "Last Month Revision Roadmap for General Awareness & Static GK",
+        slug: "general-awareness-static-gk-revision-roadmap",
+        category: "Subject Guide",
+        author: "Warish Raj · Result Darpan Team",
+        readTime: "4 min read",
+        tags: ["General Awareness", "Static GK", "Current Affairs"],
+        summary: "A high-yield checklist covering Indian Polity articles, Modern History timelines, and the top current affairs topics for upcoming tests.",
+        content: "General Awareness is the biggest score multiplier because questions take less than 15 seconds to answer.\n\n### High-Yield Static GK Topics\n- **Indian Polity:** Fundamental Rights (Articles 12-35), Directive Principles, President & Governor powers, Constitutional Amendments.\n- **Geography:** Major river systems, National Parks, Biosphere reserves, Mountain passes.\n- **History:** 1857 Revolt to 1947 Independence movement landmarks, Governor Generals, Congress sessions.\n\n### Monthly Current Affairs Strategy\nFocus on the last 6 months of awards, summit locations, sports championships, and government schemes.",
+        createdAt: "2026-10-01T20:00:00.000Z"
+      },
+      {
+        id: "blog-3",
+        title: "Quantitative Aptitude: 10 Speed Math Shortcuts Every Aspirant Must Memorize",
+        slug: "quant-speed-math-shortcuts",
+        category: "Topper Tips",
+        author: "Warish Raj · Founder & Mentor",
+        readTime: "6 min read",
+        tags: ["Mathematics", "Speed Math", "Calculation Tricks"],
+        summary: "Stop solving with pencil-and-paper long division. Learn fast percentage-to-fraction conversions, digital sums, and LCM unit methods.",
+        content: "In competitive exams, quant is not a test of knowledge; it is a test of calculation velocity.\n\n### 1. Fractional Percentages\n- 1/6 = 16.66%\n- 1/7 = 14.28%\n- 1/8 = 12.5%\n- 1/9 = 11.11%\n- 1/11 = 9.09%\n- 1/12 = 8.33%\n\nConverting 37.5% into 3/8 instantaneously turns complicated calculations into mental arithmetic.\n\n### 2. Time & Work: LCM Unit Method\nAvoid 1/A + 1/B fractions. Find the LCM of the days to define total work units. Calculate individual daily efficiency and sum them up. Works cleanly for pipes, cisterns, and negative work leakages.\n\n### 3. CI vs SI Difference Shortcut\nFor 2 years: Difference = P × (R/100)².\nFor 3 years: Difference = P × (R/100)² × [3 + (R/100)].\nSaves over 90 seconds on every compound interest question!",
+        createdAt: "2026-10-02T06:00:00.000Z"
+      },
+      {
+        id: "blog-4",
+        title: "Mastering Logical Reasoning: How to Solve Syllogisms and Puzzles in Record Time",
+        slug: "mastering-logical-reasoning-syllogisms-puzzles",
+        category: "Subject Guide",
+        author: "Warish Raj · Result Darpan Team",
+        readTime: "5 min read",
+        tags: ["Reasoning", "Syllogisms", "Puzzles"],
+        summary: "A foolproof Venn diagram and 100-50 approach to solve complex syllogisms, coded inequalities, and seating arrangements.",
+        content: "Logical Reasoning is often the highest scoring section if you avoid common cognitive traps.\n\n### 1. Venn Diagrams for 'Only a Few'\n'Only a few A are B' means two definite statements: Some A are B AND Some A are NOT B. Remembering both conditions eliminates 95% of deduction traps in modern exam patterns.\n\n### 2. EJOTY Alphabet Trick\nRemember letter positions in multiples of 5: E(5), J(10), O(15), T(20), Y(25). Combine with reverse letter pairs (A-Z, B-Y, C-X, D-W, E-V, etc.) using mnemonic 'AZad, BoY, CruX, DeW, EVen'.\n\n### 3. Linear & Circular Seating Strategy\nAlways begin with the absolute, fixed condition rather than conditional ones. Create 2 parallel case threads rather than erasing pencil marks.",
+        createdAt: "2026-10-02T06:30:00.000Z"
+      }
+    ];
+
     let allBlogsList = [];
     let activeCategory = 'all';
+    let currentReadingBlog = null;
 
+    // Load Live Articles from Backend, Cached Storage, or Pre-seeded Fallbacks
     async function loadAllBlogs() {
       const grid = document.getElementById('allBlogsGrid');
       const countLabel = document.getElementById('blogCountLabel');
+
+      // Check local cache first for instant render
+      let cached = null;
       try {
-        const res = await fetch('/api/blogs');
-        if (!res.ok) throw new Error('Failed to load articles');
-        const data = await res.json();
-        allBlogsList = data.blogs || [];
+        const raw = localStorage.getItem('rd-cached-blogs');
+        if (raw) cached = JSON.parse(raw);
+      } catch (_) {}
+
+      if (Array.isArray(cached) && cached.length) {
+        allBlogsList = cached;
         renderBlogs();
-      } catch (err) {
-        grid.innerHTML = `<p class="muted" style="color:var(--danger,#d93838);">Could not load blogs: ${err.message}</p>`;
-        countLabel.textContent = 'Articles currently unavailable.';
       }
+
+      try {
+        const res = await fetch(`${apiOrigin}/api/blogs`);
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data.blogs) && data.blogs.length) {
+            allBlogsList = data.blogs;
+            try {
+              localStorage.setItem('rd-cached-blogs', JSON.stringify(data.blogs));
+            } catch (_) {}
+            renderBlogs();
+            checkUrlForArticle();
+            return;
+          }
+        }
+      } catch (err) {
+        console.warn('Backend blogs fetch error, using resilient fallback:', err.message);
+      }
+
+      if (!allBlogsList.length) {
+        allBlogsList = fallbackBlogs;
+        renderBlogs();
+      }
+      checkUrlForArticle();
     }
 
     function renderBlogs() {
@@ -348,7 +552,8 @@
           const matchSummary = String(b.summary || '').toLowerCase().includes(searchTerm);
           const matchAuthor = String(b.author || '').toLowerCase().includes(searchTerm);
           const matchCategory = String(b.category || '').toLowerCase().includes(searchTerm);
-          if (!matchTitle && !matchSummary && !matchAuthor && !matchCategory) return false;
+          const matchTags = Array.isArray(b.tags) && b.tags.some(t => String(t).toLowerCase().includes(searchTerm));
+          if (!matchTitle && !matchSummary && !matchAuthor && !matchCategory && !matchTags) return false;
         }
         return true;
       });
@@ -356,7 +561,15 @@
       countLabel.textContent = `Showing ${filtered.length} of ${allBlogsList.length} articles`;
 
       if (!filtered.length) {
-        grid.innerHTML = '<div class="cms-card" style="grid-column:1/-1;"><p class="muted">No strategy articles found matching your criteria. Try another search or filter.</p></div>';
+        grid.innerHTML = '<div class="cms-card" style="grid-column:1/-1; text-align:center; padding:36px 20px;"><p class="muted" style="margin:0 0 14px;">No strategy articles found matching your search. Try another keyword or explore the categories above.</p><button type="button" class="outline-btn" id="btnClearSearch">Clear search &amp; view all</button></div>';
+        document.getElementById('btnClearSearch')?.addEventListener('click', () => {
+          const inp = document.getElementById('blogSearchInput');
+          if (inp) inp.value = '';
+          document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
+          document.querySelector('.category-chip[data-category="all"]')?.classList.add('active');
+          activeCategory = 'all';
+          renderBlogs();
+        });
         return;
       }
 
@@ -364,19 +577,24 @@
       filtered.forEach((b) => {
         const card = document.createElement('article');
         card.className = 'cms-card';
+        const tagsHtml = Array.isArray(b.tags) && b.tags.length
+          ? `<div class="article-tag-list">${b.tags.map(t => `<span class="cms-tag-pill">#${escapeHtml(t)}</span>`).join('')}</div>`
+          : '';
+
         card.innerHTML = `
           <div>
             <div class="cms-card-top">
               <span class="badge">${escapeHtml(b.category || 'Article')}</span>
-              <span class="muted cms-card-readtime">${escapeHtml(b.readTime || '5 min')}</span>
+              <span class="muted cms-card-readtime">${escapeHtml(b.readTime || '5 min read')}</span>
             </div>
             <h3 class="cms-card-title">${escapeHtml(b.title)}</h3>
             <p class="cms-card-meta">By <strong>${escapeHtml(b.author || 'Warish Raj')}</strong></p>
             <p class="cms-card-summary">${escapeHtml(b.summary || '')}</p>
+            ${tagsHtml}
           </div>
           <div class="cms-card-footer">
-            <span class="cms-card-date">${new Date(b.createdAt).toLocaleDateString()}</span>
-            <button class="outline-btn btn-read-article" type="button">Read Full Guide <span>↗</span></button>
+            <span class="cms-card-date">${new Date(b.createdAt || Date.now()).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+            <button class="outline-btn btn-read-article" type="button" data-slug="${escapeHtml(b.slug || b.id)}">Read Full Guide <span>↗</span></button>
           </div>
         `;
 
@@ -385,27 +603,195 @@
       });
     }
 
+    // Markdown Parser to format full articles cleanly
+    function parseMarkdownToHtml(markdown) {
+      if (!markdown) return '';
+      let html = escapeHtml(markdown);
+
+      // Headings
+      html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+      html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+      html = html.replace(/^# (.*$)/gim, '<h2>$1</h2>');
+
+      // Bold & Italic
+      html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
+      html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
+
+      // Unordered lists (- item)
+      html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
+      html = html.replace(/(<li>.*<\/li>)/gim, '<ul>$1</ul>');
+      html = html.replace(/<\/ul>\s*<ul>/gim, '');
+
+      // Paragraphs
+      html = html.split('\n\n').map(chunk => {
+        chunk = chunk.trim();
+        if (!chunk) return '';
+        if (chunk.startsWith('<h') || chunk.startsWith('<ul') || chunk.startsWith('<ol') || chunk.startsWith('<block')) {
+          return chunk;
+        }
+        return `<p>${chunk.replace(/\n/g, '<br>')}</p>`;
+      }).join('\n');
+
+      return html;
+    }
+
+    // Open Article Reader Modal + Sync SEO Permalinks
     function openArticleReader(blog) {
+      currentReadingBlog = blog;
       const modal = document.getElementById('articleReaderModal');
       document.getElementById('readBlogCategory').textContent = blog.category || 'Article';
       document.getElementById('readBlogTitle').textContent = blog.title;
-      document.getElementById('readBlogMeta').textContent = `By ${blog.author || 'Warish Raj'} · ${blog.readTime || '5 min read'} · Published ${new Date(blog.createdAt).toLocaleDateString()}`;
-      document.getElementById('readBlogBody').textContent = blog.content || blog.summary;
+      document.getElementById('readBlogMeta').textContent = `By ${blog.author || 'Warish Raj'} · ${blog.readTime || '5 min read'} · Published ${new Date(blog.createdAt || Date.now()).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+
+      const tagsWrap = document.getElementById('readBlogTags');
+      if (tagsWrap) {
+        tagsWrap.innerHTML = Array.isArray(blog.tags)
+          ? blog.tags.map(t => `<span class="cms-tag-pill">#${escapeHtml(t)}</span>`).join('')
+          : '';
+      }
+
+      const bodyEl = document.getElementById('readBlogBody');
+      bodyEl.innerHTML = parseMarkdownToHtml(blog.content || blog.summary || '');
       modal.style.display = 'flex';
+
+      // Update URL for SEO & Direct Sharing
+      const articleKey = blog.slug || blog.id;
+      try {
+        const url = new URL(window.location);
+        url.searchParams.set('article', articleKey);
+        window.history.pushState({ articleKey }, '', url);
+      } catch (_) {}
+
+      // Update Page Title and Meta for SEO
+      document.title = `${blog.title} | Result Darpan`;
+      const metaDesc = document.getElementById('pageMetaDescription');
+      if (metaDesc && blog.summary) metaDesc.setAttribute('content', blog.summary);
+
+      // Inject Schema.org Article Structured Data
+      updateArticleSchema(blog);
     }
 
     function closeArticleReader() {
+      currentReadingBlog = null;
       document.getElementById('articleReaderModal').style.display = 'none';
+
+      // Restore base URL and Title
+      try {
+        const url = new URL(window.location);
+        url.searchParams.delete('article');
+        url.searchParams.delete('id');
+        window.history.pushState({}, '', url);
+      } catch (_) {}
+
+      document.title = 'Strategy Blogs & Topper Roadmaps | Result Darpan';
+      const metaDesc = document.getElementById('pageMetaDescription');
+      if (metaDesc) metaDesc.setAttribute('content', "Read expert exam preparation roadmaps, toppers' revision strategies, speed math shortcuts, and subject guides on Result Darpan.");
     }
+
+    function updateArticleSchema(blog) {
+      const scriptEl = document.getElementById('articleSchema');
+      if (!scriptEl) return;
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": blog.title,
+        "description": blog.summary || blog.title,
+        "author": {
+          "@type": "Person",
+          "name": blog.author || "Warish Raj"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Result Darpan",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://resultdarpan.com/images/logos/ssc.png"
+          }
+        },
+        "datePublished": blog.createdAt || new Date().toISOString(),
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `${window.location.origin}/blogs.html?article=${encodeURIComponent(blog.slug || blog.id)}`
+        }
+      };
+      scriptEl.textContent = JSON.stringify(schemaData);
+    }
+
+    // Check URL parameters for direct link / Google Search landing
+    function checkUrlForArticle() {
+      const params = new URLSearchParams(window.location.search);
+      const articleParam = params.get('article') || params.get('id');
+      if (!articleParam) return;
+
+      const found = allBlogsList.find(b =>
+        String(b.slug || '').toLowerCase() === articleParam.toLowerCase() ||
+        String(b.id || '').toLowerCase() === articleParam.toLowerCase()
+      );
+
+      if (found) {
+        openArticleReader(found);
+      }
+    }
+
+    // Share / Copy Link Button
+    document.getElementById('btnShareArticle')?.addEventListener('click', async () => {
+      if (!currentReadingBlog) return;
+      const shareUrl = `${window.location.origin}${window.location.pathname}?article=${encodeURIComponent(currentReadingBlog.slug || currentReadingBlog.id)}`;
+      const shareBtn = document.getElementById('btnShareArticle');
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: currentReadingBlog.title,
+            text: currentReadingBlog.summary,
+            url: shareUrl
+          });
+          return;
+        } catch (_) {}
+      }
+
+      // Fallback: Copy to clipboard
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        if (shareBtn) {
+          const originalText = shareBtn.textContent;
+          shareBtn.textContent = '✓ Link Copied!';
+          shareBtn.style.borderColor = '#28a745';
+          shareBtn.style.color = '#28a745';
+          setTimeout(() => {
+            shareBtn.textContent = originalText;
+            shareBtn.style.borderColor = '';
+            shareBtn.style.color = '';
+          }, 2500);
+        }
+      } catch (_) {
+        prompt('Copy this article link:', shareUrl);
+      }
+    });
 
     document.getElementById('btnCloseArticleReader')?.addEventListener('click', closeArticleReader);
     document.getElementById('articleReaderModal')?.addEventListener('click', (e) => {
       if (e.target.id === 'articleReaderModal') closeArticleReader();
     });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeArticleReader();
+      if (e.key === 'Escape' && document.getElementById('articleReaderModal')?.style.display === 'flex') {
+        closeArticleReader();
+      }
     });
 
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+      const params = new URLSearchParams(window.location.search);
+      const articleParam = params.get('article') || params.get('id');
+      if (articleParam) {
+        const found = allBlogsList.find(b => (b.slug || b.id) === articleParam);
+        if (found) openArticleReader(found);
+      } else {
+        closeArticleReader();
+      }
+    });
+
+    // Category Tabs
     document.querySelectorAll('.category-chip').forEach((chip) => {
       chip.addEventListener('click', () => {
         document.querySelectorAll('.category-chip').forEach((c) => c.classList.remove('active'));
@@ -415,7 +801,12 @@
       });
     });
 
-    document.getElementById('blogSearchInput')?.addEventListener('input', renderBlogs);
+    // Search Input with Debounce
+    let searchTimeout = null;
+    document.getElementById('blogSearchInput')?.addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(renderBlogs, 100);
+    });
 
     function escapeHtml(str) {
       if (typeof str !== 'string') return '';
