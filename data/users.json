@@ -2026,7 +2026,7 @@
     "id": "f48ba4ef-1a3a-4fde-8079-9eb7f8d5bef9",
     "name": "Warish Raj",
     "email": "rajwarish38@gmail.com",
-    "passwordHash": "scrypt$ebbaa3fd7288d5d5d824db3b24f16597$04fc1fee0e7c184061fa42f0d58b27f68b9e75f041f5666cb6543b245c7a8b018421f852fedccbc1e45f75c0da819a2d5b19eae5d7db0b6fd4f60e38976c2c8f",
+    "passwordHash": "scrypt$d47d2b6c838d5be042ca17f814876b02$d36f692ae7bda78d3c3950656cc4d3c39670ee3afdd02401bd84c6e7f83b1366f5726ba16c5e47f083d7c39a719fdaf3231768720e15dc0cf3c3fb47039d62c9",
     "exam": "SSC",
     "location": "Bihar",
     "schoolClass": null,
