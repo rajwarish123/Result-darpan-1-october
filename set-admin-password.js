@@ -6,7 +6,7 @@ const usersPath = path.join(__dirname, 'data', 'users.json');
 const users = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
 
 const email = 'rajwarish38@gmail.com';
-const newPassword = process.argv[2] || 'admin123';
+const newPassword = process.argv[2] || '123@Wariya#prince990';
 
 const user = users.find((u) => u.email && u.email.toLowerCase() === email.toLowerCase());
 
