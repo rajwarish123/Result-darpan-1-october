@@ -1352,6 +1352,132 @@ Topic: Mechanics
           </div>
         </div>
       </section>
+
+      <!-- TAB: MONETIZATION & ADS (GOOGLE ADSENSE READY) -->
+      <section id="tabAds" style="display:none;">
+        <div class="guide-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div>
+              <h3 style="margin:0; font-size:1.3rem;">💰 Google AdSense &amp; Monetization Control Hub</h3>
+              <p class="muted" style="margin:4px 0 0 0;">Manage website advertisements, configure your Google AdSense Publisher ID, and test preview ad placements with zero layout shift.</p>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span id="adStatusBadge" class="badge" style="background:#e2e8f0; color:#475569;">Ads Inactive</span>
+              <a href="/ads.txt" target="_blank" class="secondary-btn" style="text-decoration:none; padding:6px 14px; font-size:12px; display:inline-flex; align-items:center; gap:4px;">
+                📄 View Live ads.txt ↗
+              </a>
+            </div>
+          </div>
+
+          <form id="adSettingsForm" style="display:flex; flex-direction:column; gap:20px; margin-top:20px;">
+            <!-- Master Delivery Toggle -->
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px;">
+              <label style="display:flex; align-items:center; gap:12px; cursor:pointer; font-weight:700; font-size:1rem; color:var(--text);">
+                <input type="checkbox" id="adEnabledToggle" style="width:20px; height:20px; cursor:pointer; accent-color:var(--primary);">
+                <span>Enable Google Ads Across Result Darpan</span>
+              </label>
+              <p class="muted" style="margin:6px 0 0 32px; font-size:0.85rem;">
+                When unchecked, all ad scripts and empty ad containers are suppressed (display: none) to guarantee zero layout shift (CLS) for users and search engines.
+              </p>
+            </div>
+
+            <!-- AdSense Client ID -->
+            <div class="form-field">
+              <label for="adClientInput">Google AdSense Publisher ID (Client ID) *</label>
+              <input type="text" id="adClientInput" class="filter-input" placeholder="ca-pub-XXXXXXXXXXXXXXXX" style="font-family:monospace; font-size:0.95rem;" />
+              <small class="muted">
+                Format: <code>ca-pub-</code> followed by your 16-digit AdSense account number (e.g. <code>ca-pub-1234567890123456</code>). Saving this automatically updates the root <code>ads.txt</code> file required by Google.
+              </small>
+            </div>
+
+            <div class="form-grid-2">
+              <!-- Test Mode / Layout Preview Toggle -->
+              <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:10px; padding:16px;">
+                <label style="display:flex; align-items:center; gap:10px; cursor:pointer; font-weight:700; color:#92400e;">
+                  <input type="checkbox" id="adTestModeToggle" style="width:18px; height:18px; cursor:pointer; accent-color:#d97706;">
+                  <span>Visual Preview / Test Mode</span>
+                </label>
+                <p class="muted" style="margin:6px 0 0 28px; font-size:0.83rem; color:#78350f;">
+                  Renders visible mock banner containers on pages to test spacing and responsiveness without calling live AdSense ad servers.
+                </p>
+              </div>
+
+              <!-- Auto Ads Toggle -->
+              <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:16px;">
+                <label style="display:flex; align-items:center; gap:10px; cursor:pointer; font-weight:700; color:#166534;">
+                  <input type="checkbox" id="adAutoAdsToggle" style="width:18px; height:18px; cursor:pointer; accent-color:#16a34a;">
+                  <span>Allow Google Auto Ads</span>
+                </label>
+                <p class="muted" style="margin:6px 0 0 28px; font-size:0.83rem; color:#14532d;">
+                  Permits Google AdSense machine learning to inject automated in-page or anchor ads when enabled.
+                </p>
+              </div>
+            </div>
+
+            <!-- Ad Slots Selector -->
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); display:block; margin-bottom:10px;">
+                Active Ad Placements
+              </label>
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px;">
+                <label style="display:flex; align-items:flex-start; gap:10px; padding:12px; border:1px solid var(--border); border-radius:8px; cursor:pointer;">
+                  <input type="checkbox" id="adSlotTopLeaderboard" style="margin-top:2px; accent-color:var(--primary);" checked>
+                  <div>
+                    <strong style="font-size:0.9rem;">Top Leaderboard Slot</strong>
+                    <p class="muted" style="margin:2px 0 0 0; font-size:0.8rem;">Homepage above class selection &amp; PYQ page above paper catalog.</p>
+                  </div>
+                </label>
+
+                <label style="display:flex; align-items:flex-start; gap:10px; padding:12px; border:1px solid var(--border); border-radius:8px; cursor:pointer;">
+                  <input type="checkbox" id="adSlotInFeed" style="margin-top:2px; accent-color:var(--primary);" checked>
+                  <div>
+                    <strong style="font-size:0.9rem;">In-Feed Slot</strong>
+                    <p class="muted" style="margin:2px 0 0 0; font-size:0.8rem;">Between question sets and strategy blogs on homepage &amp; blogs page.</p>
+                  </div>
+                </label>
+
+                <label style="display:flex; align-items:flex-start; gap:10px; padding:12px; border:1px solid var(--border); border-radius:8px; cursor:pointer;">
+                  <input type="checkbox" id="adSlotArticleInline" style="margin-top:2px; accent-color:var(--primary);" checked>
+                  <div>
+                    <strong style="font-size:0.9rem;">Article &amp; Study Material Slot</strong>
+                    <p class="muted" style="margin:2px 0 0 0; font-size:0.8rem;">Mid-content placements on long-form guides and solutions.</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Save Row -->
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:8px;">
+              <span id="adSettingsFeedback" class="muted"></span>
+              <button class="primary-btn" id="btnSaveAdSettings" type="submit">Save Monetization Settings <span>✓</span></button>
+            </div>
+          </form>
+        </div>
+
+        <!-- AdSense Readiness & Compliance Checklist -->
+        <div class="guide-card">
+          <h3 style="margin-top:0;">🛡️ Google AdSense Readiness &amp; Compliance Checklist</h3>
+          <p class="muted">Result Darpan has been pre-configured to satisfy all Google AdSense Publisher Policies &amp; IAB standards:</p>
+          <div class="guide-steps" style="grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));">
+            <div class="guide-step">
+              <strong style="color:#16a34a;">✓ ads.txt Root Serving</strong>
+              <p>Served automatically at <code>/ads.txt</code> with official IAB formatting (<code>google.com, pub-XXXXXXXX, DIRECT, f08c47fec0942fa0</code>).</p>
+            </div>
+            <div class="guide-step">
+              <strong style="color:#16a34a;">✓ Privacy Disclosures</strong>
+              <p>Privacy Policy and Terms have mandatory AdSense, DART cookie, and third-party advertising network opt-out disclosures.</p>
+            </div>
+            <div class="guide-step">
+              <strong style="color:#16a34a;">✓ Semantic Slot Labelling</strong>
+              <p>Every ad container has the required policy-compliant <code>ADVERTISEMENT</code> or <code>SPONSORED</code> badge above it.</p>
+            </div>
+            <div class="guide-step">
+              <strong style="color:#16a34a;">✓ Zero CLS Layout Protection</strong>
+              <p>Unfilled and turned-off slots use <code>display: none</code> to avoid sudden visual jumping and maintain high Core Web Vitals scores.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 
