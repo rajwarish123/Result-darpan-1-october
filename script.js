@@ -1100,6 +1100,10 @@ document.querySelector('#previousQuestion')?.addEventListener('click', () => { i
 document.querySelector('#nextQuestion')?.addEventListener('click', () => { if (currentQuestion === questions.length - 1) finishTest(); else { currentQuestion += 1; renderQuestion(); } });
 document.querySelector('#questionMap')?.addEventListener('click', (event) => { const item = event.target.closest('.map-item'); if (item) { currentQuestion = Number(item.dataset.question); renderQuestion(); } });
 document.querySelector('#retryTest')?.addEventListener('click', openTest);
+document.querySelector('#btnTranslateQuestion')?.addEventListener('click', () => {
+  isQuestionHindi = !isQuestionHindi;
+  renderQuestion();
+});
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && testModal?.classList.contains('visible')) closeTest(); });
 
 const authModal = document.querySelector('#authModal');
