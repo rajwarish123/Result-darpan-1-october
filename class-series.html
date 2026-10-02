@@ -1,64 +1,151 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Class-wise practice series and tests for school students.">
-  <title>Class Test Series | Result Darpan</title>
+  <meta name="description" content="Class-wise practice series and tests for school students (Classes 9 to 12).">
+  <title>School Test Series (Classes 9-12) | Result Darpan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="/mobile.css">
+  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="mobile.css?v=4.0">
+  <style>
+    .class-picker-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 24px 0 0 0;
+      flex-wrap: wrap;
+    }
+    .class-picker-tabs .category {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 20px;
+      border-radius: 999px;
+      border: 1.5px solid #d1d5db;
+      background: #ffffff;
+      color: #374151;
+      transition: all 0.2s ease;
+    }
+    .class-picker-tabs .category:hover {
+      border-color: #28a745;
+      color: #166534;
+      background: #f0fdf4;
+    }
+    .class-picker-tabs .category.active {
+      background: #166534 !important;
+      color: #ffffff !important;
+      border-color: #166534 !important;
+      box-shadow: 0 4px 12px rgba(22, 101, 52, 0.2);
+    }
+    .dark-theme .class-picker-tabs .category {
+      background: #193c33;
+      border-color: #315747;
+      color: #ecf7ef;
+    }
+    .dark-theme .class-picker-tabs .category.active {
+      background: #28a745 !important;
+      border-color: #28a745 !important;
+      color: #ffffff !important;
+    }
+  </style>
 </head>
 <body>
-  <div class="topbar"><div class="shell topbar-inner"><span><span class="spark">✦</span> Result Darpan · School practice</span><div class="top-links"><a href="/profile.html">My profile</a></div></div></div>
-  <header class="site-header"><div class="shell nav-wrap"><a class="brand" href="/"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a><nav class="main-nav"><a href="/">Home</a><a href="/profile.html">My profile</a></nav><div class="nav-actions"><a class="login-btn" href="/">All classes</a></div></div></header>
+  <div class="topbar">
+    <div class="shell topbar-inner">
+      <span><span class="spark">✦</span> Result Darpan · School Practice &amp; Board Prep</span>
+      <div class="top-links"><a href="index.html#popular">All exams</a><a href="profile.html">My profile</a></div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="index.html"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#popular">Mock tests</a>
+        <a href="previous-year-questions.html">Previous year papers</a>
+        <a href="profile.html">My profile</a>
+      </nav>
+      <div class="nav-actions"><a class="login-btn" href="index.html">All exams</a></div>
+    </div>
+  </header>
+
   <main>
-    <section class="page-hero"><div class="shell"><span class="kicker" id="classKicker">SCHOOL PREP</span><h1 id="classHeading">Class test series</h1><p id="classIntro">Loading your class-wise subjects and practice sets.</p></div></section>
-    <section class="class-series-section"><div class="shell">
-      <div id="classSeriesStatus" class="question-bank-status" role="status" aria-live="polite">Loading test series...</div>
-      <div class="class-series-grid" id="classSeriesList"></div>
-      <section class="class-test" id="classTest" hidden aria-labelledby="classTestTitle">
-        <div class="class-test-heading"><div><span class="kicker">FOCUSED PRACTICE</span><h2 id="classTestTitle">Test set</h2></div><button class="outline-btn" id="classTestBack" type="button">Back to series</button></div>
-        <form id="classTestForm"><div class="class-question-list" id="classQuestionList"></div><button class="primary-btn" type="submit">Submit test <span>→</span></button></form>
-        <p class="class-test-result" id="classTestResult" role="status" aria-live="polite"></p>
-      </section>
-    </div></section>
+    <section class="page-hero">
+      <div class="shell">
+        <span class="kicker" id="classKicker">SCHOOL PREP · NCERT &amp; BOARDS</span>
+        <h1 id="classHeading">Class test series</h1>
+        <p id="classIntro">Focused, topic-wise practice sets designed for school boards and entrance foundation.</p>
+
+        <!-- CLASS PICKER TABS -->
+        <div class="class-picker-tabs" role="tablist" aria-label="Select class">
+          <button class="category" data-class="9" type="button">Class 09</button>
+          <button class="category" data-class="10" type="button">Class 10</button>
+          <button class="category" data-class="11" type="button">Class 11</button>
+          <button class="category" data-class="12" type="button">Class 12</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="class-series-section">
+      <div class="shell">
+        <div id="classSeriesStatus" class="question-bank-status" role="status" aria-live="polite">Loading test series...</div>
+        <div class="class-series-grid" id="classSeriesList"></div>
+
+        <section class="class-test" id="classTest" hidden aria-labelledby="classTestTitle">
+          <div class="class-test-heading">
+            <div>
+              <span class="kicker">FOCUSED PRACTICE</span>
+              <h2 id="classTestTitle">Test set</h2>
+            </div>
+            <button class="outline-btn" id="classTestBack" type="button">← Back to series</button>
+          </div>
+          <form id="classTestForm">
+            <div class="class-question-list" id="classQuestionList"></div>
+            <button class="primary-btn" type="submit">Submit test <span>✓</span></button>
+          </form>
+          <p class="class-test-result" id="classTestResult" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
   </main>
+
   <footer class="site-footer" id="siteFooter">
     <div class="shell">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="brand footer-logo" href="/"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
+          <a class="brand footer-logo" href="index.html"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
           <p class="footer-tagline">Student-focused mock tests, practice series, and topper guidance — 100% free.</p>
           <p class="footer-owner">Owned and operated by Warish Raj</p>
         </div>
         <div class="footer-col">
           <h4>Explore</h4>
           <ul>
-            <li><a href="/#popular">Mock Test Series</a></li>
-            <li><a href="/#subjects">Subject Practice</a></li>
-            <li><a href="/previous-year-questions.html">Previous Year Papers</a></li>
-            <li><a href="/class-series.html">School Classes (9-12)</a></li>
+            <li><a href="index.html#popular">Mock Test Series</a></li>
+            <li><a href="index.html#subjects">Subject Practice</a></li>
+            <li><a href="previous-year-questions.html">Previous Year Papers</a></li>
+            <li><a href="class-series.html">School Classes (9-12)</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Platform</h4>
           <ul>
-            <li><a href="/profile.html">My Prep Desk</a></li>
-            <li><a href="/mentor-chat.html">AI Study Mentor ✦</a></li>
-            <li><a href="/resources.html">Resources</a></li>
-            <li><a href="/contact.html">About Us</a></li>
+            <li><a href="profile.html">My Prep Desk</a></li>
+            <li><a href="mentor-chat.html">AI Study Mentor ✦</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">About Us</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Privacy &amp; Terms</h4>
           <ul>
-            <li><a href="/contact.html#privacy-policy" class="footer-privacy-badge">🔒 Privacy Policy <span>↗</span></a></li>
-            <li><a href="/contact.html#terms-conditions" class="footer-privacy-badge">📜 Terms &amp; Conditions <span>↗</span></a></li>
-            <li><a href="/privacy.html">Full Privacy Policy</a></li>
-            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="contact.html#privacy-policy" class="footer-privacy-badge">🔒 Privacy Policy <span>↗</span></a></li>
+            <li><a href="contact.html#terms-conditions" class="footer-privacy-badge">📜 Terms &amp; Conditions <span>↗</span></a></li>
+            <li><a href="privacy.html">Full Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
             <li><a href="mailto:Rajwarish38@gmail.com">Rajwarish38@gmail.com</a></li>
           </ul>
         </div>
@@ -66,14 +153,15 @@
       <div class="footer-bottom">
         <div>© 2026 Result Darpan. All rights reserved. Built for India's ambitious learners.</div>
         <div class="footer-bottom-links">
-          <a href="/contact.html">About Result Darpan</a>
-          <a href="/contact.html#privacy-policy" class="footer-legal-link">Privacy Policy</a>
-          <a href="/contact.html#terms-conditions" class="footer-legal-link">Terms &amp; Conditions</a>
+          <a href="contact.html">About Result Darpan</a>
+          <a href="contact.html#privacy-policy" class="footer-legal-link">Privacy Policy</a>
+          <a href="contact.html#terms-conditions" class="footer-legal-link">Terms &amp; Conditions</a>
           <a href="contact.html#contact-form">Contact Us</a>
         </div>
       </div>
     </div>
   </footer>
-  <script src="/class-page.js"></script>
+
+  <script src="class-page.js?v=4.0"></script>
 </body>
 </html>
