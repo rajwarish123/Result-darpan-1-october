@@ -1011,7 +1011,7 @@ function getExamLogoSrc(badgeOrExam) {
   const text = (badgeOrExam || '').toLowerCase();
   if (text.includes('ssc')) return 'images/logos/ssc.png';
   if (text.includes('sbi') || text.includes('bank')) return 'images/logos/sbi.svg';
-  if (text.includes('rail') || text.includes('rrb') || text.includes('ntpc')) return 'images/logos/railways.svg';
+  if (text.includes('rail') || text.includes('rrb') || text.includes('ntpc')) return 'images/logos/railways.png';
   if (text.includes('nda') || text.includes('defence')) return 'images/logos/nda.svg';
   if (text.includes('upsc')) return 'images/logos/upsc.png';
   if (text.includes('ctet') || text.includes('cbse') || text.includes('teach')) return 'images/logos/ctet.png';
