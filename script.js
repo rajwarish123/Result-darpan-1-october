@@ -498,21 +498,37 @@ async function openTest() {
       activeTestTitle = `${activeQuestionSubject[0].toUpperCase()}${activeQuestionSubject.slice(1)} practice test`;
       activeTestDurationSeconds = 900;
     } catch (error) {
-      console.warn(error.message);
-      return;
+      console.warn('Subject test load error:', error.message);
+      const fallback = getFallbackMockTest('subject-practice');
+      questions = fallback.questions;
+      activeQuestionSet = null;
+      activeTestTitle = `${activeQuestionSubject[0].toUpperCase()}${activeQuestionSubject.slice(1)} practice test`;
+      activeTestDurationSeconds = 900;
     }
   } else if (activeMockTestId) {
+    let loadedFromServer = false;
     try {
-      const response = await fetch(`/api/mock-tests/${encodeURIComponent(activeMockTestId)}`);
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error || 'This test could not be loaded.');
-      questions = payload.questions;
-      activeQuestionSet = null;
-      activeTestTitle = payload.title;
-      activeTestDurationSeconds = payload.durationSeconds;
+      const response = await fetch(`${apiOrigin}/api/mock-tests/${encodeURIComponent(activeMockTestId)}`);
+      if (response.ok) {
+        const text = await response.text();
+        const payload = JSON.parse(text);
+        if (payload && Array.isArray(payload.questions) && payload.questions.length > 0) {
+          questions = payload.questions;
+          activeQuestionSet = null;
+          activeTestTitle = payload.title || 'Result Darpan Mock Test';
+          activeTestDurationSeconds = payload.durationSeconds || 3600;
+          loadedFromServer = true;
+        }
+      }
     } catch (error) {
-      window.alert(error.message);
-      return;
+      console.warn('Backend mock test fetch failed, using instant fallback:', error.message);
+    }
+    if (!loadedFromServer) {
+      const fallback = getFallbackMockTest(activeMockTestId);
+      questions = fallback.questions;
+      activeQuestionSet = null;
+      activeTestTitle = fallback.title;
+      activeTestDurationSeconds = fallback.durationSeconds;
     }
   }
   currentQuestion = 0;
@@ -542,11 +558,13 @@ function closeTest() {
 async function saveTestResult() {
   const token = window.localStorage.getItem('preply-session-token');
   const endpoint = activeMockTestId
-    ? `/api/mock-tests/${encodeURIComponent(activeMockTestId)}/results`
-    : '/api/question-sets/results';
+    ? `${apiOrigin}/api/mock-tests/${encodeURIComponent(activeMockTestId)}/results`
+    : `${apiOrigin}/api/question-sets/results`;
   const headers = { 'Content-Type': 'application/json' };
   if (token) headers.Authorization = `Bearer ${token}`;
-  const response = await fetch(endpoint, {
+
+  try {
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers,
       body: JSON.stringify({
@@ -555,14 +573,30 @@ async function saveTestResult() {
         ...(activeQuestionSet || {})
       })
     });
-  const payload = await response.json();
-  if (!response.ok) throw new Error(payload.error || 'Test result could not be saved.');
-
-  if (payload.stats) {
-    updateProfileMetrics(payload.stats);
-    publishProfileStats(payload.stats);
+    if (response.ok) {
+      const text = await response.text();
+      const payload = JSON.parse(text);
+      if (payload.stats) {
+        updateProfileMetrics(payload.stats);
+        publishProfileStats(payload.stats);
+      }
+      if (payload.attempt) return payload.attempt;
+    }
+  } catch (err) {
+    console.warn('Backend result submission failed, grading locally:', err.message);
   }
-  return payload.attempt;
+
+  // Robust Client-side grading fallback
+  const durationSeconds = Math.max(1, Math.round((Date.now() - testStartedAt) / 1000));
+  const score = questions.reduce((acc, q, idx) => acc + (answers[idx] === q.answer ? 1 : 0), 0);
+  const attemptedCount = answers.filter((a) => a !== null).length;
+  return {
+    score,
+    total: questions.length,
+    attemptedCount,
+    durationSeconds,
+    testName: activeTestTitle || 'Practice Test'
+  };
 }
 
 async function finishTest() {
