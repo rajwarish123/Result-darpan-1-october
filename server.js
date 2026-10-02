@@ -970,18 +970,22 @@ const mockTests = {
   'ugc-net': { exam: 'UGC NET', title: 'UGC NET Paper 1 · Teaching & Research Mock', totalQuestions: 50, durationSeconds: 3600 }
 };
 
-function buildMockTest(testId) {
+function buildMockTest(testId, setNumber = 1) {
   const test = mockTests[testId];
   if (!test) return null;
+  const safeSet = Math.max(1, Number(setNumber) || 1);
   const subjects = questionSetSubjects[test.exam] || questionSetSubjects['SSC CGL'] || ['English', 'Mathematics', 'Reasoning', 'General Awareness'];
-  const subjectSets = subjects.map((subject) => getQuestionSet(test.exam, subject, 1));
+  const subjectSets = subjects.map((subject) => getQuestionSet(test.exam, subject, safeSet));
   const questions = Array.from({ length: test.totalQuestions }, (_, index) => {
     const subjectIndex = index % subjects.length;
     const subjectQuestionIndex = Math.floor(index / subjects.length);
     const question = subjectSets[subjectIndex][subjectQuestionIndex % subjectSets[subjectIndex].length];
-    return { ...question, id: `${testId}-${index + 1}`, number: index + 1 };
+    return { ...question, id: `${testId}-s${safeSet}-${index + 1}`, number: index + 1 };
   });
-  return { id: testId, ...test, questions };
+  const setTitle = test.title.includes('Mock')
+    ? test.title.replace(/Mock\s*\d+/i, `Mock ${String(safeSet).padStart(2, '0')}`)
+    : `${test.title} · Set ${String(safeSet).padStart(2, '0')}`;
+  return { id: testId, ...test, title: setTitle, setNumber: safeSet, questions };
 }
 
 function validateTestAnswers(answers, questions) {
@@ -1004,13 +1008,15 @@ function guestTestAttempt(score, total, durationSeconds, details = {}) {
 }
 
 app.get('/api/mock-tests/:testId', (req, res) => {
-  const test = buildMockTest(req.params.testId);
+  const setNumber = Math.max(1, Number(req.query.set) || 1);
+  const test = buildMockTest(req.params.testId, setNumber);
   if (!test) return res.status(404).json({ error: 'Mock test not found.' });
   res.json({ ...test, questions: test.questions.map(({ answer, ...question }) => question) });
 });
 
 app.post('/api/mock-tests/:testId/results', optionalAuth, (req, res) => {
-  const test = buildMockTest(req.params.testId);
+  const setNumber = Math.max(1, Number(req.body?.set) || 1);
+  const test = buildMockTest(req.params.testId, setNumber);
   if (!test) return res.status(404).json({ error: 'Mock test not found.' });
   const answers = req.body?.answers;
   if (!validateTestAnswers(answers, test.questions)) return res.status(400).json({ error: 'Submit one valid answer for every question.' });
