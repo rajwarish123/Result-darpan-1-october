@@ -1007,18 +1007,6 @@ if (chatMessages) {
 }
 
 // --- LIVE NOTIFICATIONS & BLOGS ON HOME PAGE ---
-function getExamLogoSrc(badgeOrExam) {
-  const text = (badgeOrExam || '').toLowerCase();
-  if (text.includes('ssc')) return 'images/logos/ssc.png';
-  if (text.includes('sbi') || text.includes('bank')) return 'images/logos/sbi.svg';
-  if (text.includes('rail') || text.includes('rrb') || text.includes('ntpc')) return 'images/logos/railways.svg';
-  if (text.includes('nda') || text.includes('defence')) return 'images/logos/nda.svg';
-  if (text.includes('upsc')) return 'images/logos/upsc.png';
-  if (text.includes('ctet') || text.includes('cbse') || text.includes('teach')) return 'images/logos/ctet.png';
-  if (text.includes('aiims') || text.includes('norcet') || text.includes('medic')) return 'images/logos/aiims.png';
-  return '';
-}
-
 async function loadLiveNotifications() {
   const grid = document.getElementById('upcomingExamGrid');
   if (!grid) return;
@@ -1034,16 +1022,9 @@ async function loadLiveNotifications() {
       const card = document.createElement('article');
       card.className = `exam-card ${idx === 0 ? 'featured' : ''}`;
       const badgeColor = n.badgeColor || 'green';
-      const logoSrc = getExamLogoSrc(n.badge || n.exam || n.title);
-      const logoHtml = logoSrc
-        ? `<img class="exam-badge-logo" src="${logoSrc}" alt="${escapeHtmlText(n.badge || 'Exam')} Logo">`
-        : '';
       card.innerHTML = `
         <div class="card-top">
-          <div class="exam-card-badge-wrap">
-            ${logoHtml}
-            <span class="exam-badge ${badgeColor}">${escapeHtmlText(n.badge || 'EXAM')}</span>
-          </div>
+          <span class="exam-badge ${badgeColor}">${escapeHtmlText(n.badge || 'EXAM')}</span>
           <span class="days-pill">${escapeHtmlText(n.daysText || 'Upcoming')}</span>
         </div>
         <h3>${escapeHtmlText(n.title)}</h3>
