@@ -112,7 +112,11 @@
   <div class="topbar">
     <div class="shell topbar-inner">
       <span><span class="spark">✦</span> Result Darpan · School Practice &amp; Board Prep</span>
-      <div class="top-links"><a href="index.html#popular">All exams</a><a href="profile">My profile</a></div>
+      <div class="top-links" style="display:flex; align-items:center; gap:12px;">
+        <div id="google_translate_element" style="display:inline-block;"></div>
+        <a href="index.html#popular">All exams</a>
+        <a href="profile">My profile</a>
+      </div>
     </div>
   </div>
 
@@ -169,12 +173,17 @@
         <div class="class-series-grid" id="classSeriesList"></div>
 
         <section class="class-test" id="classTest" hidden aria-labelledby="classTestTitle">
-          <div class="class-test-heading">
+          <div class="class-test-heading" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
             <div>
               <span class="kicker">FOCUSED PRACTICE</span>
               <h2 id="classTestTitle">Test set</h2>
             </div>
-            <button class="outline-btn" id="classTestBack" type="button">← Back to series</button>
+            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+              <button class="outline-btn" id="btnTranslateAllSchoolQuestions" type="button" style="display:inline-flex; align-items:center; gap:6px; background:#eef7f2; color:#175e4b; border-color:#bdd3c4; font-weight:700; cursor:pointer; font-size:12px; padding:7px 12px; border-radius:6px;">
+                <span style="font-size:14px;">🌐</span> <span id="translateAllSchoolLabel">Translate Test to Hindi (हिंदी में देखें)</span>
+              </button>
+              <button class="outline-btn" id="classTestBack" type="button">← Back to series</button>
+            </div>
           </div>
           <form id="classTestForm">
             <div class="class-question-list" id="classQuestionList"></div>
