@@ -560,6 +560,10 @@ function persistStudyMaterials() {
   writeJson(STUDY_MATERIALS_PATH, studyMaterials);
 }
 
+function persistPreviousYearQuestions() {
+  writeJson(PREVIOUS_YEAR_QUESTIONS_PATH, previousYearQuestionsList);
+}
+
 function rebuildQuestionCatalog() {
   Object.keys(questionSetSubjects).forEach((exam) => delete questionSetSubjects[exam]);
   Object.entries(builtInQuestionSetSubjects).forEach(([exam, subjects]) => { questionSetSubjects[exam] = [...subjects]; });
