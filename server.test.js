@@ -940,7 +940,7 @@ test('Google AdSense monetization & ads.txt endpoints work properly', async () =
       email: adminEmail,
       password: 'adminSecurePassword123'
     });
-    assert.equal(signup.status, 200);
+    assert.equal(signup.status, 201);
     const adminToken = signup.body.token;
 
     // Update settings with a test publisher ID
