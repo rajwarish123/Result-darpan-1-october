@@ -1036,7 +1036,7 @@ async function loadLiveNotifications() {
       const badgeColor = n.badgeColor || 'green';
       const logoSrc = getExamLogoSrc(n.badge || n.exam || n.title);
       const logoHtml = logoSrc
-        ? `<img class="exam-badge-logo" src="${logoSrc}" alt="${escapeHtmlText(n.badge || 'Exam')} Logo">`
+        ? `<img class="exam-badge-logo" src="${logoSrc}" alt="${escapeHtmlText(n.badge || 'Exam')} Logo" width="24" height="24" style="width:24px; height:24px; max-width:24px; max-height:24px; object-fit:contain; border-radius:4px; background:#ffffff; display:inline-block; flex-shrink:0;">`
         : '';
       card.innerHTML = `
         <div class="card-top">
