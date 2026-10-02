@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=4.0">
   <link rel="stylesheet" href="mobile.css?v=4.0">
+  <script src="nav.js" defer></script>
   <style>
     .class-picker-tabs {
       display: flex;
@@ -41,6 +42,35 @@
       border-color: #166534 !important;
       box-shadow: 0 4px 12px rgba(22, 101, 52, 0.2);
     }
+    .stream-picker-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 16px 0 0 0;
+      flex-wrap: wrap;
+    }
+    .stream-btn {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid #c7d7ce;
+      background: #ffffff;
+      color: #374151;
+      transition: all 0.2s ease;
+    }
+    .stream-btn:hover {
+      border-color: #175e4b;
+      color: #175e4b;
+      background: #eef8f3;
+    }
+    .stream-btn.active {
+      background: #175e4b !important;
+      color: #ffffff !important;
+      border-color: #175e4b !important;
+      box-shadow: 0 3px 10px rgba(23, 94, 75, 0.25);
+    }
     .dark-theme .class-picker-tabs .category {
       background: #193c33;
       border-color: #315747;
@@ -50,6 +80,31 @@
       background: #28a745 !important;
       border-color: #28a745 !important;
       color: #ffffff !important;
+    }
+    .dark-theme .stream-btn {
+      background: #193c33;
+      border-color: #315747;
+      color: #ecf7ef;
+    }
+    .dark-theme .stream-btn.active {
+      background: #28a745 !important;
+      border-color: #28a745 !important;
+      color: #ffffff !important;
+    }
+    .class-series-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .class-series-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(23, 94, 75, 0.08);
+    }
+    .class-series-sets {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)) !important;
+      gap: 6px !important;
+      max-height: 180px;
+      overflow-y: auto;
+      padding-right: 4px;
     }
   </style>
 </head>
@@ -63,14 +118,22 @@
 
   <header class="site-header">
     <div class="shell nav-wrap">
-      <a class="brand" href="index.html"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
-      <nav class="main-nav">
+      <a class="brand" href="index.html" aria-label="Result Darpan home"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="index.html#popular">Mock tests</a>
-        <a href="previous-year-questions">Previous year papers</a>
+        <a href="index.html#exams">Exams <span class="chevron">⌄</span></a>
+        <a href="index.html#popular">Test series</a>
+        <a href="index.html#subjects">Subjects</a>
+        <a href="resources">Resources <span class="chevron">⌄</span></a>
         <a href="profile">My profile</a>
+        <a class="mentor-chat-btn" href="mentor-chat">AI Study Mentor ✦</a>
+        <a href="contact">About us</a>
       </nav>
-      <div class="nav-actions"><a class="login-btn" href="index.html">All exams</a></div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark theme" aria-pressed="false"><span class="theme-sun">☼</span><span class="theme-moon">◐</span></button>
+        <a class="login-btn" href="index.html">Home</a>
+      </div>
     </div>
   </header>
 
@@ -87,6 +150,15 @@
           <button class="category" data-class="10" type="button">Class 10</button>
           <button class="category" data-class="11" type="button">Class 11</button>
           <button class="category" data-class="12" type="button">Class 12</button>
+        </div>
+
+        <!-- STREAM FILTER TABS (FOR CLASSES 11 & 12) -->
+        <div class="stream-picker-tabs" id="streamPickerTabs" style="display:none;" role="tablist" aria-label="Select stream">
+          <button class="stream-btn active" data-stream="all" type="button">All Subjects (15)</button>
+          <button class="stream-btn" data-stream="science" type="button">🔬 Science</button>
+          <button class="stream-btn" data-stream="commerce" type="button">📊 Commerce</button>
+          <button class="stream-btn" data-stream="humanities" type="button">🏛️ Arts &amp; Humanities</button>
+          <button class="stream-btn" data-stream="core" type="button">📖 Languages &amp; Core</button>
         </div>
       </div>
     </section>
