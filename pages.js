@@ -1,9 +1,14 @@
 const pageThemeToggles = document.querySelectorAll('.theme-toggle');
 
 // Unified API Origin resolution for Live Server (5500) and production
-const pagesApiOrigin = (window.location.protocol === 'file:' || window.location.port === '5500')
-  ? 'http://localhost:3000'
-  : '';
+const pagesApiOrigin = (() => {
+  if (typeof window === 'undefined') return '';
+  if (window.location.protocol === 'file:') return 'http://localhost:3000';
+  if ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '3000') {
+    return 'http://localhost:3000';
+  }
+  return '';
+})();
 
 // --- CONTACT US FORM & FADE-OUT POPUP DESK ---
 const contactForm = document.getElementById('contactForm');
@@ -48,15 +53,53 @@ if (contactForm) {
     }
 
     try {
-      const response = await fetch(`${pagesApiOrigin}/api/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, subject, message })
-      });
+      let sent = false;
+      let failureReason = '';
 
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to deliver message. Please try again.');
+      // 1. Try sending to backend API (saves to contacts.json & triggers server relay)
+      try {
+        const response = await fetch(`${pagesApiOrigin}/api/contact`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, subject, message })
+        });
+
+        if (response.ok) {
+          sent = true;
+        } else {
+          const data = await response.json().catch(() => ({}));
+          failureReason = data.error || 'Server error';
+        }
+      } catch (backendErr) {
+        // Backend offline or unreachable (e.g. static hosting)
+        failureReason = backendErr.message;
+      }
+
+      // 2. Direct fallback to FormSubmit if backend is unavailable
+      if (!sent) {
+        const fsResponse = await fetch('https://formsubmit.co/ajax/rajwarish38@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            _replyto: email,
+            _subject: `[Result Darpan Contact] ${subject || 'New Student Feedback'} - from ${name}`,
+            _captcha: 'false',
+            _template: 'table',
+            message: message || '(No message provided)'
+          })
+        });
+
+        const fsData = await fsResponse.json().catch(() => ({}));
+        if (fsResponse.ok && (fsData.success === 'true' || fsData.success === true)) {
+          sent = true;
+        } else {
+          throw new Error(fsData.message || failureReason || 'Failed to deliver message. Please try again.');
+        }
       }
 
       // Reset form so user can submit again
@@ -78,7 +121,7 @@ if (contactForm) {
     } catch (err) {
       if (contactFormError) {
         contactFormError.hidden = false;
-        contactFormError.textContent = err.message;
+        contactFormError.textContent = err.message || 'Failed to deliver message. Please email us directly at rajwarish38@gmail.com.';
       }
     } finally {
       if (contactSubmitBtn) {
