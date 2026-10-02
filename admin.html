@@ -1617,6 +1617,100 @@ Topic: Mechanics
     </div>
   </div>
 
+  <!-- Previous Year Question Editor Modal -->
+  <div class="modal-overlay modal-wide" id="pyqModal" style="display:none;">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3 id="pyqModalTitle">Add Previous Year Question</h3>
+        <button class="btn-tool" id="btnClosePyqModal" type="button">✕ Close</button>
+      </div>
+      <p class="muted" style="margin-top:4px;">Add or edit official previous year questions with options, correct answer, and source citation.</p>
+
+      <form id="pyqForm" style="display:flex; flex-direction:column; gap:14px; margin-top:14px;">
+        <input type="hidden" id="pyqEditId" value="" />
+
+        <div class="form-grid-2">
+          <div class="form-field">
+            <label>Target Exam *</label>
+            <input type="text" id="pyqFormExam" class="filter-input" list="pyqExamDatalist" required placeholder="e.g. SSC CGL, Railway NTPC..." value="SSC CGL" />
+            <datalist id="pyqExamDatalist">
+              <option value="SSC CGL"></option>
+              <option value="Railway NTPC"></option>
+              <option value="Railway Group D"></option>
+              <option value="SBI Clerk"></option>
+              <option value="NDA"></option>
+              <option value="CTET"></option>
+            </datalist>
+          </div>
+          <div class="form-field">
+            <label>Exam Year / Tier *</label>
+            <input type="text" id="pyqFormYear" class="filter-input" required placeholder="e.g. 2023 topic practice or 2022 Tier-I" value="2023 topic practice" />
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-field">
+            <label>Subject / Topic *</label>
+            <input type="text" id="pyqFormTopic" class="filter-input" required placeholder="e.g. General Awareness, Mathematics, Reasoning..." value="General Awareness" />
+          </div>
+          <div class="form-field">
+            <label>Paper Source URL</label>
+            <input type="url" id="pyqFormSourceUrl" class="filter-input" placeholder="https://ssc.gov.in" value="https://ssc.gov.in/for-candidates/previous-year-question-paper" />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label>Question Statement / Text *</label>
+          <textarea id="pyqFormText" class="filter-input" style="height:90px; resize:vertical; font-size:1rem;" required placeholder="Write or paste the exact question text here..."></textarea>
+        </div>
+
+        <div>
+          <label style="font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); display:block; margin-bottom:8px;">
+            Options (Select the correct answer option) *
+          </label>
+          <div class="options-grid" id="pyqOptionsGrid">
+            <div class="option-cell" id="pyqOptionCell0">
+              <span class="option-letter-badge">A</span>
+              <input type="text" id="pyqOption0" class="option-input" required placeholder="Option A text..." />
+              <label class="correct-radio-label">
+                <input type="radio" name="pyqCorrectAnswer" value="0" checked /> Correct
+              </label>
+            </div>
+            <div class="option-cell" id="pyqOptionCell1">
+              <span class="option-letter-badge">B</span>
+              <input type="text" id="pyqOption1" class="option-input" required placeholder="Option B text..." />
+              <label class="correct-radio-label">
+                <input type="radio" name="pyqCorrectAnswer" value="1" /> Correct
+              </label>
+            </div>
+            <div class="option-cell" id="pyqOptionCell2">
+              <span class="option-letter-badge">C</span>
+              <input type="text" id="pyqOption2" class="option-input" required placeholder="Option C text..." />
+              <label class="correct-radio-label">
+                <input type="radio" name="pyqCorrectAnswer" value="2" /> Correct
+              </label>
+            </div>
+            <div class="option-cell" id="pyqOptionCell3">
+              <span class="option-letter-badge">D</span>
+              <input type="text" id="pyqOption3" class="option-input" required placeholder="Option D text..." />
+              <label class="correct-radio-label">
+                <input type="radio" name="pyqCorrectAnswer" value="3" /> Correct
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+          <span id="pyqSaveFeedback" class="muted"></span>
+          <div style="display:flex; gap:10px;">
+            <button class="btn-tool" id="btnCancelPyqModal" type="button">Cancel</button>
+            <button class="primary-btn" id="btnSubmitPyq" type="submit">Save Question <span>✓</span></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script>
     // Global State
     let currentCatalog = { classes: [], exams: [] };
