@@ -182,9 +182,8 @@ applyCatalogFilters();
 document.querySelectorAll('.subject-test-btn').forEach((button) => {
   button.addEventListener('click', () => {
     const requestedSubject = button.closest('.subject-card')?.dataset.subject;
-    activeQuestionSubject = requestedSubject;
-    activeMockTestId = null;
-    openTest();
+    const cardTitle = button.closest('.subject-card')?.querySelector('h3')?.textContent || 'Subject';
+    openSetSelectionModal('subject', requestedSubject, `${cardTitle} Practice`);
   });
 });
 
