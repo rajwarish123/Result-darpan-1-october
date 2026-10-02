@@ -196,12 +196,29 @@ document.querySelector('.email-box button')?.addEventListener('click', () => {
     input.focus();
   }
 });
-
 document.querySelectorAll('.nav-cta, #guestProfileBtn').forEach((button) => {
-  button.addEventListener('click', () => {
-    openAuth();
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+    const token = window.localStorage.getItem('preply-session-token');
+    const savedName = window.localStorage.getItem('preply-profile-name');
+    if (token && savedName) {
+      const profileSection = document.getElementById('profile');
+      if (profileSection) {
+        profileSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = 'profile';
+      }
+    } else {
+      openAuth();
+    }
   });
 });
+
+if (typeof window !== 'undefined') {
+  if (window.location.search.includes('login=1') || window.location.hash === '#login' || window.location.hash === '#auth') {
+    setTimeout(() => { if (typeof openAuth === 'function') openAuth(); }, 350);
+  }
+}
 
 let questions = [
   { topic: 'English Comprehension', text: 'Choose the correctly spelt word.', options: ['Accomodation', 'Accommodation', 'Acommodation', 'Accommadation'], answer: 1 },
