@@ -2965,6 +2965,49 @@ app.delete('/api/admin/mentor-chat/messages/:id', requireAuth, requireAdmin, (re
   messages.splice(index, 1);
   persistMessages();
   res.json({ ok: true, message: 'Message moderated and removed.' });
+// --- MONETIZATION & ADS (GOOGLE ADSENSE & SPONSORS) ---
+app.get('/ads.txt', (req, res) => {
+  res.type('text/plain');
+  if (fs.existsSync(ADS_TXT_PATH)) {
+    res.sendFile(ADS_TXT_PATH);
+  } else {
+    res.send('# Result Darpan (resultdarpan.com) Authorized Digital Sellers (ads.txt)\ngoogle.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0\n');
+  }
+});
+
+app.get('/api/ad-settings', (req, res) => {
+  res.json({ adSettings });
+});
+
+app.put('/api/admin/ad-settings', requireAuth, requireAdmin, (req, res) => {
+  const body = req.body || {};
+  adSettings = {
+    ...adSettings,
+    enabled: typeof body.enabled === 'boolean' ? body.enabled : adSettings.enabled,
+    adClient: typeof body.adClient === 'string' ? body.adClient.trim() : adSettings.adClient,
+    autoAds: typeof body.autoAds === 'boolean' ? body.autoAds : adSettings.autoAds,
+    showTopBanner: typeof body.showTopBanner === 'boolean' ? body.showTopBanner : adSettings.showTopBanner,
+    showInFeed: typeof body.showInFeed === 'boolean' ? body.showInFeed : adSettings.showInFeed,
+    showArticleBanner: typeof body.showArticleBanner === 'boolean' ? body.showArticleBanner : adSettings.showArticleBanner,
+    testMode: typeof body.testMode === 'boolean' ? body.testMode : adSettings.testMode,
+    updatedAt: new Date().toISOString()
+  };
+
+  persistAdSettings();
+
+  // If a valid Google AdSense pub ID is supplied, sync it to ads.txt automatically
+  const pubMatch = adSettings.adClient.match(/pub-\d+/);
+  if (pubMatch && fs.existsSync(ADS_TXT_PATH)) {
+    try {
+      const pubId = pubMatch[0];
+      const adsTxtContent = `# Result Darpan (resultdarpan.com) Authorized Digital Sellers (ads.txt)\ngoogle.com, ${pubId}, DIRECT, f08c47fec0942fa0\n`;
+      fs.writeFileSync(ADS_TXT_PATH, adsTxtContent, 'utf8');
+    } catch (e) {
+      console.warn('Could not auto-sync ads.txt:', e.message);
+    }
+  }
+
+  res.json({ success: true, adSettings });
 });
 
 app.get('/blogs', (req, res) => {
