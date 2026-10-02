@@ -6,8 +6,8 @@
     "subject": "Mathematics",
     "fileType": "PDF",
     "fileSize": "3.8 MB",
-    "downloadUrl": "https://Resultdarpan.com/resources.html#math-formulas",
-    "description": "Essential formulas for Percentages, Profit & Loss, Time & Work, Algebra identities, and Trigonometry tables.",
+    "downloadUrl": "https://resultdarpan.com/resources.html#math-formulas",
+    "description": "Essential formulas for Percentages, Profit & Loss, Time & Work, Algebra identities, Mensuration 2D/3D, and Trigonometry tables.",
     "createdAt": "2026-10-01T20:00:00.000Z"
   },
   {
@@ -17,8 +17,8 @@
     "subject": "Indian Polity",
     "fileType": "PDF",
     "fileSize": "2.5 MB",
-    "downloadUrl": "https://Resultdarpan.com/resources.html#polity-notes",
-    "description": "Quick revision notes on Fundamental Rights, DPSP, Parliament procedures, and the basic structure doctrine.",
+    "downloadUrl": "https://resultdarpan.com/resources.html#polity-notes",
+    "description": "Quick revision notes on Fundamental Rights, DPSP, Parliament procedures, Constitutional Amendments, and the Basic Structure Doctrine.",
     "createdAt": "2026-10-01T20:00:00.000Z"
   },
   {
@@ -28,8 +28,41 @@
     "subject": "English",
     "fileType": "PDF",
     "fileSize": "1.9 MB",
-    "downloadUrl": "https://Resultdarpan.com/resources.html#english-rules",
-    "description": "100 Most Repeated Idioms, Phrases, One-Word Substitutions, and Subject-Verb Agreement rules.",
+    "downloadUrl": "https://resultdarpan.com/resources.html#english-rules",
+    "description": "100 Most Repeated Idioms & Phrases, One-Word Substitutions, Subject-Verb Agreement rules, and preposition exceptions.",
     "createdAt": "2026-10-01T20:00:00.000Z"
+  },
+  {
+    "id": "mat-4",
+    "title": "General Science High-Yield Handout (Physics, Chemistry & Biology)",
+    "exam": "Railways RRB / SSC / State Exams",
+    "subject": "General Science",
+    "fileType": "PDF",
+    "fileSize": "4.2 MB",
+    "downloadUrl": "https://resultdarpan.com/resources.html#general-science",
+    "description": "Complete breakdown of SI units, human anatomy, diseases & vitamins, chemical reactions, periodic table trends, and everyday scientific laws.",
+    "createdAt": "2026-10-02T10:00:00.000Z"
+  },
+  {
+    "id": "mat-5",
+    "title": "Logical & Analytical Reasoning Mastery Cheat Sheet",
+    "exam": "Banking IBPS / SBI / SSC / Railways",
+    "subject": "Reasoning",
+    "fileType": "PDF",
+    "fileSize": "2.8 MB",
+    "downloadUrl": "https://resultdarpan.com/resources.html#reasoning-shortcuts",
+    "description": "Shortcuts and deduction matrices for Syllogisms, Blood Relations, Seating Arrangements, Coding-Decoding, and Direction Sense.",
+    "createdAt": "2026-10-02T11:00:00.000Z"
+  },
+  {
+    "id": "mat-6",
+    "title": "NCERT Class 9-12 Science & Mathematics Concept Compendium",
+    "exam": "School Boards / CBSE / ICSE",
+    "subject": "School Classes",
+    "fileType": "PDF",
+    "fileSize": "5.1 MB",
+    "downloadUrl": "https://resultdarpan.com/resources.html#ncert-concepts",
+    "description": "Chapter-wise quick revision summaries and formula reference sheets for Class 9, 10, 11, and 12 STEM curricula.",
+    "createdAt": "2026-10-02T12:00:00.000Z"
   }
 ]
