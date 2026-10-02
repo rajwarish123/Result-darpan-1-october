@@ -680,11 +680,78 @@ function launchConfetti() {
   window.setTimeout(() => confetti.remove(), 3000);
 }
 
-document.querySelectorAll('.start-test').forEach((button) => button.addEventListener('click', () => {
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('.start-test');
+  if (!button) return;
   activeQuestionSubject = null;
   activeMockTestId = button.dataset.mockTest || null;
   openTest();
-}));
+});
+
+// --- INTERACTIVE TESTIMONIALS CAROUSEL ---
+const testimonialsData = [
+  {
+    quote: "Result Darpan made my preparation feel organised for the first time. The detailed solutions helped me understand exactly where I was losing marks.",
+    author: "Namrata Sharma",
+    role: "Selected · SBI Clerk 2025",
+    avatar: "NS"
+  },
+  {
+    quote: "Practicing the full-length SSC CGL Tier-I mocks gave me exact exam hall pacing. My calculation speed and accuracy surged from 68% to 89%!",
+    author: "Rohit Verma",
+    role: "Selected · SSC CGL (Income Tax Inspector)",
+    avatar: "RV"
+  },
+  {
+    quote: "The RRB NTPC CBT mock tests were pinpoint accurate to the actual railway exam patterns. The sectional timing drills made all the difference.",
+    author: "Pooja Deshmukh",
+    role: "Selected · RRB NTPC Station Master",
+    avatar: "PD"
+  },
+  {
+    quote: "As a JEE Main aspirant, the chemistry and mathematics mocks helped me master high-weightage topics and speed problem solving.",
+    author: "Aditya Kumar",
+    role: "JEE Main 99.2 Percentile · NIT Trichy",
+    avatar: "AK"
+  },
+  {
+    quote: "The CTET Paper 1 and 2 practice tests cover the exact pedagogy questions. I cleared both papers in my very first attempt!",
+    author: "Meenakshi Sundaram",
+    role: "Qualified · CTET December & Primary Teacher",
+    avatar: "MS"
+  }
+];
+
+let currentTestimonialIndex = 0;
+function showTestimonial(idx) {
+  const quoteEl = document.getElementById('testimonialQuote');
+  const avatarEl = document.getElementById('testimonialAvatar');
+  const authorEl = document.getElementById('testimonialAuthor');
+  const roleEl = document.getElementById('testimonialRole');
+  if (!quoteEl || !authorEl) return;
+  const item = testimonialsData[idx];
+  quoteEl.textContent = item.quote;
+  authorEl.textContent = item.author;
+  if (roleEl) roleEl.textContent = item.role;
+  if (avatarEl) avatarEl.textContent = item.avatar;
+}
+
+document.getElementById('prevTestimonial')?.addEventListener('click', () => {
+  currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialsData.length) % testimonialsData.length;
+  showTestimonial(currentTestimonialIndex);
+});
+document.getElementById('nextTestimonial')?.addEventListener('click', () => {
+  currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialsData.length;
+  showTestimonial(currentTestimonialIndex);
+});
+
+// Edit profile & goals listeners
+document.getElementById('editProfile')?.addEventListener('click', () => {
+  openAuth();
+});
+document.getElementById('addGoal')?.addEventListener('click', () => {
+  openAuth();
+});
 document.querySelector('.close-test')?.addEventListener('click', closeTest);
 testModal?.addEventListener('click', (event) => { if (event.target === testModal) closeTest(); });
 document.querySelector('#answerOptions')?.addEventListener('click', (event) => {
