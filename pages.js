@@ -202,15 +202,25 @@ function updatePreviousYearSubjects() {
   const exam = previousYearFilter?.value === 'all' ? 'SSC CGL' : (previousYearFilter?.value || 'SSC CGL');
   const subjects = exam === 'SSC CGL' ? ['English', 'Hindi', 'Mathematics', 'Reasoning', 'General Awareness', 'Indian Polity'] : ['Mathematics', 'Hindi', 'Reasoning', 'General Awareness', 'General Science', 'Indian Polity'];
   previousYearSubjectFilter.innerHTML = subjects.map((subject) => `<option value="${subject}">${subject}</option>`).join('');
-  previousYearSetFilter.innerHTML = Array.from({ length: 50 }, (_, index) => `<option value="${index + 1}">Set ${index + 1}</option>`).join('');
+  previousYearSetFilter.innerHTML = `<option value="curated" selected>Official Curated PYQs</option>` + Array.from({ length: 50 }, (_, index) => `<option value="${index + 1}">Practice Set ${index + 1}</option>`).join('');
 }
 
 function loadPreviousYearSet() {
   const exam = previousYearFilter?.value || 'SSC CGL';
   const subject = previousYearSubjectFilter?.value || 'English';
-  const set = previousYearSetFilter?.value || '1';
+  const set = previousYearSetFilter?.value || 'curated';
   previousYearQuestions.innerHTML = '<p class="question-bank-status">Loading questions...</p>';
   const apiOrigin = '';
+
+  if (set === 'curated') {
+    const examParam = exam === 'all' ? '?includeAnswers=true' : `?exam=${encodeURIComponent(exam)}&includeAnswers=true`;
+    fetch(`${apiOrigin}/api/previous-year-questions${examParam}`)
+      .then((response) => response.json())
+      .then((payload) => { previousYearBank = payload.questions || []; renderPreviousYearQuestions(); })
+      .catch(() => { previousYearQuestions.innerHTML = '<p class="question-bank-status">Questions could not be loaded.</p>'; });
+    return;
+  }
+
   fetch(`${apiOrigin}/api/question-sets?exam=${encodeURIComponent(exam)}&subject=${encodeURIComponent(subject)}&set=${set}&includeAnswers=true`)
     .then((response) => response.json())
     .then((payload) => { previousYearBank = payload.questions || []; renderPreviousYearQuestions(); })
