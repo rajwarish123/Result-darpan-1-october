@@ -512,6 +512,17 @@ const customQuestionSets = readJson(QUESTION_SETS_PATH, []);
 const notifications = readJson(NOTIFICATIONS_PATH, []);
 const blogs = readJson(BLOGS_PATH, []);
 const studyMaterials = readJson(STUDY_MATERIALS_PATH, []);
+const previousYearQuestionsList = readJson(PREVIOUS_YEAR_QUESTIONS_PATH, []);
+let pyqNeedsSave = false;
+previousYearQuestionsList.forEach((q, idx) => {
+  if (!q.id) {
+    q.id = `pyq-${idx + 1}`;
+    pyqNeedsSave = true;
+  }
+});
+if (pyqNeedsSave) {
+  writeJson(PREVIOUS_YEAR_QUESTIONS_PATH, previousYearQuestionsList);
+}
 const chatClients = new Set();
 const passwordResetRequests = new Map();
 const passwordResetRateLimits = new Map();
