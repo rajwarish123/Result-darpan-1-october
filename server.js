@@ -840,7 +840,9 @@ app.get('/api/question-set-catalog', (req, res) => {
 const mockTests = {
   'sbi-clerk': { exam: 'SBI Clerk', title: 'SBI Clerk Prelims 2026', totalQuestions: 100, durationSeconds: 3600 },
   'ssc-cgl': { exam: 'SSC CGL', title: 'SSC CGL Tier-I Mock 01', totalQuestions: 100, durationSeconds: 3600 },
-  'nda-mathematics': { exam: 'NDA', title: 'NDA II 2026 · Mathematics', totalQuestions: 120, durationSeconds: 9000 }
+  'nda-mathematics': { exam: 'NDA', title: 'NDA II 2026 · Mathematics', totalQuestions: 120, durationSeconds: 9000 },
+  'rrb-ntpc': { exam: 'Railway NTPC', title: 'RRB NTPC CBT-I Mock 01', totalQuestions: 100, durationSeconds: 5400 },
+  'ctet-paper-1': { exam: 'CTET', title: 'CTET Paper-I Mock 2026', totalQuestions: 150, durationSeconds: 9000 }
 };
 
 function buildMockTest(testId) {
