@@ -587,7 +587,7 @@
               <span class="muted cms-card-readtime">${escapeHtml(b.readTime || '5 min read')}</span>
             </div>
             <h3 class="cms-card-title">${escapeHtml(b.title)}</h3>
-            <p class="cms-card-meta">By <strong>${escapeHtml(b.author || 'Warish Raj')}</strong></p>
+            <p class="cms-card-meta">By <strong>${escapeHtml(b.author || 'Result Darpan Team')}</strong></p>
             <p class="cms-card-summary">${escapeHtml(b.summary || '')}</p>
             ${tagsHtml}
           </div>
@@ -640,7 +640,7 @@
       const modal = document.getElementById('articleReaderModal');
       document.getElementById('readBlogCategory').textContent = blog.category || 'Article';
       document.getElementById('readBlogTitle').textContent = blog.title;
-      document.getElementById('readBlogMeta').textContent = `By ${blog.author || 'Warish Raj'} · ${blog.readTime || '5 min read'} · Published ${new Date(blog.createdAt || Date.now()).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+      document.getElementById('readBlogMeta').textContent = `By ${blog.author || 'Result Darpan Team'} · ${blog.readTime || '5 min read'} · Published ${new Date(blog.createdAt || Date.now()).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}`;
 
       const tagsWrap = document.getElementById('readBlogTags');
       if (tagsWrap) {
