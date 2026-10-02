@@ -1044,15 +1044,20 @@ async function loadLiveNotifications() {
 async function loadLiveBlogs() {
   const grid = document.getElementById('homeBlogsGrid');
   if (!grid) return;
+  const moreBtn = document.getElementById('btnReadAllBlogs');
   try {
     const res = await fetch('/api/blogs');
     if (!res.ok) return;
     const data = await res.json();
-    const blogs = data.blogs || [];
-    if (!blogs.length) {
+    const allBlogs = data.blogs || [];
+    if (!allBlogs.length) {
       grid.innerHTML = '<p class="muted">Check back soon for fresh revision roadmaps and topper strategy articles.</p>';
+      if (moreBtn) moreBtn.style.display = 'none';
       return;
     }
+
+    // Only show 2 blogs at a time on homepage
+    const blogs = allBlogs.slice(0, 2);
 
     grid.innerHTML = '';
     blogs.forEach((b) => {
@@ -1086,6 +1091,10 @@ async function loadLiveBlogs() {
 
       grid.appendChild(card);
     });
+
+    if (moreBtn) {
+      moreBtn.style.display = 'inline-flex';
+    }
   } catch (e) {
     console.warn('Could not load live blogs:', e.message);
   }
