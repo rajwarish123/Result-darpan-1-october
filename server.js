@@ -1244,6 +1244,51 @@ app.post('/api/classes/:classNumber/series/:subject/:set/results', optionalAuth,
   return res.json({ attempt });
 });
 
+const translationCache = new Map();
+
+async function translateSingleText(text, target = 'hi', source = 'en') {
+  if (!text || typeof text !== 'string') return text;
+  const clean = text.trim();
+  if (!clean) return clean;
+  if (target === 'hi' && /[\u0900-\u097F]/.test(clean)) return clean;
+  const key = `${source}:${target}:${clean}`;
+  if (translationCache.has(key)) return translationCache.get(key);
+
+  try {
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(clean)}&langpair=${encodeURIComponent(source)}|${encodeURIComponent(target)}`;
+    const res = await fetch(url);
+    if (res.ok) {
+      const data = await res.json();
+      if (data?.responseData?.translatedText) {
+        const result = data.responseData.translatedText;
+        translationCache.set(key, result);
+        return result;
+      }
+    }
+  } catch (err) {
+    console.warn('Translation proxy error:', err.message);
+  }
+  return clean;
+}
+
+app.get('/api/translate', async (req, res) => {
+  const text = typeof req.query.text === 'string' ? req.query.text.trim() : '';
+  const target = typeof req.query.target === 'string' ? req.query.target.trim().toLowerCase() : 'hi';
+  const source = typeof req.query.source === 'string' ? req.query.source.trim().toLowerCase() : 'en';
+  if (!text) return res.status(400).json({ error: 'Text query parameter is required.' });
+  const translatedText = await translateSingleText(text, target, source);
+  res.json({ originalText: text, translatedText, target, source });
+});
+
+app.post('/api/translate/batch', async (req, res) => {
+  const texts = Array.isArray(req.body?.texts) ? req.body.texts : [];
+  const target = typeof req.body?.target === 'string' ? req.body.target.trim().toLowerCase() : 'hi';
+  const source = typeof req.body?.source === 'string' ? req.body.source.trim().toLowerCase() : 'en';
+  if (!texts.length) return res.status(400).json({ error: 'Texts array is required.' });
+  const results = await Promise.all(texts.map((t) => translateSingleText(t, target, source)));
+  res.json({ translatedTexts: results, target, source });
+});
+
 app.post('/api/contact', (req, res) => {
   const { name, email, subject, message } = req.body || {};
   const contactName = typeof name === 'string' ? name.trim() : '';
