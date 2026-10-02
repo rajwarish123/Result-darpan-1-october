@@ -63,7 +63,10 @@ const blockedSpecificPaths = [
   '/package.json',
   '/package-lock.json',
   '/set-admin-password.js',
-  '/script.ps1'
+  '/script.ps1',
+  '/admin',
+  '/admin.html',
+  '/wariya.html'
 ];
 app.use((req, res, next) => {
   const norm = req.path.toLowerCase();
@@ -73,6 +76,19 @@ app.use((req, res, next) => {
     norm.startsWith('/.')
   ) {
     return res.status(404).end();
+  }
+  next();
+});
+
+// Clean URL redirect: redirect requests ending with .html (except /index.html) to extensionless clean URLs
+app.use((req, res, next) => {
+  if (req.method === 'GET' && req.path.endsWith('.html') && req.path !== '/index.html') {
+    const clean = req.path.slice(0, -5);
+    if (clean === '/admin') {
+      return res.status(404).sendFile(path.join(staticDir, 'index.html'));
+    }
+    const query = req.url.slice(req.path.length);
+    return res.redirect(301, clean + query);
   }
   next();
 });
