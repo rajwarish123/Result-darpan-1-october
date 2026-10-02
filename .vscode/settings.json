@@ -1,0 +1,6 @@
+{
+  "livePreview.defaultPreviewPath": "/index.html",
+  "livePreview.serverRoot": "${workspaceFolder}",
+  "liveServer.settings.root": "/",
+  "liveServer.settings.port": 5500
+}
