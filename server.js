@@ -3864,7 +3864,7 @@ app.get('/profile', (req, res) => {
 });
 
 app.get('/mentor-chat', (req, res) => {
-  sendFreshHtml(res, 'mentor-chat.html');
+  res.redirect(301, '/');
 });
 
 app.get('/class-series', (req, res) => {
