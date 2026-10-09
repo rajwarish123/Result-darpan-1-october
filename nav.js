@@ -280,6 +280,32 @@
     }
   });
 
+  const LOGIN_BADGE_HTML = `
+    <span class="rd-auth-inner">
+      <span class="rd-auth-icon-box" aria-hidden="true">
+        <svg class="rd-auth-svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M8 4h11a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H8" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 12h9" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M9 8l4 4-4 4" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="rd-auth-text">LOGIN</span>
+    </span>
+  `;
+
+  const LOGOUT_BADGE_HTML = `
+    <span class="rd-auth-inner">
+      <span class="rd-auth-icon-box" aria-hidden="true">
+        <svg class="rd-auth-svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M16 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 12H11" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M15 8l-4 4 4 4" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="rd-auth-text">LOGOUT</span>
+    </span>
+  `;
+
   // Global Header Profile Button Synchronizer
   function syncHeaderProfileButton() {
     const navActions = document.querySelector('.nav-actions');
@@ -289,7 +315,6 @@
     if (!profileBtn) {
       profileBtn = document.createElement('button');
       profileBtn.id = 'guestProfileBtn';
-      profileBtn.className = 'primary-btn nav-cta';
       navActions.appendChild(profileBtn);
     }
 
@@ -297,37 +322,45 @@
       window.location.protocol === 'file:' || 
       ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && window.location.port !== '3000');
 
-    const currentFile = window.location.pathname.replace(/^\/+/g, '').split('/').pop() || '';
-    const isHomePage = currentFile === '' || currentFile === 'index.html';
-
     const token = window.localStorage.getItem('preply-session-token');
     const savedName = window.localStorage.getItem('preply-profile-name');
 
     if (token && savedName) {
-      const shortName = savedName.split(' ')[0] || 'Learner';
-      profileBtn.innerHTML = `<span class="nav-cta-icon" aria-hidden="true">👤</span> <span class="nav-user-name">${shortName}</span>`;
-      profileBtn.setAttribute('aria-label', `Profile: ${savedName}`);
-      profileBtn.setAttribute('title', `Logged in as ${savedName}`);
-      profileBtn.classList.remove('login-btn');
-      profileBtn.classList.add('primary-btn', 'nav-cta');
+      profileBtn.innerHTML = LOGOUT_BADGE_HTML;
+      profileBtn.setAttribute('aria-label', `Logout (${savedName})`);
+      profileBtn.setAttribute('title', `Logged in as ${savedName} · Click to log out`);
+      profileBtn.className = 'rd-auth-badge-btn nav-cta is-logged-in';
     } else {
-      profileBtn.innerHTML = `<span class="nav-cta-icon" aria-hidden="true">👤</span> <span class="nav-text-desktop">Log in / Sign up</span><span class="nav-text-mobile">Log in</span>`;
-      profileBtn.setAttribute('aria-label', 'Log in or sign up');
-      profileBtn.removeAttribute('title');
-      profileBtn.classList.remove('login-btn');
-      profileBtn.classList.add('primary-btn', 'nav-cta');
+      profileBtn.innerHTML = LOGIN_BADGE_HTML;
+      profileBtn.setAttribute('aria-label', 'Login');
+      profileBtn.setAttribute('title', 'Log in to Result Darpan');
+      profileBtn.className = 'rd-auth-badge-btn nav-cta';
     }
 
     // Attach click handler
-    profileBtn.onclick = (e) => {
+    profileBtn.onclick = async (e) => {
       e.preventDefault();
-      const hasSession = window.localStorage.getItem('preply-session-token') && window.localStorage.getItem('preply-profile-name');
+      const hasSession = window.localStorage.getItem('preply-session-token');
       if (hasSession) {
-        const profileSection = document.getElementById('profile');
-        if (isHomePage && profileSection) {
-          profileSection.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.location.href = isLocalStatic ? 'profile.html' : 'profile';
+        const userName = window.localStorage.getItem('preply-profile-name') || 'Learner';
+        if (window.confirm(`Do you want to log out of ${userName}?`)) {
+          const authToken = window.localStorage.getItem('preply-session-token');
+          if (authToken) {
+            try {
+              await fetch('/api/auth/logout', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${authToken}` }
+              });
+            } catch (_) {}
+          }
+          window.localStorage.removeItem('preply-session-token');
+          window.localStorage.removeItem('preply-account-email');
+          window.localStorage.removeItem('preply-authenticated');
+          window.dispatchEvent(new Event('profile-session-changed'));
+          window.dispatchEvent(new Event('preply-profile-stats-update'));
+          syncHeaderProfileButton();
+          if (typeof loadHomeProfile === 'function') loadHomeProfile();
+          if (typeof loadAccountProfile === 'function') loadAccountProfile();
         }
       } else {
         if (typeof openAuth === 'function') {
