@@ -382,6 +382,10 @@ function renderPreviousYearQuestions() {
       answer.textContent = `✓ Answer: ${String.fromCharCode(65 + question.answer)}. ${question.options[question.answer]}`;
       answer.style.background = '#27ae60';
       answer.disabled = true;
+      if (window.RDGameEngine) {
+        window.RDGameEngine.SoundFX.correct();
+        window.RDGameEngine.addXP(10, 'pyq', answer);
+      }
     });
 
     const source = document.createElement('a');
