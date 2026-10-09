@@ -800,6 +800,90 @@
       renderChestCTA();
       updateHUD();
     }, 60000);
+
+    // Auto-slide bottom out after 2 minutes of entering website
+    initHudSlideOutTimer();
+  }
+
+  // =========================================================================
+  // 8. AUTO-SLIDE OUT HUD AFTER 2 MINUTES OF ENTERING WEBSITE
+  // =========================================================================
+  const TWO_MINUTES_MS = 120000;
+  let hudIsHidden = false;
+  let hudPeekTimer = null;
+
+  function initHudSlideOutTimer() {
+    const hud = document.getElementById('rdGameHud');
+    if (!hud) return;
+
+    // Track user site entry time in sessionStorage
+    let siteEnterTime = parseInt(window.sessionStorage.getItem('rd_site_enter_time') || '0', 10);
+    if (!siteEnterTime || isNaN(siteEnterTime)) {
+      siteEnterTime = Date.now();
+      window.sessionStorage.setItem('rd_site_enter_time', String(siteEnterTime));
+    }
+
+    const elapsedMs = Date.now() - siteEnterTime;
+    const remainingMs = TWO_MINUTES_MS - elapsedMs;
+
+    // If user has already been on site for >= 2 minutes, wait 2.5 seconds after page load then slide out smoothly
+    const delay = remainingMs <= 0 ? 2500 : remainingMs;
+
+    setTimeout(() => {
+      slideOutHud();
+    }, delay);
+  }
+
+  function slideOutHud() {
+    const hud = document.getElementById('rdGameHud');
+    if (!hud) return;
+    hud.classList.remove('rd-hud-slide-in');
+    hud.classList.add('rd-hud-slide-out');
+    hudIsHidden = true;
+    showHudPeekPill();
+  }
+
+  function slideInHud(autoHideSeconds = 0) {
+    const hud = document.getElementById('rdGameHud');
+    if (!hud) return;
+    hud.classList.remove('rd-hud-slide-out');
+    hud.classList.add('rd-hud-slide-in');
+    hudIsHidden = false;
+    hideHudPeekPill();
+
+    clearTimeout(hudPeekTimer);
+    if (autoHideSeconds > 0) {
+      hudPeekTimer = setTimeout(() => {
+        slideOutHud();
+      }, autoHideSeconds * 1000);
+    }
+  }
+
+  function showHudPeekPill() {
+    let pill = document.getElementById('rdHudPeekPill');
+    if (!pill) {
+      pill = document.createElement('button');
+      pill.id = 'rdHudPeekPill';
+      pill.className = 'rd-hud-peek-pill';
+      pill.type = 'button';
+      pill.title = 'Open Game Progress Desk';
+      pill.setAttribute('aria-label', 'Open Game Progress Desk');
+      pill.innerHTML = `<span>⚡</span> <span>HUD</span>`;
+      pill.addEventListener('click', () => {
+        slideInHud(0);
+      });
+      document.body.appendChild(pill);
+    }
+    setTimeout(() => {
+      if (hudIsHidden && pill) pill.classList.add('visible');
+    }, 600);
+  }
+
+  function hideHudPeekPill() {
+    const pill = document.getElementById('rdHudPeekPill');
+    if (pill) {
+      pill.classList.remove('visible');
+    }
   }
 
   // Run on DOMContentLoaded or immediate if loaded later
@@ -821,10 +905,15 @@
       spawnFloatingXP(amount, originEl);
       updateHUD();
       renderLeagueUI();
+      if (hudIsHidden) {
+        slideInHud(6);
+      }
     },
     triggerQuestionAnswered: handleQuestionAnswered,
     triggerTestCompleted: handleTestCompleted,
-    openMysteryChest: openMysteryChestModal
+    openMysteryChest: openMysteryChestModal,
+    slideOutHud,
+    slideInHud
   };
 
 })();
