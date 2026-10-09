@@ -245,83 +245,119 @@ html, body {
     white-space: nowrap;
   }
 
-  /* Hero Section */
+  /* Hero Section - Distraction Free & Tightly Aligned */
   .hero-grid {
-    grid-template-columns: 1fr;
-    min-height: 0;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
   }
   .hero-copy {
-    padding: 48px 0 28px !important;
+    padding: 28px 0 12px !important;
   }
   .hero-copy h1 {
-    font-size: clamp(32px, 8.5vw, 44px);
-    letter-spacing: -1.2px;
-    line-height: 1.2;
+    font-size: clamp(30px, 8vw, 40px) !important;
+    letter-spacing: -1px !important;
+    line-height: 1.2 !important;
   }
   .hero-copy p {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    margin: 14px 0 20px !important;
   }
   .hero-actions {
-    flex-wrap: wrap;
-    gap: 12px;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
   }
   .hero-actions .primary-btn,
   .hero-actions .play-btn {
-    padding: 11px 18px;
-    font-size: 13px;
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 18px !important;
+    font-size: 13.5px !important;
+    box-sizing: border-box !important;
+  }
+  .hero-proof {
+    margin-top: 18px !important;
+    margin-bottom: 0 !important;
+    font-size: 11.5px !important;
   }
 
-  /* Hero Illustration & Floating Badges */
+  /* Remove 300px blank space caused by hero-art on mobile */
   .hero-art {
-    height: 300px;
-    max-width: 100%;
-    margin: 8px auto 0;
-    overflow: hidden;
-    position: relative;
-  }
-  .floating-note.note-top {
-    right: 8px !important;
-    top: 20px !important;
-  }
-  .floating-note.note-bottom {
-    left: 8px !important;
-    bottom: 24px !important;
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
   }
 
-  /* Trust Row Badges */
+  /* Trust Row Badges - Clean & Proportional */
   .trust-row {
-    display: block;
-    padding: 20px 0;
+    display: block !important;
+    padding: 14px 0 16px !important;
+    margin-top: 8px !important;
+    border-top: 1px solid var(--line, #dce5df) !important;
   }
   .trust-row > div {
-    gap: 10px 14px;
-    flex-wrap: wrap;
-    margin-top: 10px;
+    gap: 8px 12px !important;
+    flex-wrap: wrap !important;
+    margin-top: 8px !important;
   }
 
-  /* Stats Section */
+  /* Stats Section - Complete Containment of All 3 Stats */
   .stats-section {
+    background: var(--green, #175e4b) !important;
     height: auto !important;
     min-height: 0 !important;
     margin: 0 !important;
-    padding: 28px 0 !important;
+    padding: 34px 0 32px !important;
     transform: none !important;
-    overflow: visible;
+    overflow: visible !important;
+    position: relative !important;
   }
   .stats-grid {
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px 20px !important;
+    gap: 18px 20px !important;
+    height: auto !important;
+    align-items: start !important;
   }
   .stats-intro {
-    grid-column: 1 / -1;
+    grid-column: 1 / -1 !important;
+    margin-bottom: 2px !important;
   }
   .stats-intro h2 {
-    font-size: 28px !important;
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+    color: #ffffff !important;
+    margin: 0 0 6px !important;
+    white-space: normal !important;
+  }
+  .stats-intro p {
+    font-size: 12.5px !important;
+    color: #d1ead8 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+  .stat {
+    border-left: 2px solid rgba(255, 255, 255, 0.35) !important;
+    padding-left: 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
   .stat strong {
-    font-size: 32px !important;
+    font-size: 28px !important;
+    color: #ffffff !important;
+    line-height: 1.1 !important;
   }
+  .stat > span {
+    font-size: 11px !important;
+    color: #d1ead8 !important;
+    margin-top: 3px !important;
+  }
+
 
   /* Swipeable Horizontal Rows (Exams & Subjects & Chips) */
   .category-row,
