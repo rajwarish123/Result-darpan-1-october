@@ -1887,6 +1887,11 @@
 .more-menu.open .more-dropdown {
   display: block;
 }
+@media (min-width: 801px) {
+  .more-menu:hover .more-dropdown {
+    display: block;
+  }
+}
 .more-dropdown a {
   display: flex;
   align-items: center;
