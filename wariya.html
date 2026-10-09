@@ -1897,7 +1897,7 @@ Topic: Mechanics
     }
 
     // Auth Flow
-    async function checkAuthAndInit() {
+    async function checkAuthAndInit(isManual = false) {
       const token = getAuthToken();
       const authRequiredCard = document.getElementById('authRequiredCard');
       const adminMainContent = document.getElementById('adminMainContent');
@@ -1905,25 +1905,31 @@ Topic: Mechanics
       const adminUserPill = document.getElementById('adminUserPill');
       const adminUserEmail = document.getElementById('adminUserEmail');
       const btnAdminLogout = document.getElementById('btnAdminLogout');
+      const errorEl = document.getElementById('loginError');
 
       if (!token) {
         authRequiredCard.style.display = 'block';
         adminMainContent.style.display = 'none';
         adminUserPill.style.display = 'none';
         btnAdminLogout.style.display = 'none';
+        errorEl.style.display = 'none';
         return;
       }
 
       try {
         const res = await apiFetch('/api/admin/summary');
         if (!res.ok) {
-          throw new Error('You do not have administrator permissions or your session expired.');
+          const errData = await res.json().catch(() => ({}));
+          const errMsg = errData.error || (res.status === 403 ? 'This account does not have administrator privileges.' : 'Your session has expired. Please sign in again.');
+          localStorage.removeItem('preply-session-token');
+          throw new Error(errMsg);
         }
         const data = await res.json();
         authRequiredCard.style.display = 'none';
         adminMainContent.style.display = 'block';
         adminUserPill.style.display = 'inline-flex';
         btnAdminLogout.style.display = 'inline-flex';
+        errorEl.style.display = 'none';
 
         // Check user profile for email
         try {
@@ -1945,8 +1951,13 @@ Topic: Mechanics
         adminMainContent.style.display = 'none';
         adminUserPill.style.display = 'none';
         btnAdminLogout.style.display = 'none';
-        document.getElementById('loginError').textContent = err.message;
-        document.getElementById('loginError').style.display = 'block';
+        if (isManual) {
+          errorEl.textContent = err.message;
+          errorEl.style.display = 'block';
+        } else {
+          // Silent prompt to sign in without scary error banner on initial arrival
+          errorEl.style.display = 'none';
+        }
       }
     }
 
@@ -1956,7 +1967,13 @@ Topic: Mechanics
       const email = document.getElementById('loginEmail').value.trim();
       const password = document.getElementById('loginPassword').value;
       const errorEl = document.getElementById('loginError');
+      const submitBtn = document.getElementById('btnSubmitLogin');
       errorEl.style.display = 'none';
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Signing in...';
+      }
 
       try {
         const res = await fetch('/api/auth/login', {
@@ -1967,16 +1984,21 @@ Topic: Mechanics
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Login failed');
         localStorage.setItem('preply-session-token', data.token);
-        await checkAuthAndInit();
+        await checkAuthAndInit(true);
       } catch (err) {
         errorEl.textContent = err.message;
         errorEl.style.display = 'block';
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Sign In to Dashboard <span>→</span>';
+        }
       }
     });
 
     document.getElementById('btnAdminLogout').addEventListener('click', () => {
       localStorage.removeItem('preply-session-token');
-      checkAuthAndInit();
+      checkAuthAndInit(false);
     });
 
     // Tab Navigation
