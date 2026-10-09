@@ -81,21 +81,58 @@ async function getLiveAuthToken() {
   return null;
 }
 
-function saveToDisk(filename, data) {
+function mergeList(existing, incoming, key = 'id') {
+  if (!Array.isArray(incoming) || incoming.length === 0) return existing || [];
+  if (!Array.isArray(existing) || existing.length === 0) return incoming;
+  const map = new Map();
+  existing.forEach(i => {
+    const k = i[key] || i.title || i.text || JSON.stringify(i);
+    map.set(k, i);
+  });
+  incoming.forEach(i => {
+    const k = i[key] || i.title || i.text || JSON.stringify(i);
+    if (!map.has(k)) {
+      map.set(k, i);
+    } else {
+      const existTime = Date.parse(map.get(k).updatedAt || map.get(k).createdAt || 0) || 0;
+      const inTime = Date.parse(i.updatedAt || i.createdAt || 0) || 0;
+      if (inTime >= existTime) {
+        map.set(k, i);
+      }
+    }
+  });
+  return Array.from(map.values());
+}
+
+function saveToDisk(filename, data, key = 'id') {
   const localFile = path.join(LOCAL_DATA_DIR, filename);
-  const jsonStr = JSON.stringify(data, null, 2);
+  let finalData = data;
+
+  if (Array.isArray(data)) {
+    let existingList = [];
+    try {
+      if (fs.existsSync(localFile)) {
+        const raw = fs.readFileSync(localFile, 'utf8');
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) existingList = parsed;
+      }
+    } catch (_) {}
+    finalData = mergeList(existingList, data, key);
+  }
+
+  const jsonStr = JSON.stringify(finalData, null, 2);
   
   // Only write if content actually changed to avoid spurious disk I/O
-  let existing = '';
+  let existingStr = '';
   try {
     if (fs.existsSync(localFile)) {
-      existing = fs.readFileSync(localFile, 'utf8');
+      existingStr = fs.readFileSync(localFile, 'utf8');
     }
   } catch (_) {}
 
-  if (existing.trim() !== jsonStr.trim()) {
+  if (existingStr.trim() !== jsonStr.trim()) {
     fs.writeFileSync(localFile, jsonStr, 'utf8');
-    log(`✓ Updated ${filename} on local workspace`);
+    log(`✓ Updated ${filename} on local workspace (${Array.isArray(finalData) ? finalData.length + ' items' : 'saved'})`);
 
     // Also mirror to sister folder if exists
     try {
