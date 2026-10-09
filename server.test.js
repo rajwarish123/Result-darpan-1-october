@@ -60,7 +60,7 @@ test('GET /api/health returns ok', async () => {
 test('GET /api/questions returns the full multi-exam question bank', async () => {
   const response = await request(app).get('/api/questions');
   assert.equal(response.status, 200);
-  assert.equal(response.body.questions.length, 518);
+  assert.equal(response.body.questions.length, 644);
   assert.deepEqual(new Set(response.body.questions.map((question) => question.exam)), new Set(['SSC CGL', 'Railway NTPC', 'Railway Group D']));
 });
 
