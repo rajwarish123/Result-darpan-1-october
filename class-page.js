@@ -660,6 +660,9 @@
       if (res.ok) {
         const data = await res.json();
         graded = data.attempt;
+        if (data.gamification && typeof window.checkForLevelUp === 'function') {
+          window.checkForLevelUp(data.gamification);
+        }
       }
     } catch (_) {}
 
