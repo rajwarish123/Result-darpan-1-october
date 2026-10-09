@@ -2888,10 +2888,12 @@ function saveTestResult(req, res) {
   persistUsers();
 
   const stats = getUserStats(user);
+  const gamification = getGamificationStats(user);
 
   res.status(201).json({
     attempt,
-    stats
+    stats,
+    gamification
   });
 }
 
