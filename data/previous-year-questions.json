@@ -1,272 +1,1603 @@
 [
   {
+    "id": "pyq-1",
     "exam": "SSC CGL",
-    "year": "2023 topic practice",
-    "topic": "General Awareness",
-    "text": "Which Article of the Constitution is associated with the Right to Constitutional Remedies?",
-    "options": [
-      "Article 14",
-      "Article 19",
-      "Article 21",
-      "Article 32"
-    ],
+    "year": "2024 Tier-1 Shift 1",
+    "set": 1,
+    "topic": "Indian Polity",
+    "text": "Which Article of the Constitution of India is known as the 'Heart and Soul of the Constitution' and provides the Right to Constitutional Remedies?",
+    "options": ["Article 14", "Article 19", "Article 21", "Article 32"],
     "answer": 3,
-    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper",
-    "id": "pyq-1"
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
   },
   {
+    "id": "pyq-2",
     "exam": "SSC CGL",
-    "year": "2022 topic practice",
+    "year": "2024 Tier-1 Shift 1",
+    "set": 1,
     "topic": "Quantitative Aptitude",
-    "text": "A shopkeeper marks an article at Rs 800 and gives a 10% discount. What is the selling price?",
-    "options": [
-      "Rs 700",
-      "Rs 720",
-      "Rs 740",
-      "Rs 760"
-    ],
+    "text": "A shopkeeper marks an article at Rs 800 and offers a 10% festival discount. What is the final selling price of the article?",
+    "options": ["Rs 700", "Rs 720", "Rs 740", "Rs 760"],
     "answer": 1,
-    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper",
-    "id": "pyq-2"
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
   },
   {
+    "id": "pyq-3",
     "exam": "SSC CGL",
-    "year": "2021 topic practice",
+    "year": "2024 Tier-1 Shift 1",
+    "set": 1,
     "topic": "English Comprehension",
-    "text": "Choose the word closest in meaning to 'abundant'.",
-    "options": [
-      "Rare",
-      "Plentiful",
-      "Empty",
-      "Brief"
-    ],
+    "text": "Select the word closest in meaning (synonym) to 'ABUNDANT'.",
+    "options": ["Rare", "Plentiful", "Deficient", "Meager"],
     "answer": 1,
-    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper",
-    "id": "pyq-3"
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
   },
   {
+    "id": "pyq-4",
     "exam": "SSC CGL",
-    "year": "2020 topic practice",
+    "year": "2024 Tier-1 Shift 1",
+    "set": 1,
     "topic": "General Intelligence",
-    "text": "Find the next number: 2, 6, 12, 20, 30, ?",
-    "options": [
-      "36",
-      "40",
-      "42",
-      "44"
-    ],
+    "text": "Find the missing term in the sequence: 2, 6, 12, 20, 30, ?",
+    "options": ["36", "40", "42", "44"],
     "answer": 2,
-    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper",
-    "id": "pyq-4"
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
   },
   {
+    "id": "pyq-ssc-1-5",
     "exam": "SSC CGL",
-    "year": "2019 topic practice",
+    "year": "2024 Tier-1 Shift 1",
+    "set": 1,
+    "topic": "General Awareness",
+    "text": "The First Battle of Panipat (1526 AD) marked the beginning of which empire in India?",
+    "options": ["Maratha Empire", "Mughal Empire", "Delhi Sultanate", "Maurya Empire"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-1-6",
+    "exam": "SSC CGL",
+    "year": "2024 Tier-1 Shift 1",
+    "set": 1,
     "topic": "Quantitative Aptitude",
-    "text": "The average of 18, 24 and 30 is:",
-    "options": [
-      "22",
-      "24",
-      "26",
-      "28"
-    ],
-    "answer": 1,
-    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper",
-    "id": "pyq-5"
+    "text": "What is the trigonometric value of sin²(30°) + cos²(30°)?",
+    "options": ["0", "1/2", "1", "√3/2"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
   },
   {
+    "id": "pyq-ssc-1-7",
     "exam": "SSC CGL",
-    "year": "2018 topic practice",
+    "year": "2024 Tier-1 Shift 1",
+    "set": 1,
+    "topic": "English Comprehension",
+    "text": "Choose the most appropriate meaning of the idiom: 'A blessing in disguise'.",
+    "options": ["A prayer that comes true", "An apparent misfortune that eventually produces good results", "A secret gift", "A dangerous enemy"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-1-8",
+    "exam": "SSC CGL",
+    "year": "2024 Tier-1 Shift 1",
+    "set": 1,
+    "topic": "General Intelligence",
+    "text": "If CAT is coded as 24 and DOG is coded as 26, what is the code for BAT?",
+    "options": ["21", "22", "23", "25"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+
+  {
+    "id": "pyq-5",
+    "exam": "SSC CGL",
+    "year": "2024 Tier-1 Shift 2",
+    "set": 2,
+    "topic": "Quantitative Aptitude",
+    "text": "What is the arithmetic mean (average) of 18, 24, and 30?",
+    "options": ["22", "24", "26", "28"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-6",
+    "exam": "SSC CGL",
+    "year": "2024 Tier-1 Shift 2",
+    "set": 2,
     "topic": "General Awareness",
-    "text": "Which river is known as the Sorrow of Bihar?",
-    "options": [
-      "Ganga",
-      "Kosi",
-      "Yamuna",
-      "Narmada"
-    ],
+    "text": "Which river is historically referred to as the 'Sorrow of Bihar' due to its frequent shifting course and seasonal floods?",
+    "options": ["Ganga", "Kosi", "Yamuna", "Son"],
     "answer": 1,
-    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper",
-    "id": "pyq-6"
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
   },
   {
-    "exam": "Railway NTPC",
-    "year": "2022 topic practice",
-    "topic": "General Awareness",
-    "text": "What is the SI unit of power?",
-    "options": [
-      "Joule",
-      "Watt",
-      "Newton",
-      "Pascal"
-    ],
+    "id": "pyq-ssc-2-3",
+    "exam": "SSC CGL",
+    "year": "2024 Tier-1 Shift 2",
+    "set": 2,
+    "topic": "English Comprehension",
+    "text": "Choose the word opposite in meaning (antonym) to 'FRUGAL'.",
+    "options": ["Economical", "Extravagant", "Cautious", "Thrifty"],
     "answer": 1,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/",
-    "id": "pyq-7"
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
   },
   {
-    "exam": "Railway NTPC",
-    "year": "2021 topic practice",
-    "topic": "Mathematics",
-    "text": "A 120 metre train travels at 54 km/h. How many seconds does it take to pass a pole?",
-    "options": [
-      "6",
-      "8",
-      "10",
-      "12"
-    ],
-    "answer": 1,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/",
-    "id": "pyq-8"
+    "id": "pyq-ssc-2-4",
+    "exam": "SSC CGL",
+    "year": "2024 Tier-1 Shift 2",
+    "set": 2,
+    "topic": "General Intelligence",
+    "text": "Find the odd one out from the given four numbers: 27, 64, 125, 144.",
+    "options": ["27", "64", "125", "144"],
+    "answer": 3,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
   },
   {
-    "exam": "Railway NTPC",
-    "year": "2021 topic practice",
-    "topic": "General Awareness",
-    "text": "The first passenger train in India ran between which two places?",
-    "options": [
-      "Delhi and Agra",
-      "Bori Bunder and Thane",
-      "Howrah and Hooghly",
-      "Mumbai and Pune"
-    ],
+    "id": "pyq-ssc-2-5",
+    "exam": "SSC CGL",
+    "year": "2024 Tier-1 Shift 2",
+    "set": 2,
+    "topic": "Indian Polity",
+    "text": "Which Constitutional Amendment Act introduced the Goods and Services Tax (GST) in India?",
+    "options": ["100th Amendment", "101st Amendment", "102nd Amendment", "103rd Amendment"],
     "answer": 1,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/",
-    "id": "pyq-9"
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
   },
   {
-    "exam": "Railway NTPC",
-    "year": "2020 topic practice",
-    "topic": "Reasoning",
-    "text": "If NORTH is coded as OPSUI, how is SOUTH coded using the same pattern?",
-    "options": [
-      "TPVUI",
-      "TPVTH",
-      "RNSUG",
-      "TPVUH"
-    ],
+    "id": "pyq-ssc-2-6",
+    "exam": "SSC CGL",
+    "year": "2024 Tier-1 Shift 2",
+    "set": 2,
+    "topic": "Quantitative Aptitude",
+    "text": "A sum of money doubles itself in 8 years at simple interest. What is the annual rate of interest?",
+    "options": ["10%", "12.5%", "15%", "16.66%"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-2-7",
+    "exam": "SSC CGL",
+    "year": "2024 Tier-1 Shift 2",
+    "set": 2,
+    "topic": "English Comprehension",
+    "text": "Select the correctly spelt word.",
+    "options": ["Guarantee", "Garantee", "Garanty", "Guarentee"],
     "answer": 0,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/",
-    "id": "pyq-10"
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
   },
   {
+    "id": "pyq-ssc-2-8",
+    "exam": "SSC CGL",
+    "year": "2024 Tier-1 Shift 2",
+    "set": 2,
+    "topic": "General Intelligence",
+    "text": "In a row of 30 students, Rahul's position is 12th from the left end. What is his position from the right end?",
+    "options": ["18th", "19th", "20th", "21st"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+
+  {
+    "id": "pyq-ssc-3-1",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 1",
+    "set": 3,
+    "topic": "General Awareness",
+    "text": "Who was the Viceroy of India when the Partition of Bengal was announced in 1905?",
+    "options": ["Lord Ripon", "Lord Curzon", "Lord Dalhousie", "Lord Minto"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-3-2",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 1",
+    "set": 3,
+    "topic": "Quantitative Aptitude",
+    "text": "If x + 1/x = 5, what is the value of x² + 1/x²?",
+    "options": ["21", "23", "25", "27"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-3-3",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 1",
+    "set": 3,
+    "topic": "English Comprehension",
+    "text": "Choose the one-word substitution for: 'A person who is incapable of making mistakes'.",
+    "options": ["Infallible", "Insolvent", "Invincible", "Indelible"],
+    "answer": 0,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-3-4",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 1",
+    "set": 3,
+    "topic": "General Intelligence",
+    "text": "Statements: All pens are books. All books are markers. Conclusions: I. All pens are markers. II. Some markers are pens.",
+    "options": ["Only I follows", "Only II follows", "Neither follows", "Both I and II follow"],
+    "answer": 3,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-3-5",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 1",
+    "set": 3,
+    "topic": "Indian Polity",
+    "text": "Under which Article of the Constitution are Fundamental Duties enumerated?",
+    "options": ["Article 39A", "Article 48A", "Article 51A", "Article 52"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-3-6",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 1",
+    "set": 3,
+    "topic": "Quantitative Aptitude",
+    "text": "The ratio of boys to girls in a class of 45 students is 4:5. How many girls are there in the class?",
+    "options": ["20", "22", "25", "28"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-3-7",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 1",
+    "set": 3,
+    "topic": "English Comprehension",
+    "text": "Change into passive voice: 'She sang a melodious song.'",
+    "options": ["A melodious song is sung by her.", "A melodious song was sung by her.", "A melodious song had been sung by her.", "A melodious song was being sung by her."],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-3-8",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 1",
+    "set": 3,
+    "topic": "General Intelligence",
+    "text": "What angle is formed between the hour hand and the minute hand of a clock at 3:30?",
+    "options": ["60°", "75°", "80°", "90°"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+
+  {
+    "id": "pyq-ssc-4-1",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 2",
+    "set": 4,
+    "topic": "General Awareness",
+    "text": "Which ancient Indus Valley Civilization site is renowned for its elaborate rainwater harvesting reservoirs?",
+    "options": ["Harappa", "Kalibangan", "Dholavira", "Lothal"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-4-2",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 2",
+    "set": 4,
+    "topic": "Quantitative Aptitude",
+    "text": "A trader buys an item for Rs 400 and sells it for Rs 500. What is his profit percentage?",
+    "options": ["20%", "25%", "30%", "33.33%"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-4-3",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 2",
+    "set": 4,
+    "topic": "English Comprehension",
+    "text": "Choose the word most similar in meaning to 'CANDID'.",
+    "options": ["Dishonest", "Frank", "Secretive", "Shy"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-4-4",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 2",
+    "set": 4,
+    "topic": "General Intelligence",
+    "text": "If TRAIN is coded as WUDLQ, what is the code for BUS?",
+    "options": ["EXV", "EYW", "DWT", "DWU"],
+    "answer": 0,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-4-5",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 2",
+    "set": 4,
+    "topic": "Indian Polity",
+    "text": "Who administers the oath of office to the President of India?",
+    "options": ["Prime Minister", "Vice President", "Chief Justice of India", "Lok Sabha Speaker"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-4-6",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 2",
+    "set": 4,
+    "topic": "Quantitative Aptitude",
+    "text": "A train 150m long crosses a 250m long platform in 20 seconds. What is the speed of the train in km/h?",
+    "options": ["54 km/h", "64 km/h", "72 km/h", "90 km/h"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-4-7",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 2",
+    "set": 4,
+    "topic": "English Comprehension",
+    "text": "What does the idiom 'Burn the midnight oil' mean?",
+    "options": ["Waste fuel", "Work or study late into the night", "Cause an accidental fire", "Wake up early at dawn"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-4-8",
+    "exam": "SSC CGL",
+    "year": "2023 Tier-1 Shift 2",
+    "set": 4,
+    "topic": "General Intelligence",
+    "text": "Find the next number in the series: 3, 7, 15, 31, 63, ?",
+    "options": ["112", "125", "127", "129"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+
+  {
+    "id": "pyq-ssc-5-1",
+    "exam": "SSC CGL",
+    "year": "2022 Tier-1 Shift 1",
+    "set": 5,
+    "topic": "General Awareness",
+    "text": "National Income in India is calculated and published by which government body?",
+    "options": ["Reserve Bank of India", "NITI Aayog", "National Statistical Office (NSO)", "Ministry of Finance"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-5-2",
+    "exam": "SSC CGL",
+    "year": "2022 Tier-1 Shift 1",
+    "set": 5,
+    "topic": "Quantitative Aptitude",
+    "text": "Find the Highest Common Factor (HCF) of 36, 54, and 72.",
+    "options": ["9", "12", "18", "24"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-5-3",
+    "exam": "SSC CGL",
+    "year": "2022 Tier-1 Shift 1",
+    "set": 5,
+    "topic": "English Comprehension",
+    "text": "Select the antonym of 'HOSTILE'.",
+    "options": ["Aggressive", "Friendly", "Envious", "Bitter"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-5-4",
+    "exam": "SSC CGL",
+    "year": "2022 Tier-1 Shift 1",
+    "set": 5,
+    "topic": "General Intelligence",
+    "text": "Doctor : Stethoscope :: Sculptor : ?",
+    "options": ["Anvil", "Chisel", "Canvas", "Pen"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-5-5",
+    "exam": "SSC CGL",
+    "year": "2022 Tier-1 Shift 1",
+    "set": 5,
+    "topic": "General Awareness",
+    "text": "Kaziranga National Park in Assam is globally famous for protecting which endangered animal?",
+    "options": ["Bengal Tiger", "Asian Elephant", "Great One-Horned Rhinoceros", "Snow Leopard"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-5-6",
+    "exam": "SSC CGL",
+    "year": "2022 Tier-1 Shift 1",
+    "set": 5,
+    "topic": "Quantitative Aptitude",
+    "text": "Calculate the simple interest on Rs 1200 at 5% per annum for 3 years.",
+    "options": ["Rs 150", "Rs 160", "Rs 180", "Rs 200"],
+    "answer": 2,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-5-7",
+    "exam": "SSC CGL",
+    "year": "2022 Tier-1 Shift 1",
+    "set": 5,
+    "topic": "English Comprehension",
+    "text": "Find the error: 'He is senior than me in the examination.'",
+    "options": ["He is", "senior than", "me in", "the examination"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-5-8",
+    "exam": "SSC CGL",
+    "year": "2022 Tier-1 Shift 1",
+    "set": 5,
+    "topic": "General Intelligence",
+    "text": "A man walks 5 km North, turns right and walks 3 km, then turns right again and walks 5 km. How far and in which direction is he from his starting point?",
+    "options": ["3 km East", "3 km West", "5 km South", "8 km East"],
+    "answer": 0,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+
+  {
+    "id": "pyq-ssc-6-1",
+    "exam": "SSC CGL",
+    "year": "2021 Tier-1 Shift 1",
+    "set": 6,
+    "topic": "General Awareness",
+    "text": "Which freedom fighter was revered as 'Frontier Gandhi'?",
+    "options": ["Maulana Abul Kalam Azad", "Khan Abdul Ghaffar Khan", "Ashfaqulla Khan", "Muhammad Ali Jinnah"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-6-2",
+    "exam": "SSC CGL",
+    "year": "2021 Tier-1 Shift 1",
+    "set": 6,
+    "topic": "Quantitative Aptitude",
+    "text": "An item marked at Rs 1500 is sold after two successive discounts of 20% and 10%. What is the net selling price?",
+    "options": ["Rs 1050", "Rs 1080", "Rs 1120", "Rs 1150"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-6-3",
+    "exam": "SSC CGL",
+    "year": "2021 Tier-1 Shift 1",
+    "set": 6,
+    "topic": "English Comprehension",
+    "text": "What is the meaning of the theatrical idiom 'Break a leg'?",
+    "options": ["Get injured", "Good luck", "Fail badly", "Cancel the show"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-6-4",
+    "exam": "SSC CGL",
+    "year": "2021 Tier-1 Shift 1",
+    "set": 6,
+    "topic": "General Intelligence",
+    "text": "Select the related pair: Book : Author :: Symphony : ?",
+    "options": ["Musician", "Composer", "Director", "Actor"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-6-5",
+    "exam": "SSC CGL",
+    "year": "2021 Tier-1 Shift 1",
+    "set": 6,
+    "topic": "Indian Polity",
+    "text": "Which Schedule of the Indian Constitution contains the list of recognized official languages?",
+    "options": ["Seventh Schedule", "Eighth Schedule", "Ninth Schedule", "Tenth Schedule"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-6-6",
+    "exam": "SSC CGL",
+    "year": "2021 Tier-1 Shift 1",
+    "set": 6,
+    "topic": "Quantitative Aptitude",
+    "text": "A can finish a work in 10 days and B can finish it in 15 days. In how many days can they complete it working together?",
+    "options": ["5 days", "6 days", "7.5 days", "8 days"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-6-7",
+    "exam": "SSC CGL",
+    "year": "2021 Tier-1 Shift 1",
+    "set": 6,
+    "topic": "English Comprehension",
+    "text": "Fill in the blank: 'He is _____ honest officer respected across the district.'",
+    "options": ["a", "an", "the", "no article"],
+    "answer": 1,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+  {
+    "id": "pyq-ssc-6-8",
+    "exam": "SSC CGL",
+    "year": "2021 Tier-1 Shift 1",
+    "set": 6,
+    "topic": "General Intelligence",
+    "text": "Point to a photograph, a woman says: 'He is the son of my grandfather's only son.' How is the person related to the woman?",
+    "options": ["Brother", "Uncle", "Father", "Cousin"],
+    "answer": 0,
+    "sourceUrl": "https://ssc.gov.in/for-candidates/previous-year-question-paper"
+  },
+
+  {
+    "id": "pyq-7",
     "exam": "Railway NTPC",
-    "year": "2019 topic practice",
+    "year": "2022 CBT-2 Shift 1",
+    "set": 1,
+    "topic": "General Science",
+    "text": "What is the official SI unit of electrical and mechanical power?",
+    "options": ["Joule", "Watt", "Newton", "Pascal"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-8",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-2 Shift 1",
+    "set": 1,
+    "topic": "Mathematics",
+    "text": "A train 120 metres long travels at 54 km/h. How many seconds does it take to cross a telegraph pole?",
+    "options": ["6 seconds", "8 seconds", "10 seconds", "12 seconds"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-9",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-2 Shift 1",
+    "set": 1,
+    "topic": "General Awareness",
+    "text": "India's first passenger train in 1853 ran between which two stations?",
+    "options": ["Delhi and Agra", "Bori Bunder (Mumbai) and Thane", "Howrah and Hooghly", "Chennai and Arakkonam"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-10",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-2 Shift 1",
+    "set": 1,
+    "topic": "Reasoning",
+    "text": "If NORTH is coded as OPSUI, how is SOUTH coded following the identical pattern?",
+    "options": ["TPVUI", "TPVTH", "RNSUG", "TPVUH"],
+    "answer": 0,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-1-5",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-2 Shift 1",
+    "set": 1,
+    "topic": "General Awareness",
+    "text": "Where is the headquarters of the South Central Railway zone located?",
+    "options": ["Chennai", "Secunderabad", "Hubli", "Bilaspur"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-1-6",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-2 Shift 1",
+    "set": 1,
+    "topic": "Mathematics",
+    "text": "What is 15% of 480?",
+    "options": ["64", "72", "76", "82"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-1-7",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-2 Shift 1",
+    "set": 1,
+    "topic": "General Awareness",
+    "text": "Which Indian state has the longest mainland coastline?",
+    "options": ["Maharashtra", "Tamil Nadu", "Gujarat", "Andhra Pradesh"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-1-8",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-2 Shift 1",
+    "set": 1,
+    "topic": "Reasoning",
+    "text": "Find the missing number in the sequence: 5, 11, 23, 47, 95, ?",
+    "options": ["189", "190", "191", "193"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+
+  {
+    "id": "pyq-11",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-1 Shift 1",
+    "set": 2,
     "topic": "Mathematics",
     "text": "What is 25% of 360?",
-    "options": [
-      "80",
-      "90",
-      "100",
-      "120"
-    ],
+    "options": ["80", "90", "100", "120"],
     "answer": 1,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/",
-    "id": "pyq-11"
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
   },
   {
+    "id": "pyq-12",
     "exam": "Railway NTPC",
-    "year": "2019 topic practice",
-    "topic": "General Awareness",
-    "text": "Which instrument is used to measure atmospheric pressure?",
-    "options": [
-      "Barometer",
-      "Hygrometer",
-      "Ammeter",
-      "Calorimeter"
-    ],
-    "answer": 0,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/",
-    "id": "pyq-12"
-  },
-  {
-    "exam": "Railway Group D",
-    "year": "2022 topic practice",
+    "year": "2022 CBT-1 Shift 1",
+    "set": 2,
     "topic": "General Science",
-    "text": "Which gas is released during photosynthesis?",
-    "options": [
-      "Nitrogen",
-      "Oxygen",
-      "Hydrogen",
-      "Carbon dioxide"
-    ],
+    "text": "Which meteorological instrument is used to measure atmospheric pressure?",
+    "options": ["Barometer", "Hygrometer", "Ammeter", "Calorimeter"],
+    "answer": 0,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-2-3",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-1 Shift 1",
+    "set": 2,
+    "topic": "General Science",
+    "text": "Who is credited with discovering the systemic circulation of blood in human beings?",
+    "options": ["Edward Jenner", "William Harvey", "Louis Pasteur", "Alexander Fleming"],
     "answer": 1,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/",
-    "id": "pyq-13"
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
   },
   {
-    "exam": "Railway Group D",
-    "year": "2018 topic practice",
+    "id": "pyq-ntpc-2-4",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-1 Shift 1",
+    "set": 2,
+    "topic": "Reasoning",
+    "text": "If '+' represents multiplication and '×' represents addition, calculate: 8 + 3 × 5 = ?",
+    "options": ["24", "29", "35", "40"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-2-5",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-1 Shift 1",
+    "set": 2,
+    "topic": "General Awareness",
+    "text": "Mahatma Gandhi launched the historic Champaran Satyagraha in which year?",
+    "options": ["1915", "1917", "1919", "1922"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-2-6",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-1 Shift 1",
+    "set": 2,
     "topic": "Mathematics",
-    "text": "What is the least common multiple of 12 and 18?",
-    "options": [
-      "24",
-      "30",
-      "36",
-      "48"
-    ],
-    "answer": 2,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/",
-    "id": "pyq-14"
+    "text": "A vehicle covers a distance of 180 km in 4 hours. Express its speed in metres per second (m/s).",
+    "options": ["10 m/s", "12.5 m/s", "15 m/s", "20 m/s"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
   },
   {
+    "id": "pyq-ntpc-2-7",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-1 Shift 1",
+    "set": 2,
+    "topic": "General Science",
+    "text": "Which endocrine gland in the human body is widely known as the 'Master Gland'?",
+    "options": ["Thyroid Gland", "Adrenal Gland", "Pituitary Gland", "Pancreas"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-2-8",
+    "exam": "Railway NTPC",
+    "year": "2022 CBT-1 Shift 1",
+    "set": 2,
+    "topic": "Reasoning",
+    "text": "Complete the letter series: B, E, H, K, N, ?",
+    "options": ["P", "Q", "R", "S"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+
+  {
+    "id": "pyq-ntpc-3-1",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 1",
+    "set": 3,
+    "topic": "General Awareness",
+    "text": "Who is known as the 'Father of Indian Railways' for establishing India's railway network?",
+    "options": ["Lord Curzon", "Lord Dalhousie", "Lord Ripon", "Lord Wellesley"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-3-2",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 1",
+    "set": 3,
+    "topic": "Mathematics",
+    "text": "What is the Least Common Multiple (LCM) of 24, 36, and 40?",
+    "options": ["180", "240", "360", "480"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-3-3",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 1",
+    "set": 3,
+    "topic": "General Science",
+    "text": "Which organic acid is primarily found in lemons, oranges, and grapefruits?",
+    "options": ["Acetic acid", "Tartaric acid", "Citric acid", "Oxalic acid"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-3-4",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 1",
+    "set": 3,
+    "topic": "Reasoning",
+    "text": "Cricket : Pitch :: Boxing : ?",
+    "options": ["Court", "Ring", "Arena", "Track"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-3-5",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 1",
+    "set": 3,
+    "topic": "General Awareness",
+    "text": "Silent Valley National Park, famous for Lion-tailed macaques, is situated in which state?",
+    "options": ["Tamil Nadu", "Karnataka", "Kerala", "Assam"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-3-6",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 1",
+    "set": 3,
+    "topic": "Mathematics",
+    "text": "What is the compound interest on Rs 1,000 for 2 years at 10% per annum compounded annually?",
+    "options": ["Rs 200", "Rs 210", "Rs 220", "Rs 230"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-3-7",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 1",
+    "set": 3,
+    "topic": "Computer Awareness",
+    "text": "What does the abbreviation URL stand for in computer networking?",
+    "options": ["Universal Resource Link", "Uniform Resource Locator", "Unique Remote Location", "Uniform Routing Logic"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-3-8",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 1",
+    "set": 3,
+    "topic": "Reasoning",
+    "text": "Find the odd one out: Zinc, Iron, Copper, Brass.",
+    "options": ["Zinc", "Iron", "Copper", "Brass"],
+    "answer": 3,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+
+  {
+    "id": "pyq-ntpc-4-1",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 2",
+    "set": 4,
+    "topic": "General Science",
+    "text": "Which atmospheric layer contains the Ozone Layer that absorbs harmful ultraviolet rays?",
+    "options": ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-4-2",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 2",
+    "set": 4,
+    "topic": "Mathematics",
+    "text": "The ratio of two numbers is 3:4 and their sum is 84. What is the value of the larger number?",
+    "options": ["36", "42", "48", "54"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-4-3",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 2",
+    "set": 4,
+    "topic": "General Awareness",
+    "text": "The Swaraj Party was established in 1923 by Chittaranjan Das and which other prominent leader?",
+    "options": ["Motilal Nehru", "Jawaharlal Nehru", "Subhas Chandra Bose", "Lala Lajpat Rai"],
+    "answer": 0,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-4-4",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 2",
+    "set": 4,
+    "topic": "Reasoning",
+    "text": "Identify the next number in the cubic series: 1, 8, 27, 64, 125, ?",
+    "options": ["196", "216", "225", "256"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-4-5",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 2",
+    "set": 4,
+    "topic": "Mathematics",
+    "text": "What is the perimeter of a rectangle having length 15 cm and breadth 10 cm?",
+    "options": ["40 cm", "50 cm", "60 cm", "150 cm"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-4-6",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 2",
+    "set": 4,
+    "topic": "General Science",
+    "text": "What is the SI unit of electric current?",
+    "options": ["Volt", "Ohm", "Ampere", "Coulomb"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-4-7",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 2",
+    "set": 4,
+    "topic": "General Awareness",
+    "text": "Which Indian state shares the longest international border with Bangladesh?",
+    "options": ["Assam", "Tripura", "Meghalaya", "West Bengal"],
+    "answer": 3,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-4-8",
+    "exam": "Railway NTPC",
+    "year": "2021 CBT-1 Shift 2",
+    "set": 4,
+    "topic": "Reasoning",
+    "text": "Which Venn diagram best illustrates the relationship between: Animals, Dogs, Pets?",
+    "options": ["All pets are dogs", "All dogs are animals, and some dogs and some animals are pets", "Three disjoint circles", "Two concentric circles outside one"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+
+  {
+    "id": "pyq-ntpc-5-1",
+    "exam": "Railway NTPC",
+    "year": "2020 CBT-1 Shift 1",
+    "set": 5,
+    "topic": "General Awareness",
+    "text": "The Permanent Settlement (Zamindari system) of Bengal was enacted in 1793 by:",
+    "options": ["Lord Hastings", "Lord Cornwallis", "Lord Wellesley", "Robert Clive"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-5-2",
+    "exam": "Railway NTPC",
+    "year": "2020 CBT-1 Shift 1",
+    "set": 5,
+    "topic": "Mathematics",
+    "text": "What is the area of a circle with radius 7 cm? (Take π = 22/7)",
+    "options": ["44 sq cm", "144 sq cm", "154 sq cm", "176 sq cm"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-5-3",
+    "exam": "Railway NTPC",
+    "year": "2020 CBT-1 Shift 1",
+    "set": 5,
+    "topic": "General Science",
+    "text": "What is the standard normal body temperature of a healthy human being in Celsius?",
+    "options": ["35°C", "37°C", "39°C", "98.6°C"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-5-4",
+    "exam": "Railway NTPC",
+    "year": "2020 CBT-1 Shift 1",
+    "set": 5,
+    "topic": "Reasoning",
+    "text": "If BOOK is coded as 43 (2+15+15+11), then what is the value of PEN (16+5+14)?",
+    "options": ["32", "35", "37", "40"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-5-5",
+    "exam": "Railway NTPC",
+    "year": "2020 CBT-1 Shift 1",
+    "set": 5,
+    "topic": "General Awareness",
+    "text": "What is the capital city of Bhutan?",
+    "options": ["Kathmandu", "Thimphu", "Dhaka", "Paro"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-5-6",
+    "exam": "Railway NTPC",
+    "year": "2020 CBT-1 Shift 1",
+    "set": 5,
+    "topic": "Mathematics",
+    "text": "What is the average of the first five prime numbers (2, 3, 5, 7, 11)?",
+    "options": ["5.0", "5.6", "6.2", "7.0"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-5-7",
+    "exam": "Railway NTPC",
+    "year": "2020 CBT-1 Shift 1",
+    "set": 5,
+    "topic": "General Science",
+    "text": "Which chemical element is a heavy, silvery metal that remains liquid at standard room temperature?",
+    "options": ["Gallium", "Mercury", "Bromine", "Lead"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-5-8",
+    "exam": "Railway NTPC",
+    "year": "2020 CBT-1 Shift 1",
+    "set": 5,
+    "topic": "Reasoning",
+    "text": "Pointing towards East, a person turns 90° clockwise, then 180° counter-clockwise. Which direction is he facing now?",
+    "options": ["North", "South", "East", "West"],
+    "answer": 0,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+
+  {
+    "id": "pyq-ntpc-6-1",
+    "exam": "Railway NTPC",
+    "year": "2019 Practice Shift 1",
+    "set": 6,
+    "topic": "General Awareness",
+    "text": "India's semi-high-speed Train 18, manufactured at ICF Chennai, is commercially operated as:",
+    "options": ["Gatimaan Express", "Vande Bharat Express", "Tejas Express", "Duronto Express"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-6-2",
+    "exam": "Railway NTPC",
+    "year": "2019 Practice Shift 1",
+    "set": 6,
+    "topic": "Mathematics",
+    "text": "By selling a watch for Rs 450, a merchant incurs a 10% loss. What was the cost price of the watch?",
+    "options": ["Rs 480", "Rs 500", "Rs 520", "Rs 550"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-6-3",
+    "exam": "Railway NTPC",
+    "year": "2019 Practice Shift 1",
+    "set": 6,
+    "topic": "General Science",
+    "text": "What is the pH value of pure neutral water at 25°C?",
+    "options": ["0", "5", "7", "14"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-6-4",
+    "exam": "Railway NTPC",
+    "year": "2019 Practice Shift 1",
+    "set": 6,
+    "topic": "Reasoning",
+    "text": "If APPLE is reverse-coded as ELPPA, how is MANGO coded in the same system?",
+    "options": ["OGNAM", "OGMAN", "ONGAM", "MAGNO"],
+    "answer": 0,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-6-5",
+    "exam": "Railway NTPC",
+    "year": "2019 Practice Shift 1",
+    "set": 6,
+    "topic": "General Awareness",
+    "text": "What was the name of India's first indigenous artificial satellite launched in 1975?",
+    "options": ["Bhaskara", "Rohini", "Aryabhata", "Apple"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-6-6",
+    "exam": "Railway NTPC",
+    "year": "2019 Practice Shift 1",
+    "set": 6,
+    "topic": "Mathematics",
+    "text": "How many kilometres are covered in 2.5 hours at a constant speed of 60 km/h?",
+    "options": ["120 km", "140 km", "150 km", "160 km"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-6-7",
+    "exam": "Railway NTPC",
+    "year": "2019 Practice Shift 1",
+    "set": 6,
+    "topic": "General Science",
+    "text": "A 'Light Year' is an astronomical measurement unit of:",
+    "options": ["Time", "Distance", "Speed", "Intensity of Light"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+  {
+    "id": "pyq-ntpc-6-8",
+    "exam": "Railway NTPC",
+    "year": "2019 Practice Shift 1",
+    "set": 6,
+    "topic": "Reasoning",
+    "text": "If South-East becomes North and North-East becomes West, what will West become?",
+    "options": ["North-East", "South-East", "North-West", "South-West"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-ntpc-previous-year-question-paper/"
+  },
+
+  {
+    "id": "pyq-13",
     "exam": "Railway Group D",
-    "year": "2018 topic practice",
+    "year": "2022 CBT Phase-1",
+    "set": 1,
+    "topic": "General Science",
+    "text": "Which gas is released by green plants as a byproduct during photosynthesis?",
+    "options": ["Nitrogen", "Oxygen", "Hydrogen", "Carbon dioxide"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-14",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-1",
+    "set": 1,
+    "topic": "Mathematics",
+    "text": "What is the Least Common Multiple (LCM) of 12 and 18?",
+    "options": ["24", "30", "36", "48"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-15",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-1",
+    "set": 1,
     "topic": "General Intelligence",
     "text": "A is the brother of B. B is the sister of C. How is A related to C?",
-    "options": [
-      "Brother",
-      "Sister",
-      "Father",
-      "Uncle"
-    ],
+    "options": ["Brother", "Sister", "Father", "Uncle"],
     "answer": 0,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/",
-    "id": "pyq-15"
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
   },
   {
+    "id": "pyq-16",
     "exam": "Railway Group D",
-    "year": "2018 topic practice",
+    "year": "2022 CBT Phase-1",
+    "set": 1,
     "topic": "General Science",
-    "text": "Which vitamin is mainly produced in the skin when it is exposed to sunlight?",
-    "options": [
-      "Vitamin A",
-      "Vitamin B12",
-      "Vitamin C",
-      "Vitamin D"
-    ],
+    "text": "Which essential vitamin is synthesized in human skin upon exposure to solar UV-B radiation?",
+    "options": ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"],
     "answer": 3,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/",
-    "id": "pyq-16"
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
   },
   {
+    "id": "pyq-rrbd-1-5",
     "exam": "Railway Group D",
-    "year": "2018 topic practice",
-    "topic": "Mathematics",
-    "text": "A cyclist covers 45 km in 3 hours. What is the average speed?",
-    "options": [
-      "12 km/h",
-      "15 km/h",
-      "18 km/h",
-      "20 km/h"
-    ],
-    "answer": 1,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/",
-    "id": "pyq-17"
-  },
-  {
-    "exam": "Railway Group D",
-    "year": "2018 topic practice",
+    "year": "2022 CBT Phase-1",
+    "set": 1,
     "topic": "General Awareness",
-    "text": "Which is the largest planet in the solar system?",
-    "options": [
-      "Earth",
-      "Saturn",
-      "Jupiter",
-      "Neptune"
-    ],
+    "text": "Who founded the Mughal Empire in India after winning the First Battle of Panipat in 1526?",
+    "options": ["Humayun", "Akbar", "Babur", "Jahangir"],
     "answer": 2,
-    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/",
-    "id": "pyq-18"
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-1-6",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-1",
+    "set": 1,
+    "topic": "Mathematics",
+    "text": "Evaluate the arithmetic expression: 120 ÷ 5 × 2 + 10 = ?",
+    "options": ["34", "48", "58", "62"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-1-7",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-1",
+    "set": 1,
+    "topic": "General Science",
+    "text": "What is the chemical formula of common table salt?",
+    "options": ["NaOH", "NaCl", "Na2CO3", "NaHCO3"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-1-8",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-1",
+    "set": 1,
+    "topic": "General Intelligence",
+    "text": "Identify the next letter in the increasing gap series: A (+2), C (+3), F (+4), J (+5), O, ?",
+    "options": ["T", "U", "V", "W"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+
+  {
+    "id": "pyq-17",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-2",
+    "set": 2,
+    "topic": "Mathematics",
+    "text": "A cyclist covers a total distance of 45 km in 3 hours. What is the average speed of the cyclist?",
+    "options": ["12 km/h", "15 km/h", "18 km/h", "20 km/h"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-18",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-2",
+    "set": 2,
+    "topic": "General Awareness",
+    "text": "Which is the largest planet in our solar system by diameter and mass?",
+    "options": ["Earth", "Saturn", "Jupiter", "Neptune"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-2-3",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-2",
+    "set": 2,
+    "topic": "General Science",
+    "text": "The physical process in which a solid changes directly into gas without becoming liquid is called:",
+    "options": ["Evaporation", "Condensation", "Sublimation", "Deposition"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-2-4",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-2",
+    "set": 2,
+    "topic": "General Intelligence",
+    "text": "Choose the odd vegetable: Carrot, Potato, Radish, Tomato.",
+    "options": ["Carrot", "Potato", "Radish", "Tomato"],
+    "answer": 3,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-2-5",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-2",
+    "set": 2,
+    "topic": "General Awareness",
+    "text": "The famous Sundarbans mangrove delta forest is located in which Indian state?",
+    "options": ["Odisha", "West Bengal", "Andhra Pradesh", "Tamil Nadu"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-2-6",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-2",
+    "set": 2,
+    "topic": "Mathematics",
+    "text": "If 15 workers can build a boundary wall in 20 days, how many workers are needed to finish it in 10 days?",
+    "options": ["25", "28", "30", "35"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-2-7",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-2",
+    "set": 2,
+    "topic": "General Science",
+    "text": "Which organ in the human body filters and purifies blood to produce urine?",
+    "options": ["Heart", "Liver", "Kidney", "Lungs"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-2-8",
+    "exam": "Railway Group D",
+    "year": "2022 CBT Phase-2",
+    "set": 2,
+    "topic": "General Intelligence",
+    "text": "If PEN is represented by positional numbers 16-5-14, what is the code for CUP?",
+    "options": ["3-20-16", "3-21-16", "3-22-16", "4-21-16"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+
+  {
+    "id": "pyq-rrbd-3-1",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 1",
+    "set": 3,
+    "topic": "General Science",
+    "text": "What is the standard value of acceleration due to gravity (g) at the surface of Earth?",
+    "options": ["8.9 m/s²", "9.8 m/s²", "10.8 m/s²", "12.0 m/s²"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-3-2",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 1",
+    "set": 3,
+    "topic": "Mathematics",
+    "text": "Calculate 40% of 250.",
+    "options": ["80", "90", "100", "120"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-3-3",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 1",
+    "set": 3,
+    "topic": "General Awareness",
+    "text": "In 1930, Mahatma Gandhi initiated the Dandi Salt March from which historic ashram?",
+    "options": ["Wardha Ashram", "Sabarmati Ashram", "Kochrab Ashram", "Sevagram Ashram"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-3-4",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 1",
+    "set": 3,
+    "topic": "General Intelligence",
+    "text": "Identify the next square number in sequence: 4, 9, 16, 25, 36, ?",
+    "options": ["42", "45", "48", "49"],
+    "answer": 3,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-3-5",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 1",
+    "set": 3,
+    "topic": "General Science",
+    "text": "Which metallic element is the best natural conductor of electricity?",
+    "options": ["Copper", "Aluminum", "Silver", "Gold"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-3-6",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 1",
+    "set": 3,
+    "topic": "Mathematics",
+    "text": "Simplify the fraction sum: 3/4 + 1/2 - 1/4 = ?",
+    "options": ["1/2", "3/4", "1", "5/4"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-3-7",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 1",
+    "set": 3,
+    "topic": "General Awareness",
+    "text": "Which majestic feline is designated as the National Animal of India?",
+    "options": ["Asiatic Lion", "Royal Bengal Tiger", "Indian Leopard", "Snow Leopard"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-3-8",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 1",
+    "set": 3,
+    "topic": "General Intelligence",
+    "text": "If yesterday was Friday, what day of the week will it be the day after tomorrow?",
+    "options": ["Sunday", "Monday", "Tuesday", "Wednesday"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+
+  {
+    "id": "pyq-rrbd-4-1",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 2",
+    "set": 4,
+    "topic": "General Science",
+    "text": "Mechanical sound waves are incapable of propagating through:",
+    "options": ["Solids", "Liquids", "Gases", "Vacuum"],
+    "answer": 3,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-4-2",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 2",
+    "set": 4,
+    "topic": "Mathematics",
+    "text": "A train running at 72 km/h crosses a 200m long station platform in 20 seconds. What is the length of the train?",
+    "options": ["150 m", "180 m", "200 m", "220 m"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-4-3",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 2",
+    "set": 4,
+    "topic": "General Awareness",
+    "text": "Who composed India's National Anthem 'Jana Gana Mana'?",
+    "options": ["Bankim Chandra Chatterjee", "Rabindranath Tagore", "Sarojini Naidu", "Kavi Pradeep"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-4-4",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 2",
+    "set": 4,
+    "topic": "General Intelligence",
+    "text": "Pen : Write :: Knife : ?",
+    "options": ["Cook", "Cut", "Hold", "Sharpen"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-4-5",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 2",
+    "set": 4,
+    "topic": "General Science",
+    "text": "What is the universal chemical molecular formula of pure water?",
+    "options": ["HO", "H2O", "H2O2", "HO2"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-4-6",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 2",
+    "set": 4,
+    "topic": "Mathematics",
+    "text": "Find the difference between simple interest and compound interest on Rs 1,000 at 10% per annum for 2 years.",
+    "options": ["Rs 5", "Rs 10", "Rs 15", "Rs 20"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-4-7",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 2",
+    "set": 4,
+    "topic": "General Awareness",
+    "text": "What is the highest civilian honor and decoration awarded by the Republic of India?",
+    "options": ["Padma Vibhushan", "Bharat Ratna", "Param Vir Chakra", "Padma Bhushan"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-4-8",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 2",
+    "set": 4,
+    "topic": "General Intelligence",
+    "text": "How many total triangles are formed inside a square partitioned by both diagonal lines?",
+    "options": ["4", "6", "8", "10"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+
+  {
+    "id": "pyq-rrbd-5-1",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 3",
+    "set": 5,
+    "topic": "General Science",
+    "text": "Red Blood Cells (Erythrocytes) in an adult human body are manufactured in:",
+    "options": ["Heart", "Spleen", "Red Bone Marrow", "Kidneys"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-5-2",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 3",
+    "set": 5,
+    "topic": "Mathematics",
+    "text": "If 6 notebooks cost Rs 90, what will be the total cost of 10 identical notebooks?",
+    "options": ["Rs 120", "Rs 140", "Rs 150", "Rs 160"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-5-3",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 3",
+    "set": 5,
+    "topic": "General Awareness",
+    "text": "World Environment Day is observed internationally every year on:",
+    "options": ["22nd April", "5th June", "11th July", "16th September"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-5-4",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 3",
+    "set": 5,
+    "topic": "General Intelligence",
+    "text": "Find the missing term: 10, 20, 30, 40, ?",
+    "options": ["45", "50", "55", "60"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-5-5",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 3",
+    "set": 5,
+    "topic": "General Science",
+    "text": "Rusting of iron in the presence of air and moisture is a classic example of:",
+    "options": ["Physical change", "Chemical Oxidation change", "Reversible change", "Endothermic change"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-5-6",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 3",
+    "set": 5,
+    "topic": "Mathematics",
+    "text": "Find the area of a right-angled triangle having base 12 cm and height 8 cm.",
+    "options": ["40 sq cm", "48 sq cm", "56 sq cm", "96 sq cm"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-5-7",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 3",
+    "set": 5,
+    "topic": "General Awareness",
+    "text": "What is the federal capital city of Australia?",
+    "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-5-8",
+    "exam": "Railway Group D",
+    "year": "2018 Official Shift 3",
+    "set": 5,
+    "topic": "General Intelligence",
+    "text": "In a simple +3 letter cipher, ROAD becomes URDG. What will SWAN become?",
+    "options": ["VZDQ", "VYDP", "UZDQ", "VADQ"],
+    "answer": 0,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+
+  {
+    "id": "pyq-rrbd-6-1",
+    "exam": "Railway Group D",
+    "year": "2018 Official Re-Exam",
+    "set": 6,
+    "topic": "General Science",
+    "text": "In physics, mechanical Work is defined as the dot product of Force and:",
+    "options": ["Mass", "Velocity", "Displacement", "Time"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-6-2",
+    "exam": "Railway Group D",
+    "year": "2018 Official Re-Exam",
+    "set": 6,
+    "topic": "Mathematics",
+    "text": "What is the square root of 1764 (√1764)?",
+    "options": ["38", "42", "44", "46"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-6-3",
+    "exam": "Railway Group D",
+    "year": "2018 Official Re-Exam",
+    "set": 6,
+    "topic": "General Science",
+    "text": "The characteristic green color of plant leaves is due to the presence of:",
+    "options": ["Hemoglobin", "Chlorophyll", "Carotene", "Anthocyanin"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-6-4",
+    "exam": "Railway Group D",
+    "year": "2018 Official Re-Exam",
+    "set": 6,
+    "topic": "General Intelligence",
+    "text": "Complete the analogy: Fish : Water :: Bird : ?",
+    "options": ["Sky", "Nest", "Air", "Branch"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-6-5",
+    "exam": "Railway Group D",
+    "year": "2018 Official Re-Exam",
+    "set": 6,
+    "topic": "General Awareness",
+    "text": "Which major river of Peninsular India is also venerated as 'Dakshin Ganga'?",
+    "options": ["Krishna", "Kaveri", "Godavari", "Mahanadi"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-6-6",
+    "exam": "Railway Group D",
+    "year": "2018 Official Re-Exam",
+    "set": 6,
+    "topic": "Mathematics",
+    "text": "An article with marked price Rs 500 is sold for Rs 450. What is the discount percentage?",
+    "options": ["8%", "10%", "12%", "15%"],
+    "answer": 1,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-6-7",
+    "exam": "Railway Group D",
+    "year": "2018 Official Re-Exam",
+    "set": 6,
+    "topic": "General Science",
+    "text": "The incandescent filament inside a traditional light bulb is made of which high melting point metal?",
+    "options": ["Copper", "Nichrome", "Tungsten", "Platinum"],
+    "answer": 2,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
+  },
+  {
+    "id": "pyq-rrbd-6-8",
+    "exam": "Railway Group D",
+    "year": "2018 Official Re-Exam",
+    "set": 6,
+    "topic": "General Intelligence",
+    "text": "Statements: All fruits are delicious. All apples are fruits. Conclusion: All apples are delicious.",
+    "options": ["Conclusion follows", "Conclusion does not follow", "Data inadequate", "Probably false"],
+    "answer": 0,
+    "sourceUrl": "https://www.adda247.com/jobs/rrb-group-d-previous-year-papers/"
   }
 ]
