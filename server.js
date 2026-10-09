@@ -1487,11 +1487,15 @@ app.post('/api/translate/batch', async (req, res) => {
 });
 
 app.post('/api/contact', (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || 'unknown';
+  if (!checkRateLimit(`contact:${ip}`, 10, 10 * 60 * 1000)) {
+    return res.status(429).json({ error: 'Too many contact submissions. Please wait a few minutes before trying again.' });
+  }
   const { name, email, subject, message } = req.body || {};
-  const contactName = typeof name === 'string' ? name.trim() : '';
-  const contactEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
-  const contactSubject = typeof subject === 'string' ? subject.trim() : '';
-  const contactMessage = typeof message === 'string' ? message.trim() : '';
+  const contactName = sanitizeInput(name, 100);
+  const contactEmail = typeof email === 'string' ? email.trim().toLowerCase().slice(0, 100) : '';
+  const contactSubject = sanitizeInput(subject, 200);
+  const contactMessage = sanitizeInput(message, 5000);
 
   if (!contactName || !contactEmail) {
     return res.status(400).json({ error: 'Please enter both your name and email address.' });
