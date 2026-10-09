@@ -367,12 +367,18 @@ test('levels award points for completed tests and verified helpful chat votes', 
   const testResult = await request(app).post('/api/mock-tests/ssc-cgl/results').set(authorAuth).send({ answers: Array(100).fill(0), durationSeconds: 600 });
   assert.equal(testResult.status, 201);
   assert.equal(testResult.body.stats.testsTaken, 2);
+  assert.equal(testResult.body.gamification.points, 5);
+  assert.equal(testResult.body.gamification.level, 'Newbie');
   const firstTest = await request(app).get('/api/profile/me').set(authorAuth);
   assert.equal(firstTest.body.gamification.points, 5);
   assert.equal(firstTest.body.gamification.level, 'Newbie');
+  let levelUpResult;
   for (let index = 0; index < 19; index += 1) {
-    await request(app).post('/api/mock-tests/ssc-cgl/results').set(authorAuth).send({ answers: Array(100).fill(0), durationSeconds: 600 }).expect(201);
+    levelUpResult = await request(app).post('/api/mock-tests/ssc-cgl/results').set(authorAuth).send({ answers: Array(100).fill(0), durationSeconds: 600 }).expect(201);
   }
+  assert.equal(levelUpResult.body.gamification.points, 100);
+  assert.equal(levelUpResult.body.gamification.level, 'Learner');
+  assert.equal(levelUpResult.body.gamification.levelNumber, 2);
   const levelUp = await request(app).get('/api/profile/me').set(authorAuth);
   assert.equal(levelUp.body.gamification.points, 100);
   assert.equal(levelUp.body.gamification.level, 'Learner');
