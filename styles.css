@@ -1010,7 +1010,7 @@
   border-color: #315747 !important;
   color: #ecf7ef !important;
 }
-.dark-theme .answer-option span {
+.dark-theme .answer-option > span:first-child {
   background: #122d27 !important;
   color: #79d4a8 !important;
 }
@@ -1023,7 +1023,7 @@
   border-color: #79d4a8 !important;
   box-shadow: 0 3px 12px rgba(121, 212, 168, 0.2) !important;
 }
-.dark-theme .answer-option.selected span {
+.dark-theme .answer-option.selected > span:first-child {
   background: #22c55e !important;
   color: #ffffff !important;
 }
