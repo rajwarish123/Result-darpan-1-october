@@ -551,6 +551,9 @@
     saveGameState(state);
     updateHUD();
     renderLeagueUI();
+    if (hudIsHidden) {
+      slideInHud(6);
+    }
 
     // Progress Quests
     updateQuestProgress('warmup', 1);
