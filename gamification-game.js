@@ -764,8 +764,12 @@
 
     // 2. Intercept question answer clicks
     document.addEventListener('click', (event) => {
-      const option = event.target.closest('.answer-option');
+      const option = event.target.closest('.answer-option, .class-opt-label');
       if (option) {
+        if (option._lastClickTime && Date.now() - option._lastClickTime < 350) {
+          return;
+        }
+        option._lastClickTime = Date.now();
         handleQuestionAnswered(option);
       }
     });
