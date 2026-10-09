@@ -616,22 +616,28 @@
 
       q.options.forEach((opt, optIndex) => {
         const label = document.createElement('label');
-        label.className = 'class-opt-label answer-option';
-        label.style.cssText = 'display:flex; align-items:flex-start; gap:8px; cursor:pointer; font-size:13.5px; margin-bottom:6px; line-height:1.4;';
+        label.className = 'class-opt-label';
+
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = 'question-' + index;
         input.value = optIndex;
         input.required = (optIndex === 0);
-        input.style.marginTop = '3px';
 
         const optPrefix = document.createElement('strong');
-        optPrefix.style.color = '#175e4b';
+        optPrefix.className = 'class-opt-prefix';
         optPrefix.textContent = String.fromCharCode(65 + optIndex) + '.';
 
         const optSpan = document.createElement('span');
         optSpan.className = 'class-opt-text';
-        optSpan.textContent = ' ' + opt;
+        optSpan.textContent = opt;
+
+        input.addEventListener('change', () => {
+          fieldset.querySelectorAll('.class-opt-label').forEach((lbl) => lbl.classList.remove('selected'));
+          if (input.checked) {
+            label.classList.add('selected');
+          }
+        });
 
         label.append(input, optPrefix, optSpan);
         fieldset.appendChild(label);
