@@ -310,13 +310,13 @@
 
     if (token && savedName) {
       const shortName = savedName.split(' ')[0] || 'Learner';
-      profileBtn.innerHTML = `<span>👤</span> ${shortName}`;
+      profileBtn.innerHTML = `<span class="nav-cta-icon" aria-hidden="true">👤</span> <span class="nav-user-name">${shortName}</span>`;
       profileBtn.setAttribute('aria-label', `Profile: ${savedName}`);
       profileBtn.setAttribute('title', `Logged in as ${savedName}`);
       profileBtn.classList.remove('login-btn');
       profileBtn.classList.add('primary-btn', 'nav-cta');
     } else {
-      profileBtn.innerHTML = `<span>👤</span> Log in / Sign up`;
+      profileBtn.innerHTML = `<span class="nav-cta-icon" aria-hidden="true">👤</span> <span class="nav-text-desktop">Log in / Sign up</span><span class="nav-text-mobile">Log in</span>`;
       profileBtn.setAttribute('aria-label', 'Log in or sign up');
       profileBtn.removeAttribute('title');
       profileBtn.classList.remove('login-btn');
