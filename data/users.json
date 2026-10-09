@@ -56061,5 +56061,27 @@
     "schoolClass": null,
     "goals": [],
     "testAttempts": []
+  },
+  {
+    "id": "2f748c87-afa0-4fa0-a492-28fd34c8326a",
+    "name": "Sync Admin",
+    "email": "syncadmin_1791542019096@resultdarpan.com",
+    "passwordHash": "scrypt$632df0dc6acbc95b9357b527bd61cd00$d4f34a449e77751ace114d6a286b6cb6a4abd62cf4bfdd37e538d9007d12bc56927c2212e425663e74eb83e0382536e6ec3a2f02d90b28792b95d8f7582defea",
+    "exam": "SSC CGL",
+    "location": "India",
+    "schoolClass": null,
+    "goals": [],
+    "testAttempts": []
+  },
+  {
+    "id": "06ae0b04-b007-4bbb-b1aa-68163e9377f1",
+    "name": "Sync Merge Admin",
+    "email": "syncmerge_1791542019462@resultdarpan.com",
+    "passwordHash": "scrypt$5c75708419e8238c0c22b3cb2b672afe$15bdf4db4ff8738c2c1b076c06f13a867313c30800c99c775cf00edd75a5b160f2146ba18ec2e38912806c0276076c86bdfcaa7a4448c285fe1f8b8c7bde7d4d",
+    "exam": "SSC CGL",
+    "location": "India",
+    "schoolClass": null,
+    "goals": [],
+    "testAttempts": []
   }
 ]
