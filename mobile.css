@@ -76,44 +76,80 @@ html, body {
   }
   .site-header .theme-toggle,
   .theme-toggle {
-    height: 32px !important;
-    min-width: 36px !important;
-    width: 36px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    width: 34px !important;
     padding: 0 !important;
     box-sizing: border-box !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
   }
   .site-header .primary-btn.nav-cta,
   .site-header .login-btn,
   .nav-actions .nav-cta,
   .login-btn {
     display: inline-flex !important;
-    height: 32px !important;
-    padding: 0 10px !important;
-    font-size: 11.5px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    height: 34px !important;
+    padding: 0 11px !important;
+    font-size: 12px !important;
     font-weight: 700 !important;
-    border-radius: 6px !important;
+    line-height: 1 !important;
+    border-radius: 7px !important;
     white-space: nowrap !important;
     box-sizing: border-box !important;
-    max-width: 130px !important;
+    flex-shrink: 0 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    letter-spacing: -0.1px !important;
+  }
+  .site-header .nav-cta .nav-cta-icon,
+  .site-header .nav-cta > span:first-child,
+  .nav-actions .nav-cta .nav-cta-icon,
+  .nav-actions .nav-cta > span:first-child {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 13.5px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translateY(-0.5px);
+  }
+  .site-header .nav-text-desktop {
+    display: none !important;
+  }
+  .site-header .nav-text-mobile {
+    display: inline !important;
+    line-height: 1 !important;
+  }
+  .site-header .nav-user-name {
+    display: inline-block !important;
+    max-width: 80px !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    line-height: 1 !important;
   }
   .menu-toggle {
     order: 3 !important;
-    display: flex !important;
+    display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     margin: 0 !important;
-    width: 38px !important;
+    width: 36px !important;
     height: 34px !important;
-    font-size: 22px !important;
+    font-size: 20px !important;
     line-height: 1 !important;
     background: transparent !important;
     border: 1px solid var(--line, #dce5df) !important;
-    border-radius: 6px !important;
+    border-radius: 7px !important;
     cursor: pointer !important;
     color: var(--green, #175e4b) !important;
     padding: 0 !important;
