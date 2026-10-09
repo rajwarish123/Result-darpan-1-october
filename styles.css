@@ -1241,43 +1241,114 @@
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(16, 42, 31, 0.6);
-  z-index: 9999;
+  background: rgba(14, 34, 28, 0.78) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 999999 !important;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 #articleReaderModal .modal-card {
   background: #ffffff;
   border-radius: 16px;
-  padding: 28px;
+  padding: 26px 24px;
   max-width: 760px;
-  width: 92%;
-  max-height: 85vh;
+  width: 94%;
+  max-height: 88vh;
   overflow-y: auto;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 #articleReaderModal .modal-reader-header {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+  width: 100%;
+}
+#articleReaderModal .modal-reader-topbar {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
+  width: 100%;
+}
+#articleReaderModal .modal-reader-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 #articleReaderModal #readBlogCategory {
   background: #e0f2fe;
   color: #0369a1;
   font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  white-space: nowrap;
+  display: inline-block;
 }
 #articleReaderModal #readBlogTitle {
-  margin: 8px 0 4px;
+  margin: 10px 0 6px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(18px, 3.5vw, 24px);
   letter-spacing: -0.4px;
-  line-height: 1.3;
-  color: #17382d;
+  line-height: 1.35;
+  color: var(--ink, #17382d);
+  font-weight: 700;
+  width: 100%;
+  word-break: break-word;
+}
+#articleReaderModal .modal-reader-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
 }
 #articleReaderModal #readBlogMeta {
-  color: #5e756d;
+  color: var(--muted, #5e756d);
   font-weight: 600;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+#articleReaderModal .article-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+  width: 100%;
+}
+#articleReaderModal .cms-tag-pill {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #eef5f0;
+  color: #175e4b;
+  font-weight: 600;
+  white-space: nowrap;
+}
+#articleReaderModal #btnShareArticle {
+  border: 1px solid #d4e4dc;
+  background: #ffffff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--green, #175e4b);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+#articleReaderModal #btnShareArticle:hover {
+  background: #f0f7f3;
+  border-color: #175e4b;
 }
 #articleReaderModal #btnCloseArticleReader {
   border: 1px solid #d4e4dc;
@@ -1286,15 +1357,25 @@
   border-radius: 8px;
   cursor: pointer;
   color: #17382d;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+#articleReaderModal #btnCloseArticleReader:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
 }
 #articleReaderModal #readBlogBody {
-  margin-top: 20px;
-  font-size: 1rem;
-  line-height: 1.75;
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.8;
   color: #2d3748;
-  white-space: pre-wrap;
   border-top: 1px solid #edf2ef;
   padding-top: 16px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .dark-theme #articleReaderModal {
   background: rgba(8, 20, 16, 0.85) !important;
@@ -1315,6 +1396,19 @@
   background: #1e4537 !important;
   color: #86efac !important;
 }
+.dark-theme #articleReaderModal .cms-tag-pill {
+  background: #15342c !important;
+  color: #79d4a8 !important;
+}
+.dark-theme #articleReaderModal #btnShareArticle {
+  background: #14352b !important;
+  border-color: #315747 !important;
+  color: #79d4a8 !important;
+}
+.dark-theme #articleReaderModal #btnShareArticle:hover {
+  background: #214b3b !important;
+  color: #ffffff !important;
+}
 .dark-theme #articleReaderModal #readBlogBody {
   color: #d6ede0 !important;
   border-top-color: #315747 !important;
@@ -1328,6 +1422,7 @@
   background: #214b3b !important;
   color: #ffab91 !important;
 }
+
 
 /* 2. Testimonials Section ("The confidence feels different.") */
 .dark-theme .testimonials {
