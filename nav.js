@@ -16,10 +16,7 @@
     'home',
     'my profile',
     'about us',
-    'test series',
-    'chat with mentor',
-    'ai study mentor',
-    'ai study mentor ✦'
+    'test series'
   ]);
 
   const isKeep = (link) => {
@@ -58,7 +55,7 @@
   // Remove non-kept links from the top bar to keep layout clean
   movedLinks.forEach((link) => link.remove());
 
-  // Build the universal More dropdown containing the full set of 8 shortcuts
+  // Build the universal More dropdown containing the full set of 7 shortcuts
   const moreMenu = document.createElement('div');
   moreMenu.className = 'more-menu';
   moreMenu.innerHTML =
@@ -77,7 +74,6 @@
     { label: 'Previous Year Questions', href: 'previous-year-questions', icon: '📜' },
     { label: 'School Classes (9-12)', href: 'class-series', icon: '🏫' },
     { label: 'Subject Practice Tests', href: 'index.html#subjects', icon: '🎯' },
-    { label: 'AI Study Mentor 24/7', href: 'mentor-chat', icon: '🤖' },
     { label: 'Contact Us', href: 'contact#contact-form', icon: '📬' }
   ];
 
