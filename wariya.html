@@ -3792,9 +3792,64 @@ Topic: Mechanics
       }
     });
 
+    // ==========================================
+    // REAL-TIME EVENT STREAM CONTROLLER
+    // ==========================================
+    function initRealtimeSyncUI() {
+      const syncPill = document.getElementById('realtimeSyncPill');
+      const statusText = document.getElementById('syncStatusText');
+
+      if (!window.EventSource) {
+        if (statusText) statusText.textContent = '⚡ Realtime Polling Active';
+        return;
+      }
+
+      function connect() {
+        const source = new EventSource('/api/sync/stream');
+
+        source.addEventListener('connected', () => {
+          if (syncPill) {
+            syncPill.style.background = '#e8f5e9';
+            syncPill.style.color = '#1b5e20';
+            syncPill.style.border = '1px solid #c8e6c9';
+          }
+          if (statusText) statusText.textContent = '⚡ Realtime Sync Active';
+        });
+
+        source.addEventListener('change', (e) => {
+          try {
+            const data = JSON.parse(e.data);
+            showToast(`⚡ Real-time update: ${data.entity} synced!`);
+
+            // Dynamically refresh active tab if relevant
+            if (activeTab === 'studio' && data.entity === 'questionSets') loadAdminSets();
+            else if (activeTab === 'blogs' && data.entity === 'blogs') loadAdminBlogs();
+            else if (activeTab === 'notifications' && data.entity === 'notifications') loadAdminNotifs();
+            else if (activeTab === 'materials' && data.entity === 'studyMaterials') loadAdminMaterials();
+            else if (activeTab === 'pyq' && data.entity === 'previousYearQuestions') loadAdminPyq();
+            else if (activeTab === 'overview') loadAdminOverview();
+          } catch (_) {}
+        });
+
+        source.onerror = () => {
+          source.close();
+          if (syncPill) {
+            syncPill.style.background = '#fff3e0';
+            syncPill.style.color = '#e65100';
+            syncPill.style.border = '1px solid #ffe0b2';
+          }
+          if (statusText) statusText.textContent = '🟠 Sync: Reconnecting...';
+          setTimeout(connect, 7000);
+        };
+      }
+
+      connect();
+    }
+
     // Initial check
     checkAuthAndInit();
     initAdminFirebaseUI();
+    initRealtimeSyncUI();
   </script>
 </body>
 </html>
