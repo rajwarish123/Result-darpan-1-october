@@ -927,6 +927,7 @@ async function finishTest() {
     ['Rohan Singh', '7/10', '78%', 'RS']
   ];
   leaderboardRows.innerHTML = leaderboard.map(([name, score, accuracy, initials]) => `<div class="leaderboard-row${name === 'You' ? ' you' : ''}"><span class="leader-avatar">${initials}</span><strong>${name}</strong><span>${score}</span><span>${accuracy}</span></div>`).join('');
+  window.dispatchEvent(new CustomEvent('rd-test-completed', { detail: { score: correct, total: questions.length } }));
   launchConfetti();
 }
 
