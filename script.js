@@ -555,6 +555,7 @@ function publishProfileStats(stats) {
     console.warn('Profile updates will refresh when the page is reopened:', error.message);
   }
   window.localStorage.setItem('preply-profile-stats-update', JSON.stringify(update));
+  window.dispatchEvent(new Event('gamification-refresh'));
 }
 
 function formatStudyTime(minutes) {
