@@ -791,5 +791,11 @@
     padding: 4px 7px;
     font-size: 11px;
   }
+  .rd-hud-peek-pill {
+    bottom: 14px;
+    right: 14px;
+    padding: 5px 12px;
+    font-size: 11px;
+  }
 }
 
