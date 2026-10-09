@@ -181,7 +181,21 @@ function readJson(filePath, fallback) {
 }
 
 function writeJson(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  const content = JSON.stringify(data, null, 2);
+  try {
+    fs.writeFileSync(filePath, content);
+  } catch (err) {
+    try {
+      // Windows lock retry: write to temp and rename or retry after brief yield
+      const tempFile = `${filePath}.tmp.${Date.now()}`;
+      fs.writeFileSync(tempFile, content);
+      fs.renameSync(tempFile, filePath);
+    } catch (_) {
+      try {
+        fs.writeFileSync(filePath, content);
+      } catch (_) {}
+    }
+  }
 }
 
 function numberOptions(answer, step = 1) {
