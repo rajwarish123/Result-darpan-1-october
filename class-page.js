@@ -490,7 +490,7 @@
       if (textSpan && q._hindiText) textSpan.textContent = q._hindiText;
       if (optSpans && q._hindiOptions) {
         optSpans.forEach((span, i) => {
-          if (q._hindiOptions[i]) span.textContent = ' ' + q._hindiOptions[i];
+          if (q._hindiOptions[i]) span.textContent = q._hindiOptions[i];
         });
       }
 
@@ -504,7 +504,7 @@
       if (textSpan) textSpan.textContent = q.text;
       if (optSpans) {
         optSpans.forEach((span, i) => {
-          span.textContent = ' ' + q.options[i];
+          span.textContent = q.options[i];
         });
       }
       btn.classList.remove('active');
