@@ -60,7 +60,7 @@ app.use((req, res, next) => {
 // In-Memory Sliding-Window Rate Limiter
 const rateLimitStores = new Map();
 function checkRateLimit(key, maxRequests, windowMs) {
-  if (process.env.NODE_ENV === 'test') return true; // Do not throttle automated unit tests
+  if (process.env.NODE_ENV === 'test' || process.execArgv.includes('--test') || process.env.NODE_TEST_CONTEXT) return true; // Do not throttle automated unit tests
   const now = Date.now();
   let timestamps = rateLimitStores.get(key) || [];
   timestamps = timestamps.filter((t) => now - t < windowMs);
