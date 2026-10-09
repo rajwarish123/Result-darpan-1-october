@@ -2803,10 +2803,10 @@ app.patch('/api/profile/me', requireAuth, (req, res) => {
   if (location !== undefined && (typeof location !== 'string' || !location.trim())) return res.status(400).json({ error: 'A valid location is required.' });
   if (schoolClass !== undefined && schoolClass !== null && !['9', '10', '11', '12'].includes(String(schoolClass))) return res.status(400).json({ error: 'Choose a class from 9 to 12.' });
 
-  if (name !== undefined) req.user.name = name.trim();
-  if (exam !== undefined) req.user.exam = exam.trim();
-  if (location !== undefined) req.user.location = location.trim();
-  if (contact !== undefined) req.user.contact = String(contact || '').trim() || null;
+  if (name !== undefined) req.user.name = sanitizeInput(name, 100);
+  if (exam !== undefined) req.user.exam = sanitizeInput(exam, 60);
+  if (location !== undefined) req.user.location = sanitizeInput(location, 60);
+  if (contact !== undefined) req.user.contact = sanitizeInput(contact, 100) || null;
   if (schoolClass !== undefined) req.user.schoolClass = schoolClass === null ? null : String(schoolClass);
   persistUsers();
   res.json({ user: publicUser(req.user) });
