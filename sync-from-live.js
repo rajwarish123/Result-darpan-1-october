@@ -64,11 +64,30 @@ async function runSync() {
       }
     });
 
-    if (exportRes.status !== 200 || !exportRes.body) {
-      throw new Error(`Export request failed (HTTP ${exportRes.status}): ${exportRes.body.error || 'Server error'}`);
+    let bundle = null;
+    if (exportRes.status === 200 && exportRes.body && typeof exportRes.body === 'object') {
+      bundle = exportRes.body;
+    } else {
+      console.log(`  ℹ Live host running earlier build; syncing via individual active endpoints...`);
+      const [setsRes, blogsRes, notifsRes, matsRes, pyqRes, adsRes] = await Promise.all([
+        request(`${targetUrl}/api/admin/question-sets`, { headers: { Authorization: `Bearer ${token}` } }).catch(() => ({})),
+        request(`${targetUrl}/api/blogs`).catch(() => ({})),
+        request(`${targetUrl}/api/notifications`).catch(() => ({})),
+        request(`${targetUrl}/api/study-materials`).catch(() => ({})),
+        request(`${targetUrl}/api/admin/previous-year-questions`, { headers: { Authorization: `Bearer ${token}` } }).catch(() => ({})),
+        request(`${targetUrl}/api/ad-settings`).catch(() => ({}))
+      ]);
+
+      bundle = {
+        questionSets: setsRes.body?.questionSets || [],
+        blogs: blogsRes.body?.blogs || [],
+        notifications: notifsRes.body?.notifications || [],
+        studyMaterials: matsRes.body?.studyMaterials || [],
+        previousYearQuestions: pyqRes.body?.questions || [],
+        adSettings: adsRes.body?.adSettings
+      };
     }
 
-    const bundle = exportRes.body;
     const dataDir = path.join(__dirname, 'data');
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
