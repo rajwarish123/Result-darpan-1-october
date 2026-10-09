@@ -836,6 +836,9 @@ async function saveTestResult() {
         updateProfileMetrics(payload.stats);
         publishProfileStats(payload.stats);
       }
+      if (payload.gamification && typeof window.checkForLevelUp === 'function') {
+        window.checkForLevelUp(payload.gamification);
+      }
       if (payload.attempt) return payload.attempt;
     }
   } catch (err) {
