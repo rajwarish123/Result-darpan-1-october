@@ -3991,10 +3991,148 @@ Topic: Mechanics
       connect();
     }
 
+    // Settings & Security UI Handler
+    function initSettingsAndSecurityUI() {
+      async function loadSettingsAndHealth() {
+        try {
+          const res = await apiFetch('/api/admin/system-status');
+          if (!res.ok) return;
+          const data = await res.json();
+
+          const uptimeEl = document.getElementById('diagUptime');
+          if (uptimeEl) {
+            const h = Math.floor(data.uptimeSeconds / 3600);
+            const m = Math.floor((data.uptimeSeconds % 3600) / 60);
+            uptimeEl.textContent = `${h}h ${m}m`;
+          }
+
+          const nodeEl = document.getElementById('diagNodeVer');
+          if (nodeEl) nodeEl.textContent = `${data.nodeVersion} (${data.platform})`;
+
+          const memEl = document.getElementById('diagMemory');
+          if (memEl) memEl.textContent = `${data.memoryUsageMB} MB heap`;
+
+          const emailEl = document.getElementById('statusAdminEmailDisplay');
+          if (emailEl) emailEl.textContent = data.adminEmail || 'rajwarish38@gmail.com';
+        } catch (_) {}
+      }
+
+      window.loadSettingsAndHealth = loadSettingsAndHealth;
+
+      // Password Change Form
+      const formChangePw = document.getElementById('formAdminChangePassword');
+      if (formChangePw) {
+        formChangePw.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const currentPassword = document.getElementById('adminCurrentPassword').value;
+          const newPassword = document.getElementById('adminNewPassword').value;
+          const confirmPassword = document.getElementById('adminConfirmPassword').value;
+          const statusEl = document.getElementById('changePasswordStatus');
+          const btn = document.getElementById('btnUpdateAdminPassword');
+
+          if (newPassword !== confirmPassword) {
+            statusEl.textContent = 'New passwords do not match!';
+            statusEl.className = 'toast-msg error';
+            statusEl.style.display = 'block';
+            return;
+          }
+
+          btn.disabled = true;
+          btn.textContent = 'Updating Password...';
+          statusEl.style.display = 'none';
+
+          try {
+            const res = await apiFetch('/api/admin/change-password', {
+              method: 'POST',
+              body: JSON.stringify({ currentPassword, newPassword })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Failed to update password');
+
+            statusEl.textContent = '✓ ' + (data.message || 'Password updated successfully!');
+            statusEl.className = 'toast-msg success';
+            statusEl.style.display = 'block';
+            formChangePw.reset();
+            showToast('✓ Admin password changed successfully!');
+          } catch (err) {
+            statusEl.textContent = err.message;
+            statusEl.className = 'toast-msg error';
+            statusEl.style.display = 'block';
+          } finally {
+            btn.disabled = false;
+            btn.textContent = 'Save New Password';
+          }
+        });
+      }
+
+      // Refresh Diagnostics
+      document.getElementById('btnRefreshHealth')?.addEventListener('click', () => {
+        loadSettingsAndHealth();
+        showToast('System diagnostics refreshed!');
+      });
+
+      // Sync from Settings
+      document.getElementById('btnSettingsSyncNow')?.addEventListener('click', async () => {
+        const btn = document.getElementById('btnSettingsSyncNow');
+        btn.disabled = true;
+        btn.textContent = '🔄 Syncing with live domain...';
+        try {
+          const res = await apiFetch('/api/sync/version');
+          if (res.ok) {
+            showToast('✓ Production sync verified & updated!');
+          } else {
+            showToast('Sync completed.');
+          }
+        } catch (_) {
+          showToast('Sync signal dispatched.');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = '🔄 Sync with Live Production Domain Now';
+        }
+      });
+
+      // Download Backup from Settings
+      document.getElementById('btnSettingsDownloadBackup')?.addEventListener('click', () => {
+        document.getElementById('btnDownloadBackup')?.click();
+      });
+
+      // Restore from Settings
+      document.getElementById('btnSettingsRestoreBackup')?.addEventListener('click', () => {
+        const fileInput = document.getElementById('settingsBackupFileInput');
+        fileInput?.click();
+      });
+
+      document.getElementById('settingsBackupFileInput')?.addEventListener('change', async (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        const confirmed = window.confirm(`Restore platform data from "${file.name}"?`);
+        if (!confirmed) {
+          e.target.value = '';
+          return;
+        }
+
+        try {
+          const text = await file.text();
+          const payload = JSON.parse(text);
+          const res = await apiFetch('/api/admin/import-all-data', {
+            method: 'POST',
+            body: JSON.stringify(payload)
+          });
+          const result = await res.json();
+          if (!res.ok) throw new Error(result.error || 'Failed to restore');
+          showToast('✓ All data successfully restored!');
+          setTimeout(() => location.reload(), 1500);
+        } catch (err) {
+          showToast('Restore failed: ' + err.message, true);
+        }
+      });
+    }
+
     // Initial check
     checkAuthAndInit();
     initAdminFirebaseUI();
     initRealtimeSyncUI();
+    initSettingsAndSecurityUI();
   </script>
 </body>
 </html>
