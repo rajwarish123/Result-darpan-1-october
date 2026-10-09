@@ -1152,6 +1152,7 @@ function openAuth() {
     authModal.setAttribute('aria-hidden', 'false');
   }
 }
+window.openAuth = openAuth;
 
 authClose?.addEventListener('click', closeAuth);
 authModal?.addEventListener('click', (event) => {
