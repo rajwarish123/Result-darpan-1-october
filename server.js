@@ -983,12 +983,14 @@ function verifyPassword(user, password) {
   return typeof user.password === 'string' && user.password === password;
 }
 
+const SESSION_DURATION_MS = 90 * 24 * 60 * 60 * 1000; // 3 months active session (90 days)
+
 function createSession(user) {
   const token = crypto.randomBytes(32).toString('base64url');
   sessions.push({
     tokenHash: crypto.createHash('sha256').update(token).digest('hex'),
     userId: String(user.id),
-    expiresAt: Date.now() + (30 * 24 * 60 * 60 * 1000)
+    expiresAt: Date.now() + SESSION_DURATION_MS
   });
   persistSessions();
   return token;
@@ -1007,6 +1009,13 @@ function requireAuth(req, res, next) {
   const session = sessions.find((entry) => entry.tokenHash === tokenHash && entry.expiresAt > Date.now());
   const user = session && users.find((entry) => String(entry.id) === session.userId);
   if (!user) return res.status(401).json({ error: 'Your session has expired. Please sign in again.' });
+
+  // Sliding 3-month session extension on active use
+  if (session.expiresAt - Date.now() < (85 * 24 * 60 * 60 * 1000)) {
+    session.expiresAt = Date.now() + SESSION_DURATION_MS;
+    persistSessions();
+  }
+
   req.user = user;
   req.sessionTokenHash = tokenHash;
   next();
@@ -1018,9 +1027,17 @@ function optionalAuth(req, res, next) {
 }
 
 function requireAdmin(req, res, next) {
-  const adminEmail = String(process.env.ADMIN_EMAIL || 'rajwarish38@gmail.com').trim().toLowerCase();
-  if (!adminEmail) return res.status(503).json({ error: 'Set ADMIN_EMAIL to enable the admin dashboard.' });
-  if (req.user.email.toLowerCase() !== adminEmail) return res.status(403).json({ error: 'Admin access is required.' });
+  const configuredAdmin = String(process.env.ADMIN_EMAIL || '').trim().toLowerCase();
+  const allowedAdmins = new Set([
+    'rajwarish38@gmail.com',
+    ...(configuredAdmin ? [configuredAdmin] : []),
+    ...(process.env.ADMIN_EMAILS ? process.env.ADMIN_EMAILS.split(',').map((e) => e.trim().toLowerCase()) : [])
+  ].filter(Boolean));
+
+  const userEmail = String(req.user?.email || '').trim().toLowerCase();
+  if (!allowedAdmins.has(userEmail)) {
+    return res.status(403).json({ error: 'Admin access is required.' });
+  }
   next();
 }
 
