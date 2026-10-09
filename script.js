@@ -954,24 +954,11 @@ function openSetSelectionModal(type, id, title) {
       btn.type = 'button';
       btn.className = 'set-btn-item';
       btn.setAttribute('data-set-number', i);
-      btn.style.cssText = 'background:#ffffff; border:1px solid #d4e4dc; border-radius:12px; padding:14px 10px; text-align:center; cursor:pointer; transition:all 0.2s ease; display:flex; flex-direction:column; align-items:center; gap:6px; font-family:inherit;';
       btn.innerHTML = `
-        <span style="font-size:22px; line-height:1;">📝</span>
-        <strong style="font-size:14px; font-weight:700; color:#1a2e26;">Set ${pad}</strong>
-        <small style="font-size:11.5px; color:#175e4b; font-weight:700;">Start Test →</small>
+        <span class="set-icon">📝</span>
+        <strong>Set ${pad}</strong>
+        <small>Start Test →</small>
       `;
-      btn.addEventListener('mouseenter', () => {
-        btn.style.borderColor = '#175e4b';
-        btn.style.background = '#eef7f2';
-        btn.style.transform = 'translateY(-2px)';
-        btn.style.boxShadow = '0 4px 12px rgba(23,94,75,0.12)';
-      });
-      btn.addEventListener('mouseleave', () => {
-        btn.style.borderColor = '#d4e4dc';
-        btn.style.background = '#ffffff';
-        btn.style.transform = 'none';
-        btn.style.boxShadow = 'none';
-      });
       btn.addEventListener('click', () => {
         closeSetSelectionModal();
         activeTestSetNumber = i;
