@@ -8,6 +8,7 @@
     "dev": "node --watch server.js",
     "test": "node --test",
     "sync:watch": "node auto-git-sync.js",
+    "sync:cloud": "node realtime-cloud-sync.js",
     "pull-live": "node sync-from-live.js"
   },
   "keywords": [
