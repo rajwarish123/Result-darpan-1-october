@@ -60,7 +60,11 @@ Compress-Archive -Path $files.FullName -DestinationPath $zipPath -Force
 `;
 
 try {
-  execSync(`powershell -ExecutionPolicy Bypass -Command "${psCommand.replace(/\n/g, ' ')}"`, { stdio: 'inherit' });
+  const psScriptFile = path.join(__dirname, '.temp_zip.ps1');
+  fs.writeFileSync(psScriptFile, psCommand, 'utf8');
+  execSync(`powershell -ExecutionPolicy Bypass -File "${psScriptFile}"`, { stdio: 'inherit' });
+  if (fs.existsSync(psScriptFile)) fs.unlinkSync(psScriptFile);
+
   const stat = fs.statSync(zipDest);
   console.log(`✓ Deployment zip ready: ${zipDest} (${(stat.size / 1024 / 1024).toFixed(2)} MB)`);
 } catch (err) {
