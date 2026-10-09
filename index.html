@@ -8,10 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5.2" />
-  <link rel="stylesheet" href="mobile.css?v=5.2" />
+  <link rel="stylesheet" href="styles.css?v=5.3" />
+  <link rel="stylesheet" href="mobile.css?v=5.3" />
   <link rel="stylesheet" href="levels.css?v=5.2" />
-  <script src="nav.js?v=5.2" defer></script>
+  <script src="nav.js?v=5.3" defer></script>
   <script src="ads.js?v=5.2" defer></script>
   <style>
     .subjects-section .section-heading h2 { font-size: 44px; line-height: 1.05; }
@@ -70,7 +70,7 @@
   <header class="site-header">
     <div class="shell nav-wrap">
       <a class="brand" href="#top" aria-label="Result Darpan home"><span class="brand-mark">R</span><span>Result <span>Darpan</span></span></a>
-      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" onclick="window.toggleNavMenu ? window.toggleNavMenu(event) : (document.querySelector('.main-nav') && document.querySelector('.main-nav').classList.toggle('open'))">☰</button>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#exams">Exams <span class="chevron">⌄</span></a>
         <a href="#popular">Test series</a><a href="#subjects">Subjects</a>
@@ -1173,7 +1173,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
   <script src="firebase-config.js?v=5.2"></script>
-  <script src="script.js?v=5.2"></script>
+  <script src="script.js?v=5.3"></script>
   <script src="levels.js?v=5.2"></script>
   <script src="community.js?v=5.2"></script>
   <script src="goal-picker.js?v=5.2"></script>
