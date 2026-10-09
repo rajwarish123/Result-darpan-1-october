@@ -1502,6 +1502,122 @@ Topic: Mechanics
           </div>
         </div>
       </section>
+
+      <!-- TAB 10: SETTINGS & SECURITY (MANAGE EVERYTHING WITHOUT TOUCHING CODE) -->
+      <section id="tabSettings" style="display:none;">
+        <div class="guide-card" style="border-left: 4px solid var(--primary, #196b45);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div>
+              <h3 style="margin:0; font-size:1.25rem;">⚙️ Permanent Webmaster Control &amp; Security</h3>
+              <p class="muted" style="margin-top:4px;">Manage admin credentials, permanent session duration, live cloud sync, and full website maintenance with zero code.</p>
+            </div>
+            <span class="badge" style="background:#dcfce7; color:#15803d; font-weight:700; padding:6px 12px; border-radius:20px;">🛡️ 100% No-Code Self-Sustaining</span>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:20px; margin-top:16px;">
+          
+          <!-- Card 1: Admin Password & Account -->
+          <div class="guide-card">
+            <h3>🔐 Admin Account &amp; Password</h3>
+            <p class="muted">Change your administrator password anytime right here. No code editor or server scripts needed.</p>
+
+            <form id="formAdminChangePassword" style="margin-top:14px; display:flex; flex-direction:column; gap:12px;">
+              <div>
+                <label style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:4px;">Current Password</label>
+                <input type="password" id="adminCurrentPassword" class="filter-input" style="width:100%; box-sizing:border-box;" required placeholder="Enter current password" autocomplete="current-password" />
+              </div>
+              <div>
+                <label style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:4px;">New Password (Min. 8 characters)</label>
+                <input type="password" id="adminNewPassword" class="filter-input" style="width:100%; box-sizing:border-box;" required placeholder="Enter new password" minlength="8" autocomplete="new-password" />
+              </div>
+              <div>
+                <label style="font-size:0.85rem; font-weight:700; display:block; margin-bottom:4px;">Confirm New Password</label>
+                <input type="password" id="adminConfirmPassword" class="filter-input" style="width:100%; box-sizing:border-box;" required placeholder="Confirm new password" minlength="8" autocomplete="new-password" />
+              </div>
+              <div id="changePasswordStatus" class="toast-msg" style="display:none;"></div>
+              <button class="primary-btn" type="submit" id="btnUpdateAdminPassword" style="justify-content:center;">Save New Password</button>
+            </form>
+          </div>
+
+          <!-- Card 2: Session & Access Lifetime -->
+          <div class="guide-card">
+            <h3>⏳ Session Lifetime &amp; Auto-Renewal</h3>
+            <p class="muted">Your admin account is configured with permanent persistent authorization.</p>
+
+            <div style="margin-top:14px; display:flex; flex-direction:column; gap:10px;">
+              <div style="padding:12px; background:var(--surface,#f8fafc); border-radius:8px; border:1px solid var(--border,#e2e8f0);">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="font-size:0.9rem;">Admin Session Lifetime</strong>
+                  <span class="badge" style="background:#e0f2fe; color:#0369a1; font-weight:700;">10 Years (Permanent)</span>
+                </div>
+                <p class="muted" style="font-size:0.8rem; margin-top:4px; margin-bottom:0;">Auto-renews for 10 years every time you visit. You will never be abruptly logged out.</p>
+              </div>
+
+              <div style="padding:12px; background:var(--surface,#f8fafc); border-radius:8px; border:1px solid var(--border,#e2e8f0);">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="font-size:0.9rem;">Student &amp; Guest Sessions</strong>
+                  <span class="badge" style="background:#fef3c7; color:#b45309; font-weight:700;">90 Days (3 Months)</span>
+                </div>
+                <p class="muted" style="font-size:0.8rem; margin-top:4px; margin-bottom:0;">Sliding window: automatically resets to 90 days whenever a student attempts a test or logs in.</p>
+              </div>
+
+              <div style="padding:12px; background:var(--surface,#f8fafc); border-radius:8px; border:1px solid var(--border,#e2e8f0);">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="font-size:0.9rem;">Authorized Admin Email</strong>
+                  <span style="font-size:0.85rem; font-weight:700; color:var(--primary,#196b45);" id="statusAdminEmailDisplay">rajwarish38@gmail.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Live Cloud Sync & Backup Vault -->
+          <div class="guide-card">
+            <h3>⚡ Real-Time Cloud Sync &amp; Backups</h3>
+            <p class="muted">Instant two-way synchronization keeps questions and data preserved across redeployments.</p>
+
+            <div style="margin-top:14px; display:flex; flex-direction:column; gap:10px;">
+              <button class="btn-tool" id="btnSettingsSyncNow" type="button" style="width:100%; justify-content:center; padding:10px; font-weight:700;">
+                🔄 Sync with Live Production Domain Now
+              </button>
+              <button class="btn-tool" id="btnSettingsDownloadBackup" type="button" style="width:100%; justify-content:center; padding:10px; font-weight:700;">
+                💾 Download Full Platform Backup (JSON)
+              </button>
+              <button class="btn-tool" id="btnSettingsRestoreBackup" type="button" style="width:100%; justify-content:center; padding:10px; font-weight:700;">
+                📥 Restore / Import Data from File
+              </button>
+              <input type="file" id="settingsBackupFileInput" accept=".json" style="display:none;" />
+            </div>
+          </div>
+
+          <!-- Card 4: Platform Engine Health -->
+          <div class="guide-card">
+            <h3>🖥️ Server Diagnostics</h3>
+            <p class="muted">Real-time health telemetry from the running Node.js production engine.</p>
+
+            <div style="margin-top:14px; display:grid; grid-template-columns:1fr 1fr; gap:10px;" id="systemHealthGrid">
+              <div style="padding:10px; background:var(--surface,#f8fafc); border-radius:6px; border:1px solid var(--border,#e2e8f0);">
+                <span class="muted" style="font-size:0.75rem; text-transform:uppercase;">Status</span>
+                <div style="font-weight:700; color:#16a34a; font-size:1rem;">Operational 🟢</div>
+              </div>
+              <div style="padding:10px; background:var(--surface,#f8fafc); border-radius:6px; border:1px solid var(--border,#e2e8f0);">
+                <span class="muted" style="font-size:0.75rem; text-transform:uppercase;">Server Uptime</span>
+                <div style="font-weight:700; font-size:1rem;" id="diagUptime">Loading...</div>
+              </div>
+              <div style="padding:10px; background:var(--surface,#f8fafc); border-radius:6px; border:1px solid var(--border,#e2e8f0);">
+                <span class="muted" style="font-size:0.75rem; text-transform:uppercase;">Node Runtime</span>
+                <div style="font-weight:700; font-size:1rem;" id="diagNodeVer">Loading...</div>
+              </div>
+              <div style="padding:10px; background:var(--surface,#f8fafc); border-radius:6px; border:1px solid var(--border,#e2e8f0);">
+                <span class="muted" style="font-size:0.75rem; text-transform:uppercase;">Memory Usage</span>
+                <div style="font-weight:700; font-size:1rem;" id="diagMemory">Loading...</div>
+              </div>
+            </div>
+            <button class="btn-tool" id="btnRefreshHealth" type="button" style="width:100%; margin-top:12px; justify-content:center;">🔄 Refresh Health Stats</button>
+          </div>
+
+        </div>
+      </section>
     </div>
   </div>
 
