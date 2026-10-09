@@ -74482,5 +74482,38 @@
     "schoolClass": null,
     "goals": [],
     "testAttempts": []
+  },
+  {
+    "id": "1c5faa17-2934-4dda-b754-c2c6ecfba296",
+    "name": "Sync Admin",
+    "email": "syncadmin_1791559907404@resultdarpan.com",
+    "passwordHash": "scrypt$bf2fe48e03c092bf0398cb5341898ca7$c14a93938e03e793feedb7331a18da44bd5e87f0af62c82ac2e28b533e8fc67638dfdf4492de00a91bf934f33422f36cb57b31fc2babcbd0682e88dba9fd0d23",
+    "exam": "SSC CGL",
+    "location": "India",
+    "schoolClass": null,
+    "goals": [],
+    "testAttempts": []
+  },
+  {
+    "id": "18cee5f4-4a67-409f-a009-b1f4617df6ee",
+    "name": "Sync Merge Admin",
+    "email": "syncmerge_1791559907550@resultdarpan.com",
+    "passwordHash": "scrypt$48af2369e15fd8202696732a81d3759f$d3b8d290eb34fd76709fc718ece913aeba2d94210f4da71b3a32f0fbccadb0a52b0ca65c29972a1ae8b9536417e6904a32043ce1244233e87b06fc217b5f6218",
+    "exam": "SSC CGL",
+    "location": "India",
+    "schoolClass": null,
+    "goals": [],
+    "testAttempts": []
+  },
+  {
+    "id": "73eaf8bb-bb49-49d0-a616-dbd9c441c246",
+    "name": "Security Admin",
+    "email": "admin-security-1791559907661@example.com",
+    "passwordHash": "scrypt$e1b64e20c35fd65756b7300041e64e0f$8be5c8a6de58c60a0af4d10f522acebb19cbe2c1b23cc9c0451f97fbbd467611841ae44eead93e327529f9b93040e25129a96a12d14ce978c903501a75ffc2bd",
+    "exam": "SSC CGL",
+    "location": "India",
+    "schoolClass": null,
+    "goals": [],
+    "testAttempts": []
   }
 ]
