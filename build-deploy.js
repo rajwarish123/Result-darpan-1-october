@@ -52,7 +52,7 @@ $zipPath = '${zipDest.replace(/\\/g, '\\\\')}'
 if (Test-Path $stage) { Remove-Item $stage -Recurse -Force -ErrorAction SilentlyContinue }
 New-Item -ItemType Directory -Path $stage -Force | Out-Null
 
-robocopy "c:\\Users\\11\\Downloads\\My website 1" $stage /E /XD node_modules .git .gemini .system_generated /XF "*.zip" ".temp*" "*.log" /R:1 /W:1 | Out-Null
+robocopy "c:\\Users\\11\\Downloads\\My website 1" $stage /E /XD node_modules .git .gemini .system_generated /XF "*.zip" ".temp*" "*.log" ".env" /R:1 /W:1 | Out-Null
 
 if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
 
