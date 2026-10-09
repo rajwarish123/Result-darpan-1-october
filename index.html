@@ -1127,17 +1127,17 @@
   <div class="settings-modal" id="settingsModal" aria-hidden="true"><div class="settings-window" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><button class="auth-close" id="settingsClose" aria-label="Close profile settings">×</button><span class="kicker">PROFILE SETTINGS</span><h2 id="settingsTitle">Keep your prep details current.</h2><p>We use these details to tune your exam feed and study suggestions.</p><form id="settingsForm" class="auth-form"><label>Your name<input id="settingsName" type="text" required></label><label>Exam you are preparing for<input id="settingsExam" type="text" required></label><label>Where are you located?<input id="settingsLocation" type="text" required></label><button class="primary-btn" type="submit">Save profile <span>✓</span></button></form></div></div>
 
   <!-- PRACTICE SET SELECTION MODAL (30 Sets for Every Exam & Subject) -->
-  <div class="modal-overlay" id="setSelectionModal" style="display:none; position:fixed; inset:0; background:rgba(18,45,39,0.78); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); z-index:99999; align-items:center; justify-content:center; padding:20px; box-sizing:border-box;" role="dialog" aria-modal="true" aria-labelledby="setModalTitle">
-    <div class="modal-card set-selection-card" style="max-width:760px; width:92%; max-height:88vh; display:flex; flex-direction:column; padding:28px 24px; border-radius:18px;">
-      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px; border-bottom:1px solid #edf2ef; padding-bottom:14px;">
-        <div>
-          <span class="badge" id="setModalBadge" style="background:#eef7f2; color:#175e4b; font-weight:700; padding:4px 10px; border-radius:6px; font-size:11px;">PRACTICE SERIES</span>
-          <h2 id="setModalTitle" style="font-size:1.45rem; font-family:'Montserrat', sans-serif; margin:8px 0 4px; color:var(--ink);">Choose Practice Set</h2>
-          <p id="setModalSubtitle" style="font-size:0.85rem; color:var(--muted); margin:0;">Select from 30 full-length practice sets curated by Result Darpan Team</p>
+  <div class="modal-overlay set-selection-modal-overlay" id="setSelectionModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="setModalTitle">
+    <div class="modal-card set-selection-card">
+      <div class="set-modal-header">
+        <div class="set-modal-header-info">
+          <span class="badge" id="setModalBadge">PRACTICE SERIES</span>
+          <h2 id="setModalTitle">Choose Practice Set</h2>
+          <p id="setModalSubtitle">Select from 30 full-length practice sets curated by Result Darpan Team</p>
         </div>
-        <button type="button" class="auth-close" id="btnCloseSetModal" aria-label="Close set selection" style="font-size:24px; border:none; background:none; cursor:pointer; color:var(--muted);">×</button>
+        <button type="button" class="auth-close btn-close-set-modal" id="btnCloseSetModal" aria-label="Close set selection">✕</button>
       </div>
-      <div class="set-grid-container" id="setGridContainer" style="overflow-y:auto; flex:1; display:grid; grid-template-columns:repeat(auto-fill, minmax(130px, 1fr)); gap:12px; padding:6px 2px;">
+      <div class="set-grid-container" id="setGridContainer">
         <!-- 30 Sets rendered via JS -->
       </div>
     </div>
