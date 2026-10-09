@@ -5,8 +5,13 @@ const path = require('path');
 const usersPath = path.join(__dirname, 'data', 'users.json');
 const users = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
 
-const email = 'rajwarish38@gmail.com';
-const newPassword = process.argv[2] || '123@Wariya#prince990';
+const email = process.env.ADMIN_EMAIL || 'rajwarish38@gmail.com';
+const newPassword = process.argv[2] || process.env.ADMIN_PASSWORD;
+
+if (!newPassword) {
+  console.error('Usage: node set-admin-password.js <new-password> or set ADMIN_PASSWORD environment variable.');
+  process.exit(1);
+}
 
 const user = users.find((u) => u.email && u.email.toLowerCase() === email.toLowerCase());
 
