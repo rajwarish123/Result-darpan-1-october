@@ -2301,13 +2301,19 @@ Tone: Highly organized, helpful, motivating, crisp.`
 }
 
 app.post('/api/ai/chat', async (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || 'unknown';
+  if (!checkRateLimit(`aiChat:${ip}`, 30, 60 * 1000)) {
+    return res.status(429).json({ error: 'AI Mentor rate limit reached. Please wait a moment.' });
+  }
   const { prompt, exam, name } = req.body || {};
-  const messagePrompt = typeof prompt === 'string' ? prompt.trim() : '';
+  const messagePrompt = sanitizeInput(prompt, 2000);
   if (!messagePrompt) {
     return res.status(400).json({ error: 'Prompt is required.' });
   }
 
-  const aiResult = await generateAiStudyResponse(messagePrompt, exam || 'SSC CGL', { name });
+  const cleanExam = sanitizeInput(exam, 100);
+  const cleanName = sanitizeInput(name, 100);
+  const aiResult = await generateAiStudyResponse(messagePrompt, cleanExam || 'SSC CGL', { name: cleanName });
   res.json({
     reply: aiResult.reply,
     intent: aiResult.intent,
