@@ -119,18 +119,233 @@
 .dark-theme .class-opt-label .class-opt-text {
   color: var(--ink, #ecf7ef) !important;
 }
-.class-test-result { color: var(--green, #175e4b); font-weight: 700; }
+.class-test-result { color: var(--green, #175e4b); font-weight: 700; margin-top: 18px; font-size: 15px; }
 .dark-theme .class-series-card, .dark-theme .class-test { background: #193c33; border-color: #315747; }
 .dark-theme .class-series-sets button { background: #122d27; color: #a9e0b8; border-color: #315747; }
+.dark-theme .class-series-sets button:hover { background: #1a4235; border-color: #65bd91; color: #ffffff; }
 .dark-theme .class-question { border-color: #315747; }
-.class-question-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
-.btn-translate-q { background: #eef7f2; border: 1px solid #bdd3c4; color: #175e4b; font-size: 11.5px; font-weight: 700; padding: 5px 10px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; transition: all 0.2s ease; font-family: inherit; flex-shrink: 0; }
-.btn-translate-q:hover { background: #dff0e6; border-color: #175e4b; }
-.btn-translate-q.active { background: #175e4b; color: #ffffff; border-color: #175e4b; }
-.dark-theme .btn-translate-q { background: #13332a; border-color: #315747; color: #a9e0b8; }
-.dark-theme .btn-translate-q.active { background: #28a745; color: #ffffff; border-color: #28a745; }
-.dark-theme #btnTranslateAllSchoolQuestions { background: #13332a !important; color: #a9e0b8 !important; border-color: #315747 !important; }
-.dark-theme #btnTranslateAllSchoolQuestions.active { background: #28a745 !important; color: #ffffff !important; }
+
+/* Question Header & Translate Button */
+.class-question-top {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 14px !important;
+  flex-wrap: wrap !important;
+}
+
+.class-question-legend {
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: var(--ink, #182c2a) !important;
+  margin: 0 !important;
+  line-height: 1.45 !important;
+  flex: 1 1 200px !important;
+  padding: 0 !important;
+}
+
+.class-q-num {
+  color: #175e4b !important;
+  margin-right: 6px !important;
+  font-weight: 800 !important;
+}
+
+.btn-translate-q {
+  min-height: 34px !important;
+  padding: 6px 14px !important;
+  background: #eef7f2 !important;
+  border: 1px solid #bdd3c4 !important;
+  color: #175e4b !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  border-radius: 7px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  transition: all 0.18s ease !important;
+  font-family: inherit !important;
+  flex-shrink: 0 !important;
+}
+.btn-translate-q:hover {
+  background: #dff0e6 !important;
+  border-color: #175e4b !important;
+  transform: translateY(-1px) !important;
+}
+.btn-translate-q.active {
+  background: #175e4b !important;
+  color: #ffffff !important;
+  border-color: #175e4b !important;
+}
+
+.dark-theme .btn-translate-q {
+  background: #13332a !important;
+  border-color: #315747 !important;
+  color: #a9e0b8 !important;
+}
+.dark-theme .btn-translate-q:hover {
+  background: #1a4235 !important;
+  border-color: #65bd91 !important;
+}
+.dark-theme .btn-translate-q.active {
+  background: #28a745 !important;
+  color: #ffffff !important;
+  border-color: #28a745 !important;
+}
+
+/* School Test Header Actions */
+.class-test-heading {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+  margin-bottom: 24px !important;
+  padding-bottom: 16px !important;
+  border-bottom: 1px solid var(--line, #d9ddd6) !important;
+}
+
+.class-test-heading-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+
+.btn-school-translate-all,
+.btn-school-back,
+#btnTranslateAllSchoolQuestions,
+#classTestBack {
+  min-height: 40px !important;
+  padding: 8px 18px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+
+.btn-school-translate-all,
+#btnTranslateAllSchoolQuestions {
+  background: #eef7f2 !important;
+  color: #175e4b !important;
+  border: 1.5px solid #bdd3c4 !important;
+}
+.btn-school-translate-all:hover,
+#btnTranslateAllSchoolQuestions:hover {
+  background: #dff0e6 !important;
+  border-color: #175e4b !important;
+  transform: translateY(-1px) !important;
+}
+.btn-school-translate-all.active,
+#btnTranslateAllSchoolQuestions.active {
+  background: #175e4b !important;
+  color: #ffffff !important;
+  border-color: #175e4b !important;
+}
+
+.btn-school-back,
+#classTestBack {
+  background: #ffffff !important;
+  color: var(--muted, #4b6358) !important;
+  border: 1.5px solid var(--line, #d9ddd6) !important;
+}
+.btn-school-back:hover,
+#classTestBack:hover {
+  background: #f0f7f3 !important;
+  color: var(--green, #175e4b) !important;
+  border-color: var(--green, #175e4b) !important;
+  transform: translateY(-1px) !important;
+}
+
+.dark-theme .btn-school-translate-all,
+.dark-theme #btnTranslateAllSchoolQuestions {
+  background: #13332a !important;
+  border-color: #315747 !important;
+  color: #a9e0b8 !important;
+}
+.dark-theme .btn-school-translate-all:hover,
+.dark-theme #btnTranslateAllSchoolQuestions:hover {
+  background: #1a4235 !important;
+  border-color: #65bd91 !important;
+}
+.dark-theme .btn-school-translate-all.active,
+.dark-theme #btnTranslateAllSchoolQuestions.active {
+  background: #28a745 !important;
+  color: #ffffff !important;
+  border-color: #28a745 !important;
+}
+
+.dark-theme .btn-school-back,
+.dark-theme #classTestBack {
+  background: #122d27 !important;
+  color: #a9e0b8 !important;
+  border-color: #315747 !important;
+}
+.dark-theme .btn-school-back:hover,
+.dark-theme #classTestBack:hover {
+  background: #1d483b !important;
+  border-color: #65bd91 !important;
+  color: #ffffff !important;
+}
+
+/* School Test Submit Actions Footer */
+.class-test-actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin-top: 26px !important;
+  padding-top: 20px !important;
+  border-top: 1px solid var(--line, #dce5df) !important;
+}
+
+.submit-test-btn {
+  min-height: 46px !important;
+  padding: 12px 32px !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  background: var(--green, #16805d) !important;
+  color: #ffffff !important;
+  border: none !important;
+  cursor: pointer !important;
+  box-shadow: 0 3px 12px rgba(22, 128, 93, 0.22) !important;
+  transition: all 0.2s ease !important;
+}
+.submit-test-btn:hover {
+  background: #0d674a !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(22, 128, 93, 0.35) !important;
+}
+.submit-test-btn:active {
+  transform: translateY(0) !important;
+}
+
+.dark-theme .submit-test-btn {
+  background: #1d7b57 !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 12px rgba(29, 123, 87, 0.35) !important;
+}
+.dark-theme .submit-test-btn:hover {
+  background: #24986b !important;
+}
+.dark-theme .class-test-actions {
+  border-top-color: #315747 !important;
+}
 .previous-year-band { padding: 72px 0; background: #eaf3ed; }
 .previous-year-band-inner { display: flex; align-items: center; justify-content: space-between; gap: 36px; }
 .previous-year-band h2 { margin: 8px 0 12px; letter-spacing: -.5px; }
