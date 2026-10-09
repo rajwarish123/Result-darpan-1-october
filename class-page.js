@@ -616,6 +616,7 @@
 
       q.options.forEach((opt, optIndex) => {
         const label = document.createElement('label');
+        label.className = 'class-opt-label answer-option';
         label.style.cssText = 'display:flex; align-items:flex-start; gap:8px; cursor:pointer; font-size:13.5px; margin-bottom:6px; line-height:1.4;';
         const input = document.createElement('input');
         input.type = 'radio';
