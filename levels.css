@@ -46,3 +46,450 @@
 .dark-theme .goal-picker-choice:hover { background: #214b3b; }
 @media (max-width: 480px) { .badge-list { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .goal-picker-dialog { padding: 18px; } .goal-picker-options { grid-template-columns: 1fr; max-height: 56vh; } .goal-picker-header h2 { font-size: 21px; } .goal-picker-actions { flex-direction: column-reverse; } .goal-picker-actions button { width: 100%; justify-content: center; } }
+
+/* ==========================================================================
+   Full-Screen 5-Second Level-Up Celebration Modal & Confetti
+   ========================================================================== */
+.rd-levelup-modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+}
+
+.rd-levelup-modal.is-closing {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.rd-levelup-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 40%, rgba(16, 68, 54, 0.94) 0%, rgba(8, 28, 22, 0.97) 50%, rgba(4, 14, 11, 0.99) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 1;
+}
+
+.rd-levelup-confetti-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.rd-confetti-particle {
+  position: absolute;
+  top: -24px;
+  pointer-events: none;
+  opacity: 0.95;
+  will-change: transform, opacity;
+  animation-name: rdConfettiRain;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-iteration-count: infinite;
+}
+
+@keyframes rdConfettiRain {
+  0% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(105vh) rotateX(720deg) rotateY(360deg) rotateZ(540deg);
+    opacity: 0;
+  }
+}
+
+.rd-levelup-card {
+  position: relative;
+  z-index: 3;
+  width: min(500px, calc(100vw - 32px));
+  max-height: 90dvh;
+  overflow-y: auto;
+  background: linear-gradient(160deg, #ffffff 0%, #fdfbf7 60%, #f7f3ea 100%);
+  border: 2px solid #f7cc55;
+  border-radius: 28px;
+  padding: 34px 28px 24px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #102d25;
+  box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.65), 0 0 60px rgba(247, 204, 85, 0.35);
+  animation: rdCardPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transform-origin: center center;
+}
+
+.rd-levelup-modal.is-closing .rd-levelup-card {
+  animation: rdCardPopOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes rdCardPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes rdCardPopOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+}
+
+.rd-levelup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.rd-levelup-close:hover {
+  background: #f27e63;
+  color: #fff;
+  border-color: #f27e63;
+  transform: rotate(90deg);
+}
+
+.rd-levelup-trophy-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.rd-levelup-glow-aura {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(247, 204, 85, 0.55) 0%, rgba(242, 126, 99, 0.2) 60%, transparent 80%);
+  animation: rdPulseAura 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes rdPulseAura {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.35); opacity: 1; }
+}
+
+.rd-levelup-trophy-icon {
+  position: relative;
+  z-index: 2;
+  font-size: 58px;
+  line-height: 1;
+  animation: rdTrophyFloat 2.4s ease-in-out infinite;
+  filter: drop-shadow(0 10px 18px rgba(247, 204, 85, 0.5));
+}
+
+@keyframes rdTrophyFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(-3deg); }
+  75% { transform: translateY(-4px) rotate(3deg); }
+}
+
+.rd-levelup-badge-pill {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f7cc55 0%, #f27e63 100%);
+  color: #1a2923;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(242, 126, 99, 0.35);
+  margin-bottom: 10px;
+}
+
+.rd-levelup-title {
+  margin: 0 0 10px;
+  font-family: var(--serif, 'DM Sans', sans-serif);
+  font-size: clamp(26px, 6vw, 34px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: #175e4b;
+  letter-spacing: -0.5px;
+}
+
+.rd-levelup-level-box {
+  background: #ecf7f1;
+  border: 1.5px solid #a9d9bf;
+  border-radius: 16px;
+  padding: 12px 18px;
+  margin: 12px 0 14px;
+}
+
+.rd-levelup-level-kicker {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #175e4b;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.rd-levelup-level-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #102d25;
+  font-family: var(--serif, 'DM Sans', sans-serif);
+}
+
+.rd-levelup-message {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #4b665c;
+}
+
+/* 5-second Timer Section */
+.rd-levelup-timer-wrap {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.rd-levelup-timer-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.rd-levelup-timer-text {
+  color: #175e4b;
+  font-weight: 600;
+}
+
+.rd-levelup-timer-text strong {
+  color: #f27e63;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.rd-levelup-timer-pill {
+  font-size: 10px;
+  background: rgba(23, 94, 75, 0.1);
+  color: #175e4b;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.rd-levelup-timer-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.rd-levelup-timer-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #175e4b 0%, #2ecc71 50%, #f7cc55 100%);
+  border-radius: inherit;
+  transform-origin: left center;
+  animation: rdTimerShrink 5s linear forwards;
+}
+
+@keyframes rdTimerShrink {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.rd-levelup-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.rd-levelup-btn-continue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 280px;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #175e4b 0%, #0d4334 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(23, 94, 75, 0.3);
+}
+
+.rd-levelup-btn-continue:hover {
+  background: linear-gradient(135deg, #1b6d57 0%, #115341 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(23, 94, 75, 0.4);
+}
+
+/* Dark theme support */
+.dark-theme .rd-levelup-card {
+  background: linear-gradient(160deg, #183c31 0%, #122f26 60%, #0c211a 100%);
+  border-color: #f7cc55;
+  color: #f3faf6;
+  box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.85), 0 0 60px rgba(247, 204, 85, 0.25);
+}
+
+.dark-theme .rd-levelup-close {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #d1e5dd;
+}
+
+.dark-theme .rd-levelup-close:hover {
+  background: #f27e63;
+  color: #fff;
+}
+
+.dark-theme .rd-levelup-title {
+  color: #f7cc55;
+}
+
+.dark-theme .rd-levelup-level-box {
+  background: rgba(23, 94, 75, 0.4);
+  border-color: rgba(247, 204, 85, 0.4);
+}
+
+.dark-theme .rd-levelup-level-kicker {
+  color: #8ed6b6;
+}
+
+.dark-theme .rd-levelup-level-name {
+  color: #ffffff;
+}
+
+.dark-theme .rd-levelup-message {
+  color: #b7d6cb;
+}
+
+.dark-theme .rd-levelup-timer-wrap {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dark-theme .rd-levelup-timer-text {
+  color: #8ed6b6;
+}
+
+.dark-theme .rd-levelup-timer-pill {
+  background: rgba(247, 204, 85, 0.18);
+  color: #f7cc55;
+}
+
+.dark-theme .rd-levelup-timer-track {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Preview Celebration Button on Levels Card */
+.preview-levelup-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 999px;
+  border: 1px solid #f7cc55;
+  background: #fffdf5;
+  color: #946914;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preview-levelup-btn:hover {
+  background: #f7cc55;
+  color: #1a1a1a;
+  transform: translateY(-1px);
+}
+
+.dark-theme .preview-levelup-btn {
+  background: #2a3d2e;
+  border-color: #f7cc55;
+  color: #f7cc55;
+}
+
+.dark-theme .preview-levelup-btn:hover {
+  background: #f7cc55;
+  color: #1a1a1a;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 480px) {
+  .rd-levelup-card {
+    padding: 26px 18px 20px;
+    border-radius: 22px;
+  }
+  .rd-levelup-trophy-icon {
+    font-size: 48px;
+  }
+  .rd-levelup-glow-aura {
+    width: 80px;
+    height: 80px;
+  }
+  .rd-levelup-title {
+    font-size: 24px;
+  }
+  .rd-levelup-level-name {
+    font-size: 19px;
+  }
+  .rd-levelup-message {
+    font-size: 12px;
+  }
+  .rd-levelup-btn-continue {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+}
