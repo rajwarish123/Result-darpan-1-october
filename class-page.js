@@ -589,13 +589,11 @@
 
       const topRow = document.createElement('div');
       topRow.className = 'class-question-top';
-      topRow.style.cssText = 'display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:12px; flex-wrap:wrap;';
 
       const legend = document.createElement('legend');
-      legend.style.cssText = 'font-weight:700; font-size:15px; color:var(--ink, #182c2a); margin:0; line-height:1.45; flex:1; min-width:200px; padding:0;';
+      legend.className = 'class-question-legend';
       const numSpan = document.createElement('span');
-      numSpan.style.color = '#175e4b';
-      numSpan.style.marginRight = '6px';
+      numSpan.className = 'class-q-num';
       numSpan.textContent = 'Q' + (index + 1) + '.';
       const textSpan = document.createElement('span');
       textSpan.className = 'class-q-text';
@@ -607,7 +605,6 @@
       transBtn.type = 'button';
       transBtn.className = 'btn-translate-q';
       transBtn.title = 'Translate question to Hindi';
-      transBtn.style.cssText = 'background:#eef7f2; border:1px solid #bdd3c4; color:#175e4b; font-size:11.5px; font-weight:700; padding:5px 10px; border-radius:6px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; white-space:nowrap; transition:all 0.2s ease; font-family:inherit; flex-shrink:0;';
       transBtn.innerHTML = `<span>🌐</span> <span class="trans-btn-text">Translate to Hindi (हिंदी)</span>`;
       transBtn.addEventListener('click', () => toggleQuestionHindi(q, index, fieldset, transBtn));
       topRow.appendChild(transBtn);
