@@ -683,6 +683,7 @@
 
     classTestResult.textContent = 'Score: ' + graded.score + '/' + graded.total + ' (' + graded.accuracy + '% accuracy). Great practice!';
     classTestResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    window.dispatchEvent(new CustomEvent('rd-test-completed', { detail: graded }));
 
     try {
       const attemptsKey = 'rd-school-attempts-' + classNumber + '-' + activeSeries.subject;
