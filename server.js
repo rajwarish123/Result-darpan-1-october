@@ -983,14 +983,29 @@ function verifyPassword(user, password) {
   return typeof user.password === 'string' && user.password === password;
 }
 
-const SESSION_DURATION_MS = 90 * 24 * 60 * 60 * 1000; // 3 months active session (90 days)
+const SESSION_DURATION_MS = 90 * 24 * 60 * 60 * 1000; // 3 months for students/guests (90 days)
+const ADMIN_SESSION_DURATION_MS = 10 * 365 * 24 * 60 * 60 * 1000; // 10 years permanent for admin
+
+function isUserAdmin(user) {
+  if (!user || !user.email) return false;
+  const configuredAdmin = String(process.env.ADMIN_EMAIL || '').trim().toLowerCase();
+  const allowedAdmins = new Set([
+    'rajwarish38@gmail.com',
+    ...(configuredAdmin ? [configuredAdmin] : []),
+    ...(process.env.ADMIN_EMAILS ? process.env.ADMIN_EMAILS.split(',').map((e) => e.trim().toLowerCase()) : [])
+  ].filter(Boolean));
+  return allowedAdmins.has(String(user.email).trim().toLowerCase());
+}
 
 function createSession(user) {
   const token = crypto.randomBytes(32).toString('base64url');
+  const isAdmin = isUserAdmin(user);
+  const duration = isAdmin ? ADMIN_SESSION_DURATION_MS : SESSION_DURATION_MS;
   sessions.push({
     tokenHash: crypto.createHash('sha256').update(token).digest('hex'),
     userId: String(user.id),
-    expiresAt: Date.now() + SESSION_DURATION_MS
+    isAdmin: Boolean(isAdmin),
+    expiresAt: Date.now() + duration
   });
   persistSessions();
   return token;
@@ -1010,9 +1025,12 @@ function requireAuth(req, res, next) {
   const user = session && users.find((entry) => String(entry.id) === session.userId);
   if (!user) return res.status(401).json({ error: 'Your session has expired. Please sign in again.' });
 
-  // Sliding 3-month session extension on active use
-  if (session.expiresAt - Date.now() < (85 * 24 * 60 * 60 * 1000)) {
-    session.expiresAt = Date.now() + SESSION_DURATION_MS;
+  // Auto sliding extension: keeps active users active for 3 months, and admin active for 10 years indefinitely
+  const isAdmin = isUserAdmin(user);
+  const duration = isAdmin ? ADMIN_SESSION_DURATION_MS : SESSION_DURATION_MS;
+  const threshold = isAdmin ? (9 * 365 * 24 * 60 * 60 * 1000) : (85 * 24 * 60 * 60 * 1000);
+  if (session.expiresAt - Date.now() < threshold) {
+    session.expiresAt = Date.now() + duration;
     persistSessions();
   }
 
