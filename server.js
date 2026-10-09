@@ -3907,6 +3907,21 @@ app.use((req, res) => {
   sendFreshHtml(res, 'index.html');
 });
 
+// Centralized production error handler: never leak stack traces or internal server error details
+app.use((err, req, res, next) => {
+  if (res.headersSent) {
+    return next(err);
+  }
+  console.error('[Internal Error]', req.method, req.url, err?.message || err);
+  if (req.path.startsWith('/api/')) {
+    return res.status(err.status || 500).json({
+      error: 'An unexpected internal error occurred. Please try again later.'
+    });
+  }
+  res.status(500);
+  sendFreshHtml(res, 'index.html');
+});
+
 if (require.main === module) {
   if (process.env.PORT && isNaN(Number(process.env.PORT))) {
     app.listen(PORT, () => {
