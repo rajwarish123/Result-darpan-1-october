@@ -1311,11 +1311,11 @@ function syncAuthButton() {
   if (token && savedName) {
     const shortName = savedName.split(' ')[0] || 'Learner';
     accountButton.classList.remove('logout-button');
-    accountButton.innerHTML = '<span>👤</span> ' + escapeHtmlText(shortName);
+    accountButton.innerHTML = '<span class="nav-cta-icon" aria-hidden="true">👤</span> <span class="nav-user-name">' + escapeHtmlText(shortName) + '</span>';
     accountButton.setAttribute('aria-label', 'Profile: ' + savedName);
   } else {
     accountButton.classList.remove('logout-button');
-    accountButton.innerHTML = '<span>👤</span> Log in / Sign up';
+    accountButton.innerHTML = '<span class="nav-cta-icon" aria-hidden="true">👤</span> <span class="nav-text-desktop">Log in / Sign up</span><span class="nav-text-mobile">Log in</span>';
     accountButton.setAttribute('aria-label', 'Log in or sign up');
   }
   window.dispatchEvent(new Event('profile-session-changed'));
