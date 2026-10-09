@@ -78,7 +78,21 @@
         <a href="resources">Resources <span class="chevron">⌄</span></a>
         <a href="profile">My profile</a><a href="contact">About us</a>
       </nav>
-      <div class="nav-actions"><button class="theme-toggle" id="themeToggle" aria-label="Switch to dark theme" aria-pressed="false"><span class="theme-sun">☼</span><span class="theme-moon">◐</span></button><button class="primary-btn nav-cta" id="guestProfileBtn"><span class="nav-cta-icon" aria-hidden="true">👤</span> <span class="nav-text-desktop">Log in / Sign up</span><span class="nav-text-mobile">Log in</span></button></div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark theme" aria-pressed="false"><span class="theme-sun">☼</span><span class="theme-moon">◐</span></button>
+        <button type="button" class="rd-auth-badge-btn nav-cta" id="guestProfileBtn" aria-label="Login">
+          <span class="rd-auth-inner">
+            <span class="rd-auth-icon-box" aria-hidden="true">
+              <svg class="rd-auth-svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M8 4h11a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H8" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 12h9" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M9 8l4 4-4 4" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="rd-auth-text">LOGIN</span>
+          </span>
+        </button>
+      </div>
     </div>
   </header>
 
