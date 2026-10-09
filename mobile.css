@@ -281,15 +281,7 @@ html, body {
 
   /* Nav actions */
   .nav-actions {
-    gap: 8px;
-  }
-  .nav-actions .nav-cta {
-    display: none;
-  }
-  .login-btn {
-    font-size: 12px;
-    padding: 7px 12px;
-    white-space: nowrap;
+    gap: 6px !important;
   }
 
   /* Hero Section - Distraction Free & Tightly Aligned */
