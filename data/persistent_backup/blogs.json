@@ -1,0 +1,66 @@
+[
+  {
+    "id": "blog-1",
+    "title": "How to Crack Competitive Exams with 60 Days of Timed Mock Practice",
+    "slug": "how-to-crack-competitive-exams-60-days",
+    "category": "Preparation Strategy",
+    "author": "Result Darpan Team",
+    "readTime": "5 min read",
+    "tags": [
+      "Study Strategy",
+      "Mock Tests",
+      "Time Management"
+    ],
+    "summary": "Discover the 3-phase revision framework that helped thousands of aspirants improve their test scores from 50% to 85%+.",
+    "content": "Preparing for national competitive exams like SSC, Banking, Railways, or State PSC requires more than just reading books. High scorers separate themselves through targeted mock practice.\n\n### 1. The Error Log Habit\nNever complete a mock test without analyzing every incorrect answer. Write down why you missed it: was it a conceptual gap, a calculation error, or poor time management?\n\n### 2. Time-per-Question Rule\nIn exams like SSC CGL or Banking Prelims, spending more than 60 seconds on any single reasoning question can derail your entire section. Practice skipping smartly.\n\n### 3. Subject-wise Weak Spot Drills\nUse Result Darpan's topic tests to isolate and drill weak areas. If geometry is hurting your quant score, spend 3 days doing only geometry sets before taking another full mock.",
+    "createdAt": "2026-10-01T20:00:00.000Z"
+  },
+  {
+    "id": "blog-2",
+    "title": "Last Month Revision Roadmap for General Awareness & Static GK",
+    "slug": "general-awareness-static-gk-revision-roadmap",
+    "category": "Subject Guide",
+    "author": "Result Darpan Team",
+    "readTime": "4 min read",
+    "tags": [
+      "General Awareness",
+      "Static GK",
+      "Current Affairs"
+    ],
+    "summary": "A high-yield checklist covering Indian Polity articles, Modern History timelines, and the top current affairs topics for upcoming tests.",
+    "content": "General Awareness is the biggest score multiplier because questions take less than 15 seconds to answer.\n\n### High-Yield Static GK Topics\n- **Indian Polity:** Fundamental Rights (Articles 12-35), Directive Principles, President & Governor powers, Constitutional Amendments.\n- **Geography:** Major river systems, National Parks, Biosphere reserves, Mountain passes.\n- **History:** 1857 Revolt to 1947 Independence movement landmarks, Governor Generals, Congress sessions.\n\n### Monthly Current Affairs Strategy\nFocus on the last 6 months of awards, summit locations, sports championships, and government schemes.",
+    "createdAt": "2026-10-01T20:00:00.000Z"
+  },
+  {
+    "id": "blog-3",
+    "title": "Quantitative Aptitude: 10 Speed Math Shortcuts Every Aspirant Must Memorize",
+    "slug": "quant-speed-math-shortcuts",
+    "category": "Topper Tips",
+    "author": "Result Darpan Team",
+    "readTime": "6 min read",
+    "tags": [
+      "Mathematics",
+      "Speed Math",
+      "Calculation Tricks"
+    ],
+    "summary": "Stop solving with pencil-and-paper long division. Learn fast percentage-to-fraction conversions, digital sums, and LCM unit methods.",
+    "content": "In competitive exams, quant is not a test of knowledge; it is a test of calculation velocity.\n\n### 1. Fractional Percentages\n- 1/6 = 16.66%\n- 1/7 = 14.28%\n- 1/8 = 12.5%\n- 1/9 = 11.11%\n- 1/11 = 9.09%\n- 1/12 = 8.33%\n\nConverting 37.5% into 3/8 instantaneously turns complicated calculations into mental arithmetic.\n\n### 2. Time & Work: LCM Unit Method\nAvoid 1/A + 1/B fractions. Find the LCM of the days to define total work units. Calculate individual daily efficiency and sum them up. Works cleanly for pipes, cisterns, and negative work leakages.\n\n### 3. CI vs SI Difference Shortcut\nFor 2 years: Difference = P × (R/100)².\nFor 3 years: Difference = P × (R/100)² × [3 + (R/100)].\nSaves over 90 seconds on every compound interest question!",
+    "createdAt": "2026-10-02T06:00:00.000Z"
+  },
+  {
+    "id": "blog-4",
+    "title": "Mastering Logical Reasoning: How to Solve Syllogisms and Puzzles in Record Time",
+    "slug": "mastering-logical-reasoning-syllogisms-puzzles",
+    "category": "Subject Guide",
+    "author": "Result Darpan Team",
+    "readTime": "5 min read",
+    "tags": [
+      "Reasoning",
+      "Syllogisms",
+      "Puzzles"
+    ],
+    "summary": "A foolproof Venn diagram and 100-50 approach to solve complex syllogisms, coded inequalities, and seating arrangements.",
+    "content": "Logical Reasoning is often the highest scoring section if you avoid common cognitive traps.\n\n### 1. Venn Diagrams for 'Only a Few'\n'Only a few A are B' means two definite statements: Some A are B AND Some A are NOT B. Remembering both conditions eliminates 95% of deduction traps in modern exam patterns.\n\n### 2. EJOTY Alphabet Trick\nRemember letter positions in multiples of 5: E(5), J(10), O(15), T(20), Y(25). Combine with reverse letter pairs (A-Z, B-Y, C-X, D-W, E-V, etc.) using mnemonic 'AZad, BoY, CruX, DeW, EVen'.\n\n### 3. Linear & Circular Seating Strategy\nAlways begin with the absolute, fixed condition rather than conditional ones. Create 2 parallel case threads rather than erasing pencil marks.",
+    "createdAt": "2026-10-02T06:30:00.000Z"
+  }
+]
