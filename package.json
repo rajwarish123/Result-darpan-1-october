@@ -9,7 +9,8 @@
     "test": "node --test",
     "sync:watch": "node auto-git-sync.js",
     "sync:cloud": "node realtime-cloud-sync.js",
-    "pull-live": "node sync-from-live.js"
+    "pull-live": "node sync-from-live.js",
+    "package": "node build-deploy.js"
   },
   "keywords": [
     "express",
