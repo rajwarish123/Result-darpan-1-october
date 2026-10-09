@@ -615,6 +615,9 @@
     spawnFloatingXP(bonusXP, document.querySelector('#resultScore') || document.body);
     updateHUD();
     renderLeagueUI();
+    if (hudIsHidden) {
+      slideInHud(8);
+    }
   }
 
   // =========================================================================
