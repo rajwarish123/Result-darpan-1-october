@@ -1159,3 +1159,67 @@ html, body {
   }
 }
 
+/* Signature LOGIN / LOGOUT Button Mobile Precision */
+.site-header .rd-auth-badge-btn,
+.nav-actions .rd-auth-badge-btn,
+.rd-auth-badge-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 34px !important;
+  padding: 2px !important;
+  background: #ffffff !important;
+  border: 1.8px solid #ffb200 !important;
+  border-radius: 9px !important;
+  box-shadow: 0 2px 8px rgba(255, 178, 0, 0.28) !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+}
+
+.site-header .rd-auth-badge-btn .rd-auth-inner,
+.nav-actions .rd-auth-badge-btn .rd-auth-inner,
+.rd-auth-badge-btn .rd-auth-inner {
+  display: inline-flex !important;
+  align-items: stretch !important;
+  height: 100% !important;
+  background: #ffb200 !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+.site-header .rd-auth-badge-btn .rd-auth-icon-box,
+.nav-actions .rd-auth-badge-btn .rd-auth-icon-box,
+.rd-auth-badge-btn .rd-auth-icon-box {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 7px !important;
+  border-right: 1.8px solid #ffffff !important;
+  background: #ffb200 !important;
+}
+
+.site-header .rd-auth-badge-btn .rd-auth-svg,
+.nav-actions .rd-auth-badge-btn .rd-auth-svg,
+.rd-auth-badge-btn .rd-auth-svg {
+  width: 17px !important;
+  height: 17px !important;
+  display: block !important;
+}
+
+.site-header .rd-auth-badge-btn .rd-auth-text,
+.nav-actions .rd-auth-badge-btn .rd-auth-text,
+.rd-auth-badge-btn .rd-auth-text {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 11px !important;
+  background: #ffb200 !important;
+  color: #ffffff !important;
+  font-family: 'Montserrat', 'DM Sans', -apple-system, sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
