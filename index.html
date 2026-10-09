@@ -1152,17 +1152,21 @@
     </div>
   </div>
 
-  <div class="modal-overlay modal-wide" id="articleReaderModal">
+  <div class="modal-overlay modal-wide" id="articleReaderModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="readBlogTitle">
     <div class="modal-card">
       <div class="modal-reader-header">
-        <div>
+        <div class="modal-reader-topbar">
           <span id="readBlogCategory" class="badge">Category</span>
-          <h2 id="readBlogTitle">Title</h2>
+          <div class="modal-reader-actions">
+            <button class="btn-tool" id="btnCloseArticleReader" type="button" aria-label="Close article">✕ Close</button>
+          </div>
+        </div>
+        <h2 id="readBlogTitle">Title</h2>
+        <div class="modal-reader-meta-row">
           <small id="readBlogMeta">By Author · Date</small>
         </div>
-        <button class="btn-tool" id="btnCloseArticleReader" type="button">✕ Close</button>
       </div>
-      <div id="readBlogBody"></div>
+      <div id="readBlogBody" class="article-rich-content"></div>
     </div>
   </div>
 
