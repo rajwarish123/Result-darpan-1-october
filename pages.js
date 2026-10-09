@@ -168,75 +168,204 @@ const previousYearQuestions = document.querySelector('#previousYearQuestions');
 const previousYearFilter = document.querySelector('#previousYearFilter');
 let previousYearSubjectFilter;
 let previousYearSetFilter;
+let pyqSetsContainer;
 let previousYearBank = [];
+let activePyqSet = 'all';
+
+const pyqSetLabels = {
+  'SSC CGL': {
+    1: '2024 Tier-1 Shift 1',
+    2: '2024 Tier-1 Shift 2',
+    3: '2023 Tier-1 Shift 1',
+    4: '2023 Tier-1 Shift 2',
+    5: '2022 Tier-1 Official',
+    6: '2021 Tier-1 Official'
+  },
+  'Railway NTPC': {
+    1: '2022 CBT-2 Shift 1',
+    2: '2022 CBT-1 Shift 1',
+    3: '2021 CBT-1 Shift 1',
+    4: '2021 CBT-1 Shift 2',
+    5: '2020 CBT-1 Shift 1',
+    6: '2019 Practice Shift 1'
+  },
+  'Railway Group D': {
+    1: '2022 CBT Phase-1',
+    2: '2022 CBT Phase-2',
+    3: '2018 Official Shift 1',
+    4: '2018 Official Shift 2',
+    5: '2018 Official Shift 3',
+    6: '2018 Re-Exam Paper'
+  }
+};
 
 function setupPreviousYearFilters() {
   if (!previousYearFilter) return;
   previousYearSubjectFilter = document.createElement('select');
   previousYearSubjectFilter.id = 'previousYearSubject';
   previousYearSubjectFilter.setAttribute('aria-label', 'Choose subject');
+
   previousYearSetFilter = document.createElement('select');
   previousYearSetFilter.id = 'previousYearSet';
   previousYearSetFilter.setAttribute('aria-label', 'Choose test set');
+
   const subjectLabel = document.createElement('label');
   subjectLabel.className = 'question-filter';
   subjectLabel.append('Subject', previousYearSubjectFilter);
+
   const setLabel = document.createElement('label');
   setLabel.className = 'question-filter';
   setLabel.append('Test set', previousYearSetFilter);
+
   previousYearFilter.closest('label')?.after(subjectLabel, setLabel);
+
+  // Create Quick Set Switcher Pills Bar
+  if (!document.querySelector('.pyq-sets-container')) {
+    pyqSetsContainer = document.createElement('div');
+    pyqSetsContainer.className = 'pyq-sets-container';
+    pyqSetsContainer.innerHTML = `
+      <div class="pyq-sets-header">
+        <span class="pyq-sets-title">⚡ Previous Year Question Sets:</span>
+        <span class="pyq-sets-counter" id="pyqSetCount">6 Sets Available</span>
+      </div>
+      <div class="pyq-sets-pill-list" id="pyqSetsPillList"></div>
+    `;
+    previousYearQuestions.before(pyqSetsContainer);
+  }
 }
 
 function updatePreviousYearSubjects() {
   const exam = previousYearFilter?.value === 'all' ? 'SSC CGL' : (previousYearFilter?.value || 'SSC CGL');
-  const subjects = exam === 'SSC CGL' ? ['English', 'Hindi', 'Mathematics', 'Reasoning', 'General Awareness', 'Indian Polity'] : ['Mathematics', 'Hindi', 'Reasoning', 'General Awareness', 'General Science', 'Indian Polity'];
-  previousYearSubjectFilter.innerHTML = subjects.map((subject) => `<option value="${subject}">${subject}</option>`).join('');
-  previousYearSetFilter.innerHTML = `<option value="curated" selected>Official Curated PYQs</option>` + Array.from({ length: 50 }, (_, index) => `<option value="${index + 1}">Practice Set ${index + 1}</option>`).join('');
+  const subjects = ['All subjects', 'Quantitative Aptitude', 'General Intelligence', 'General Awareness', 'General Science', 'Indian Polity', 'English Comprehension'];
+  previousYearSubjectFilter.innerHTML = subjects.map((sub) => `<option value="${sub}">${sub}</option>`).join('');
+
+  const labels = pyqSetLabels[exam] || pyqSetLabels['SSC CGL'];
+  let setOptions = `<option value="all">All PYQ Sets</option>`;
+  for (let s = 1; s <= 6; s++) {
+    setOptions += `<option value="${s}">Set ${s} · ${labels[s] || 'Previous Year Paper'}</option>`;
+  }
+  previousYearSetFilter.innerHTML = setOptions;
+  renderPyqSetPills();
+}
+
+function renderPyqSetPills() {
+  const pillList = document.querySelector('#pyqSetsPillList');
+  if (!pillList) return;
+  const exam = previousYearFilter?.value === 'all' ? 'SSC CGL' : (previousYearFilter?.value || 'SSC CGL');
+  const labels = pyqSetLabels[exam] || pyqSetLabels['SSC CGL'];
+
+  pillList.innerHTML = '';
+
+  const allBtn = document.createElement('button');
+  allBtn.type = 'button';
+  allBtn.className = `pyq-set-pill${activePyqSet === 'all' ? ' active' : ''}`;
+  allBtn.textContent = '🌟 All Sets';
+  allBtn.addEventListener('click', () => {
+    activePyqSet = 'all';
+    if (previousYearSetFilter) previousYearSetFilter.value = 'all';
+    renderPyqSetPills();
+    renderPreviousYearQuestions();
+  });
+  pillList.appendChild(allBtn);
+
+  for (let s = 1; s <= 6; s++) {
+    const pill = document.createElement('button');
+    pill.type = 'button';
+    pill.className = `pyq-set-pill${String(activePyqSet) === String(s) ? ' active' : ''}`;
+    pill.textContent = `Set ${s} (${labels[s] ? labels[s].split(' ')[0] : 'PYQ'})`;
+    pill.title = `Set ${s} · ${labels[s] || ''}`;
+    pill.addEventListener('click', () => {
+      activePyqSet = String(s);
+      if (previousYearSetFilter) previousYearSetFilter.value = String(s);
+      renderPyqSetPills();
+      renderPreviousYearQuestions();
+    });
+    pillList.appendChild(pill);
+  }
 }
 
 function loadPreviousYearSet() {
-  const exam = previousYearFilter?.value || 'SSC CGL';
-  const subject = previousYearSubjectFilter?.value || 'English';
-  const set = previousYearSetFilter?.value || 'curated';
+  const exam = previousYearFilter?.value || 'all';
   previousYearQuestions.innerHTML = '<p class="question-bank-status">Loading questions...</p>';
   const apiOrigin = '';
+  const examParam = exam === 'all' ? '?includeAnswers=true' : `?exam=${encodeURIComponent(exam)}&includeAnswers=true`;
 
-  if (set === 'curated') {
-    const examParam = exam === 'all' ? '?includeAnswers=true' : `?exam=${encodeURIComponent(exam)}&includeAnswers=true`;
-    fetch(`${apiOrigin}/api/previous-year-questions${examParam}`)
-      .then((response) => response.json())
-      .then((payload) => { previousYearBank = payload.questions || []; renderPreviousYearQuestions(); })
-      .catch(() => { previousYearQuestions.innerHTML = '<p class="question-bank-status">Questions could not be loaded.</p>'; });
-    return;
-  }
-
-  fetch(`${apiOrigin}/api/question-sets?exam=${encodeURIComponent(exam)}&subject=${encodeURIComponent(subject)}&set=${set}&includeAnswers=true`)
+  fetch(`${apiOrigin}/api/previous-year-questions${examParam}`)
     .then((response) => response.json())
-    .then((payload) => { previousYearBank = payload.questions || []; renderPreviousYearQuestions(); })
-    .catch(() => { previousYearQuestions.innerHTML = '<p class="question-bank-status">Questions could not be loaded.</p>'; });
+    .then((payload) => {
+      previousYearBank = payload.questions || [];
+      renderPreviousYearQuestions();
+    })
+    .catch(() => {
+      previousYearQuestions.innerHTML = '<p class="question-bank-status">Questions could not be loaded.</p>';
+    });
 }
 
 function renderPreviousYearQuestions() {
   if (!previousYearQuestions) return;
   const selectedExam = previousYearFilter?.value || 'all';
-  const visibleQuestions = previousYearBank.filter((question) => selectedExam === 'all' || question.exam === selectedExam);
+  const selectedSubject = previousYearSubjectFilter?.value || 'All subjects';
+  const selectedSet = activePyqSet;
+
+  let visibleQuestions = previousYearBank.filter((q) => selectedExam === 'all' || q.exam === selectedExam);
+
+  if (selectedSet !== 'all') {
+    visibleQuestions = visibleQuestions.filter((q) => String(q.set || 1) === String(selectedSet));
+  }
+
+  if (selectedSubject !== 'All subjects') {
+    const sLower = selectedSubject.toLowerCase();
+    visibleQuestions = visibleQuestions.filter((q) => {
+      const topLower = String(q.topic || '').toLowerCase();
+      return topLower.includes(sLower) || sLower.includes(topLower);
+    });
+  }
+
   previousYearQuestions.innerHTML = '';
 
+  // Current set summary banner
+  const banner = document.createElement('div');
+  banner.className = 'pyq-current-set-banner';
+  banner.style.gridColumn = '1 / -1';
+  const examText = selectedExam === 'all' ? 'All Competitive Exams' : selectedExam;
+  const setText = selectedSet === 'all' ? 'All Previous Year Sets' : `Set ${selectedSet} Practice Paper`;
+  banner.innerHTML = `
+    <span>📋 <strong>${examText}</strong> · ${setText}</span>
+    <span style="font-size:12px; font-weight:600; opacity:0.9;">${visibleQuestions.length} questions available</span>
+  `;
+  previousYearQuestions.appendChild(banner);
+
   if (!visibleQuestions.length) {
-    previousYearQuestions.innerHTML = '<p class="question-bank-status">No questions found for this exam.</p>';
+    const emptyMsg = document.createElement('p');
+    emptyMsg.className = 'question-bank-status';
+    emptyMsg.textContent = 'No questions found for the selected exam, set, or subject filter.';
+    previousYearQuestions.appendChild(emptyMsg);
     return;
   }
 
   visibleQuestions.forEach((question, index) => {
     const card = document.createElement('article');
     card.className = 'question-bank-card';
+
+    const cardTop = document.createElement('div');
+    cardTop.className = 'pyq-card-top';
+
     const meta = document.createElement('span');
     meta.className = 'question-bank-meta';
     meta.textContent = `${question.exam} · ${question.year}`;
+
+    const setBadge = document.createElement('span');
+    setBadge.className = 'pyq-card-set-badge';
+    setBadge.textContent = `Set ${question.set || 1}`;
+
+    cardTop.append(meta, setBadge);
+
     const heading = document.createElement('h3');
     heading.textContent = `${index + 1}. ${question.topic}`;
+
     const prompt = document.createElement('p');
     prompt.textContent = question.text;
+
     const options = document.createElement('div');
     options.className = 'question-bank-options';
     question.options.forEach((option, optionIndex) => {
@@ -244,21 +373,25 @@ function renderPreviousYearQuestions() {
       optionRow.textContent = `${String.fromCharCode(65 + optionIndex)}. ${option}`;
       options.appendChild(optionRow);
     });
+
     const answer = document.createElement('button');
     answer.className = 'question-answer-button';
     answer.type = 'button';
     answer.textContent = 'Show answer';
     answer.addEventListener('click', () => {
-      answer.textContent = `Answer: ${String.fromCharCode(65 + question.answer)}. ${question.options[question.answer]}`;
+      answer.textContent = `✓ Answer: ${String.fromCharCode(65 + question.answer)}. ${question.options[question.answer]}`;
+      answer.style.background = '#27ae60';
       answer.disabled = true;
     });
+
     const source = document.createElement('a');
     source.className = 'question-source-link';
-    source.href = question.sourceUrl;
+    source.href = question.sourceUrl || '#';
     source.target = '_blank';
     source.rel = 'noreferrer';
-    source.textContent = 'View paper source';
-    card.append(meta, heading, prompt, options, answer, source);
+    source.textContent = 'View paper source ↗';
+
+    card.append(cardTop, heading, prompt, options, answer, source);
     previousYearQuestions.appendChild(card);
   });
 }
@@ -266,9 +399,16 @@ function renderPreviousYearQuestions() {
 if (previousYearQuestions) {
   setupPreviousYearFilters();
   updatePreviousYearSubjects();
-  previousYearFilter?.addEventListener('change', () => { updatePreviousYearSubjects(); loadPreviousYearSet(); });
-  previousYearSubjectFilter?.addEventListener('change', loadPreviousYearSet);
-  previousYearSetFilter?.addEventListener('change', loadPreviousYearSet);
+  previousYearFilter?.addEventListener('change', () => {
+    updatePreviousYearSubjects();
+    loadPreviousYearSet();
+  });
+  previousYearSubjectFilter?.addEventListener('change', renderPreviousYearQuestions);
+  previousYearSetFilter?.addEventListener('change', (e) => {
+    activePyqSet = e.target.value;
+    renderPyqSetPills();
+    renderPreviousYearQuestions();
+  });
   loadPreviousYearSet();
 }
 
