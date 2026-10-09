@@ -43,6 +43,11 @@ html, body {
   }
 
   /* Header & Navigation Bar */
+  .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 99999 !important;
+  }
   .nav-wrap {
     display: flex !important;
     align-items: center !important;
@@ -102,8 +107,8 @@ html, body {
     align-items: center !important;
     justify-content: center !important;
     margin: 0 !important;
-    width: 36px !important;
-    height: 32px !important;
+    width: 38px !important;
+    height: 34px !important;
     font-size: 22px !important;
     line-height: 1 !important;
     background: transparent !important;
@@ -113,6 +118,11 @@ html, body {
     color: var(--green, #175e4b) !important;
     padding: 0 !important;
     flex-shrink: 0 !important;
+    position: relative !important;
+    z-index: 100001 !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
   .dark-theme .menu-toggle {
     color: #79d4a8 !important;
@@ -140,6 +150,7 @@ html, body {
     border-radius: 0 0 14px 14px !important;
     box-sizing: border-box !important;
   }
+
   .site-header .main-nav.open,
   .main-nav.open {
     display: flex !important;
