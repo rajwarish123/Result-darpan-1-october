@@ -224,7 +224,6 @@
     'contact',
     'resources',
     'profile',
-    'mentor-chat',
     'class-series',
     'previous-year-questions',
     'notifications',
