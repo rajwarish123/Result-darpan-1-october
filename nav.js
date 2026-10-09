@@ -124,7 +124,9 @@
   const menuToggle = document.querySelector('.menu-toggle');
   if (menuToggle && !menuToggle.dataset.bound) {
     menuToggle.dataset.bound = 'true';
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       const isOpen = nav.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
       menuToggle.textContent = isOpen ? '×' : '☰';
@@ -133,10 +135,12 @@
 
   const closeAllNav = () => {
     closeMenu();
-    nav.classList.remove('open');
-    if (menuToggle) {
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.textContent = '☰';
+    if (nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      if (menuToggle) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      }
     }
   };
 
@@ -168,9 +172,30 @@
     });
   });
 
+  // Automatically close mobile nav drawer when any link is clicked
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 800) {
+        closeAllNav();
+      }
+    });
+  });
+
   document.addEventListener('click', (event) => {
-    if (!moreMenu.contains(event.target)) closeMenu();
+    if (moreMenu && !moreMenu.contains(event.target)) closeMenu();
     if (nav.classList.contains('open') && !nav.contains(event.target) && !menuToggle?.contains(event.target)) {
+      closeAllNav();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeAllNav();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 800 && nav.classList.contains('open')) {
       closeAllNav();
     }
   });
