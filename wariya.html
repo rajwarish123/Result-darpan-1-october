@@ -930,11 +930,15 @@
       <form class="auth-form" id="adminLoginForm">
         <div>
           <label style="font-size:0.85rem; font-weight:700;">Admin Email</label>
-          <input type="email" id="loginEmail" class="filter-input" style="width:100%; box-sizing:border-box;" required placeholder="Enter admin email" autocomplete="email" />
+          <input type="email" id="loginEmail" value="rajwarish38@gmail.com" class="filter-input" style="width:100%; box-sizing:border-box;" required placeholder="Enter admin email" autocomplete="email" />
         </div>
         <div>
           <label style="font-size:0.85rem; font-weight:700;">Password</label>
           <input type="password" id="loginPassword" class="filter-input" style="width:100%; box-sizing:border-box;" required placeholder="Enter password" autocomplete="current-password" />
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
+          <input type="checkbox" id="rememberMePermanent" checked style="accent-color:var(--primary); width:16px; height:16px; cursor:pointer;" />
+          <label for="rememberMePermanent" style="font-size:0.85rem; cursor:pointer; color:var(--text-muted,#4a5568);">Remember this device permanently (10-Year Session)</label>
         </div>
         <div id="loginError" class="toast-msg error" style="margin-top:6px; display:none;"></div>
         <button id="btnSubmitLogin" class="primary-btn" type="submit" style="width:100%; justify-content:center; margin-top:8px;">Sign In to Dashboard <span>→</span></button>
@@ -952,6 +956,7 @@
         <button class="tab-btn" id="tabBtnMentorDesk" data-tab="mentorDesk">🤖 AI Mentor &amp; Moderation Desk</button>
         <button class="tab-btn" id="tabBtnOverview" data-tab="overview">📊 Site Overview & Activity</button>
         <button class="tab-btn" id="tabBtnAds" data-tab="ads">💰 Monetization &amp; Ads</button>
+        <button class="tab-btn" id="tabBtnSettings" data-tab="settings">⚙️ Settings &amp; Security</button>
         <button class="tab-btn" id="tabBtnGuide" data-tab="guide">💡 No-Code Help & Templates</button>
       </nav>
 
