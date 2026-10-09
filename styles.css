@@ -2651,10 +2651,13 @@
     box-sizing: border-box !important;
   }
   .site-header .primary-btn.nav-cta,
-  .site-header .login-btn {
+  .site-header .login-btn,
+  .nav-actions .nav-cta,
+  .login-btn {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    gap: 7px !important;
     height: 38px !important;
     padding: 0 16px !important;
     border-radius: 8px !important;
@@ -2664,6 +2667,23 @@
     line-height: 1 !important;
     box-sizing: border-box !important;
     white-space: nowrap !important;
+    vertical-align: middle !important;
+  }
+  .site-header .nav-cta .nav-cta-icon,
+  .site-header .nav-cta > span:first-child,
+  .nav-actions .nav-cta .nav-cta-icon,
+  .nav-actions .nav-cta > span:first-child {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+  }
+  .site-header .nav-text-mobile {
+    display: none !important;
+  }
+  .site-header .nav-text-desktop {
+    display: inline !important;
   }
   .site-header .mentor-chat-btn {
     display: inline-flex !important;
