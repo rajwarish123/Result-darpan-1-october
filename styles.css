@@ -1917,81 +1917,84 @@
   background: #122d27 !important;
   border-bottom-color: #315747 !important;
 }
-.site-header .nav-wrap {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  height: 72px !important;
-  gap: 24px !important;
+@media (min-width: 801px) {
+  .site-header .nav-wrap {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 72px !important;
+    gap: 24px !important;
+  }
+  .site-header .main-nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 22px !important;
+    flex: 1 !important;
+    margin: 0 !important;
+  }
+  .site-header .main-nav > a,
+  .site-header .main-nav > div {
+    display: inline-flex !important;
+    align-items: center !important;
+    vertical-align: middle !important;
+    line-height: 1 !important;
+    height: 38px !important;
+    margin: 0 !important;
+  }
+  .site-header .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+  }
+  .site-header .theme-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 36px !important;
+    min-width: 44px !important;
+    padding: 0 4px !important;
+    border-radius: 20px !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+  }
+  .site-header .primary-btn.nav-cta,
+  .site-header .login-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 38px !important;
+    padding: 0 16px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+  }
+  .site-header .mentor-chat-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    height: 38px !important;
+    line-height: 1 !important;
+  }
+  .site-header .more-menu {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 38px !important;
+    margin: 0 !important;
+  }
+  .site-header .more-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 38px !important;
+  }
 }
-.site-header .main-nav {
-  display: flex !important;
-  align-items: center !important;
-  gap: 22px !important;
-  flex: 1 !important;
-  margin: 0 !important;
-}
-.site-header .main-nav > a,
-.site-header .main-nav > div {
-  display: inline-flex !important;
-  align-items: center !important;
-  vertical-align: middle !important;
-  line-height: 1 !important;
-  height: 38px !important;
-  margin: 0 !important;
-}
-.site-header .nav-actions {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-  flex-shrink: 0 !important;
-  margin: 0 !important;
-}
-.site-header .theme-toggle {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 36px !important;
-  min-width: 44px !important;
-  padding: 0 4px !important;
-  border-radius: 20px !important;
-  margin: 0 !important;
-  line-height: 1 !important;
-  cursor: pointer !important;
-  box-sizing: border-box !important;
-}
-.site-header .primary-btn.nav-cta,
-.site-header .login-btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  height: 38px !important;
-  padding: 0 16px !important;
-  border-radius: 8px !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  margin: 0 !important;
-  line-height: 1 !important;
-  box-sizing: border-box !important;
-  white-space: nowrap !important;
-}
-.site-header .mentor-chat-btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 5px !important;
-  height: 38px !important;
-  line-height: 1 !important;
-}
-.site-header .more-menu {
-  display: inline-flex !important;
-  align-items: center !important;
-  height: 38px !important;
-  margin: 0 !important;
-}
-.site-header .more-toggle {
-  display: inline-flex !important;
-  align-items: center !important;
-  height: 38px !important;
 /* Modal Overlay & Modal Window Framework */
 .modal-overlay {
   position: fixed !important;
