@@ -706,8 +706,19 @@ html, body {
     width: 100% !important;
     box-sizing: border-box !important;
   }
-  .answer-option span {
+  .answer-option > span:first-child {
     flex-shrink: 0 !important;
+  }
+  .class-opt-label {
+    padding: 10px 14px !important;
+    gap: 10px !important;
+    min-height: 44px !important;
+    font-size: 13.5px !important;
+  }
+  .class-opt-label .class-opt-text {
+    font-size: 13.5px !important;
+    line-height: 1.35 !important;
+    word-break: break-word !important;
   }
   .question-actions {
     flex-shrink: 0 !important;
