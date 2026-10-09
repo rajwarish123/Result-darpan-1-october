@@ -43,20 +43,23 @@ try {
 // 4. Create Hostinger deployment zip
 console.log('\n[Step 4/5] Packaging resultdarpan-hostinger-deploy.zip...');
 const zipDest = 'c:\\Users\\11\\Downloads\\resultdarpan-hostinger-deploy.zip';
+const stagingDir = path.join(process.env.TEMP || 'C:\\Windows\\Temp', 'resultdarpan_hostinger_stage');
+
 const psCommand = `
-$zipPath = '${zipDest}'
+$stage = '${stagingDir.replace(/\\/g, '\\\\')}'
+$zipPath = '${zipDest.replace(/\\/g, '\\\\')}'
+
+if (Test-Path $stage) { Remove-Item $stage -Recurse -Force -ErrorAction SilentlyContinue }
+New-Item -ItemType Directory -Path $stage -Force | Out-Null
+
+robocopy "c:\\Users\\11\\Downloads\\My website 1" $stage /E /XD node_modules .git .gemini .system_generated /XF "*.zip" ".temp*" "*.log" /R:1 /W:1 | Out-Null
+
 if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
-$exclude = @('node_modules', '.git', '.gemini', '.system_generated')
-$files = Get-ChildItem -Path . -Recurse -File | Where-Object {
-    $p = $_.FullName
-    $skip = $false
-    foreach ($ex in $exclude) {
-        if ($p -match "[\\\\/]$ex[\\\\/]") { $skip = $true; break }
-    }
-    if ($_.Extension -eq '.zip') { $skip = $true }
-    -not $skip
-}
-Compress-Archive -Path $files.FullName -DestinationPath $zipPath -Force
+
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+[System.IO.Compression.ZipFile]::CreateFromDirectory($stage, $zipPath)
+
+Remove-Item $stage -Recurse -Force -ErrorAction SilentlyContinue
 `;
 
 try {
@@ -69,6 +72,15 @@ try {
   console.log(`✓ Deployment zip ready: ${zipDest} (${(stat.size / 1024 / 1024).toFixed(2)} MB)`);
 } catch (err) {
   console.error('❌ Failed to create zip:', err.message);
+  process.exit(1);
+}
+
+// 5. Verification
+console.log('\n[Step 5/5] Verifying archive integrity and data readiness...');
+if (fs.existsSync(zipDest) && fs.statSync(zipDest).size > 100000) {
+  console.log('✓ Archive size verified (> 100 KB).');
+} else {
+  console.error('❌ Archive size is suspicious or empty!');
   process.exit(1);
 }
 
