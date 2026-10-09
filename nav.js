@@ -85,7 +85,7 @@
   });
 
   // Retain any distinct custom links that may have been in the source markup
-  const shortcutKeywords = ['blog', 'contact', 'previous', 'class', 'resource', 'subject', 'exam', 'notification', 'mentor', 'test series', 'profile', 'about'];
+  const shortcutKeywords = ['blog', 'contact', 'previous', 'class', 'resource', 'subject', 'exam', 'notification', 'test series', 'profile', 'about'];
   const extraLinks = movedLinks.filter((link) => {
     const text = link.textContent.trim().toLowerCase();
     return !shortcutKeywords.some((kw) => text.includes(kw));
