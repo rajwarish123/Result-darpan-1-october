@@ -3372,7 +3372,7 @@ app.get('/api/admin/previous-year-questions', requireAuth, requireAdmin, (req, r
 });
 
 app.post('/api/admin/previous-year-questions', requireAuth, requireAdmin, (req, res) => {
-  const { exam, year, topic, text, options, answer, sourceUrl } = req.body || {};
+  const { exam, year, set, topic, text, options, answer, sourceUrl } = req.body || {};
   const cleanText = typeof text === 'string' ? text.trim() : '';
   if (!cleanText) {
     return res.status(400).json({ error: 'Question text is required.' });
@@ -3392,6 +3392,7 @@ app.post('/api/admin/previous-year-questions', requireAuth, requireAdmin, (req, 
     id: `pyq-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
     exam: typeof exam === 'string' && exam.trim() ? exam.trim() : 'SSC CGL',
     year: typeof year === 'string' && year.trim() ? year.trim() : 'Previous Year',
+    set: Number.isInteger(Number(set)) && Number(set) > 0 ? Number(set) : 1,
     topic: typeof topic === 'string' && topic.trim() ? topic.trim() : 'General Awareness',
     text: cleanText,
     options: cleanOptions,
@@ -3413,6 +3414,7 @@ app.put('/api/admin/previous-year-questions/:id', requireAuth, requireAdmin, (re
   if (typeof body.text === 'string' && body.text.trim()) q.text = body.text.trim();
   if (typeof body.exam === 'string' && body.exam.trim()) q.exam = body.exam.trim();
   if (typeof body.year === 'string' && body.year.trim()) q.year = body.year.trim();
+  if (body.set !== undefined && Number.isInteger(Number(body.set))) q.set = Number(body.set);
   if (typeof body.topic === 'string' && body.topic.trim()) q.topic = body.topic.trim();
   if (typeof body.sourceUrl === 'string') q.sourceUrl = body.sourceUrl.trim();
 
