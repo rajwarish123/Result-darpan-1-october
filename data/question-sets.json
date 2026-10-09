@@ -1,0 +1,23 @@
+[
+  {
+    "id": "exam-ssc-cgl-quant-set-99",
+    "exam": "SSC CGL",
+    "subject": "Quantitative Aptitude",
+    "setNumber": 99,
+    "title": "Quantitative Aptitude Set 99",
+    "questions": [
+      {
+        "text": "What is 25% of 800?",
+        "options": [
+          "150",
+          "200",
+          "250",
+          "300"
+        ],
+        "answer": 1,
+        "topic": "Arithmetic"
+      }
+    ],
+    "updatedAt": "2026-10-09T10:31:57.870Z"
+  }
+]
