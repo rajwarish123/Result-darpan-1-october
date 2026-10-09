@@ -424,18 +424,32 @@ const isAuthenticated = Boolean(localStorage.getItem('preply-session-token'));
 const genderLabel = document.querySelector('#settingsLearnerType')?.parentElement;
 if (genderLabel?.firstChild) genderLabel.firstChild.nodeValue = 'What is your gender?';
 
-function renderProfileGoals(goals = []) {
+function renderProfileGoals(goals) {
   const list = document.querySelector('#goalList');
   if (!list) return;
-  list.replaceChildren();
-  if (!goals.length) {
-    const empty = document.createElement('p');
-    empty.className = 'goal-empty';
-    empty.textContent = 'No goals yet. Add one to personalise your prep desk.';
-    list.appendChild(empty);
-    return;
+
+  let activeGoals = Array.isArray(goals) && goals.length > 0 ? goals : [];
+  if (!activeGoals.length) {
+    const stored = window.localStorage.getItem('preply-user-goals');
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          activeGoals = parsed.map((g, idx) => (typeof g === 'string' ? { id: `goal-${idx}`, name: g } : g));
+        }
+      } catch (_) {}
+    }
   }
-  goals.forEach((goal) => {
+
+  if (!activeGoals.length) {
+    activeGoals = [
+      { id: 'ssc-cgl', name: 'SSC CGL Tier-I' },
+      { id: 'rrb-ntpc', name: 'RRB NTPC' }
+    ];
+  }
+
+  list.replaceChildren();
+  activeGoals.forEach((goal) => {
     const item = document.createElement('div');
     item.className = 'goal-item';
     const icon = document.createElement('span');
@@ -445,7 +459,7 @@ function renderProfileGoals(goals = []) {
     const name = document.createElement('strong');
     name.textContent = goal.name;
     const note = document.createElement('span');
-    note.textContent = 'Personal study goal';
+    note.textContent = 'Mock Practice Available';
     detail.append(name, note);
     const remove = document.createElement('button');
     remove.className = 'icon-button';
@@ -453,7 +467,19 @@ function renderProfileGoals(goals = []) {
     remove.textContent = '×';
     remove.setAttribute('aria-label', `Remove ${goal.name}`);
     remove.addEventListener('click', async () => {
-      await profileRequest(`/api/profile/me/goals/${encodeURIComponent(goal.id)}`, { method: 'DELETE' });
+      const stored = window.localStorage.getItem('preply-user-goals');
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          const filtered = parsed.filter((g) => (typeof g === 'string' ? g : g.name) !== goal.name);
+          window.localStorage.setItem('preply-user-goals', JSON.stringify(filtered));
+        } catch (_) {}
+      }
+      if (goal.id && localStorage.getItem('preply-session-token')) {
+        try {
+          await profileRequest(`/api/profile/me/goals/${encodeURIComponent(goal.id)}`, { method: 'DELETE' });
+        } catch (_) {}
+      }
       loadAccountProfile();
     });
     item.append(icon, detail, remove);
@@ -492,7 +518,7 @@ async function loadAccountProfile() {
     if (metrics[0]) metrics[0].textContent = '0';
     if (metrics[1]) metrics[1].textContent = '—';
     if (metrics[2]) metrics[2].textContent = '0h';
-    renderProfileGoals([]);
+    renderProfileGoals();
     return;
   }
 
