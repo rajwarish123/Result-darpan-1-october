@@ -743,24 +743,118 @@ function persistSessions() {
   writeJson(SESSIONS_PATH, sessions);
 }
 
+// ==========================================
+// REAL-TIME SYNCHRONIZATION ENGINE & BACKUP SHIELD
+// ==========================================
+const BACKUP_DIR = path.join(DATA_DIR, 'persistent_backup');
+const syncSubscribers = new Set();
+let dataVersion = {
+  questionSets: 1,
+  blogs: 1,
+  notifications: 1,
+  studyMaterials: 1,
+  previousYearQuestions: 1,
+  adSettings: 1,
+  lastUpdated: Date.now()
+};
+
+function savePersistentBackup(entity) {
+  try {
+    if (!fs.existsSync(BACKUP_DIR)) fs.mkdirSync(BACKUP_DIR, { recursive: true });
+    if (entity === 'questionSets') {
+      fs.writeFileSync(path.join(BACKUP_DIR, 'question-sets.json'), JSON.stringify(customQuestionSets, null, 2), 'utf8');
+    } else if (entity === 'blogs') {
+      fs.writeFileSync(path.join(BACKUP_DIR, 'blogs.json'), JSON.stringify(blogs, null, 2), 'utf8');
+    } else if (entity === 'notifications') {
+      fs.writeFileSync(path.join(BACKUP_DIR, 'notifications.json'), JSON.stringify(notifications, null, 2), 'utf8');
+    } else if (entity === 'studyMaterials') {
+      fs.writeFileSync(path.join(BACKUP_DIR, 'study-materials.json'), JSON.stringify(studyMaterials, null, 2), 'utf8');
+    } else if (entity === 'previousYearQuestions') {
+      fs.writeFileSync(path.join(BACKUP_DIR, 'previous-year-questions.json'), JSON.stringify(previousYearQuestionsList, null, 2), 'utf8');
+    } else if (entity === 'adSettings') {
+      fs.writeFileSync(path.join(BACKUP_DIR, 'ad-settings.json'), JSON.stringify(adSettings, null, 2), 'utf8');
+    }
+  } catch (err) {
+    console.warn(`[Sync Shield] Backup error for ${entity}:`, err.message);
+  }
+}
+
+function broadcastSyncChange(entity) {
+  if (dataVersion[entity] !== undefined) {
+    dataVersion[entity] += 1;
+  }
+  dataVersion.lastUpdated = Date.now();
+  savePersistentBackup(entity);
+
+  const payload = JSON.stringify({
+    entity,
+    timestamp: dataVersion.lastUpdated,
+    version: dataVersion[entity]
+  });
+
+  for (const client of syncSubscribers) {
+    try {
+      client.write(`event: change\ndata: ${payload}\n\n`);
+    } catch (_) {
+      syncSubscribers.delete(client);
+    }
+  }
+}
+
+function mergeStartupBackups() {
+  if (!fs.existsSync(BACKUP_DIR)) return;
+  try {
+    const backupSetsPath = path.join(BACKUP_DIR, 'question-sets.json');
+    if (fs.existsSync(backupSetsPath)) {
+      const backupSets = readJson(backupSetsPath, []);
+      let updated = false;
+      backupSets.forEach((bSet) => {
+        const curIdx = customQuestionSets.findIndex((s) => s.id === bSet.id);
+        if (curIdx === -1) {
+          customQuestionSets.push(bSet);
+          updated = true;
+        } else {
+          const curTime = Date.parse(customQuestionSets[curIdx].updatedAt || 0) || 0;
+          const bTime = Date.parse(bSet.updatedAt || 0) || 0;
+          if (bTime > curTime) {
+            customQuestionSets[curIdx] = bSet;
+            updated = true;
+          }
+        }
+      });
+      if (updated) {
+        writeJson(QUESTION_SETS_PATH, customQuestionSets);
+      }
+    }
+  } catch (e) {
+    console.warn('[Sync Shield] Startup backup merge error:', e.message);
+  }
+}
+mergeStartupBackups();
+
 function persistQuestionSets() {
   writeJson(QUESTION_SETS_PATH, customQuestionSets);
+  broadcastSyncChange('questionSets');
 }
 
 function persistNotifications() {
   writeJson(NOTIFICATIONS_PATH, notifications);
+  broadcastSyncChange('notifications');
 }
 
 function persistBlogs() {
   writeJson(BLOGS_PATH, blogs);
+  broadcastSyncChange('blogs');
 }
 
 function persistStudyMaterials() {
   writeJson(STUDY_MATERIALS_PATH, studyMaterials);
+  broadcastSyncChange('studyMaterials');
 }
 
 function persistPreviousYearQuestions() {
   writeJson(PREVIOUS_YEAR_QUESTIONS_PATH, previousYearQuestionsList);
+  broadcastSyncChange('previousYearQuestions');
 }
 
 const defaultAdSettings = {
@@ -778,6 +872,7 @@ let adSettings = readJsonObject(AD_SETTINGS_PATH, defaultAdSettings);
 
 function persistAdSettings() {
   fs.writeFileSync(AD_SETTINGS_PATH, JSON.stringify(adSettings, null, 2), 'utf8');
+  broadcastSyncChange('adSettings');
 }
 
 function rebuildQuestionCatalog() {
