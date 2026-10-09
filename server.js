@@ -3519,6 +3519,60 @@ app.post('/api/admin/import-all-data', requireAuth, requireAdmin, (req, res) => 
   }
 });
 
+// Admin Password Update Endpoint (Enables changing credentials directly from Admin Panel)
+app.post('/api/admin/change-password', requireAuth, requireAdmin, (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body || {};
+    if (!currentPassword || !newPassword) {
+      return res.status(400).json({ error: 'Current password and new password are required.' });
+    }
+    if (typeof newPassword !== 'string' || newPassword.length < 8) {
+      return res.status(400).json({ error: 'New password must be at least 8 characters long.' });
+    }
+
+    const user = req.user;
+    if (!verifyPassword(user, String(currentPassword))) {
+      return res.status(401).json({ error: 'Current password is incorrect.' });
+    }
+
+    user.passwordHash = hashPassword(newPassword);
+    delete user.password;
+    persistUsers();
+
+    // Persistent backup so it never gets reverted by deployment zips
+    try {
+      const backupDir = path.join(DATA_DIR, 'persistent_backup');
+      if (fs.existsSync(backupDir)) {
+        fs.writeFileSync(path.join(backupDir, 'users.json'), JSON.stringify(users, null, 2), 'utf8');
+      }
+    } catch (_) {}
+
+    broadcastSyncChange('users');
+    res.json({ success: true, message: 'Admin password successfully updated! Your new password is now active.' });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to update password: ' + err.message });
+  }
+});
+
+// Admin System Status & Health Endpoint
+app.get('/api/admin/system-status', requireAuth, requireAdmin, (req, res) => {
+  res.json({
+    status: 'online',
+    uptimeSeconds: Math.floor(process.uptime()),
+    nodeVersion: process.version,
+    platform: process.platform,
+    memoryUsageMB: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+    adminEmail: req.user.email,
+    sessionExpiresInDays: Math.round(ADMIN_SESSION_DURATION_MS / (24 * 60 * 60 * 1000)),
+    totalUsers: users.length,
+    totalQuestionSets: customQuestionSets.length,
+    totalBlogs: blogs.length,
+    totalNotifications: notifications.length,
+    totalMaterials: studyMaterials.length,
+    totalPYQs: previousYearQuestionsList.length
+  });
+});
+
 // ==========================================
 // REAL-TIME SYNC API ENDPOINTS
 // ==========================================
