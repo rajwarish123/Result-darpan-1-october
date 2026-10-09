@@ -2493,8 +2493,12 @@ app.post('/api/auth/signup', (req, res) => {
 });
 
 app.post('/api/auth/guest', (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || 'unknown';
+  if (!checkRateLimit(`guest:${ip}`, 20, 15 * 60 * 1000)) {
+    return res.status(429).json({ error: 'Too many guest session attempts. Please try again later.' });
+  }
   const { name, exam, location, schoolClass, contact } = req.body || {};
-  const cleanContact = String(contact || '').trim().toLowerCase();
+  const cleanContact = sanitizeInput(contact, 100).toLowerCase();
 
   // If phone or email contact was provided, check if returning user matches this contact
   if (cleanContact) {
@@ -2508,9 +2512,9 @@ app.post('/api/auth/guest', (req, res) => {
     });
 
     if (existing) {
-      if (name && name.trim() && name.trim() !== 'Guest Learner') existing.name = name.trim();
-      if (exam && exam.trim()) existing.exam = exam.trim();
-      if (location && location.trim()) existing.location = location.trim();
+      if (name && typeof name === 'string' && name.trim() && name.trim() !== 'Guest Learner') existing.name = sanitizeInput(name, 100);
+      if (exam && typeof exam === 'string' && exam.trim()) existing.exam = sanitizeInput(exam, 60);
+      if (location && typeof location === 'string' && location.trim()) existing.location = sanitizeInput(location, 60);
       if (!existing.contact) existing.contact = cleanContact;
       persistUsers();
       const token = createSession(existing);
@@ -2524,9 +2528,9 @@ app.post('/api/auth/guest', (req, res) => {
     }
   }
 
-  const guestName = String(name || '').trim() || 'Guest Learner';
-  const guestExam = String(exam || '').trim() || 'SSC CGL';
-  const guestLocation = String(location || '').trim() || 'India';
+  const guestName = sanitizeInput(name, 100) || 'Guest Learner';
+  const guestExam = sanitizeInput(exam, 60) || 'SSC CGL';
+  const guestLocation = sanitizeInput(location, 60) || 'India';
   const guestId = `GUEST-${Date.now()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
 
   const user = {
