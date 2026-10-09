@@ -240,6 +240,125 @@
 .forgot-password{display:block;color:var(--green);font-size:10px;font-weight:700;text-align:right;margin-top:-4px}.forgot-password:hover{text-decoration:underline}.recovery-panel{display:grid;gap:12px}.recovery-panel[hidden],.recovery-panel .otp-step[hidden],.recovery-panel .new-password-step[hidden]{display:none}.recovery-panel h3{font:700 20px var(--serif);margin:4px 0 0}.recovery-copy{font-size:11px;color:var(--muted);margin:0 0 5px}.recovery-panel label{font-size:10px;font-weight:700}.recovery-panel input{display:block;width:100%;border:1px solid #d8e2d9;background:#fff;border-radius:5px;padding:11px 12px;margin-top:6px;outline:0;font:12px var(--sans);color:var(--ink)}.recovery-panel .primary-btn{width:100%;justify-content:space-between}.recovery-message{font-size:10px;color:var(--green);line-height:1.4;margin:0}.recovery-message.error{color:#994b39;font-size:12px;line-height:1.5;padding:10px 12px;border:1px solid #edc8bd;border-radius:6px;background:#fff3ef;overflow-wrap:anywhere}.dark-theme .recovery-panel input{background:#102c25;color:var(--ink);border-color:#477663}.dark-theme .recovery-message.error{color:#ffae91}
 .auth-error{color:#b85c45;font-size:10px;margin:0!important;line-height:1.35}.dark-theme .auth-error{color:#ffae91}
 .nav-cta.logout-button{background:#fff;color:var(--green);border:1px solid var(--green);padding:8px 12px;font-size:11px;gap:7px}.nav-cta.logout-button:hover{background:#eaf7ee;color:var(--green);border-color:var(--green)}.dark-theme .nav-cta.logout-button{background:transparent;color:#a9e0b8;border-color:#70a78c}.dark-theme .nav-cta.logout-button:hover{background:#214b3b}
+
+/* ==========================================================================
+   RESULT DARPAN SIGNATURE LOGIN & LOGOUT BADGE BUTTON
+   ========================================================================== */
+.rd-auth-badge-btn,
+.site-header .rd-auth-badge-btn,
+.nav-actions .rd-auth-badge-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2.5px !important;
+  background: #ffffff !important;
+  border: 2px solid #ffb200 !important;
+  border-radius: 11px !important;
+  height: 40px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 2px 8px rgba(255, 178, 0, 0.28) !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease !important;
+  user-select: none !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  outline: none !important;
+  flex-shrink: 0 !important;
+}
+
+.rd-auth-badge-btn:hover,
+.site-header .rd-auth-badge-btn:hover,
+.nav-actions .rd-auth-badge-btn:hover {
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 5px 16px rgba(255, 178, 0, 0.45) !important;
+  filter: brightness(1.02) !important;
+}
+
+.rd-auth-badge-btn:active,
+.site-header .rd-auth-badge-btn:active,
+.nav-actions .rd-auth-badge-btn:active {
+  transform: translateY(1px) scale(0.98) !important;
+  box-shadow: 0 1px 4px rgba(255, 178, 0, 0.3) !important;
+}
+
+.rd-auth-inner {
+  display: inline-flex !important;
+  align-items: stretch !important;
+  height: 100% !important;
+  background: #ffb200 !important;
+  border-radius: 7px !important;
+  overflow: hidden !important;
+}
+
+.rd-auth-icon-box {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 10px !important;
+  border-right: 2px solid #ffffff !important;
+  background: #ffb200 !important;
+  flex-shrink: 0 !important;
+}
+
+.rd-auth-svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+}
+
+.rd-auth-text {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 18px !important;
+  background: #ffb200 !important;
+  color: #ffffff !important;
+  font-family: 'Montserrat', 'DM Sans', -apple-system, sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
+/* Dark theme preservation: retains high-contrast amber and white badge structure */
+.dark-theme .rd-auth-badge-btn,
+.dark-theme .site-header .rd-auth-badge-btn,
+.dark-theme .nav-actions .rd-auth-badge-btn {
+  background: #ffffff !important;
+  border-color: #ffb200 !important;
+  box-shadow: 0 2px 12px rgba(255, 178, 0, 0.35) !important;
+}
+
+/* Mobile responsive scaling */
+@media (max-width: 650px) {
+  .rd-auth-badge-btn,
+  .site-header .rd-auth-badge-btn,
+  .nav-actions .rd-auth-badge-btn {
+    height: 34px !important;
+    padding: 2px !important;
+    border-radius: 9px !important;
+    border-width: 1.8px !important;
+  }
+  .rd-auth-inner {
+    border-radius: 6px !important;
+  }
+  .rd-auth-icon-box {
+    padding: 0 7px !important;
+    border-right-width: 1.8px !important;
+  }
+  .rd-auth-svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+  .rd-auth-text {
+    padding: 0 11px !important;
+    font-size: 11.5px !important;
+    letter-spacing: 0.5px !important;
+  }
+}
+
 .stats-section {
   background: var(--green, #175e4b);
   color: #ffffff;
