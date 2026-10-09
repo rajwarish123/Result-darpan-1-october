@@ -2812,7 +2812,7 @@ app.get('/api/profile/me', requireAuth, (req, res) => {
   res.json(profilePayload(req.user));
 });
 
-app.get('/api/profile/me/goals/options', requireAuth, (req, res) => {
+app.get('/api/profile/me/goals/options', (req, res) => {
   res.json({ groups: popularExamGoalGroups, maxSelections: 5 });
 });
 
