@@ -42,27 +42,7 @@ document.querySelectorAll('a').forEach((link) => {
   if (link.textContent.trim().toLowerCase() === 'privacy') link.href = 'privacy.html';
   if (link.textContent.trim().toLowerCase() === 'terms') link.href = 'terms.html';
 });
-menuToggle?.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-  menuToggle.textContent = isOpen ? '×' : '☰';
-});
-
-document.addEventListener('click', (e) => {
-  if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !menuToggle?.contains(e.target)) {
-    nav.classList.remove('open');
-    menuToggle?.setAttribute('aria-expanded', 'false');
-    if (menuToggle) menuToggle.textContent = '☰';
-  }
-});
-
-document.querySelectorAll('.main-nav a').forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuToggle?.setAttribute('aria-expanded', 'false');
-    if (menuToggle) menuToggle.textContent = '☰';
-  });
-});
+// Mobile drawer toggle controller is handled universally and cleanly by nav.js
 
 // --- CATALOG CONTROLLER: SEARCH, CATEGORIES, AND VIEW ALL TOGGLE ---
 let activeCatalogCategory = 'all';
