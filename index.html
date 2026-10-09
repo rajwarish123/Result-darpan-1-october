@@ -120,7 +120,61 @@
       <div class="rd-ad-container rd-ad-leaderboard" data-ad-slot="topLeaderboard" data-ad-slot-id="rd-home-leaderboard"></div>
     </div>
 
-        <section class="section catalog" id="popular">
+    <!-- GAME ARENA: DAILY MISSIONS & WEEKLY LEAGUES -->
+    <section class="game-arena-section" id="gameArenaSection">
+      <div class="shell">
+        <div class="game-arena-grid">
+          <!-- Daily Quests Card -->
+          <div class="game-card">
+            <div class="game-card-header">
+              <div>
+                <span class="game-kicker">DAILY MISSIONS</span>
+                <h3 class="game-card-title">Today's Challenges</h3>
+              </div>
+              <span class="game-quest-reset">Resets at midnight</span>
+            </div>
+            <div class="game-quests-list" id="gameQuestsList">
+              <!-- Dynamically populated by gamification-game.js -->
+            </div>
+          </div>
+
+          <!-- Weekly League Card -->
+          <div class="game-card">
+            <div class="game-card-header">
+              <div>
+                <span class="game-kicker">WEEKLY STANDING</span>
+                <h3 class="game-card-title">League Arena</h3>
+              </div>
+              <span class="league-tier-pill" id="gameLeagueTierPill">🥈 Silver League</span>
+            </div>
+            <div class="league-progress-wrap">
+              <div class="league-rank-row">
+                <span class="league-rank-label">Current XP</span>
+                <span class="league-rank-val" id="gameLeagueRankVal">120 XP</span>
+              </div>
+              <div class="league-track">
+                <div class="league-fill" id="gameLeagueFill" style="width: 40%;"></div>
+              </div>
+              <p class="league-subtext" id="gameLeagueSubtext">Keep practicing daily to promote to the next tier!</p>
+            </div>
+
+            <!-- Mystery Chest CTA Button -->
+            <div class="mystery-chest-cta-wrap">
+              <button type="button" class="mystery-chest-btn" id="gameMysteryChestBtn" aria-label="Open Mystery Chest">
+                <span class="chest-icon">🎁</span>
+                <div>
+                  <strong>Daily Mystery Box</strong>
+                  <small>Free daily reward ready! Tap to unlock</small>
+                </div>
+                <span class="chest-arrow">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog" id="popular">
       <div class="shell">
         <div class="section-heading catalog-heading">
           <div>
