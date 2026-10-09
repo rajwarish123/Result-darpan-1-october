@@ -577,18 +577,32 @@ function updateProfileMetrics(stats) {
   if (accuracyLabel) accuracyLabel.textContent = 'Average accuracy';
 }
 
-function renderHomeGoals(goals = []) {
+function renderHomeGoals(goals) {
   const list = document.querySelector('#goalList');
   if (!list) return;
-  list.replaceChildren();
-  if (!goals.length) {
-    const empty = document.createElement('p');
-    empty.className = 'goal-empty';
-    empty.textContent = 'Add an exam goal to personalise your prep desk.';
-    list.appendChild(empty);
-    return;
+
+  let activeGoals = Array.isArray(goals) && goals.length > 0 ? goals : [];
+  if (!activeGoals.length) {
+    const stored = window.localStorage.getItem('preply-user-goals');
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          activeGoals = parsed.map((g) => (typeof g === 'string' ? { name: g } : g));
+        }
+      } catch (_) {}
+    }
   }
-  goals.forEach((goal) => {
+
+  if (!activeGoals.length) {
+    activeGoals = [
+      { name: 'SSC CGL Tier-I' },
+      { name: 'RRB NTPC' }
+    ];
+  }
+
+  list.replaceChildren();
+  activeGoals.forEach((goal) => {
     const item = document.createElement('div');
     item.className = 'goal-item';
     const icon = document.createElement('span');
@@ -598,10 +612,10 @@ function renderHomeGoals(goals = []) {
     const name = document.createElement('strong');
     name.textContent = goal.name;
     const note = document.createElement('span');
-    note.textContent = 'Personal study goal';
+    note.textContent = 'Mock Practice Available';
     detail.append(name, note);
     const progress = document.createElement('b');
-    progress.textContent = '0%';
+    progress.textContent = 'Ready';
     item.append(icon, detail, progress);
     list.appendChild(item);
   });
