@@ -1045,3 +1045,50 @@ test('GET /api/admin/export-all-data and POST /api/admin/import-all-data work fo
     else process.env.ADMIN_EMAIL = previousAdminEmail;
   }
 });
+
+test('GET /api/sync/version and POST /api/sync/merge-bundle support realtime sync with conflict-free merge', async () => {
+  const adminEmail = `syncmerge_${Date.now()}@resultdarpan.com`;
+  const previousAdminEmail = process.env.ADMIN_EMAIL;
+  process.env.ADMIN_EMAIL = adminEmail;
+  try {
+    const adminSignup = await request(app).post('/api/auth/signup').send({
+      name: 'Sync Merge Admin',
+      email: adminEmail,
+      password: 'adminSecurePassword123'
+    });
+    const adminToken = adminSignup.body.token;
+
+    // Test version endpoint (0ms check)
+    const verRes = await request(app).get('/api/sync/version');
+    assert.equal(verRes.status, 200);
+    assert.ok(verRes.body.version);
+    assert.ok(typeof verRes.body.counts.questionSets === 'number');
+
+    // Test merge-bundle endpoint
+    const mergeRes = await request(app)
+      .post('/api/sync/merge-bundle')
+      .set('Authorization', `Bearer ${adminToken}`)
+      .send({
+        questionSets: [
+          {
+            id: 'exam-ssc-cgl-quant-set-99',
+            exam: 'SSC CGL',
+            subject: 'Quantitative Aptitude',
+            setNumber: 99,
+            title: 'Quantitative Aptitude Set 99',
+            questions: [
+              { text: 'What is 25% of 800?', options: ['150', '200', '250', '300'], answer: 1, topic: 'Arithmetic' }
+            ],
+            updatedAt: new Date().toISOString()
+          }
+        ]
+      });
+    assert.equal(mergeRes.status, 200);
+    assert.equal(mergeRes.body.success, true);
+    assert.equal(mergeRes.body.updatedItems.questionSets, 1);
+  } finally {
+    if (typeof previousAdminEmail === 'undefined') delete process.env.ADMIN_EMAIL;
+    else process.env.ADMIN_EMAIL = previousAdminEmail;
+  }
+});
+
