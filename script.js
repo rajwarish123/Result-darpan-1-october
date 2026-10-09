@@ -1090,11 +1090,8 @@ document.getElementById('nextTestimonial')?.addEventListener('click', () => {
   showTestimonial(currentTestimonialIndex);
 });
 
-// Edit profile & goals listeners
+// Edit profile listener
 document.getElementById('editProfile')?.addEventListener('click', () => {
-  openAuth();
-});
-document.getElementById('addGoal')?.addEventListener('click', () => {
   openAuth();
 });
 document.querySelector('.close-test')?.addEventListener('click', closeTest);
