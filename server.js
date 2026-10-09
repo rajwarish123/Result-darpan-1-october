@@ -2446,9 +2446,13 @@ app.post('/api/chat/messages', async (req, res) => {
 const loginRateLimits = new Map();
 
 app.post('/api/auth/signup', (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || 'unknown';
+  if (!checkRateLimit(`signup:${ip}`, 15, 15 * 60 * 1000)) {
+    return res.status(429).json({ error: 'Too many signup attempts. Please try again later.' });
+  }
   const { name, email, password, exam, location, schoolClass, guestId } = req.body || {};
-  const normalizedEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
-  const normalizedName = typeof name === 'string' ? name.trim() : '';
+  const normalizedEmail = typeof email === 'string' ? email.trim().toLowerCase().slice(0, 100) : '';
+  const normalizedName = sanitizeInput(name, 100);
 
   if (!normalizedName || !normalizedEmail || typeof password !== 'string') {
     return res.status(400).json({ error: 'Name, email, and password are required.' });
@@ -2471,8 +2475,8 @@ app.post('/api/auth/signup', (req, res) => {
     name: normalizedName,
     email: normalizedEmail,
     passwordHash: hashPassword(password),
-    exam: String(exam || (guestUser && guestUser.exam) || 'SSC CGL').trim(),
-    location: String(location || (guestUser && guestUser.location) || 'India').trim(),
+    exam: sanitizeInput(exam || (guestUser && guestUser.exam) || 'SSC CGL', 60),
+    location: sanitizeInput(location || (guestUser && guestUser.location) || 'India', 60),
     schoolClass: ['9', '10', '11', '12'].includes(String(schoolClass)) ? String(schoolClass) : ((guestUser && guestUser.schoolClass) || null),
     goals: initialGoals,
     testAttempts: initialAttempts
