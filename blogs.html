@@ -337,19 +337,21 @@
   <!-- Full Article Reader Modal (SEO Deep-Linked with Sharing) -->
   <div class="modal-overlay modal-wide" id="articleReaderModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="readBlogTitle">
     <div class="modal-card">
-      <div class="modal-reader-header" style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:14px;">
-        <div style="flex:1;">
+      <div class="modal-reader-header">
+        <div class="modal-reader-topbar">
           <span id="readBlogCategory" class="badge">Category</span>
-          <h2 id="readBlogTitle" style="font-size:1.45rem; margin:8px 0 6px; font-family:'Montserrat', sans-serif; line-height:1.3;">Title</h2>
-          <small id="readBlogMeta" style="color:var(--muted); font-size:0.85rem;">By Author · Date</small>
-          <div id="readBlogTags" class="article-tag-list"></div>
+          <div class="modal-reader-actions">
+            <button class="outline-btn" id="btnShareArticle" type="button" title="Copy direct link to this article">🔗 Share</button>
+            <button class="btn-tool" id="btnCloseArticleReader" type="button" aria-label="Close article">✕ Close</button>
+          </div>
         </div>
-        <div style="display:flex; gap:8px; align-items:center; flex-shrink:0;">
-          <button class="outline-btn" id="btnShareArticle" type="button" style="padding:6px 14px; font-size:12px; cursor:pointer;" title="Copy direct link to this article">🔗 Share</button>
-          <button class="btn-tool" id="btnCloseArticleReader" type="button" aria-label="Close article">✕ Close</button>
+        <h2 id="readBlogTitle">Title</h2>
+        <div class="modal-reader-meta-row">
+          <small id="readBlogMeta">By Author · Date</small>
         </div>
+        <div id="readBlogTags" class="article-tag-list"></div>
       </div>
-      <div id="readBlogBody" class="article-rich-content" style="font-size:1rem; line-height:1.8; border-top:1px solid var(--line); padding-top:18px;"></div>
+      <div id="readBlogBody" class="article-rich-content"></div>
     </div>
   </div>
 
