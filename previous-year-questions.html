@@ -126,6 +126,49 @@
     </div>
   </footer>
 
+  <!-- STICKY FLOATING GAME HUD -->
+  <aside class="rd-game-hud" id="rdGameHud" aria-label="Study Streak & Game Progress">
+    <button type="button" class="rd-hud-item rd-hud-streak" id="rdHudStreak" title="Your Daily Streak">
+      <span class="flame-icon">🔥</span> <span id="rdHudStreakCount">1 Day</span>
+    </button>
+    <button type="button" class="rd-hud-item rd-hud-xp" id="rdHudXp" title="Total Experience Points">
+      <span>⚡</span> <span id="rdHudXpCount">0 XP</span>
+    </button>
+    <button type="button" class="rd-hud-item rd-hud-league" id="rdHudLeague" title="Current League Division">
+      <span id="rdHudLeagueBadge">🥈 Silver</span>
+    </button>
+    <button type="button" class="rd-hud-item rd-hud-chest has-reward" id="rdHudChest" title="Mystery Chest Ready!">
+      <span>🎁</span> <span>Gift</span>
+    </button>
+    <button type="button" class="rd-hud-item rd-hud-sound" id="rdHudSound" title="Sound Effects (Click to toggle)" aria-label="Toggle Sound Effects">
+      <span id="rdHudSoundIcon">🔊</span>
+    </button>
+  </aside>
+
+  <!-- DAILY MYSTERY CHEST POPUP MODAL -->
+  <div class="rd-chest-modal" id="rdChestModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="rdChestTitle">
+    <div class="rd-chest-backdrop" id="rdChestBackdrop"></div>
+    <div class="rd-chest-card">
+      <button type="button" class="rd-chest-close" id="rdChestClose" aria-label="Close chest">✕</button>
+      <div class="rd-chest-visual">
+        <div class="rd-chest-glow-rays"></div>
+        <div class="rd-chest-icon-large" id="rdChestIconLarge">🎁</div>
+      </div>
+      <span class="game-kicker">DAILY REWARD BOX</span>
+      <h3 class="game-card-title" id="rdChestTitle" style="font-size: 24px; margin: 6px 0;">Mystery Gift Box</h3>
+      <p style="font-size: 13px; color: var(--muted, #68726b); margin: 0 0 16px;">Open your 24h bonus chest to collect XP, streak protections, and exam superpowers!</p>
+      
+      <div class="rd-chest-reward-card" id="rdChestRewardCard" style="display:none;">
+        <div class="rd-chest-reward-title">TODAY'S BONUS UNLOCKED</div>
+        <div class="rd-chest-reward-xp" id="rdChestRewardXp">+50 XP ⚡</div>
+        <p class="rd-chest-tip" id="rdChestTip">"Champions don't rely on luck. They rely on daily reps."</p>
+      </div>
+
+      <button type="button" class="rd-chest-action-btn" id="rdChestActionBtn">Open Mystery Box 🎁</button>
+    </div>
+  </div>
+
   <script src="pages.js?v=5.2"></script>
+  <script src="gamification-game.js?v=1.0" defer></script>
 </body>
 </html>
