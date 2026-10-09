@@ -2359,8 +2359,12 @@ app.get('/api/chat/stream', (req, res) => {
 });
 
 app.post('/api/chat/messages', async (req, res) => {
+  const ip = req.ip || req.connection?.remoteAddress || 'unknown';
+  if (!checkRateLimit(`chatMsg:${ip}`, 30, 60 * 1000)) {
+    return res.status(429).json({ error: 'Chat rate limit reached. Please wait a moment.' });
+  }
   const { text, email = '' } = req.body || {};
-  const messageText = typeof text === 'string' ? text.trim() : '';
+  const messageText = sanitizeInput(text, 2000);
 
   if (!messageText) {
     return res.status(400).json({ error: 'Message text is required.' });
