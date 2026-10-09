@@ -28,9 +28,9 @@
 .class-series-card h2 { font: 700 20px/1.2 var(--serif); letter-spacing: -.5px; margin: 0; }
 .class-series-card p { color: var(--muted, #68726b); font-size: 12px; margin: 8px 0 14px; }
 .class-series-card .class-series-progress { color: var(--green, #175e4b); font-weight: 700; }
-.class-series-sets { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; }
-.class-series-sets button { min-height: 36px; border: 1px solid var(--line, #d9ddd6); border-radius: 5px; background: #f7faf7; color: var(--green, #175e4b); cursor: pointer; font-size: 11px; font-weight: 700; }
-.class-series-sets button:hover, .class-series-sets button:focus-visible { border-color: var(--green, #175e4b); background: var(--mint, #dff3e7); }
+.class-series-sets { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.class-series-sets button { min-height: 38px; padding: 7px 10px; border: 1px solid var(--line, #d9ddd6); border-radius: 7px; background: #f7faf7; color: var(--green, #175e4b); cursor: pointer; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; transition: all 0.18s ease; }
+.class-series-sets button:hover, .class-series-sets button:focus-visible { border-color: var(--green, #175e4b); background: var(--mint, #dff3e7); transform: translateY(-1.5px); box-shadow: 0 3px 8px rgba(23, 94, 75, 0.15); }
 .class-test { margin-top: 38px; padding: 26px; border: 1px solid var(--line, #d9ddd6); border-radius: 8px; background: var(--surface, #fff); scroll-margin-top: 100px; }
 .class-test-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
 .class-test-heading h2 { font: 700 27px/1.2 var(--serif); letter-spacing: -.8px; margin: 7px 0 0; }
