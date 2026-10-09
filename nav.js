@@ -120,16 +120,37 @@
     toggle.setAttribute('aria-expanded', String(open));
   });
 
-  // Mobile drawer toggle controller
+  // Mobile drawer toggle controller - Single Source of Truth
+  window.toggleNavMenu = function (e) {
+    if (e) {
+      if (typeof e.preventDefault === 'function') e.preventDefault();
+      if (typeof e.stopPropagation === 'function') e.stopPropagation();
+    }
+    const currentNav = document.querySelector('.main-nav');
+    const btn = document.querySelector('.menu-toggle');
+    if (!currentNav) return;
+    const isOpen = currentNav.classList.toggle('open');
+    if (btn) {
+      btn.setAttribute('aria-expanded', String(isOpen));
+      btn.textContent = isOpen ? '×' : '☰';
+    }
+  };
+
   const menuToggle = document.querySelector('.menu-toggle');
   if (menuToggle && !menuToggle.dataset.bound) {
     menuToggle.dataset.bound = 'true';
+    let lastTouchTime = 0;
+    menuToggle.addEventListener('touchstart', (e) => {
+      lastTouchTime = Date.now();
+      window.toggleNavMenu(e);
+    }, { passive: false });
     menuToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const isOpen = nav.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-      menuToggle.textContent = isOpen ? '×' : '☰';
+      if (Date.now() - lastTouchTime < 450) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+      window.toggleNavMenu(e);
     });
   }
 
@@ -137,9 +158,10 @@
     closeMenu();
     if (nav.classList.contains('open')) {
       nav.classList.remove('open');
-      if (menuToggle) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.textContent = '☰';
+      const btn = document.querySelector('.menu-toggle');
+      if (btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = '☰';
       }
     }
   };
