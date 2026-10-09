@@ -1,4 +1,36 @@
+# Dependencies
 node_modules/
+package-lock.json.bak
+
+# Sensitive environment and credentials
 .env
+.env.*
+*.env
+*.pem
+*.key
+*.cert
+*.crt
+
+# System & Editor Artifacts
 .DS_Store
 Thumbs.db
+ehthumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build and deployment archives
+*.zip
+*.tar.gz
+*.tgz
+.temp*
+
+# Logs and runtime data
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
