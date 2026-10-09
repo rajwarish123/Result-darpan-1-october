@@ -91,31 +91,71 @@ async function runSync() {
     const dataDir = path.join(__dirname, 'data');
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
+    function readLocalList(fileName) {
+      try {
+        const filePath = path.join(dataDir, fileName);
+        if (fs.existsSync(filePath)) {
+          const raw = fs.readFileSync(filePath, 'utf8');
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch (_) {}
+      return [];
+    }
+
+    function mergeList(existing, incoming, key = 'id') {
+      if (!Array.isArray(incoming) || incoming.length === 0) return existing || [];
+      if (!Array.isArray(existing) || existing.length === 0) return incoming;
+      const map = new Map();
+      existing.forEach(i => {
+        const k = i[key] || i.title || i.text || JSON.stringify(i);
+        map.set(k, i);
+      });
+      incoming.forEach(i => {
+        const k = i[key] || i.title || i.text || JSON.stringify(i);
+        if (!map.has(k)) {
+          map.set(k, i);
+        } else {
+          const existTime = Date.parse(map.get(k).updatedAt || map.get(k).createdAt || 0) || 0;
+          const inTime = Date.parse(i.updatedAt || i.createdAt || 0) || 0;
+          if (inTime >= existTime) {
+            map.set(k, i);
+          }
+        }
+      });
+      return Array.from(map.values());
+    }
+
     console.log(`[3/3] Writing updated data files to local disk (${dataDir})...`);
 
     if (Array.isArray(bundle.blogs)) {
-      fs.writeFileSync(path.join(dataDir, 'blogs.json'), JSON.stringify(bundle.blogs, null, 2), 'utf8');
-      console.log(`  ✓ blogs.json: ${bundle.blogs.length} articles updated`);
+      const merged = mergeList(readLocalList('blogs.json'), bundle.blogs, 'id');
+      fs.writeFileSync(path.join(dataDir, 'blogs.json'), JSON.stringify(merged, null, 2), 'utf8');
+      console.log(`  ✓ blogs.json: ${merged.length} articles preserved/updated`);
     }
 
     if (Array.isArray(bundle.notifications)) {
-      fs.writeFileSync(path.join(dataDir, 'notifications.json'), JSON.stringify(bundle.notifications, null, 2), 'utf8');
-      console.log(`  ✓ notifications.json: ${bundle.notifications.length} exam alerts updated`);
+      const merged = mergeList(readLocalList('notifications.json'), bundle.notifications, 'id');
+      fs.writeFileSync(path.join(dataDir, 'notifications.json'), JSON.stringify(merged, null, 2), 'utf8');
+      console.log(`  ✓ notifications.json: ${merged.length} exam alerts preserved/updated`);
     }
 
     if (Array.isArray(bundle.studyMaterials)) {
-      fs.writeFileSync(path.join(dataDir, 'study-materials.json'), JSON.stringify(bundle.studyMaterials, null, 2), 'utf8');
-      console.log(`  ✓ study-materials.json: ${bundle.studyMaterials.length} materials updated`);
+      const merged = mergeList(readLocalList('study-materials.json'), bundle.studyMaterials, 'id');
+      fs.writeFileSync(path.join(dataDir, 'study-materials.json'), JSON.stringify(merged, null, 2), 'utf8');
+      console.log(`  ✓ study-materials.json: ${merged.length} materials preserved/updated`);
     }
 
     if (Array.isArray(bundle.questionSets)) {
-      fs.writeFileSync(path.join(dataDir, 'question-sets.json'), JSON.stringify(bundle.questionSets, null, 2), 'utf8');
-      console.log(`  ✓ question-sets.json: ${bundle.questionSets.length} sets updated`);
+      const merged = mergeList(readLocalList('question-sets.json'), bundle.questionSets, 'id');
+      fs.writeFileSync(path.join(dataDir, 'question-sets.json'), JSON.stringify(merged, null, 2), 'utf8');
+      console.log(`  ✓ question-sets.json: ${merged.length} sets preserved/updated`);
     }
 
     if (Array.isArray(bundle.previousYearQuestions)) {
-      fs.writeFileSync(path.join(dataDir, 'previous-year-questions.json'), JSON.stringify(bundle.previousYearQuestions, null, 2), 'utf8');
-      console.log(`  ✓ previous-year-questions.json: ${bundle.previousYearQuestions.length} PYQs updated`);
+      const merged = mergeList(readLocalList('previous-year-questions.json'), bundle.previousYearQuestions, 'id');
+      fs.writeFileSync(path.join(dataDir, 'previous-year-questions.json'), JSON.stringify(merged, null, 2), 'utf8');
+      console.log(`  ✓ previous-year-questions.json: ${merged.length} PYQs preserved/updated`);
     }
 
     if (bundle.adSettings) {
