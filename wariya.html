@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="mobile.css" />
-  <script src="firebase-config.js"></script>
+  <link rel="stylesheet" href="styles.css?v=5.2" />
+  <link rel="stylesheet" href="mobile.css?v=5.2" />
+  <script src="firebase-config.js?v=5.2"></script>
   <style>
     :root {
       --primary: #196b45;
@@ -1257,6 +1257,26 @@
             <h2>Recent chat activity</h2>
             <ul id="recentMessages" class="list"></ul>
           </div>
+        </div>
+
+        <div class="panel" style="margin-top:24px; padding:24px; background:var(--surface); border-radius:var(--radius); border:1px solid rgba(20,57,42,0.08);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+            <div>
+              <span class="label" style="margin:0 0 4px;">SITE DATA MANAGEMENT</span>
+              <h2 style="margin:0 0 6px; font-size:1.3rem;">💾 Live Site Data Backup &amp; Local Workspace Sync</h2>
+              <p class="muted" style="margin:0; font-size:0.9rem;">Download all website content (blogs, exam alerts, notes, PYQs, question sets) as a single JSON backup. You can import this into your local workspace anytime to keep both in perfect sync.</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="primary-btn" id="btnDownloadBackup" type="button" style="display:inline-flex; align-items:center; gap:8px;">
+                📥 Download Full Site Backup (JSON)
+              </button>
+              <button class="btn-tool" id="btnTriggerRestore" type="button" style="display:inline-flex; align-items:center; gap:8px;">
+                📤 Restore / Import Backup
+              </button>
+              <input type="file" id="backupFileInput" accept=".json" style="display:none;">
+            </div>
+          </div>
+          <div id="backupFeedback" style="margin-top:12px; font-size:0.9rem; font-weight:600;"></div>
         </div>
       </section>
 
@@ -3677,6 +3697,97 @@ Topic: Mechanics
         "'": '&#039;'
       }[m]));
     }
+
+    // ==========================================
+    // BACKUP & RESTORE / LIVE SYNC CONTROLLER
+    // ==========================================
+    document.getElementById('btnDownloadBackup')?.addEventListener('click', async () => {
+      const feedback = document.getElementById('backupFeedback');
+      const btn = document.getElementById('btnDownloadBackup');
+      if (feedback) {
+        feedback.textContent = 'Generating complete site backup bundle...';
+        feedback.style.color = 'var(--muted)';
+      }
+      btn.disabled = true;
+
+      try {
+        const res = await apiFetch('/api/admin/export-all-data');
+        if (!res.ok) throw new Error('Failed to generate backup bundle');
+        const data = await res.json();
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const dateStr = new Date().toISOString().split('T')[0];
+        a.href = url;
+        a.download = `resultdarpan-live-data-backup-${dateStr}.json`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+
+        showToast('Site backup downloaded successfully!');
+        if (feedback) {
+          feedback.textContent = '✓ Backup downloaded successfully. All blogs, notes, exams & questions saved!';
+          feedback.style.color = '#15803d';
+        }
+      } catch (err) {
+        showToast(err.message || 'Backup failed', true);
+        if (feedback) {
+          feedback.textContent = 'Failed to download backup: ' + err.message;
+          feedback.style.color = 'var(--danger)';
+        }
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    document.getElementById('btnTriggerRestore')?.addEventListener('click', () => {
+      document.getElementById('backupFileInput')?.click();
+    });
+
+    document.getElementById('backupFileInput')?.addEventListener('change', async (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const feedback = document.getElementById('backupFeedback');
+
+      const confirmed = window.confirm(`Restore site data from "${file.name}"? This will update live blogs, notifications, materials, and question sets.`);
+      if (!confirmed) {
+        e.target.value = '';
+        return;
+      }
+
+      if (feedback) {
+        feedback.textContent = 'Uploading and restoring site data bundle...';
+        feedback.style.color = 'var(--muted)';
+      }
+
+      try {
+        const text = await file.text();
+        const payload = JSON.parse(text);
+
+        const res = await apiFetch('/api/admin/import-all-data', {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        if (!res.ok) throw new Error(result.error || 'Failed to restore data bundle');
+
+        showToast('Site data restored and persisted successfully!');
+        if (feedback) {
+          feedback.textContent = '✓ Site data restored successfully! Reloading overview...';
+          feedback.style.color = '#15803d';
+        }
+        await loadAdminOverview();
+      } catch (err) {
+        showToast(err.message || 'Restore failed', true);
+        if (feedback) {
+          feedback.textContent = 'Restore failed: ' + err.message;
+          feedback.style.color = 'var(--danger)';
+        }
+      } finally {
+        e.target.value = '';
+      }
+    });
 
     // Initial check
     checkAuthAndInit();

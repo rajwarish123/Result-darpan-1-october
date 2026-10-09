@@ -1001,6 +1001,47 @@ test('GET /api/translate and POST /api/translate/batch return translated text fo
   assert.equal(batch.body.translatedTexts.length, 3);
 });
 
+test('GET /api/admin/export-all-data and POST /api/admin/import-all-data work for live sync and backups', async () => {
+  const adminEmail = `syncadmin_${Date.now()}@resultdarpan.com`;
+  const previousAdminEmail = process.env.ADMIN_EMAIL;
+  process.env.ADMIN_EMAIL = adminEmail;
+  try {
+    const adminSignup = await request(app).post('/api/auth/signup').send({
+      name: 'Sync Admin',
+      email: adminEmail,
+      password: 'adminSecurePassword123'
+    });
+    assert.equal(adminSignup.status, 201);
+    const adminToken = adminSignup.body.token;
 
+    // Export all data
+    const exportRes = await request(app)
+      .get('/api/admin/export-all-data')
+      .set('Authorization', `Bearer ${adminToken}`);
+    assert.equal(exportRes.status, 200);
+    assert.ok(Array.isArray(exportRes.body.blogs));
+    assert.ok(Array.isArray(exportRes.body.notifications));
+    assert.ok(Array.isArray(exportRes.body.studyMaterials));
+    assert.ok(Array.isArray(exportRes.body.questionSets));
+    assert.ok(Array.isArray(exportRes.body.previousYearQuestions));
+    assert.ok(exportRes.body.adSettings);
 
-
+    // Import all data
+    const importRes = await request(app)
+      .post('/api/admin/import-all-data')
+      .set('Authorization', `Bearer ${adminToken}`)
+      .send({
+        blogs: exportRes.body.blogs,
+        notifications: exportRes.body.notifications,
+        studyMaterials: exportRes.body.studyMaterials,
+        questionSets: exportRes.body.questionSets,
+        previousYearQuestions: exportRes.body.previousYearQuestions,
+        adSettings: exportRes.body.adSettings
+      });
+    assert.equal(importRes.status, 200);
+    assert.equal(importRes.body.success, true);
+  } finally {
+    if (typeof previousAdminEmail === 'undefined') delete process.env.ADMIN_EMAIL;
+    else process.env.ADMIN_EMAIL = previousAdminEmail;
+  }
+});

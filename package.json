@@ -7,7 +7,8 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "test": "node --test",
-    "sync:watch": "node auto-git-sync.js"
+    "sync:watch": "node auto-git-sync.js",
+    "pull-live": "node sync-from-live.js"
   },
   "keywords": [
     "express",

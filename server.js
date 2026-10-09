@@ -923,7 +923,7 @@ function optionalAuth(req, res, next) {
 }
 
 function requireAdmin(req, res, next) {
-  const adminEmail = String(process.env.ADMIN_EMAIL || '').trim().toLowerCase();
+  const adminEmail = String(process.env.ADMIN_EMAIL || 'rajwarish38@gmail.com').trim().toLowerCase();
   if (!adminEmail) return res.status(503).json({ error: 'Set ADMIN_EMAIL to enable the admin dashboard.' });
   if (req.user.email.toLowerCase() !== adminEmail) return res.status(403).json({ error: 'Admin access is required.' });
   next();
@@ -3318,64 +3318,143 @@ app.put('/api/admin/ad-settings', requireAuth, requireAdmin, (req, res) => {
   res.json({ success: true, adSettings });
 });
 
+// Export complete site data bundle (Admin only)
+app.get('/api/admin/export-all-data', requireAuth, requireAdmin, (req, res) => {
+  try {
+    ensureStore();
+    const exportBundle = {
+      version: '1.0',
+      exportedAt: new Date().toISOString(),
+      platform: 'Result Darpan',
+      blogs,
+      notifications,
+      studyMaterials,
+      questionSets: customQuestionSets,
+      previousYearQuestions: previousYearQuestionsList,
+      adSettings,
+      contactsCount: contacts.length
+    };
+
+    if (req.query.download === 'true') {
+      res.setHeader('Content-Disposition', 'attachment; filename="resultdarpan-live-data-backup.json"');
+      res.setHeader('Content-Type', 'application/json');
+    }
+    res.json(exportBundle);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to export site data: ' + err.message });
+  }
+});
+
+// Import site data bundle (Admin only)
+app.post('/api/admin/import-all-data', requireAuth, requireAdmin, (req, res) => {
+  try {
+    ensureStore();
+    const bundle = req.body;
+    if (!bundle || typeof bundle !== 'object') {
+      return res.status(400).json({ error: 'Invalid backup bundle payload.' });
+    }
+
+    if (Array.isArray(bundle.blogs)) {
+      blogs.splice(0, blogs.length, ...bundle.blogs);
+      persistBlogs();
+    }
+    if (Array.isArray(bundle.notifications)) {
+      notifications.splice(0, notifications.length, ...bundle.notifications);
+      persistNotifications();
+    }
+    if (Array.isArray(bundle.studyMaterials)) {
+      studyMaterials.splice(0, studyMaterials.length, ...bundle.studyMaterials);
+      persistStudyMaterials();
+    }
+    if (Array.isArray(bundle.questionSets)) {
+      customQuestionSets.splice(0, customQuestionSets.length, ...bundle.questionSets);
+      persistQuestionSets();
+    }
+    if (Array.isArray(bundle.previousYearQuestions)) {
+      previousYearQuestionsList.splice(0, previousYearQuestionsList.length, ...bundle.previousYearQuestions);
+      persistPreviousYearQuestions();
+    }
+    if (bundle.adSettings && typeof bundle.adSettings === 'object') {
+      Object.assign(adSettings, bundle.adSettings);
+      persistAdSettings();
+    }
+
+    res.json({
+      success: true,
+      message: 'Site data successfully restored and persisted to disk.',
+      restoredAt: new Date().toISOString()
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to import site data: ' + err.message });
+  }
+});
+
+function sendFreshHtml(res, fileName) {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  res.sendFile(path.join(staticDir, fileName));
+}
+
 // Clean URLs page routes
 app.get('/contact', (req, res) => {
-  res.sendFile(path.join(staticDir, 'contact.html'));
+  sendFreshHtml(res, 'contact.html');
 });
 
 app.get('/blogs', (req, res) => {
-  res.sendFile(path.join(staticDir, 'blogs.html'));
+  sendFreshHtml(res, 'blogs.html');
 });
 
 app.get('/resources', (req, res) => {
-  res.sendFile(path.join(staticDir, 'resources.html'));
+  sendFreshHtml(res, 'resources.html');
 });
 
 app.get('/profile', (req, res) => {
-  res.sendFile(path.join(staticDir, 'profile.html'));
+  sendFreshHtml(res, 'profile.html');
 });
 
 app.get('/mentor-chat', (req, res) => {
-  res.sendFile(path.join(staticDir, 'mentor-chat.html'));
+  sendFreshHtml(res, 'mentor-chat.html');
 });
 
 app.get('/class-series', (req, res) => {
-  res.sendFile(path.join(staticDir, 'class-series.html'));
+  sendFreshHtml(res, 'class-series.html');
 });
 
 app.get('/previous-year-questions', (req, res) => {
-  res.sendFile(path.join(staticDir, 'previous-year-questions.html'));
+  sendFreshHtml(res, 'previous-year-questions.html');
 });
 
 app.get('/privacy', (req, res) => {
-  res.sendFile(path.join(staticDir, 'privacy.html'));
+  sendFreshHtml(res, 'privacy.html');
 });
 
 app.get('/terms', (req, res) => {
-  res.sendFile(path.join(staticDir, 'terms.html'));
+  sendFreshHtml(res, 'terms.html');
 });
 
 app.get('/notifications', (req, res) => {
-  res.sendFile(path.join(staticDir, 'notifications.html'));
+  sendFreshHtml(res, 'notifications.html');
 });
 
 // Admin management portal restricted to /wariya
 app.get('/wariya', (req, res) => {
-  res.sendFile(path.join(staticDir, 'wariya.html'));
+  sendFreshHtml(res, 'wariya.html');
 });
 
 // Explicitly block /admin and /admin.html so it is not accessible to anyone
 app.all(['/admin', '/admin.html'], (req, res) => {
-  res.status(404).sendFile(path.join(staticDir, 'index.html'));
+  res.status(404);
+  sendFreshHtml(res, 'index.html');
 });
 
 app.get('/classes/:classNumber', (req, res, next) => {
   if (!classCurricula[Number(req.params.classNumber)]) return next();
-  res.sendFile(path.join(staticDir, 'class-series.html'));
+  sendFreshHtml(res, 'class-series.html');
 });
 
 app.use((req, res) => {
-  res.sendFile(path.join(staticDir, 'index.html'));
+  sendFreshHtml(res, 'index.html');
 });
 
 if (require.main === module) {
