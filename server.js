@@ -3484,6 +3484,183 @@ app.post('/api/admin/import-all-data', requireAuth, requireAdmin, (req, res) => 
   }
 });
 
+// ==========================================
+// REAL-TIME SYNC API ENDPOINTS
+// ==========================================
+// 1. Lightweight version check (0ms, unauthenticated for ultra-fast polling)
+app.get('/api/sync/version', (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store');
+  res.json({
+    version: dataVersion,
+    counts: {
+      questionSets: customQuestionSets.length,
+      blogs: blogs.length,
+      notifications: notifications.length,
+      studyMaterials: studyMaterials.length,
+      previousYearQuestions: previousYearQuestionsList.length
+    }
+  });
+});
+
+// 2. Real-time Server-Sent Events (SSE) stream
+app.get('/api/sync/stream', (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache, no-transform');
+  res.setHeader('Connection', 'keep-alive');
+  res.flushHeaders?.();
+
+  // Initial connection handshake
+  res.write(`event: connected\ndata: ${JSON.stringify({ timestamp: Date.now(), version: dataVersion })}\n\n`);
+
+  syncSubscribers.add(res);
+
+  // Keep-alive heartbeat every 20 seconds
+  const heartbeatTimer = setInterval(() => {
+    try {
+      res.write(`event: ping\ndata: ${Date.now()}\n\n`);
+    } catch (_) {
+      clearInterval(heartbeatTimer);
+      syncSubscribers.delete(res);
+    }
+  }, 20000);
+
+  req.on('close', () => {
+    clearInterval(heartbeatTimer);
+    syncSubscribers.delete(res);
+  });
+});
+
+// 3. Intelligent two-way merge bundle endpoint
+app.post('/api/sync/merge-bundle', requireAuth, requireAdmin, (req, res) => {
+  try {
+    const incoming = req.body;
+    if (!incoming || typeof incoming !== 'object') {
+      return res.status(400).json({ error: 'Invalid sync payload' });
+    }
+
+    let stats = { questionSets: 0, blogs: 0, notifications: 0, materials: 0, pyq: 0 };
+
+    // Merge Question Sets (Preserves newer question sets by timestamp)
+    if (Array.isArray(incoming.questionSets)) {
+      incoming.questionSets.forEach((inSet) => {
+        const curIdx = customQuestionSets.findIndex((s) => s.id === inSet.id);
+        if (curIdx === -1) {
+          customQuestionSets.push(inSet);
+          stats.questionSets++;
+        } else {
+          const curTime = Date.parse(customQuestionSets[curIdx].updatedAt || 0) || 0;
+          const inTime = Date.parse(inSet.updatedAt || 0) || 0;
+          if (inTime >= curTime) {
+            customQuestionSets[curIdx] = inSet;
+            stats.questionSets++;
+          }
+        }
+      });
+      if (stats.questionSets > 0) {
+        writeJson(QUESTION_SETS_PATH, customQuestionSets);
+        rebuildQuestionCatalog();
+        broadcastSyncChange('questionSets');
+      }
+    }
+
+    // Merge Blogs
+    if (Array.isArray(incoming.blogs)) {
+      incoming.blogs.forEach((inBlog) => {
+        const curIdx = blogs.findIndex((b) => b.id === inBlog.id);
+        if (curIdx === -1) {
+          blogs.push(inBlog);
+          stats.blogs++;
+        } else {
+          const curTime = Date.parse(blogs[curIdx].updatedAt || blogs[curIdx].publishedAt || 0) || 0;
+          const inTime = Date.parse(inBlog.updatedAt || inBlog.publishedAt || 0) || 0;
+          if (inTime >= curTime) {
+            blogs[curIdx] = inBlog;
+            stats.blogs++;
+          }
+        }
+      });
+      if (stats.blogs > 0) {
+        writeJson(BLOGS_PATH, blogs);
+        broadcastSyncChange('blogs');
+      }
+    }
+
+    // Merge Notifications
+    if (Array.isArray(incoming.notifications)) {
+      incoming.notifications.forEach((inNotif) => {
+        const curIdx = notifications.findIndex((n) => n.id === inNotif.id);
+        if (curIdx === -1) {
+          notifications.push(inNotif);
+          stats.notifications++;
+        } else {
+          const curTime = Date.parse(notifications[curIdx].updatedAt || notifications[curIdx].createdAt || 0) || 0;
+          const inTime = Date.parse(inNotif.updatedAt || inNotif.createdAt || 0) || 0;
+          if (inTime >= curTime) {
+            notifications[curIdx] = inNotif;
+            stats.notifications++;
+          }
+        }
+      });
+      if (stats.notifications > 0) {
+        writeJson(NOTIFICATIONS_PATH, notifications);
+        broadcastSyncChange('notifications');
+      }
+    }
+
+    // Merge Study Materials
+    if (Array.isArray(incoming.studyMaterials)) {
+      incoming.studyMaterials.forEach((inMat) => {
+        const curIdx = studyMaterials.findIndex((m) => m.id === inMat.id);
+        if (curIdx === -1) {
+          studyMaterials.push(inMat);
+          stats.materials++;
+        } else {
+          const curTime = Date.parse(studyMaterials[curIdx].updatedAt || studyMaterials[curIdx].createdAt || 0) || 0;
+          const inTime = Date.parse(inMat.updatedAt || inMat.createdAt || 0) || 0;
+          if (inTime >= curTime) {
+            studyMaterials[curIdx] = inMat;
+            stats.materials++;
+          }
+        }
+      });
+      if (stats.materials > 0) {
+        writeJson(STUDY_MATERIALS_PATH, studyMaterials);
+        broadcastSyncChange('studyMaterials');
+      }
+    }
+
+    // Merge PYQs
+    if (Array.isArray(incoming.previousYearQuestions)) {
+      incoming.previousYearQuestions.forEach((inPyq) => {
+        const curIdx = previousYearQuestionsList.findIndex((p) => p.id === inPyq.id);
+        if (curIdx === -1) {
+          previousYearQuestionsList.push(inPyq);
+          stats.pyq++;
+        } else {
+          const curTime = Date.parse(previousYearQuestionsList[curIdx].updatedAt || previousYearQuestionsList[curIdx].createdAt || 0) || 0;
+          const inTime = Date.parse(inPyq.updatedAt || inPyq.createdAt || 0) || 0;
+          if (inTime >= curTime) {
+            previousYearQuestionsList[curIdx] = inPyq;
+            stats.pyq++;
+          }
+        }
+      });
+      if (stats.pyq > 0) {
+        writeJson(PREVIOUS_YEAR_QUESTIONS_PATH, previousYearQuestionsList);
+        broadcastSyncChange('previousYearQuestions');
+      }
+    }
+
+    res.json({
+      success: true,
+      mergedAt: new Date().toISOString(),
+      updatedItems: stats
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Merge failed: ' + err.message });
+  }
+});
+
 function sendFreshHtml(res, fileName) {
   res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.setHeader('Pragma', 'no-cache');
