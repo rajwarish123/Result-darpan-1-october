@@ -20,6 +20,8 @@ const PREVIOUS_YEAR_QUESTIONS_PATH = path.join(DATA_DIR, 'previous-year-question
 const AD_SETTINGS_PATH = path.join(DATA_DIR, 'ad-settings.json');
 const ADS_TXT_PATH = path.join(__dirname, 'ads.txt');
 
+app.disable('x-powered-by');
+
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
@@ -29,7 +31,9 @@ app.use((req, res, next) => {
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
 
   const origin = req.headers.origin;
   const allowedOrigins = [
@@ -53,9 +57,47 @@ app.use((req, res, next) => {
   next();
 });
 
+// In-Memory Sliding-Window Rate Limiter
+const rateLimitStores = new Map();
+function checkRateLimit(key, maxRequests, windowMs) {
+  if (process.env.NODE_ENV === 'test') return true; // Do not throttle automated unit tests
+  const now = Date.now();
+  let timestamps = rateLimitStores.get(key) || [];
+  timestamps = timestamps.filter((t) => now - t < windowMs);
+  if (timestamps.length >= maxRequests) {
+    rateLimitStores.set(key, timestamps);
+    return false;
+  }
+  timestamps.push(now);
+  rateLimitStores.set(key, timestamps);
+  return true;
+}
+
+// Global API rate limit: 300 requests per minute per IP
+app.use('/api', (req, res, next) => {
+  const ip = req.ip || req.connection?.remoteAddress || 'unknown';
+  if (!checkRateLimit(`global_api:${ip}`, 300, 60 * 1000)) {
+    return res.status(429).json({ error: 'Too many requests. Please wait a moment.' });
+  }
+  next();
+});
+
+// HTML & String Sanitization Helper
+function sanitizeInput(str, maxLength = 2000) {
+  if (typeof str !== 'string') return '';
+  return str
+    .slice(0, maxLength)
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .trim();
+}
+
 const staticDir = __dirname;
 // Block sensitive server and data files from static access
-const blockedFileExtensions = ['.json', '.ps1', '.zip'];
+const blockedFileExtensions = [
+  '.json', '.ps1', '.zip', '.bat', '.cmd', '.sh', '.env', '.log', '.lock',
+  '.md', '.yml', '.yaml', '.bak', '.sql', '.tmp'
+];
 const blockedSpecificPaths = [
   '/data',
   '/server.js',
@@ -63,7 +105,17 @@ const blockedSpecificPaths = [
   '/package.json',
   '/package-lock.json',
   '/set-admin-password.js',
+  '/build-deploy.js',
+  '/auto-git-sync.js',
+  '/realtime-cloud-sync.js',
+  '/sync-from-live.js',
   '/script.ps1',
+  '/start-auto-sync.bat',
+  '/dockerfile',
+  '/.dockerignore',
+  '/.gitignore',
+  '/.env',
+  '/.env.example',
   '/admin',
   '/admin.html',
   '/wariya.html'
@@ -72,6 +124,7 @@ app.use((req, res, next) => {
   const norm = req.path.toLowerCase();
   if (
     blockedSpecificPaths.some((p) => norm === p || norm.startsWith(p + '/')) ||
+    blockedFileExtensions.some((ext) => norm.endsWith(ext)) ||
     norm.includes('..') ||
     norm.startsWith('/.')
   ) {
