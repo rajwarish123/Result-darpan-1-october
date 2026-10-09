@@ -2686,11 +2686,7 @@
     display: inline !important;
   }
   .site-header .mentor-chat-btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 5px !important;
-    height: 38px !important;
-    line-height: 1 !important;
+    display: none !important;
   }
   .site-header .more-menu {
     display: inline-flex !important;
