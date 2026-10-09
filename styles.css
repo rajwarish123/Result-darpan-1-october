@@ -802,7 +802,7 @@
   width: 100%;
   box-sizing: border-box;
 }
-.answer-option span {
+.answer-option > span:first-child {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -821,7 +821,7 @@
   background: #f2f9f4;
   transform: translateX(3px);
 }
-.answer-option:hover span {
+.answer-option:hover > span:first-child {
   background: #28a745;
   color: #ffffff;
 }
@@ -830,7 +830,7 @@
   background: #eef8f1;
   box-shadow: 0 3px 12px rgba(23, 94, 75, 0.12);
 }
-.answer-option.selected span {
+.answer-option.selected > span:first-child {
   background: #175e4b;
   color: #ffffff;
 }
