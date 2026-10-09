@@ -1092,3 +1092,50 @@ test('GET /api/sync/version and POST /api/sync/merge-bundle support realtime syn
   }
 });
 
+test('Admin sessions are permanent (10 years) and admin settings API functions correctly', async () => {
+  const adminEmail = `admin-security-${Date.now()}@example.com`;
+  const previousAdminEmail = process.env.ADMIN_EMAIL;
+  process.env.ADMIN_EMAIL = adminEmail;
+
+  try {
+    const signupRes = await request(app)
+      .post('/api/auth/signup')
+      .send({ name: 'Security Admin', email: adminEmail, password: 'initialPassword123' });
+    assert.equal(signupRes.status, 201);
+    const token = signupRes.body.token;
+
+    // Verify system status endpoint
+    const statusRes = await request(app)
+      .get('/api/admin/system-status')
+      .set('Authorization', `Bearer ${token}`);
+    assert.equal(statusRes.status, 200);
+    assert.equal(statusRes.body.status, 'online');
+    assert.ok(statusRes.body.sessionExpiresInDays > 3000); // ~3650 days (10 years)
+
+    // Test password change rejection with wrong current password
+    const failPwRes = await request(app)
+      .post('/api/admin/change-password')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ currentPassword: 'wrongPassword', newPassword: 'newSecurePassword999' });
+    assert.equal(failPwRes.status, 401);
+
+    // Test successful password change
+    const successPwRes = await request(app)
+      .post('/api/admin/change-password')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ currentPassword: 'initialPassword123', newPassword: 'newSecurePassword999' });
+    assert.equal(successPwRes.status, 200);
+    assert.equal(successPwRes.body.success, true);
+
+    // Verify login with new password
+    const newLoginRes = await request(app)
+      .post('/api/auth/login')
+      .send({ email: adminEmail, password: 'newSecurePassword999' });
+    assert.equal(newLoginRes.status, 200);
+    assert.ok(newLoginRes.body.token);
+  } finally {
+    if (typeof previousAdminEmail === 'undefined') delete process.env.ADMIN_EMAIL;
+    else process.env.ADMIN_EMAIL = previousAdminEmail;
+  }
+});
+
