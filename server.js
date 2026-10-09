@@ -1221,13 +1221,33 @@ app.get('/api/questions', (req, res) => {
 
 app.get('/api/previous-year-questions', (req, res) => {
   const exam = typeof req.query.exam === 'string' ? req.query.exam.trim() : '';
-  const list = exam && exam !== 'all'
+  const set = typeof req.query.set === 'string' ? req.query.set.trim() : '';
+  const topic = typeof req.query.topic === 'string' ? req.query.topic.trim() : '';
+
+  let list = exam && exam !== 'all'
     ? previousYearQuestionsList.filter((q) => String(q.exam || '').toLowerCase() === exam.toLowerCase())
     : previousYearQuestionsList;
+
+  if (set && set !== 'all' && set !== 'curated') {
+    list = list.filter((q) => String(q.set || '') === set);
+  }
+
+  if (topic && topic !== 'all') {
+    list = list.filter((q) => String(q.topic || '').toLowerCase() === topic.toLowerCase());
+  }
+
   const questions = req.query.includeAnswers === 'true'
     ? list
     : list.map(({ answer, ...q }) => q);
-  res.json({ questions, total: questions.length });
+
+  const availableSets = [...new Set(
+    (exam && exam !== 'all'
+      ? previousYearQuestionsList.filter((q) => String(q.exam || '').toLowerCase() === exam.toLowerCase())
+      : previousYearQuestionsList
+    ).map((q) => Number(q.set) || 1)
+  )].sort((a, b) => a - b);
+
+  res.json({ questions, total: questions.length, availableSets });
 });
 
 app.get('/api/question-sets', (req, res) => {
